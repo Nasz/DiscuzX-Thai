@@ -669,7 +669,7 @@ INSERT INTO pre_common_setting VALUES ('zoomstatus','1	600');
 INSERT INTO pre_common_smiley VALUES ('1','1','1','smiley',':)','smile.gif');
 INSERT INTO pre_common_smiley VALUES ('2','1','2','smiley',':(','sad.gif');
 INSERT INTO pre_common_smiley VALUES ('3','1','3','smiley',':D','biggrin.gif');
-/*INSERT INTO pre_common_smiley VALUES ('4','1','4','smiley',':\'(','cry.gif');*/
+INSERT INTO pre_common_smiley VALUES ('4','1','4','smiley',':\'(','cry.gif');
 INSERT INTO pre_common_smiley VALUES ('5','1','5','smiley',':@','huffy.gif');
 INSERT INTO pre_common_smiley VALUES ('6','1','6','smiley',':o','shocked.gif');
 INSERT INTO pre_common_smiley VALUES ('7','1','7','smiley',':P','tongue.gif');

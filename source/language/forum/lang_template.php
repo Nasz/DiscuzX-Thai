@@ -122,7 +122,7 @@ $lang = array (
   'collection_totalrates' => '(共 {$_G[\'collection\'][\'ratenum\']} 次打分)',
   'collection_comment_specthread' => '针对《$thread[\'subject\']》的评论：',
   'collection_comment_thread' => '淘帖评论',
-  'no_content' => '暂时没有内容',
+  'no_content' => 'ไม่มีเนื้อหาในตอนนี้',
   'collection_invite' => '邀请参与',
   'collection_max_invite' => '每个淘专辑最多可以邀请 <span id="invitenum">$maxteamworkers</span> 人维护',
   'collection_selectfriend' => '选择好友',

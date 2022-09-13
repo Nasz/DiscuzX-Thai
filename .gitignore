@@ -14,4 +14,3 @@ uc_server/data/config.inc.php
 *.lock
 *.bak
 *.tpl.php
-install/index.bak.php

@@ -181,7 +181,7 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'ไกด์', '', 'forum.php?mod=g
 INSERT INTO pre_common_nav VALUES ('', '0', 'การจัดอันดับ', '', 'misc.php?mod=ranklist', 'ranklist', 0, 0, -1, 18, 0, 0, 0, 0, '{STATICURL}image/feed/ranklist_b.png', '', '', 3, '');
 
 
-INSERT INTO pre_common_nav VALUES ('', '0', 'การตั้งค่าเป็นหน้าแรก', '', '#', 'sethomepage', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 4, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'ตั้งเป็นหน้าแรกบนเบราว์เซอร์', '', '#', 'sethomepage', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 4, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'บุ๊กมาร์กเว็บไซต์ของเรา', '', '#', 'setfavorite', 0, 0, 1, 2, 0, 0, 0, 0, '', '', '', 4, '');
 
 INSERT INTO pre_common_nav VALUES ('', '0', 'ค้นหา', '', 'search.php?mod=forum', 'search', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 5, '');

@@ -164,7 +164,7 @@ $lang = array(
 	'block_profile_friend_add' => '加为好友',
 	'block_profile_friend_ignore' => '解除好友',
 	'block_profile_poke' => '打个招呼',
-	'block_profile_sendmessage' => '发送消息',
+	'block_profile_sendmessage' => 'ส่งข้อความ',
 	'block_doing_reply' => '回复',
 	'block_doing_no_content' => '现在还没有记录',
 	'block_doing_no_content_publish' => '，<a href ="home.php?mod=space&uid={uid}&do=doing&view=me&from=space">更新记录</a>',

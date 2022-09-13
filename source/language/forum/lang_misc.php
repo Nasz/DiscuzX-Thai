@@ -139,10 +139,10 @@ $lang = array
 	'formulaperm_or' => '或者',
 	'formulaperm_extcredits' => '自定义积分',
 
-	'login_normal_mode' => '在线',
-	'login_switch_invisible_mode' => '切换在线状态',
-	'login_switch_normal_mode' => '我要上线',
-	'login_invisible_mode' => '隐身',
+	'login_normal_mode' => 'ออนไลน์',
+	'login_switch_invisible_mode' => 'เปลี่ยนเป็นซ่อนตัว',
+	'login_switch_normal_mode' => 'เปลี่ยนเป็นออนไลน์',
+	'login_invisible_mode' => 'ซ่อนตัวอยู่',
 
 	'eccredit_explain' => '解释',
 

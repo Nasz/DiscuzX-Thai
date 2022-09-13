@@ -1,5 +1,5 @@
 # DiscuzX
-Discuz! TEN Version 3.5 Beta-20220910 Modify Thai UI (Translate)
+Discuz! TEN Version 3.5 Beta-20220911 Modify Thai UI (Translate)
 
 # คำอธิบาย
 

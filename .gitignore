@@ -2,13 +2,6 @@ data/cache/*
 data/log/*
 data/sysdata/*
 data/template/*
-install/include/install_lang.th.php
-install/include/install_lang.cn.php
-install/data/install_data.th2.sql
-install/data/common_district_2.cn.sql
-install/data/common_district_3.cn.sql
-install/data/common_district_1.cn.sql
-install/data/install_data.th.sql
 uc_server/data/logs/*
 uc_server/data/cache/*
 uc_server/data/config.inc.php

@@ -31,8 +31,8 @@ INSERT INTO pre_common_credit_rule VALUES ('22','ร่วมโหวต','join
 INSERT INTO pre_common_credit_rule VALUES ('23','แบ่งปัน','createshare','1','0','3','0','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('24','แสดงความคิดเห็น','comment','1','0','40','1','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('25','ดูความคิดเห็น','getcomment','1','0','20','1','0','2','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('26','ติดตั้งแอพลิเคชัน','installapp','4','0','0','3','0','0','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('27','ใช้แอพลิเคชัน','useapp','1','0','10','3','0','0','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('26','ติดตั้งแอปลิเคชัน','installapp','4','0','0','3','0','0','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('27','ใช้แอปลิเคชัน','useapp','1','0','10','3','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('28','แสดงความรู้สึก','click','1','0','10','1','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('29','แก้ไขชื่อโดเมน','modifydomain','0','0','1','0','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('30','แสดงความเห็นในบทความ','portalcomment','1','0','40','1','0','1','0','0','0','0','0','0','');

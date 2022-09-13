@@ -26,11 +26,11 @@ class dbstuff {
 
 		$this->link = new mysqli();
 		if(!$this->link->real_connect($dbhost, $dbuser, $dbpw, $dbname, null, null, MYSQLI_CLIENT_COMPRESS)) {
-			$this->halt('Can not connect to MySQL server');
+			$this->halt('ไม่สามารถเชื่อมต่อกับ MySQL Server');
 		}
 
 		if ($this->version() < '5.5.3') {
-			$this->halt('MySQL version must be 5.5.3 or greater');
+			$this->halt('เวอร์ชัน MySQL ต้องเป็น 5.5.3 หรือมากกว่า');
 		}
 
 		if($dbcharset) {
@@ -138,7 +138,7 @@ class dbstuff {
 	}
 
 	function halt($message = '', $sql = '') {
-		show_error('run_sql_error', $message.$sql.'<br /> Error:'.$this->error().'<br />Errno:'.$this->errno(), 0);
+		show_error('run_sql_error', $message.$sql.'<br /> ข้อผิดพลาด:'.$this->error().'<br />Errno:'.$this->errno(), 0);
 	}
 }
 

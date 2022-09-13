@@ -89,8 +89,8 @@ show_forever_thanks();
 $now = date('Y');
 echo <<<EOT
 <div class="copyright">
-<p>Powered by <a href="http://www.discuz.net/" target="_blank" class="lightlink2">Discuz!</a> {$_G['setting']['version']}</p>
-<p>Copyright &copy; 2001-$now Tencent Cloud.</p>
+<p>ขับเคลื่อนโดย <a href="http://www.discuz.net/" target="_blank" class="lightlink2">Discuz!</a> {$_G['setting']['version']}</p>
+<p>ลิขสิทธิ์ &copy; 2001-$now เทนเซ็นต์คลาวด์</p>
 </div>
 EOT;
 

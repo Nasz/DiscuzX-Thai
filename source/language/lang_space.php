@@ -12,14 +12,14 @@ if(!defined('IN_DISCUZ')) {
 }
 
 $lang = array(
-	'hour' => '小时',
-	'before' => '前',
-	'minute' => '分钟',
-	'second' => '秒',
-	'now' => '现在',
+	'hour' => 'ชั่วโมง',
+	'before' => 'ก่อน',
+	'minute' => 'นาที',
+	'second' => 'วินาที',
+	'now' => 'ตอนนี้',
 	'dot' => '、',
-	'poll' => '投票',
-	'blog' => '日志',
+	'poll' => 'โพลล์',
+	'blog' => 'บล็อก',
 	'friend_group_default' => '其他',
 	'friend_group_1' => '通过本站认识',
 	'friend_group_2' => '通过活动认识',

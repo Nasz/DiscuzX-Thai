@@ -65,14 +65,14 @@
 			<p class="xs0">
 				{lang time_now}
 				<span id="debuginfo">
-				<!--{if debuginfo()}-->, Processed in $_G[debuginfo][time] second(s), $_G[debuginfo][queries] queries
+				<!--{if debuginfo()}-->, ใช้เวลาประมวลผล $_G[debuginfo][time] วินาที, $_G[debuginfo][queries] คำถาม
 					<!--{if $_G['gzipcompress']}-->, Gzip On<!--{/if}--><!--{if C::memory()->type}-->, <!--{echo C::memory()->type}--> On<!--{/if}-->.
 				<!--{/if}-->
 				</span>
 			</p>
 		</div>
 		<div id="frt">
-			<p>Powered by <strong><a href="http://www.discuz.net" target="_blank">Discuz!</a></strong> <em>$_G['setting']['version']</em><!--{if !empty($_G['setting']['boardlicensed'])}--> <a href="http://license.comsenz.com/?pid=1&host=$_SERVER[HTTP_HOST]" target="_blank">Licensed</a><!--{/if}--></p>
+			<p>ขับเคลื่อนโดย <strong><a href="http://www.discuz.net" target="_blank">Discuz!</a></strong> <em>$_G['setting']['version']</em><!--{if !empty($_G['setting']['boardlicensed'])}--> <a href="http://license.comsenz.com/?pid=1&host=$_SERVER[HTTP_HOST]" target="_blank">Licensed</a><!--{/if}--></p>
 			<p class="xs0">{lang copyright}</p>
 		</div>
 		<!--{eval updatesession();}-->

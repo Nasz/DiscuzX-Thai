@@ -103,7 +103,7 @@
 				<item id="security_question_6"><![CDATA[您最喜欢的餐馆名称]]></item>
 				<item id="security_question_7"><![CDATA[驾驶执照的最后四位数字]]></item>
 				<item id="security_answer"><![CDATA[回答]]></item>
-				<item id="delete_check"><![CDATA[删?]]></item>
+				<item id="delete_check"><![CDATA[ต้องการลบ?]]></item>
 				<item id="switch_title"><![CDATA[请输入密码]]></item>
 				<item id="switch_tips"><![CDATA[你是首次切换到此账号，请输入密码]]></item>
 				<item id="confirm"><![CDATA[确定]]></item>

@@ -30,7 +30,7 @@ $lang = array (
   'collection_admin_updated' => '专辑管理操作成功',
   'counter_member_succeed' => '用户发帖数重建完成',
   'credits_update_succeed' => '积分规则更新成功 ',
-  'noaccess_isfounder' => '您没有权限访问该设置，出于安全考虑只有站点创始人可以使用，请检查 config/config_global.php 文件内创始人的设置',
+  'noaccess_isfounder' => 'คุณไม่ได้รับอนุญาตให้เข้าถึงการตั้งค่าสำหรับข้อควรพิจารณาด้านความปลอดภัยมีเพียงผู้ก่อตั้งเว็บไซต์เท่านั้นที่สามารถใช้งานได้โปรดตรวจสอบ config/config_global.php การตั้งค่าของผู้ก่อตั้งในไฟล์',
   'database_export_multivol_succeed' => '恭喜您，成功创建 {volume} 个备份文件，备份全部完成。<br /><br /><font color="red">出于安全考虑，我们强烈建议您下载数据库备份文件后删除文件或设置文件不可通过 URL 访问。</font><br /><br />{filelist}{deletetips}',
   'database_export_zip_succeed' => '数据成功备份并压缩至服务器 <a href="{filename}">{filename}</a> 中<br /><br /><font color="red">出于安全考虑，我们强烈建议您下载数据库备份文件后删除文件或设置文件不可通过 URL 访问。</font>{deletetips}',
   'setting_update_succeed' => '当前设置更新成功 ',
@@ -93,7 +93,7 @@ $lang = array (
   'postsplit_done' => '数据转移成功，接下来将对源帖子表进行优化操作，注意：优化表所耗时间比较长，在这期间绝对不能重起服务器或者停止MySQL服务',
   'postsplit_doing' => '正在转移数据,当前表有{datalength}的数据，还剩{nowdatalength}的数据等待入库',
   'recyclebin_succeed' => '回收站更新成功，共 {threadsdel} 个主题被删除，{threadsundel} 个主题被恢复',
-  'search_result_noexists' => '抱歉，没有找到相关设置或管理操作！<br />输入多个词语搜索(不同字词之间用一个空格隔开，不区分大小写)可以获得更精确的搜索结果',
+  'search_result_noexists' => 'ขออภัย ไม่พบการตั้งค่าหรือการจัดการที่เกี่ยวข้อง!<br />คุณสามารถรับผลการค้นหาที่แม่นยำยิ่งขึ้นด้วยการป้อนคำค้นหาหลายๆ คำ (แยกคำเป็นหลาย ๆ คำด้วยการกดคีย์สเปสบาร์)',
   'smilies_directory_invalid' => '表情目录 {smurl} 不存在，您可以通过 FTP 创建目录 {smurl} 并上传相应的表情图片',
   'smilies_edit_succeed' => '表情列表更新成功 ',
   'smilies_type_nonexistence' => '指定的表情分类不存在',
@@ -131,7 +131,7 @@ $lang = array (
   'cloudaddons_check_write_error' => '"data/download/" 或 "data/addonmd5/" 目录无法创建或写入，这将会导致应用无法安装，请检查服务器环境',
   'cloudaddons_file_read_error' => '文件读取错误，请重试',
   'cloudaddons_file_write_error' => '文件写入错误，请重试',
-  'cloudaddons_noaccess' => '只有网站创始人账号才能使用 <a href="https://addon.dismall.com/" target="_blank">Discuz! 应用中心</a> 安装插件和模板，如有疑问，请进入应用中心咨询应用中心客服：<a href="https://addon.dismall.com/" target="_blank">https://addon.dismall.com/</a>',
+  'cloudaddons_noaccess' => 'บัญชีผู้ก่อตั้งเว็บไซต์เท่านั้นที่สามารถใช้ได้ <a href="https://addon.dismall.com/" target="_blank">Discuz! แอปเซนเตอร์</a> หากคุณมีคำถามใด ๆ ในการติดตั้งปลั๊กและเทมเพลต สามารถมองหาคำปรึกษาได้ที่ศูนย์บริการแอปพลิเคชั่นและการให้บริการหลังการขาย:<a href="https://addon.dismall.com/" target="_blank">https://addon.dismall.com/</a>',
 
   'admingroups_edit_nonexistence' => '请先选择您要进行操作的管理组：',
 
@@ -359,7 +359,7 @@ $lang = array (
   'members_add_ban_all_none' => '抱歉，不允许添加禁止访问、禁止IP、游客用户组',
   'members_add_succeed' => '用户 {username}(UID {uid}) 添加成功 ',
   'members_edit_groups_toomany' => '您设置了过多的扩展用户组，已超出系统允许的存储容量',
-  'members_edit_groups_isfounder' => '该用户是站点创始人，您不能更改该用户的所属用户组',
+  'members_edit_groups_isfounder' => 'ผู้ใช้เป็นผู้ก่อตั้งเว็บไซต์และคุณไม่สามารถเปลี่ยนกลุ่มผู้ใช้ของผู้ใช้',
   'members_edit_groups_illegal' => '过期用户组和用户当前所属用户组相同',
   'members_edit_groups_succeed' => '用户的用户组属性编辑成功 ',
   'members_edit_credits_failure' => '已分表的用户将不能编辑积分 ',
@@ -429,7 +429,7 @@ $lang = array (
   'focus_topic_noexists' => '指定的站长推荐不存在',
   'focus_edit_succeed' => '站长推荐编辑成功 ',
   'focus_conf_succeed' => '站长推荐设置成功 ',
-  'custommenu_add_succeed' => '菜单 {title} 已成功添加到常用操作，即将返回上一页，您可以<a href="{ADMINSCRIPT}?action=misc&operation=custommenu">点这里编辑常用操作</a>',
+  'custommenu_add_succeed' => '菜单 {title} 已成功添加到常用操作，即将返回上一页，您可以<a href="{ADMINSCRIPT}?action=misc&operation=custommenu">คลิกที่นี่เพื่อแก้ไขการดำเนินงานทั่วไป</a>',
 
   'patch_no_privilege_autoupdate' => '没有权限修改文件，无法开启自动更新',
   'patch_updatesetting_successful' => '设置更新成功',
@@ -439,7 +439,7 @@ $lang = array (
   'patch_cheking' => '正在检测安全补丁',
 
   'plugins_enable_succeed' => '插件已启用',
-  'plugins_conflict' => '插件已启用</h4><br />友情提示：您刚启用的插件与某些插件存在共用的嵌入点。虽然共用嵌入点属于正常情况，但是如果您遇到插件运行不正常的情况请及时联系插件作者。<a href="javascript:;" onclick="display(\'conflict\')">[点击查看]</a><br /><div id="conflict" style="display:none"><br />{plugins}<br /></div><br />',
+  'plugins_conflict' => '插件已启用</h4><br />友情提示：您刚启用的插件与某些插件存在共用的嵌入点。虽然共用嵌入点属于正常情况，但是如果您遇到插件运行不正常的情况请及时联系插件作者。<a href="javascript:;" onclick="display(\'conflict\')">[คลิกเพื่อดู]</a><br /><div id="conflict" style="display:none"><br />{plugins}<br /></div><br />',
   'plugins_disable_succeed' => '插件已关闭',
   'plugins_import_var_invalid' => '插件的嵌入点名称不合法，无法导入',
   'plugins_import_identifier_duplicated' => '您要导入的插件({plugin_name})已经安装',
@@ -492,7 +492,7 @@ $lang = array (
 
   'setting_memory_rm_succeed' => '缓存删除成功',
   'setting_memory_rm_error' => '请输入要删除的缓存KEY',
-  'founder_action' => '创始人专用功能，您无权使用',
+  'founder_action' => 'ฟังก์ชั่นเฉพาะของผู้ก่อตั้งคุณไม่มีสิทธิ์ใช้งาน',
   'setting_extcredits_must_available' => '您需要开启至少一种扩展积分',
   'uc_database_connect_error' => '连接用户中心数据库服务器失败检查设置',
   'uc_config_write_error' => '配置文件写入失败，请检查设置',

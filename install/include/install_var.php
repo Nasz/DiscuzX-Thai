@@ -157,7 +157,7 @@ $serialize_sql_setting = array (
     1 =>
     array (
       'img' => '',
-      'title' => '威望',
+      'title' => 'ศักดิ์ศรี',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -168,7 +168,7 @@ $serialize_sql_setting = array (
     2 =>
     array (
       'img' => '',
-      'title' => '金钱',
+      'title' => 'เงิน',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -179,7 +179,7 @@ $serialize_sql_setting = array (
     3 =>
     array (
       'img' => '',
-      'title' => '贡献',
+      'title' => 'อุปถัมภ์',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -245,16 +245,16 @@ $serialize_sql_setting = array (
   ),
   'postnocustom' =>
   array (
-    0 => '楼主',
-    1 => '沙发',
-    2 => '板凳',
-    3 => '地板',
+    0 => 'เจ้าภาพ',
+    1 => 'โซฟา',
+    2 => 'ม้านั่ง',
+    3 => 'พื้น',
   ),
   'recommendthread' =>
   array (
     'status' => '0',
-    'addtext' => '支持',
-    'subtracttext' => '反对',
+    'addtext' => 'สนับสนุน',
+    'subtracttext' => 'ต่อต้าน',
     'defaultshow' => '1',
     'daycount' => '0',
     'ownthread' => '0',
@@ -262,33 +262,33 @@ $serialize_sql_setting = array (
   ),
   'seotitle' =>
   array (
-    'portal' => '门户',
-    'forum' => '论坛',
-    'group' => '群组',
-    'home' => '家园',
+    'portal' => 'พอร์ทัล',
+    'forum' => 'ฟอรัม',
+    'group' => 'กลุ่ม',
+    'home' => 'โฮม',
   ),
   'activityfield' =>
   array (
-    'realname' => '真实姓名',
-    'mobile' => '手机',
-    'qq' => 'QQ号',
+    'realname' => 'ชื่อจริง',
+    'mobile' => 'โทรศัพท์มือถือ',
+    'qq' => 'หมายเลข QQ',
   ),
   'article_tags' =>
   array (
-    1 => '原创',
-    2 => '热点',
-    3 => '组图',
-    4 => '爆料',
-    5 => '头条',
-    6 => '幻灯',
-    7 => '滚动',
-    8 => '推荐',
+    1 => 'ต้นฉบับ',
+    2 => 'ร้อนแรง',
+    3 => 'รูปภาพ',
+    4 => 'เป็นกระแส',
+    5 => 'พาดหัว',
+    6 => 'สไลด์โชว์',
+    7 => 'ดำเนินการ',
+    8 => 'แนะนำ',
   ),
   'verify' =>
   array (
     6 =>
     array (
-      'title' => '实名认证',
+      'title' => 'ตรวจสอบแล้ว',
       'available' => '0',
       'showicon' => '0',
       'viewrealname' => '0',
@@ -322,7 +322,7 @@ $serialize_sql_setting = array (
   ),
   'focus' =>
   array (
-    'title' => '站长推荐',
+    'title' => 'ผู้ดูแลเว็บแนะนำ',
     'data' =>
     array (
     ),
@@ -334,7 +334,7 @@ $serialize_sql_setting = array (
     array (
       'available' => 1,
       'displayorder' => 0,
-      'title' => '基本资料',
+      'title' => 'ข้อมูลพื้นฐาน',
       'field' =>
       array (
         'realname' => 'realname',
@@ -358,7 +358,7 @@ $serialize_sql_setting = array (
     ),
     'contact' =>
     array (
-      'title' => '联系方式',
+      'title' => 'รายละเอียดการติดต่อ',
       'available' => '1',
       'displayorder' => '1',
       'field' =>
@@ -376,7 +376,7 @@ $serialize_sql_setting = array (
     array (
       'available' => 1,
       'displayorder' => 2,
-      'title' => '教育情况',
+      'title' => 'สถานะการศึกษา',
       'field' =>
       array (
         'graduateschool' => 'graduateschool',
@@ -387,7 +387,7 @@ $serialize_sql_setting = array (
     array (
       'available' => 1,
       'displayorder' => 3,
-      'title' => '工作情况',
+      'title' => 'สภาพการงาน',
       'field' =>
       array (
         'occupation' => 'occupation',
@@ -398,7 +398,7 @@ $serialize_sql_setting = array (
     ),
     'info' =>
     array (
-      'title' => '个人信息',
+      'title' => 'ข้อมูลส่วนบุคคล',
       'available' => '1',
       'displayorder' => '4',
       'field' =>

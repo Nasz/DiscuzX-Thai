@@ -1533,7 +1533,7 @@ $lang = array (
   'usergroup_expired' => '您当前的用户组已经到期，请选择继续续费还是要切换到其他用户组',
   'freeze_pw_tips' => '您当前的账号已经被冻结，请修改密码解除冻结状态',
   'freeze_email_tips' => '您当前的账号已经被冻结，必须验证邮箱后才能解除冻结状态 <a href="home.php?mod=spacecp&ac=profile&op=password&resend=1&formhash={FORMHASH}" class="xi2">重新接收验证邮件</a>',
-  'freeze_admincp_tips' => '您当前的账号已经被冻结，必须在本页面填写申诉理由，并经管理中心审核通过后才能解除冻结状态',
+  'freeze_admincp_tips' => 'บัญชีปัจจุบันของคุณถูกแช่แข็งสาเหตุของการอุทธรณ์ในหน้านี้จะต้องกรอกและสถานะการแช่แข็งสามารถยกได้หลังจากได้รับการอนุมัติจากศูนย์การจัดการ',
   'freeze_reason' => '申诉理由',
   'freeze_reason_comment' => '如果您无法通过邮箱验证，请填写申诉理由',
   'freeze_reason_admincp_comment' => '如果您认为您的账号不应被冻结，请填写申诉理由',

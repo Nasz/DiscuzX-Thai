@@ -475,7 +475,7 @@ function get_index_page_guest_cache() {
 		$debuginfo = ", Updated at $updatetime";
 		if(getglobal('setting/debug')) {
 			$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
-			$debuginfo .= ', Processed in '.sprintf("%0.6f", microtime(TRUE) - $start_time).' second(s)'.$gzip;
+			$debuginfo .= ', ใช้เวลาประมวลผล '.sprintf("%0.6f", microtime(TRUE) - $start_time).' วินาที'.$gzip;
 		}
 		echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = "'.$debuginfo.'." : "";</script></body></html>';
 		ob_end_flush();

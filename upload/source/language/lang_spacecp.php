@@ -165,7 +165,7 @@ $lang = array(
 	'do_stat_poll' => '投票',
 	'do_stat_event' => '活动',
 	'do_stat_share' => '分享',
-	'do_stat_thread' => '主题',
+	'do_stat_thread' => 'กระทู้',
 	'do_stat_docomment' => '记录回复',
 	'do_stat_blogcomment' => '日志评论',
 	'do_stat_piccomment' => '图片评论',
@@ -176,7 +176,7 @@ $lang = array(
 	'do_stat_sharecomment' => '分享评论',
 	'do_stat_post' => '主题回帖',
 	'do_stat_click' => '表态',
-	'do_stat_wall' => '留言',
+	'do_stat_wall' => 'ฝากข้อความ',
 	'do_stat_poke' => '打招呼',
 	'do_stat_sendpm' => '发短消息',
 	'do_stat_addfriend' => '好友请求',
@@ -308,13 +308,13 @@ $lang = array(
 	'qq_set_status' => '设置我的QQ在线状态',
 	'qq_dialog' => '发起QQ聊天',
 
-	'payment_alipay' => '支付宝',
-	'payment_wechat' => '微信支付',
-	'payment_qpay' => 'QQ 钱包支付',
-	'payment_status_0' => '未支付',
-	'payment_status_1' => '已支付',
-	'payment_status_2' => '已过期',
-	'payment_credit' => '积分充值',
+	'payment_alipay' => 'Aliipay',
+	'payment_wechat' => 'การชำระเงิน weChat',
+	'payment_qpay' => 'การชำระเงิน QQ wallet',
+	'payment_status_0' => 'ไม่ได้รับค่าจ้าง',
+	'payment_status_1' => 'จ่าย',
+	'payment_status_2' => 'ที่หมดอายุแล้ว',
+	'payment_credit' => 'ค่าทำเนียม',
 
 );
 

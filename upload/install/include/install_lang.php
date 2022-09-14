@@ -180,7 +180,7 @@ $lang = array(
 	'install_succeed' => 'การติดตั้งที่ประสบความสำเร็จคลิกเพื่อเข้าสู่',
 
 	'init_credits_karma' => 'ศักดิ์ศรี',
-	'init_credits_money' => 'เงิน',
+	'init_credits_money' => 'เหรียญ',
 
 	'init_postno0' => 'เจ้าบ้าน',
 	'init_postno1' => 'โซฟา',
@@ -237,7 +237,7 @@ $lang = array(
 	'init_threadsticky' => 'ระดับโลก,หมวดหมู่,รุ่นนี้',
 
 	'init_default_style' => 'รูปแบบเริ่มต้น',
-	'init_default_forum' => 'หมวดเริ่มต้น',
+	'init_default_forum' => 'กระดานเริ่มต้น',
 	'init_default_template' => 'ชุดเทมเพลตเริ่มต้น',
 	'init_default_template_copyright' => 'บริษัท เทนเซ็นต์คลาวด์คอมพิวติ้ง (ปักกิ่ง) จำกัด',
 

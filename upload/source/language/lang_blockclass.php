@@ -415,7 +415,7 @@ $lang = array(
 	'blockclass_other_script_friendlink' => '高级自定义',
 	'blockclass_other_friendlink' => '友情链接',
 	'blockclass_other_friendlink_field_url' => '站点URL',
-	'blockclass_other_friendlink_field_title' => '站点名称',
+	'blockclass_other_friendlink_field_title' => 'ชื่อเว็บไซต์',
 	'blockclass_other_friendlink_field_pic' => '站点LOGO',
 	'blockclass_other_friendlink_field_summary' => '站点简介',
 

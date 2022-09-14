@@ -469,7 +469,7 @@
         <item id="resource_msg_remove"><![CDATA[คุณยืนยันว่าคุณต้องการลบเนื้อหานี้ออกจากชุดค่าผสมนี้หรือไม่?]]></item>
         <item id="resource_msg_desc_toolong"><![CDATA[แคปชั่นยาวมาก ไม่ควรเกิน 120 ตัวอักษร ยาวกว่านี้จะไม่ใช่แคปชั่นแล้วนะ]]></item>
         <item id="resource_thread_push"><![CDATA[กระทู้ที่จะส่ง]]></item>
-        <item id="resource_msg_pushed"><![CDATA[พุชข้อความไปยัง WeChat สำเร็จโปรดไปที่ศูนย์การจัดการเพื่อตรวจสอบ]]></item>
+        <item id="resource_msg_pushed"><![CDATA[พุชข้อความไปยัง WeChat สำเร็จโปรดไปที่ศูนย์บริหารจัดการเพื่อตรวจสอบ]]></item>
         <item id="stat_failed"><![CDATA[没有统计信息或连接服务器失败]]></item>
         <item id="stat_newthread"><![CDATA[发帖数]]></item>
         <item id="stat_reply"><![CDATA[回帖数]]></item>
@@ -488,7 +488,7 @@
 				<item id="wechat_spacecp_bind_title"><![CDATA[您已将本站账号 <strong>{$_G[member][username]}</strong> 与微信绑定]]></item>
 				<item id="wechat_spacecp_setpw"><![CDATA[设置独立密码]]></item>
 				<item id="wechat_spacecp_pw"><![CDATA[新密码]]></item>
-				<item id="wechat_spacecp_repw"><![CDATA[确认密码]]></item>
+				<item id="wechat_spacecp_repw"><![CDATA[ยืนยันรหัสผ่าน]]></item>
 				<item id="wechat_spacecp_unbind"><![CDATA[解除已绑定账号？]]></item>
 				<item id="wechat_spacecp_setpw_first"><![CDATA[请设置独立密码后再解除绑定关系]]></item>
 				<item id="wechat_spacecp_unbind_confirm"><![CDATA[您确认要解除与本站账号的绑定关系？]]></item>

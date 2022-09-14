@@ -39,7 +39,7 @@ $lang = array(
 
 	'user_add' => '添加用户',
 	'user_delete' => '删除用户',
-	'login' => '登录',
+	'login' => 'เข้าสู่ระบบ',
 	'logout' => '退出',
 	'app_add' => '添加新应用',
 	'app_delete' => '删除应用',

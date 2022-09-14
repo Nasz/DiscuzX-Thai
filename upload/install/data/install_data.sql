@@ -6,7 +6,7 @@ INSERT INTO pre_common_admingroup SET `admingid`='17',`alloweditpost`='1',`allow
 INSERT INTO pre_common_admingroup SET `admingid`='18',`alloweditpost`='0',`alloweditpoll`='0',`allowstickthread`='0',`allowmodpost`='0',`allowdelpost`='0',`allowmassprune`='0',`allowrefund`='0',`allowcensorword`='0',`allowviewip`='1',`allowbanip`='0',`allowedituser`='0',`allowmoduser`='0',`allowbanuser`='0',`allowbanvisituser`='0',`allowpostannounce`='0',`allowviewlog`='0',`allowbanpost`='0',`supe_allowpushthread`='1',`allowhighlightthread`='0',`allowlivethread`='0',`allowdigestthread`='0',`allowrecommendthread`='0',`allowbumpthread`='0',`allowclosethread`='0',`allowmovethread`='0',`allowedittypethread`='0',`allowstampthread`='0',`allowcopythread`='0',`allowmergethread`='0',`allowsplitthread`='0',`allowrepairthread`='0',`allowwarnpost`='0',`allowviewreport`='0',`alloweditforum`='0',`allowremovereward`='0',`allowedittrade`='0',`alloweditactivity`='0',`allowstickreply`='0',`allowmanagearticle`='0',`allowaddtopic`='0',`allowmanagetopic`='0',`allowdiy`='0',`allowclearrecycle`='0',`allowmanagetag`='0',`managefeed`='0',`managedoing`='0',`manageshare`='0',`manageblog`='0',`managealbum`='0',`managecomment`='0',`managemagiclog`='0',`managereport`='0',`managehotuser`='0',`managedefaultuser`='0',`managemagic`='0',`manageclick`='0',`allowstamplist`='0',`allowmanagecollection`='0',`allowmakehtml`='0';
 INSERT INTO pre_common_admingroup SET `admingid`='19',`alloweditpost`='0',`alloweditpoll`='0',`allowstickthread`='0',`allowmodpost`='1',`allowdelpost`='0',`allowmassprune`='0',`allowrefund`='0',`allowcensorword`='0',`allowviewip`='1',`allowbanip`='1',`allowedituser`='0',`allowmoduser`='1',`allowbanuser`='1',`allowbanvisituser`='0',`allowpostannounce`='0',`allowviewlog`='0',`allowbanpost`='0',`supe_allowpushthread`='0',`allowhighlightthread`='0',`allowlivethread`='0',`allowdigestthread`='0',`allowrecommendthread`='0',`allowbumpthread`='0',`allowclosethread`='0',`allowmovethread`='0',`allowedittypethread`='0',`allowstampthread`='0',`allowcopythread`='0',`allowmergethread`='0',`allowsplitthread`='0',`allowrepairthread`='0',`allowwarnpost`='0',`allowviewreport`='0',`alloweditforum`='0',`allowremovereward`='0',`allowedittrade`='0',`alloweditactivity`='0',`allowstickreply`='0',`allowmanagearticle`='0',`allowaddtopic`='0',`allowmanagetopic`='0',`allowdiy`='0',`allowclearrecycle`='0',`allowmanagetag`='0',`managefeed`='0',`managedoing`='0',`manageshare`='0',`manageblog`='0',`managealbum`='0',`managecomment`='0',`managemagiclog`='0',`managereport`='0',`managehotuser`='0',`managedefaultuser`='0',`managemagic`='0',`manageclick`='0',`allowstamplist`='0',`allowmanagecollection`='0',`allowmakehtml`='0';
 
-INSERT INTO pre_common_adminnote VALUES ('1','Discuz','0','0','0','0','ขอบคุณสำหรับการติดตั้งและการใช้งาน Discuz! X，ที่นี่คือ ศูนย์การจัดการของคุณ คุณสามารถปรับการตั้งค่าต่างๆของเว็บไซต์ได้ที่นี่');
+INSERT INTO pre_common_adminnote VALUES ('1','Discuz','0','0','0','0','ขอบคุณสำหรับการติดตั้งและการใช้งาน Discuz! X，ที่นี่คือ ศูนย์บริหารจัดการของคุณ คุณสามารถปรับการตั้งค่าต่างๆของเว็บไซต์ได้ที่นี่');
 INSERT INTO pre_common_adminnote VALUES ('2','ดิสคัซไซนช์','0','0','0','0','ภาษาไทยในแอปพลิเคชั่นนี้อาจยังไม่สมบูรณ์คุณสามารถมองหาเวอร์ชั่นที่สมบูรณ์กว่าได้ที่ https://discuzthai.com/');
 
 INSERT INTO pre_common_credit_rule VALUES ('1','โพสต์กระทู้','post','4','0','0','0','0','2','0','0','0','0','0','0','');
@@ -50,7 +50,7 @@ INSERT INTO pre_common_cron VALUES ('8','1','system','ทุกเดือน �
 INSERT INTO pre_common_cron VALUES ('9','1','system','ทุกวัน งานอัปเดตไอเท็มอัตโนมัติรายวัน','cron_magic_daily.php','1269746629','1269792000','-1','-1','0','0');
 INSERT INTO pre_common_cron VALUES ('10','1','system','ทุกวัน งานอัปเดตคำถามและคำตอบสำหรับการตรวจรายวัน','cron_secqaa_daily.php','1269746634','1269813600','-1','-1','6','0');
 INSERT INTO pre_common_cron VALUES ('11','1','system','ทุกวัน งานอัปเดตแท็กรายวัน','cron_tag_daily.php','1269746633','1269792000','-1','-1','0','0');
-INSERT INTO pre_common_cron VALUES ('12','1','system','ทุกวัน งานอัปเดตเหรียญรายวัน','cron_medal_daily.php','1269746634','1269792000','-1','-1','0','0');
+INSERT INTO pre_common_cron VALUES ('12','1','system','ทุกวัน งานอัปเดตเหรียญตรารายวัน','cron_medal_daily.php','1269746634','1269792000','-1','-1','0','0');
 INSERT INTO pre_common_cron VALUES ('13','1','system','งานล้างฟีดที่หมดอายุ','cron_cleanfeed.php','1269746634','1269792000','-1','-1','0','0');
 INSERT INTO pre_common_cron VALUES ('15','1','system','ทุกชั่วโมง งานอัปเดตการเผยแพร่เนื้อหา','cron_publish_halfhourly.php','1269746639','1269792000','-1','-1','-1','0	30');
 INSERT INTO pre_common_cron VALUES ('16','1','system','ทุกวัน งานอัปเดตจำนวนผู้ติดตามรายวัน','cron_follow_daily.php','1269746639','1269792000','-1','-1','02','0');
@@ -60,9 +60,9 @@ INSERT INTO pre_common_cron VALUES ('19','1','system','ทุกวัน งา
 INSERT INTO pre_common_cron VALUES ('20','1','system','งานอัปเดตลำดับของกระทู้ล่าสุด(ตามลำดับความสำคัญ)','cron_security_cleanup_lastpost.php','1269746623','1269792000','-1','-1','7','0');
 INSERT INTO pre_common_cron VALUES ('21','1','system','ทุกสัปดาห์ งานล้างบันทึกการส่ง SMS แจ้งเตือนการเข้าสู่ระบบ','cron_smslog_daily.php','1269746639','1269792000','-1','-1','03','0');
 
-INSERT INTO pre_common_friendlink VALUES ('1','0','ฟอรัมอย่างเป็นทางการ','https://www.discuz.net','Discuz! เวอร์ชั่นล่าสุด ข่าวผลิตภัณฑ์ ดาวน์โหลดซอฟต์แวร์ และการแลกเปลี่ยนทางเทคนิค','static/image/common/logo_88_31.gif','2');
-INSERT INTO pre_common_friendlink VALUES ('1','0','ดิสคัสไทย!','https://discuzthai.com/','กลุ่มผู้ใช้งานกระดานข่าว ดิสคัส! ในประเทศไทย!','static/image/common/discuzthai.gif','2');
-INSERT INTO pre_common_friendlink VALUES ('2','4','แอปเซนเตอร์','https://addon.dismall.com/','','','2');
+INSERT INTO pre_common_friendlink VALUES ('1','0','ฟอรั่มอย่างเป็นทางการ','https://www.discuz.net','Discuz! เวอร์ชั่นล่าสุด ข่าวผลิตภัณฑ์ ดาวน์โหลดซอฟต์แวร์ และการแลกเปลี่ยนทางเทคนิค','static/image/common/logo_88_31.gif','2');
+INSERT INTO pre_common_friendlink VALUES ('2','0','ดิสคัสไทย!','https://discuzthai.com/','กลุ่มผู้ใช้งานกระดานข่าว ดิสคัส! ในประเทศไทย!','static/image/common/discuzthai.gif','2');
+INSERT INTO pre_common_friendlink VALUES ('3','4','แอปเซนเตอร์','https://addon.dismall.com/','','','2');
 
 INSERT INTO pre_common_member_profile_setting VALUES('realname', 1, 0, 0, 'ชื่อจริง', '', 0, 0, 0, 0, 0, 0, 1, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('gender', 1, 0, 0, 'เพศสภาพ', '', 0, 0, 0, 0, 0, 0, 1, 'select', 0, '', '');
@@ -136,7 +136,7 @@ INSERT INTO pre_common_member_profile_setting VALUES('field8', 0, 1, 0, 'ฟิ�
 -- [update_nav]
 
 INSERT INTO pre_common_nav VALUES ('','0','พอร์ทัล','Portal','portal.php','1','0','0','-1','1','0','0','0', 0, '', '', '', 0, '');
-INSERT INTO pre_common_nav VALUES ('','0','ฟอรัม','BBS','forum.php','2','0','0','1','2','0','0','0', 0, '', '', '', 0, '');
+INSERT INTO pre_common_nav VALUES ('','0','ฟอรั่ม','BBS','forum.php','2','0','0','1','2','0','0','0', 0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','กลุ่ม','Group','group.php','3','0','0','-1','7','0','0','0', 0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','สเปซ','Space','home.php','4','0','0','-1','8','0','0','0', 0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','ปลั๊คอิน','Plugin','#','6','0','0','1','9','0','0','0', 0, '', '', '', 0, '');
@@ -671,7 +671,7 @@ INSERT INTO pre_common_setting VALUES ('zoomstatus','1	600');
 INSERT INTO pre_common_smiley VALUES ('1','1','1','smiley',':)','smile.gif');
 INSERT INTO pre_common_smiley VALUES ('2','1','2','smiley',':(','sad.gif');
 INSERT INTO pre_common_smiley VALUES ('3','1','3','smiley',':D','biggrin.gif');
-/*INSERT INTO pre_common_smiley VALUES ('4','1','4','smiley',':\'(','cry.gif');*/
+INSERT INTO pre_common_smiley VALUES ('4','1','4','smiley',':\'(','cry.gif');
 INSERT INTO pre_common_smiley VALUES ('5','1','5','smiley',':@','huffy.gif');
 INSERT INTO pre_common_smiley VALUES ('6','1','6','smiley',':o','shocked.gif');
 INSERT INTO pre_common_smiley VALUES ('7','1','7','smiley',':P','tongue.gif');
@@ -733,7 +733,7 @@ INSERT INTO pre_common_smiley VALUES ('62','3','22','smiley','{:3_62:}','22.gif'
 INSERT INTO pre_common_smiley VALUES ('63','3','23','smiley','{:3_63:}','23.gif');
 INSERT INTO pre_common_smiley VALUES ('64','3','24','smiley','{:3_64:}','24.gif');
 INSERT INTO pre_common_smiley VALUES ('65','0','0','stamp','แก่นแท้','001.gif');
-INSERT INTO pre_common_smiley VALUES ('66','0','1','stamp','โพสต์ร้อน','002.gif');
+INSERT INTO pre_common_smiley VALUES ('66','0','1','stamp','กระทู้มาแรง','002.gif');
 INSERT INTO pre_common_smiley VALUES ('67','0','2','stamp','แผนที่ที่สวยงาม','003.gif');
 INSERT INTO pre_common_smiley VALUES ('68','0','3','stamp','ยอดเยี่ยม','004.gif');
 INSERT INTO pre_common_smiley VALUES ('69','0','4','stamp','วางไว้ด้านบน','005.gif');
@@ -742,7 +742,7 @@ INSERT INTO pre_common_smiley VALUES ('71','0','6','stamp','ต้นฉบั�
 INSERT INTO pre_common_smiley VALUES ('72','0','7','stamp','คำแนะนำผู้ดูแล','008.gif');
 INSERT INTO pre_common_smiley VALUES ('73','0','8','stamp','ทำลายข่าว','009.gif');
 INSERT INTO pre_common_smiley VALUES ('74','0','9','stamplist','แก่นแท้','001.small.gif');
-INSERT INTO pre_common_smiley VALUES ('75','0','10','stamplist','โพสต์ร้อน','002.small.gif');
+INSERT INTO pre_common_smiley VALUES ('75','0','10','stamplist','กระทู้มาแรง','002.small.gif');
 INSERT INTO pre_common_smiley VALUES ('76','0','11','stamplist','แผนที่ที่สวยงาม','003.small.gif');
 INSERT INTO pre_common_smiley VALUES ('77','0','12','stamplist','ยอดเยี่ยม','004.small.gif');
 INSERT INTO pre_common_smiley VALUES ('78','0','13','stamplist','วางไว้ด้านบน','005.small.gif');
@@ -831,7 +831,7 @@ INSERT INTO pre_common_usergroup VALUES ('11','0','member','private','สมา�
 INSERT INTO pre_common_usergroup VALUES ('12','0','member','private','สมาชิกระดับกลาง','200','500','3','','','1','1','0','0','0','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('13','0','member','private','สมาชิกอาวุโส','500','1000','4','','','1','1','0','0','1','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('14','0','member','private','สมาชิกทองคำ','1000','3000','6','','','1','1','0','0','1','0','0','10');
-INSERT INTO pre_common_usergroup VALUES ('15','0','member','private','ทหารผ่านศึกฟอรัม','3000','9999999','8','','','1','1','0','0','1','0','0','10');
+INSERT INTO pre_common_usergroup VALUES ('15','0','member','private','ทหารผ่านศึกฟอรั่ม','3000','9999999','8','','','1','1','0','0','1','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('16','3','special','private','ผู้ฝึกงาน','0','0','7','','','1','1','0','0','1','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('17','2','special','private','บรรณาธิการเว็บไซต์','0','0','8','','','1','1','0','0','1','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('18','1','special','private','หัวหน้างาน','0','0','9','','','1','1','0','0','1','0','0','10');
@@ -868,7 +868,7 @@ INSERT INTO pre_forum_bbcode VALUES ('4','0','sub','bb_sub.gif','<sub>{1}</sub>'
 
 
 INSERT INTO pre_forum_forum SET `fid`='1',`fup`='0',`type`='group',`name`='Discuz!',`status`='1';
-INSERT INTO pre_forum_forum SET `fid`='2',`fup`='1',`type`='forum',`name`='หมวดเริ่มต้น',`status`='1',`allowsmilies`='1',`allowbbcode`='1',`allowimgcode`='1',`allowmediacode`='1',`allowpostspecial`='1',`recyclebin`='1', `allowfeed`='1';
+INSERT INTO pre_forum_forum SET `fid`='2',`fup`='1',`type`='forum',`name`='กระดานเริ่มต้น',`status`='1',`allowsmilies`='1',`allowbbcode`='1',`allowimgcode`='1',`allowmediacode`='1',`allowpostspecial`='1',`recyclebin`='1', `allowfeed`='1';
 
 INSERT INTO pre_forum_forumfield SET `fid`='1';
 INSERT INTO pre_forum_forumfield SET `fid`='2';
@@ -893,11 +893,11 @@ INSERT INTO pre_forum_medal VALUES ('2','สมาชิก','0','medal2.gif','0
 INSERT INTO pre_forum_medal VALUES ('3','สมาชิกที่กระตือรือร้น','0','medal3.gif','0','0','ฉันมักจะช่วยให้สมาชิกคนอื่นตอบคำถาม','0','','0','0');
 INSERT INTO pre_forum_medal VALUES ('4','ผู้เชี่ยวชาญด้านโปรโมชั่น','0','medal4.gif','0','0','โปรโมตเว็บไซต์นี้อย่างแข็งขันและนำสมาชิกที่ลงทะเบียนมากขึ้นไปยังเว็บไซต์นี้','0','','0','0');
 INSERT INTO pre_forum_medal VALUES ('5','การโฆษณาชวนเชื่อ','0','medal5.gif','0','0','โปรโมตเว็บไซต์นี้อย่างแข็งขันและนำการเยี่ยมชมผู้ใช้มาสู่เว็บไซต์นี้มากขึ้น','0','','0','0');
-INSERT INTO pre_forum_medal VALUES ('6','กษัตริย์แห่งการชลประทาน','0','medal6.gif','0','0','ฉันมักจะโพสต์ในฟอรัมและจำนวนโพสต์มีขนาดใหญ่','0','','0','0');
-INSERT INTO pre_forum_medal VALUES ('7','ผลงานที่โดดเด่น','0','medal7.gif','0','0','ความพยายามระยะยาวต่อความเจริญรุ่งเรืองของฟอรัมหรือนำเสนอความคิดเห็นที่สร้างสรรค์หลายครั้ง','0','','0','0');
+INSERT INTO pre_forum_medal VALUES ('6','กษัตริย์แห่งการชลประทาน','0','medal6.gif','0','0','ฉันมักจะโพสต์ในฟอรั่มและจำนวนโพสต์มีขนาดใหญ่','0','','0','0');
+INSERT INTO pre_forum_medal VALUES ('7','ผลงานที่โดดเด่น','0','medal7.gif','0','0','ความพยายามระยะยาวต่อความเจริญรุ่งเรืองของฟอรั่มหรือนำเสนอความคิดเห็นที่สร้างสรรค์หลายครั้ง','0','','0','0');
 INSERT INTO pre_forum_medal VALUES ('8','ผู้ดูแลที่เหนือกว่า','0','medal8.gif','0','0','ผู้ดูแลที่ใช้งานและรับผิดชอบ','0','','0','0');
-INSERT INTO pre_forum_medal VALUES ('9','การจัดการเกียรติ','0','medal9.gif','0','0','เมื่อมีส่วนร่วมอย่างโดดเด่นในฟอรัมผู้ดูแลที่ออกจากกระแสกระแสไฟฟ้า','0','','0','0');
-INSERT INTO pre_forum_medal VALUES ('10','ทหารผ่านศึกฟอรัม','0','medal10.gif','0','0','สมาชิกที่มีส่วนร่วมอย่างโดดเด่นในฟอรัม','0','','0','0');
+INSERT INTO pre_forum_medal VALUES ('9','การจัดการเกียรติ','0','medal9.gif','0','0','เมื่อมีส่วนร่วมอย่างโดดเด่นในฟอรั่มผู้ดูแลที่ออกจากกระแสกระแสไฟฟ้า','0','','0','0');
+INSERT INTO pre_forum_medal VALUES ('10','ทหารผ่านศึกฟอรั่ม','0','medal10.gif','0','0','สมาชิกที่มีส่วนร่วมอย่างโดดเด่นในฟอรั่ม','0','','0','0');
 
 
 
@@ -1047,7 +1047,7 @@ INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic
 -- [/block_style]
 
 INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (1, 'พอร์ทัลผู้ดูแลระบบ');
-INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (2, 'ฟอรัมผู้ดูแลระบบ');
+INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (2, 'ฟอรั่มผู้ดูแลระบบ');
 INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (3, 'กลุ่มผู้ดูแลระบบ');
 INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (4, 'ช่องว่างผู้ดูแลระบบ');
 INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (5, 'ผู้ใช้ผู้ดูแลระบบ');

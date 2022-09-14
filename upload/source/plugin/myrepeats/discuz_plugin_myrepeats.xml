@@ -5,7 +5,7 @@
 		<item id="plugin">
 			<item id="available"><![CDATA[1]]></item>
 			<item id="adminid"><![CDATA[1]]></item>
-			<item id="name"><![CDATA[我的马甲]]></item>
+			<item id="name"><![CDATA[ปลั๊คอินของฉัน]]></item>
 			<item id="identifier"><![CDATA[myrepeats]]></item>
 			<item id="description"><![CDATA[]]></item>
 			<item id="datatables"><![CDATA[]]></item>
@@ -15,7 +15,7 @@
 			<item id="__modules">
 				<item id="0">
 					<item id="name"><![CDATA[memcp]]></item>
-					<item id="menu"><![CDATA[我的马甲]]></item>
+					<item id="menu"><![CDATA[ปลั๊คอินของฉัน]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[7]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
@@ -31,7 +31,7 @@
 				</item>
 				<item id="2">
 					<item id="name"><![CDATA[admincp]]></item>
-					<item id="menu"><![CDATA[管理]]></item>
+					<item id="menu"><![CDATA[จัดการ]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[3]]></item>
 					<item id="adminid"><![CDATA[1]]></item>

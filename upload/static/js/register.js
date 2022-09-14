@@ -83,7 +83,7 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 	};
 	firstObj.onkeyup = function () {
 		if(pwlength == 0 || $(firstObj.id).value.length >= pwlength) {
-			var passlevels = new Array('','弱','中','强');
+			var passlevels = new Array('','弱','กลาง','强');
 			var passlevel = checkstrongpw(firstObj.id);
 			errormessage(firstObj.id, '<span class="passlevel passlevel'+passlevel+'">密码强度:'+passlevels[passlevel]+'</span>');
 		}

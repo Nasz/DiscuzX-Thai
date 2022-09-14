@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 
-	'type_wall' => '留言',
+	'type_wall' => 'ฝากข้อความ',
 	'type_piccomment' => '图片评论',
 	'type_blogcomment' => '日志评论',
 	'type_clickblog' => '日志表态',
@@ -23,10 +23,10 @@ $lang = array
 	'type_sharecomment' => '分享评论',
 	'type_doing' => '记录',
 	'type_friend' => '好友',
-	'type_credit' => '积分',
+	'type_credit' => 'เครดิต',
 	'type_bbs' => '论坛',
 	'type_system' => '系统',
-	'type_thread' => '主题',
+	'type_thread' => 'กระทู้',
 	'type_task' => '任务',
 	'type_group' => '群组',
 
@@ -216,8 +216,8 @@ $lang = array
 	'system_adv_expiration' => '您站点的以下广告将于 {day} 天后到期，请及时处理：<br />{advs}',
 	'report_change_credits' => '{actor} 处理了您的举报 {creditchange} {msg}',
 	'at_message' => '<a href="home.php?mod=space&uid={buyerid}" target="_blank">{buyer}</a> 在主题 <a href="forum.php?mod=redirect&goto=findpost&ptid={tid}&pid={pid}" target="_blank">{subject}</a> 中提到了您<div class="quote"><blockquote>{message}</blockquote></div><a href="forum.php?mod=redirect&goto=findpost&ptid={tid}&pid={pid}" target="_blank">现在去看看</a>。',
-	'new_report' => 'มีใหม่จาก {username} รายงานรอการจัดการ<a href="admin.php?action=report" target="_blank">คลิกที่นี่เพื่อเข้าสู่ศูนย์การจัดการสำหรับการประมวลผล</a>。',
-	'new_post_report' => '有新的来自 {username} 的举报等待处理，<a href="forum.php?mod=modcp&action=report&fid={fid}" target="_blank">点此进入管理面板</a>。',
+	'new_report' => 'มีรายงานใหม่จาก {username} รายงานรอการจัดการ<a href="admin.php?action=report" target="_blank">คลิกที่นี่เพื่อเข้าสู่ศูนย์บริหารจัดการ</a>',
+	'new_post_report' => 'มีรายงานใหม่จาก {username} รายงานรอการจัดการ<a href="forum.php?mod=modcp&action=report&fid={fid}" target="_blank">คลิกที่นี่เพื่อเข้าสู่ศูนย์บริหารจัดการ</a>。',
 	'magics_receive' => '您收到 {actor} 送给您的道具 {magicname}
 <p class="summary">{actor} 说：<span>{msg}</span></p>
 <p class="mbn"><a href="home.php?mod=magic" target="_blank">回赠道具</a><span class="pipe">|</span><a href="home.php?mod=magic&action=mybox" target="_blank">查看我的道具箱</a></p>',

@@ -88,7 +88,7 @@ $lang = array(
 	'ucpw' => 'UCenter 创始人密码',
 
 	'tips_siteinfo' => '请填写站点信息',
-	'sitename' => '站点名称',
+	'sitename' => 'ชื่อเว็บไซต์',
 	'siteurl' => '站点 URL',
 
 	'forceinstall' => '强制安装',

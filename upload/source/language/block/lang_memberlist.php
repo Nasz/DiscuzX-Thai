@@ -31,7 +31,7 @@ $lang = array
 	'memberlist_special_default' => '推荐好友',
 	'memberlist_startrow' => '起始数据行数',
 	'memberlist_startrow_comment' => '如需设定起始的数据行数，请输入具体数值，0 为从第一行开始，以此类推',
-	'memberlist_groupid' => '用户组',
+	'memberlist_groupid' => 'กลุ่มผู้ใช้',
 	'memberlist_groupid_comment' => '指定用户组',
 	'memberlist_items' => '显示数据条数',
 	'memberlist_items_comment' => '设置一次显示的用户条目数，请设置为大于 0 的整数',
@@ -60,7 +60,7 @@ $lang = array
 	'memberlist_orderby_extcreditselect_comment' => '按指定扩展积分倒序排序的积分值',
 	'memberlist_orderby_hours' => '按小时内发帖数倒序',
 	'memberlist_orderby_hours_comment' => '指定时间内发帖数倒序排序的时间值',
-	'memberlist_yes' => '是',
+	'memberlist_yes' => 'ใช่',
 );
 
 ?>

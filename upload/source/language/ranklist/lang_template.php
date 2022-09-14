@@ -14,11 +14,11 @@ if(!defined('IN_DISCUZ')) {
 }
 
 $lang = array (
-  'all' => '全部',
-  'have' => '已有',
-  'homepage' => '首页',
-  'hot' => '热度',
-  'join' => '人参加',
+  'all' => 'ทั้งหมด',
+  'have' => 'มีอยู่',
+  'homepage' => 'หน้าแรก',
+  'hot' => 'ร้อนแรง',
+  'join' => 'เข้าร่วม',
   'message' => '条留言',
   'none_data' => '没有相关数据',
   'ranklist' => '排行',
@@ -50,8 +50,8 @@ $lang = array (
   'ranklist_post_day' => '最近 24 小时发帖排行',
   'ranklist_reply' => '回复排行',
   'reply' => '回复',
-  'credit_num' => '积分数',
-  'credit_ranking' => '积分排行',
+  'credit_num' => 'เครดิต',
+  'credit_ranking' => 'อันดับคะแนน',
   'group' => '群组',
   'member_num' => '成员数',
   'ranklist_group' => '群组排行',
@@ -88,7 +88,7 @@ $lang = array (
   'ranklist_member' => '用户排行',
   'ranklist_onlinetime' => '在线时间排行',
   'ranklist_post_num' => '发帖数排行',
-  'reminder' => '提示信息',
+  'reminder' => 'การแจ้งเตือน',
   'self_current_credit' => '您当前的',
   'self_current_friend_num' => '您当前的好友数',
   'show_unitprice' => '竞价单价',
@@ -135,7 +135,7 @@ $lang = array (
   'author' => '作者',
   'ranklist_thread_heat' => '热度',
   'ranklist_thread_reply' => '回复',
-  'thread' => '主题',
+  'thread' => 'กระทู้',
 );
 
 ?>

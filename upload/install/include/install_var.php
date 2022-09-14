@@ -168,7 +168,7 @@ $serialize_sql_setting = array (
     2 =>
     array (
       'img' => '',
-      'title' => 'เงิน',
+      'title' => 'เหรียญ',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -263,7 +263,7 @@ $serialize_sql_setting = array (
   'seotitle' =>
   array (
     'portal' => 'พอร์ทัล',
-    'forum' => 'ฟอรัม',
+    'forum' => 'ฟอรั่ม',
     'group' => 'กลุ่ม',
     'home' => 'โฮม',
   ),

@@ -24,7 +24,7 @@ $lang = array (
   'doing_status_off'  => 'ขออภัยฟังก์ชั่นบันทึกยังไม่เปิด',
   'feed_status_off'  => 'ขออภัยฟังก์ชั่นแบบไดนามิกยังไม่เปิด',
   'friend_status_off'  => 'ขออภัยฟังก์ชั่นของเพื่อนยังไม่เปิด',
-  'forum_status_off'  => 'ขออภัยฟังก์ชั่นฟอรัมยังไม่เปิด',
+  'forum_status_off'  => 'ขออภัยฟังก์ชั่นฟอรั่มยังไม่เปิด',
   'follow_status_off'  => 'ขออภัยฟังก์ชั่นการออกอากาศยังไม่ได้เปิด',
   'group_module_status_off'  => 'ขออภัยฟังก์ชั่นกลุ่มยังไม่เปิด',
   'guide_status_off'  => 'ขออภัยฟังก์ชั่นคู่มือยังไม่เปิด',
@@ -88,7 +88,7 @@ $lang = array (
   'magics_filename_nonexistence' => 'ไฟล์ที่จำเป็น {file} ไม่ได้อยู่',
   'magics_amount_no_enough' => 'ขออภัยคุณไม่มีอุปกรณ์ประกอบฉากเพียงพอโปรดแก้ไข',
   'magics_username_nonexistence' => 'ขออภัยคุณไม่ได้ป้อนชื่อผู้ใช้ที่คุณต้องการให้',
-  'medal_apply_existence' => 'ขออภัยคุณสมัครหรือรับเหรียญนี้โปรดอย่าสมัครหรือรับซ้ำ',
+  'medal_apply_existence' => 'ขออภัยคุณสมัครหรือรับเหรียญตรานี้โปรดอย่าสมัครหรือรับซ้ำ',
   'space_does_not_exist' => 'ขออภัยไม่มีพื้นที่ผู้ใช้ที่กำหนดไว้',
   'login_before_enter_home' => 'กรุณาลงชื่อเข้าใช้การเรียกดูต่อไป',
   'home_status_off' => 'ขออภัยการทำงานของบ้านเกิดยังไม่ได้เปิด',
@@ -164,7 +164,7 @@ $lang = array (
   'post_forum_newthread_nopermission' => 'ขออภัยกลุ่มผู้ใช้เฉพาะเท่านั้นที่สามารถส่งธีมใหม่ในส่วนนี้ได้',
   'postperm_qqonly_nopermission' => 'เพื่อป้องกันไม่<br /><a href="connect.php?mod=config"><img src="'.STATICURL.'image/common/qq_bind_small.gif" /></a>',
   'thread_flood_ctrl_threads_per_hour' => 'ขออภัยกลุ่มผู้ใช้ของคุณ จำกัด ธีมต่อชั่วโมง {threads_per_hour} หนึ่งโปรดโพสต์ในภายหลัง',
-  'search_forum_invalid' => 'ขออภัยคุณไม่ได้ระบุขอบเขตของฟอรัมค้นหา',
+  'search_forum_invalid' => 'ขออภัยคุณไม่ได้ระบุขอบเขตของฟอรั่มค้นหา',
   'search_invalid' => 'ขออภัยคุณยังไม่ได้ระบุคำหลักหรือชื่อผู้ใช้ที่จะค้นหา',
   'search_redirect' => 'การค้นหาประสบความสำเร็จและตอนนี้จะถูกโอนไปยังหน้าผลลัพธ์',
   'to_view_the_photo_does_not_exist' => 'ขออภัยอัลบั้มที่คุณต้องการดูไม่มีอยู่จริงหรือกำลังตรวจสอบ',
@@ -222,7 +222,7 @@ $lang = array (
   'view_to_info_did_not_exist' => 'ขออภัยข้อมูลที่คุณต้องการดูไม่มีอยู่จริงหรือถูกลบ',
   'plugin_module_nonexistence' => 'ระบุไฟล์โมดูลปลั๊ก({mod})ไม่มีข้อผิดพลาดหรือไวยากรณ์โปรดตรวจสอบว่าปลั๊กอินได้รับการอัปโหลดอย่างสมบูรณ์',
   'postperm_none_nopermission' => 'ขออภัยคุณไม่มีสิทธิ์โพสต์ในเวอร์ชันนี้</p></div><div>',
-  'replyperm_none_nopermission' => 'ขออภัยคุณไม่ได้รับอนุญาตให้โพสต์ตอบกลับในฟอรัมนี้</p></div><div>',
+  'replyperm_none_nopermission' => 'ขออภัยคุณไม่ได้รับอนุญาตให้โพสต์ตอบกลับในฟอรั่มนี้</p></div><div>',
   'getattachperm_none_nopermission' => 'ขออภัยคุณไม่ได้รับอนุญาตให้ดาวน์โหลดไฟล์แนบนี้</p></div><div>',
   'magics_target_member_nonexistence' => 'ขออภัยผู้ใช้ที่กำหนดของคุณไม่มีอยู่หรือถูกแช่แข็ง',
   'unknown_magic' => 'ขออภัยอุปกรณ์ประกอบฉากที่ระบุไม่มีอยู่หรือถูกแบนจากการใช้งาน',
@@ -242,8 +242,8 @@ $lang = array (
   'login_seccheck2' => 'โปรดป้อนรหัสการยืนยันและทำการบันทึกต่อไป',
   'login_succeed' => 'ยินดีต้อนรับกลับ,{usergroup} {username}ตอนนี้ฉันจะถูกโอนไปยังหน้าก่อนหน้า',
   'login_strike' => 'มีข้อผิดพลาดรหัสผ่านมากเกินไปกรุณา 15 ส่งหลังจากนาที',
-  'logout_succeed' => 'คุณได้ออกจากเว็บไซต์แล้วและตอนนี้คุณจะโอนไปยังหน้าก่อนหน้าเป็นนักท่องเที่ยวโปรดรอ ... {ucsynlogout} ',
-  'location_logout_succeed_mobile' => 'คุณได้ออกจากเว็บไซต์แล้วและตอนนี้คุณจะโอนไปยังหน้าก่อนหน้าเป็นนักท่องเที่ยวโปรดรอ ...',
+  'logout_succeed' => 'คุณได้ลงชื่อออกจากเว็บไซต์แล้ว และตอนนี้คุณจะโอนไปยังหน้าก่อนหน้าด้วยสถานะนักท่องเที่ยวโปรดรอ ... {ucsynlogout} ',
+  'location_logout_succeed_mobile' => 'คุณได้ลงชื่อออกจากเว็บไซต์แล้ว และตอนนี้คุณจะโอนไปยังหน้าก่อนหน้าด้วยสถานะนักท่องเที่ยวโปรดรอ ...',
   'register_activation_invalid' => 'ขออภัยการเปิดใช้งานล้มเหลวโปรดเข้าสู่ระบบผู้ใช้ที่ต้องเปิดใช้งาน',
   'profile_username_tooshort' => 'ขออภัยชื่อผู้ใช้ที่คุณป้อนน้อยกว่า 3 สำหรับอักขระแต่ละตัวโปรดป้อนชื่อผู้ใช้ที่ยาวขึ้น',
   'profile_username_toolong' => 'ขออภัยชื่อผู้ใช้ของคุณเกินกว่า 15 สำหรับอักขระแต่ละตัวโปรดป้อนชื่อผู้ใช้ที่สั้นกว่า',
@@ -267,9 +267,9 @@ $lang = array (
   'magicuse_bad_object' => 'วัตถุที่ไม่ได้เลือกอุปกรณ์ประกอบฉากเพื่อดำเนินการอย่างถูกต้อง',
   'magicuse_has_no_valid_friend' => 'ขออภัยรายการนี้มีผลเฉพาะสำหรับเพื่อนของคุณเท่านั้น',
   'mobile_template_no_found' => 'ไม่มีหน้าโทรศัพท์มือถือที่คุณเยี่ยมชมสามารถเข้าถึงเวอร์ชันคอมพิวเตอร์ได้หรือไม่?<br /><br /><a href="{url}">เยี่ยมชมต่อไป</a><br /><br />',
-  'medals_existence' => 'ปัจจุบันมีเหรียญในระบบโปรดไปที่ "Medal Center" เพื่อยกเลิกเหรียญที่มีอยู่ทั้งหมดก่อนดำเนินการนี้',
-  'close_ggcf_before_close_forum' => 'โปรดปิดกลุ่มคู่มือ Taoti ฟังก์ชั่นการออกอากาศก่อนจากนั้นปิดฟังก์ชั่นฟอรัม',
-  'open_forum_before_open_ggcf' => 'กรุณาเปิดฟังก์ชั่นฟอรัมก่อนจากนั้นเปิดกลุ่มคู่มือโพสต์เต่าและฟังก์ชั่นการออกอากาศ',
+  'medals_existence' => 'ปัจจุบันมีเหรียญตราในระบบโปรดไปที่ "Medal Center" เพื่อยกเลิกเหรียญที่มีอยู่ทั้งหมดก่อนดำเนินการนี้',
+  'close_ggcf_before_close_forum' => 'โปรดปิดกลุ่มคู่มือ Taoti ฟังก์ชั่นการออกอากาศก่อนจากนั้นปิดฟังก์ชั่นฟอรั่ม',
+  'open_forum_before_open_ggcf' => 'กรุณาเปิดฟังก์ชั่นฟอรั่มก่อนจากนั้นเปิดกลุ่มคู่มือโพสต์เต่าและฟังก์ชั่นการออกอากาศ',
   'portal_status_off' => 'ขออภัยฟังก์ชั่นพอร์ทัลยังไม่เปิด',
 
   'register_check_found' => 'ชื่อผู้ใช้ได้รับการลงทะเบียนโปรดเปลี่ยนชื่อผู้ใช้หรือ<a href="member.php?mod=logging&action=login" onclick="showWindow(\'login\', this.href);return false;" class="xi2">เข้าสู่ระบบ</a>',
@@ -282,7 +282,7 @@ $lang = array (
   'quickclear_need_operation' => 'กรุณาเลือกประเภทการทำงาน',
   'quickclear_success' => 'ทำความสะอาด',
 
-  'announcement_nonexistence' => 'ขออภัยไม่มีการประกาศสำหรับการดู',
+  'announcement_nonexistence' => 'ขออภัยตอนนี้ยังไม่มีการประกาศได ๆ',
 
   'attachment_expired' => 'ขออภัยลิงก์ไฟล์แนบเดิมล้มเหลว <br /><a href="forum.php?mod=attachment&aid={aid}">[ คลิกที่นี่เพื่อดาวน์โหลดอีกครั้ง ]</a><br /><a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}">[ คลิกที่นี่เพื่อดูโพสต์ต้นฉบับ ]</a>',
   'attachment_referer_invalid' => 'โปรดอย่าดาวน์โหลดไฟล์แนบของเว็บไซต์นี้จากลิงค์ภายนอก',
@@ -343,7 +343,7 @@ $lang = array (
   'replynotice_success_1' => 'รับการตั้งค่าสำเร็จ ',
   'replynotice_success_0' => 'ยกเลิกการตั้งค่าสำเร็จ ',
   'replynotice_error' => 'ขออภัยการตั้งค่าการแจ้งเตือนการตอบกลับล้มเหลวชุดรูปแบบกำลังตรวจสอบหรือไม่มีอยู่จริง',
-  'no_privilege_indexheats' => 'ขออภัยคุณไม่ได้รับอนุญาตให้ลบโครงการฟอรัมฮอตสปอต',
+  'no_privilege_indexheats' => 'ขออภัยคุณไม่ได้รับอนุญาตให้ลบโครงการฟอรั่มฮอตสปอต',
   'forum_nopermission' => 'ส่วนนี้กลุ่มผู้ใช้เฉพาะเท่านั้นที่สามารถเข้าถึงได้',
   'thread_poll_invalid' => 'ขออภัยคุณไม่ได้เลือกที่จะออกเสียงเลือกตัวเลือก',
   'poll_not_found' => 'ไม่มีการลงคะแนน',
@@ -456,11 +456,11 @@ $lang = array (
   'magics_sell_succeed' => 'คุณขาย {num} เปิด{magicname},รับ {credit}',
   'magics_drop_succeed' => 'คุณทิ้ง {num} เปิด{magicname}',
 
-  'medal_apply_invalid' => 'ขออภัยไม่สามารถใช้เหรียญนี้ได้',
-  'medal_permforum_nopermission' => 'ขออภัยคุณไม่ได้ปฏิบัติตามเงื่อนไขในการรับเหรียญ</p><hr class="da" /><p class="mtm"><h3>เงื่อนไข:</h3>{formulamessage}<h3 class="mtm">ข้อความของคุณ:</h3> {usermsg} ',
-  'medal_not_get_credit' => 'ขออภัยคุณ{credit}ไม่เพียงพอไม่สามารถซื้อเหรียญนี้ได้',
+  'medal_apply_invalid' => 'ขออภัยไม่สามารถใช้เหรียญตรานี้ได้',
+  'medal_permforum_nopermission' => 'ขออภัยคุณไม่ได้ปฏิบัติตามเงื่อนไขในการรับเหรียญตรา</p><hr class="da" /><p class="mtm"><h3>เงื่อนไข:</h3>{formulamessage}<h3 class="mtm">ข้อความของคุณ:</h3> {usermsg} ',
+  'medal_not_get_credit' => 'ขออภัยคุณ{credit}ไม่เพียงพอไม่สามารถซื้อเหรียญตรานี้ได้',
   'medal_get_succeed' => 'ขอแสดงความยินดีกับคุณ{medalname}',
-  'medal_apply_succeed' => 'เหรียญ{medalname}แอปพลิเคชันที่ประสบความสำเร็จ โปรดรอให้ผู้ดูแลระบบตรวจสอบ',
+  'medal_apply_succeed' => 'เหรียญตรา{medalname}แอปพลิเคชันที่ประสบความสำเร็จ โปรดรอให้ผู้ดูแลระบบตรวจสอบ',
 
   'enter_the_space' => 'เข้าสู่หน้าอวกาศส่วนบุคคล',
 
@@ -549,7 +549,7 @@ $lang = array (
 
   'search_blog_closed' => 'ขออภัยการค้นหาบันทึกถูกปิด',
 
-  'search_forum_closed' => 'ขออภัยการค้นหาฟอรัมถูกปิด',
+  'search_forum_closed' => 'ขออภัยการค้นหาฟอรั่มถูกปิด',
 
   'search_group_closed' => 'รู้สึกเสียใจ,{_G/setting/navs/3/navname}การค้นหาถูกปิด',
 
@@ -895,7 +895,7 @@ $lang = array (
   'usergroups_join_succeed' => 'คุณได้เข้าร่วมกลุ่มผู้ใช้ {group}',
   'usergroups_exit_succeed' => 'คุณได้ออกจากกลุ่มผู้ใช้ {group}',
   'usergroup_switch_not_allow' => 'กลุ่มผู้ใช้ปัจจุบันของคุณยังไม่หมดอายุและไม่สามารถเปลี่ยนเป็นกลุ่มผู้ใช้อื่นได้',
-  'usergroup_switch_not_allowvisit' => 'ขออภัยคุณไม่สามารถเปลี่ยนไปใช้กลุ่มผู้ใช้ที่ไม่สามารถเข้าถึงฟอรัมได้',
+  'usergroup_switch_not_allowvisit' => 'ขออภัยคุณไม่สามารถเปลี่ยนไปใช้กลุ่มผู้ใช้ที่ไม่สามารถเข้าถึงฟอรั่มได้',
   'usergroups_switch_succeed' => 'คุณเปลี่ยนไปใช้กลุ่มผู้ใช้ {group}',
 
   'no_privilege_banpost' => 'ขออภัยคุณไม่มีอำนาจในการบล็อกธีม',
@@ -976,11 +976,11 @@ $lang = array (
   'domain_be_retained' => 'ขออภัยชื่อโดเมนที่คุณตั้งไว้นั้นถูกเก็บไว้โดยระบบโปรดเลือกชื่อโดเมนอื่น ๆ',
   'two_domain_have_been_occupied' => 'ขออภัยชื่อโดเมนรองได้ถูกครอบครอง',
 
-  'forum_permforum_nomedal' => 'คุณต้องมีเหรียญต่อไปนี้เพื่อเข้าถึงส่วนนี้<br /><br />{forum_permforum_nomedal}&nbsp;<a href="home.php?mod=medal" class="xi1">คลิกเพื่อเข้าสู่หน้าเหรียญ</a>',
+  'forum_permforum_nomedal' => 'คุณต้องมีเหรียญตราต่อไปนี้เพื่อเข้าถึงส่วนนี้<br /><br />{forum_permforum_nomedal}&nbsp;<a href="home.php?mod=medal" class="xi1">คลิกเพื่อเข้าสู่หน้าเหรียญตรา</a>',
   'forum_permforum_disallow' => 'ผู้ใช้เฉพาะเท่านั้นที่สามารถเข้าถึงได้ในส่วนนี้',
   'forum_permforum_nopermission' => 'คุณต้องปฏิบัติตามเงื่อนไขต่อไปนี้เพื่อเข้าถึงส่วนนี้</p></div><div><p><b>เงื่อนไขการเข้าถึง: </b><br />&nbsp;&nbsp;&nbsp;{formulamessage}<br /><b>ข้อความของคุณ: </b>{usermsg} ',
   'forum_permforum_nopermission_custommsg' => '</p></div><div><p>{formulamessage} ',
-  'viewperm_none_nopermission' => 'ขออภัยคุณไม่ได้รับอนุญาตให้เข้าถึงฟอรัม</p></div><div>',
+  'viewperm_none_nopermission' => 'ขออภัยคุณไม่ได้รับอนุญาตให้เข้าถึงฟอรั่ม</p></div><div>',
   'viewperm_upgrade_nopermission' => 'ขออภัยคุณต้องอัพเกรดกลุ่มผู้ใช้ของคุณเพื่อเข้าถึงส่วน <a href="home.php?mod=spacecp&ac=usergroup&do=forum" target="_blank">คลิกที่นี่เพื่อดู</a>。</p></div><div><p><b>กลุ่มผู้ใช้หรือผู้ใช้ที่ได้รับการรับรองที่มีสิทธิ์เข้าถึงคือ:</b><br />&nbsp;&nbsp;&nbsp; {permgroups}',
   'viewperm_login_nopermission' => 'ขออภัยคุณยังไม่ได้เข้าสู่ระบบและยังไม่ได้รับอนุญาตให้ดูส่วนนี้',
   'postperm_upgrade_nopermission' => 'ขออภัยคุณต้องอัพเกรดกลุ่มผู้ใช้ที่คุณสามารถโพสต์ก่อนที่คุณจะโพสต์ได้โปรดรายละเอียดโปรด <a href="home.php?mod=spacecp&ac=usergroup&do=forum" target="_blank">คลิกที่นี่เพื่อดู</a>。</p></div><div><p><b>有权发帖的用户组或认证用户为：</b><br />&nbsp;&nbsp;&nbsp; {permgroups}',
@@ -991,7 +991,7 @@ $lang = array (
   'postattachperm_upgrade_nopermission' => 'ขออภัยคุณต้องอัพเกรดกลุ่มผู้ใช้ของคุณเพื่ออัปโหลดไฟล์แนบสำหรับรายละเอียดโปรดกรุณา <a href="home.php?mod=spacecp&ac=usergroup&do=forum" target="_blank">คลิกที่นี่เพื่อดู</a>。</p></div><div><p><b>กลุ่มผู้ใช้หรือผู้ใช้รับรองที่มีสิทธิ์อัปโหลดไฟล์แนบคือ:</b><br />&nbsp;&nbsp;&nbsp; {permgroups}',
   'postattachperm_login_nopermission' => 'ขออภัยคุณยังไม่ได้ลงชื่อเข้าใช้ไม่มีการอัปโหลดสิ่งที่แนบมา',
   'file_size_overflow' => 'ขออภัยไฟล์ไม่เกิน {size} ไบต์',
-  'forum_archiver_disabled' => 'ขออภัยฟอรัม Archiver ฟังก์ชั่นยังไม่เปิด',
+  'forum_archiver_disabled' => 'ขออภัยฟอรั่ม Archiver ฟังก์ชั่นยังไม่เปิด',
 
   'post_thread_closed_by_dateline' => 'ขออภัยผู้ดูแลระบบตั้งค่าส่วนนี้และเผยแพร่ใน {autoclose} ชุดรูปแบบของวันก่อนที่ท้องฟ้าจะปิดโดยอัตโนมัติและจะไม่มีการตอบกลับใหม่',
   'post_thread_closed_by_lastpost' => 'ขออภัยผู้ดูแลระบบตั้งค่าส่วนนี้และตอบกลับในที่สุด {autoclose} ชุดรูปแบบของวันก่อนที่ท้องฟ้าจะปิดโดยอัตโนมัติและจะไม่มีการตอบกลับใหม่',
@@ -1118,7 +1118,7 @@ $lang = array (
   'payment_retry_callback_no_exist' => 'ไม่มีหมายเลขคำสั่งซื้อ',
   'payment_retry_callback_no_pay' => 'คำสั่งซื้อจะไม่ชำระเงิน',
 
-  'secmobseccode_send_success' => 'การส่ง SMS สำเร็จโปรดป้อนรหัสการตรวจสอบ SMS ในหน้า',
+  'secmobseccode_send_success' => 'การSMS แจ้งเตือน สำเร็จโปรดป้อนรหัสการตรวจสอบ SMS ในหน้า',
   'secmobseccode_send_failure' => 'ความผิดปกติที่ไม่รู้จักโปรดลองอีกครั้ง',
   'secmobseccode_send_err_1' => 'ส่งช่วงเวลาข้อความสั้นเกินไปโปรดลองอีกครั้ง',
   'secmobseccode_send_err_2' => 'ข้อความที่คุณส่งมากเกินไปโปรดลองอีกครั้ง',

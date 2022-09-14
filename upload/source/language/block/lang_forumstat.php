@@ -13,8 +13,8 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'forumstat_name' => 'สถิติฟอรัม',
-	'forumstat_desc' => 'การโทรข้อมูลทางสถิติฟอรัม',
+	'forumstat_name' => 'สถิติฟอรั่ม',
+	'forumstat_desc' => 'การโทรข้อมูลทางสถิติฟอรั่ม',
 	'forumstat_forums_allow' => 'สถิติหมายเลขส่วนแสดง',
 	'forumstat_forums_order' => 'สถิติสารแสดงผล',
 	'forumstat_forums_text' => 'ข้อความเตือนความจำทางสถิติสีชมพู',

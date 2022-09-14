@@ -36,11 +36,11 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点信息' => 'action=setting&operation=basic',
+			'ข้อมูลเว็บไซต์' => 'action=setting&operation=basic',
 		),
 		'text' =>
 		array (
-			0 => '站点信息',
+			0 => 'ข้อมูลเว็บไซต์',
 		),
 	),
 	3 =>
@@ -619,11 +619,11 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'资料统计' => 'action=members&operation=stat',
+			'ข้อมูลทางสถิติ' => 'action=members&operation=stat',
 		),
 		'text' =>
 		array (
-			0 => '资料统计',
+			0 => 'ข้อมูลทางสถิติ',
 		),
 	),
 	56 =>
@@ -641,11 +641,11 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'发送手机通知' => 'action=members&operation=newsletter&do=mobile',
+			'发送SMS ประกาศ' => 'action=members&operation=newsletter&do=mobile',
 		),
 		'text' =>
 		array (
-			0 => '发送手机通知',
+			0 => '发送SMS ประกาศ',
 		),
 	),
 	58 =>
@@ -685,55 +685,55 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'积分奖惩' => 'action=members&operation=reward',
+			'รางวัล ลงโทษ' => 'action=members&operation=reward',
 		),
 		'text' =>
 		array (
-			0 => '积分奖惩',
+			0 => 'รางวัล ลงโทษ',
 		),
 	),
 	62 =>
 	array (
 		'index' =>
 		array (
-			'审核用户' => 'action=moderate&operation=members',
+			'ตรวจสอบผู้ใช้' => 'action=moderate&operation=members',
 		),
 		'text' =>
 		array (
-			0 => '审核用户',
+			0 => 'ตรวจสอบผู้ใช้',
 		),
 	),
 	63 =>
 	array (
 		'index' =>
 		array (
-			'管理组' => 'action=admingroup',
+			'จัดการกลุ่ม' => 'action=admingroup',
 		),
 		'text' =>
 		array (
-			0 => '管理组',
+			0 => 'จัดการกลุ่ม',
 		),
 	),
 	64 =>
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 		),
 		'text' =>
 		array (
-			0 => '用户组',
+			0 => 'กลุ่มผู้ใช้',
 		),
 	),
 	65 =>
 	array (
 		'index' =>
 		array (
-			'推荐关注' => 'action=specialuser&operation=follow',
+			'แนะนำให้ติดตาม' => 'action=specialuser&operation=follow',
 		),
 		'text' =>
 		array (
-			0 => '推荐关注',
+			0 => 'แนะนำให้ติดตาม',
 		),
 	),
 	66 =>
@@ -1015,22 +1015,22 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'安全大师' => 'action=optimizer&operation=security',
+			'ตรวจสอบความปลอดภัย' => 'action=optimizer&operation=security',
 		),
 		'text' =>
 		array (
-			0 => '安全大师',
+			0 => 'ตรวจสอบความปลอดภัย',
 		),
 	),
 	92 =>
 	array (
 		'index' =>
 		array (
-			'底层安全' => 'action=optimizer&operation=serversec',
+			'ความปลอดภัยเซิฟเวอร์' => 'action=optimizer&operation=serversec',
 		),
 		'text' =>
 		array (
-			0 => '底层安全',
+			0 => 'ความปลอดภัยเซิฟเวอร์',
 		),
 	),
 	93 =>
@@ -1356,7 +1356,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'管理组' => 'action=admingroup',
+			'จัดการกลุ่ม' => 'action=admingroup',
 			'主题管理权限' => 'action=admingroup&operation=edit&anchor=threadperm',
 		),
 		'text' =>
@@ -1433,7 +1433,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'管理组' => 'action=admingroup',
+			'จัดการกลุ่ม' => 'action=admingroup',
 			'帖子管理权限' => 'action=admingroup&operation=edit&anchor=postperm',
 		),
 		'text' =>
@@ -1465,7 +1465,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'管理组' => 'action=admingroup',
+			'จัดการกลุ่ม' => 'action=admingroup',
 			'管理面板权限' => 'action=admingroup&operation=edit&anchor=modcpperm',
 		),
 		'text' =>
@@ -1512,7 +1512,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'管理组' => 'action=admingroup',
+			'จัดการกลุ่ม' => 'action=admingroup',
 			'空间管理权限' => 'action=admingroup&operation=edit&anchor=spaceperm',
 		),
 		'text' =>
@@ -1552,7 +1552,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'管理组' => 'action=admingroup',
+			'จัดการกลุ่ม' => 'action=admingroup',
 			'其他权限' => 'action=admingroup&operation=edit&anchor=otherperm',
 		),
 		'text' =>
@@ -1575,7 +1575,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'管理组' => 'action=admingroup',
+			'จัดการกลุ่ม' => 'action=admingroup',
 			'门户管理权限' => 'action=admingroup&operation=edit&anchor=portalperm',
 		),
 		'text' =>
@@ -1630,7 +1630,7 @@ $lang = array (
 		'index' =>
 		array (
 			'相册管理' => 'action=album',
-			'搜索' => 'action=album&search=true',
+			'ค้นหา' => 'action=album&search=true',
 		),
 		'text' =>
 		array (
@@ -1638,7 +1638,7 @@ $lang = array (
 			1 => 'album_search_detail',
 			2 => '显示详细相册列表',
 			3 => 'album_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'resultsort',
 			6 => '结果排序',
 			7 => 'album_search_albumname',
@@ -1692,7 +1692,7 @@ $lang = array (
 			7 => 'announce_type',
 			8 => '公告类型',
 			9 => 'announce_message',
-			10 => '内容',
+			10 => 'เนื้อหา',
 			11 => '文字公告: 直接输入公告内容，支持 Discuz! 代码网址链接: 请输入公告的链接地址如某个主题地址: http://xxx.xxx.xxx',
 		),
 	),
@@ -1701,7 +1701,7 @@ $lang = array (
 		'index' =>
 		array (
 			'第三方模块' => 'action=blockxml',
-			'搜索' => 'action=blockxml&operation=add',
+			'ค้นหา' => 'action=blockxml&operation=add',
 		),
 		'text' =>
 		array (
@@ -1743,7 +1743,7 @@ $lang = array (
 		'index' =>
 		array (
 			'日志管理' => 'action=blog',
-			'搜索' => 'action=blog&search=true',
+			'ค้นหา' => 'action=blog&search=true',
 		),
 		'text' =>
 		array (
@@ -1751,7 +1751,7 @@ $lang = array (
 			1 => 'blog_search_detail',
 			2 => '显示详细日志列表',
 			3 => 'blog_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'resultsort',
 			6 => '结果排序',
 			7 => 'blog_search_uid',
@@ -1819,7 +1819,7 @@ $lang = array (
 		'index' =>
 		array (
 			'日志管理' => 'action=blog',
-			'搜索' => 'action=blog&search=true',
+			'ค้นหา' => 'action=blog&search=true',
 		),
 		'text' =>
 		array (
@@ -1827,7 +1827,7 @@ $lang = array (
 			1 => 'blog_search_detail',
 			2 => '显示详细日志列表',
 			3 => 'blog_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'resultsort',
 			6 => '结果排序',
 			7 => 'blog_search_uid',
@@ -1974,7 +1974,7 @@ $lang = array (
 			16 => '发表时间范围',
 			17 => '格式 yyyy-mm-dd，不限制请输入 0',
 			18 => 'feed_search_perpage',
-			19 => '每页显示数',
+			19 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			20 => 'collection_name',
 			21 => '淘专辑名称',
 			22 => 'collection_username',
@@ -2001,7 +2001,7 @@ $lang = array (
 			3 => 'comment_search_detail',
 			4 => '显示详细留言列表',
 			5 => 'comment_search_perpage',
-			6 => '每页显示数',
+			6 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			7 => 'comment_idtype',
 			8 => '评论类型',
 			9 => 'comment_search_id',
@@ -2040,7 +2040,7 @@ $lang = array (
 			1 => 'comment_',
 			2 => '',
 			3 => 'comment_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'comment_search_message',
 			6 => '评论内容',
 			7 => 'comment_search_author',
@@ -2138,7 +2138,7 @@ $lang = array (
 		'index' =>
 		array (
 			'数据库' => 'action=db&operation=export',
-			'优化' => 'action=db&operation=optimize',
+			'ปรับปรุง' => 'action=db&operation=optimize',
 		),
 		'text' =>
 		array (
@@ -2178,7 +2178,7 @@ $lang = array (
 		'index' =>
 		array (
 			'记录管理' => 'action=doing',
-			'搜索' => 'action=doing&search=true',
+			'ค้นหา' => 'action=doing&search=true',
 		),
 		'text' =>
 		array (
@@ -2186,7 +2186,7 @@ $lang = array (
 			1 => 'doing_search_detail',
 			2 => '显示详细记录列表',
 			3 => 'doing_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'doing_search_user',
 			6 => '发表记录用户名',
 			7 => '多用户名中间请用半角逗号 "," 隔开',
@@ -3040,7 +3040,7 @@ $lang = array (
 			5 => 'email',
 			6 => 'Email',
 			7 => 'usergroup',
-			8 => '用户组',
+			8 => 'กลุ่มผู้ใช้',
 			9 => 'members_add_email_notify',
 			10 => '发送通知到上述地址',
 		),
@@ -3055,7 +3055,7 @@ $lang = array (
 		array (
 			0 => '编辑会员用户组',
 			1 => 'usergroup',
-			2 => '用户组',
+			2 => 'กลุ่มผู้ใช้',
 			3 => 'members_group_group',
 			4 => '所属用户组',
 			5 => 'members_group_related_adminid',
@@ -3481,7 +3481,7 @@ $lang = array (
 		'index' =>
 		array (
 			'图片管理' => 'action=pic',
-			'搜索' => 'action=pic&search=true',
+			'ค้นหา' => 'action=pic&search=true',
 		),
 		'text' =>
 		array (
@@ -3489,7 +3489,7 @@ $lang = array (
 			1 => 'pic_search_detail',
 			2 => '显示详细图片列表',
 			3 => 'pic_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'resultsort',
 			6 => '结果排序',
 			7 => 'pic_search_albumid',
@@ -3531,7 +3531,7 @@ $lang = array (
 		'index' =>
 		array (
 			'帖子点评管理' => 'action=postcomment',
-			'搜索' => 'action=postcomment&search=true',
+			'ค้นหา' => 'action=postcomment&search=true',
 		),
 		'text' =>
 		array (
@@ -3539,7 +3539,7 @@ $lang = array (
 			1 => 'postcomment_search_detail',
 			2 => '显示详细点评列表',
 			3 => 'comment_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'postcomment_content',
 			6 => '点评内容',
 			7 => 'postcomment_search_tid',
@@ -3608,7 +3608,7 @@ $lang = array (
 			7 => 'prune_search_forum',
 			8 => '所在版块',
 			9 => 'prune_search_perpage',
-			10 => '每页显示数',
+			10 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			11 => 'prune_search_time',
 			12 => '发表时间范围',
 			13 => '格式 yyyy-mm-dd，不限制请输入 0',
@@ -3631,7 +3631,7 @@ $lang = array (
 		'index' =>
 		array (
 			'主题回收站' => 'action=recyclebin',
-			'搜索' => 'action=recyclebin&operation=search',
+			'ค้นหา' => 'action=recyclebin&operation=search',
 		),
 		'text' =>
 		array (
@@ -3681,7 +3681,7 @@ $lang = array (
 		'index' =>
 		array (
 			'回帖回收站' => 'action=recyclebinpost',
-			'搜索' => 'action=recyclebinpost&operation=search',
+			'ค้นหา' => 'action=recyclebinpost&operation=search',
 		),
 		'text' =>
 		array (
@@ -3754,37 +3754,37 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点信息' => 'action=setting&operation=basic',
+			'ข้อมูลเว็บไซต์' => 'action=setting&operation=basic',
 		),
 		'text' =>
 		array (
-			0 => '站点信息',
+			0 => 'ข้อมูลเว็บไซต์',
 			1 => 'setting_basic_bbname',
-			2 => '站点名称',
+			2 => 'ชื่อเว็บไซต์',
 			3 => '站点名称，将显示在浏览器窗口标题等位置',
 			4 => 'setting_basic_sitename',
-			5 => '网站名称',
+			5 => 'ชื่อย่อเว็บไซต์',
 			6 => '网站名称，将显示在页面底部的联系方式处',
 			7 => 'setting_basic_siteurl',
-			8 => '网站 URL',
+			8 => 'เว็บไซต์ URL',
 			9 => '网站 URL，将作为链接显示在页面底部',
 			10 => 'setting_basic_adminemail',
-			11 => '管理员邮箱',
+			11 => 'อีเมลผู้ดูแลระบบ',
 			12 => '管理员 E-mail，将作为系统发邮件的时候的发件人地址',
 			13 => 'setting_basic_site_qq',
-			14 => 'QQ在线客服号码',
+			14 => 'หมายเลขบริการลูกค้าออนไลน์ของ QQ',
 			15 => '设置我的QQ在线状态',
 			16 => 'setting_basic_icp',
-			17 => '网站备案信息代码',
+			17 => 'เลขใบอนุญาตการใช้งานไอพี',
 			18 => '页面底部可以显示 ICP 备案信息，如果网站已备案，在此输入您的授权码，它将显示在页面底部，如果没有请留空',
 			19 => 'setting_basic_boardlicensed',
-			20 => '显示授权信息链接',
+			20 => 'แสดงลิงค์ใบอนุญาต',
 			21 => '选择“是”将在页脚显示商业授权用户链接，链接将指向 Discuz! 官方网站，用户可通过此链接验证其所使用的 Discuz! 是否经过商业授权',
 			22 => 'setting_basic_stat',
-			23 => '网站第三方统计代码',
-			24 => '页面底部可以显示第三方统计',
+			23 => 'สคริปนับสถิติจากบุคคลที่สามของเว็บไซต์',
+			24 => 'ตัวนับสถิติของบุคคลที่สามสามารถแสดงที่ด้านล่างของเพจ',
 			25 => 'setting_basic_bbclosed',
-			26 => '关闭站点',
+			26 => 'ปิดเว็บไซต์',
 			27 => '暂时将站点关闭，其他人无法访问，但不影响管理员访问',
 			28 => 'setting_basic_closedreason',
 			29 => '关闭站点的原因',
@@ -4026,8 +4026,8 @@ $lang = array (
 			5 => 'อนุญาตให้เข้าถึงไซต์ IP รายการ',
 			6 => 'เฉพาะเมื่อผู้ใช้อยู่ในรายการนี้ IP คุณสามารถเข้าถึงเว็บไซต์นี้เมื่อที่อยู่และที่อยู่เข้าถึงนอกรายการจะได้รับการพิจารณา IP มันเป็นสิ่งต้องห้ามและใช้ได้เฉพาะกับโอกาสแต่ละครั้งเช่นองค์กรและโรงเรียนฟังก์ชั่นนี้ไม่มีกรณีพิเศษสำหรับผู้ดูแลระบบหากผู้ดูแลระบบจะไม่สามารถเข้าสู่ระบบภายในขอบเขตของรายการนี้โปรดใช้ฟังก์ชั่นนี้ทั้งหมด IP หนึ่งบรรทัดคุณสามารถป้อนที่อยู่เต็มหรืออินพุตเท่านั้น IP ตัวอย่างเช่น "192.168."(ไม่มีใบเสนอราคา) การแข่งขัน 192.168.0.0～192.168.255.255 ที่อยู่ทั้งหมดในช่วงว่างเปล่า IP ยกเว้นข้อห้ามคุณสามารถเข้าถึงได้',
 			7 => 'setting_access_access_adminipaccess',
-			8 => 'อนุญาตให้เข้าถึงศูนย์การจัดการ IP รายการ',
-			9 => 'เฉพาะเมื่อผู้ใช้อยู่ในรายการนี้ IP คุณสามารถเข้าถึงศูนย์การจัดการไซต์ได้ตามที่อยู่การเข้าถึงที่อยู่นอกรายการจะไม่สามารถเข้าถึงได้ แต่คุณยังสามารถเข้าถึงส่วนต่อประสานผู้ใช้ด้านหน้าของไซต์ได้โปรดระวังการใช้ฟังก์ชั่นนี้ทั้งหมด IP หนึ่งบรรทัดคุณสามารถป้อนที่อยู่เต็มหรืออินพุตเท่านั้น IP ตัวอย่างเช่น "192.168."(ไม่มีใบเสนอราคา) การแข่งขัน 192.168.0.0～192.168.255.255 ที่อยู่ทั้งหมดในช่วงว่างเปล่า IP นอกเหนือจากข้อห้ามคุณสามารถเข้าถึงศูนย์การจัดการ',
+			8 => 'รายการ IP ที่อนุญาตให้เข้าถึงศูนย์บริหารจัดการ',
+			9 => 'เฉพาะเมื่อผู้ใช้อยู่ในรายการ IP นี้เท่านั้นที่สามารถเข้าถึงศูนย์บริหารจัดการไซต์ นอกรายการจะไม่สามารถเข้าถึงได้ แต่คุณยังสามารถเข้าถึงส่วนต่อประสานผู้ใช้ด้านหน้าของไซต์ได้โปรดระวังการใช้ฟังก์ชั่นนี้ทั้งหมด IP หนึ่งบรรทัดคุณสามารถป้อนที่อยู่เต็มหรืออินพุตเท่านั้น IP ตัวอย่างเช่น "192.168."(ไม่มีใบเสนอราคา) การแข่งขัน 192.168.0.0～192.168.255.255 ที่อยู่ทั้งหมดในช่วงว่างเปล่า IP นอกเหนือจากข้อห้ามคุณสามารถเข้าถึงศูนย์บริหารจัดการ',
 			10 => 'setting_access_access_domainwhitelist',
 			11 => 'อนุญาตให้รายการชื่อโดเมนที่เผยแพร่',
 			12 => 'เมื่อกลุ่มผู้ใช้ถูกห้ามไม่ให้เผยแพร่ URL ,หรือ URL เมื่อไม่ได้วิเคราะห์จะอยู่ภายใต้ชื่อโดเมนในรายการนี้ URL มันยังสามารถเผยแพร่ตามปกติและวิเคราะห์ตามปกติแต่ละบรรทัดของชื่อโดเมนสามารถเผยแพร่ได้ตามปกติโดยค่าเริ่มต้น',
@@ -5957,7 +5957,7 @@ $lang = array (
 		'index' =>
 		array (
 			'分享管理' => 'action=share',
-			'搜索' => 'action=share&search=true',
+			'ค้นหา' => 'action=share&search=true',
 		),
 		'text' =>
 		array (
@@ -5965,7 +5965,7 @@ $lang = array (
 			1 => 'share_search_detail',
 			2 => '显示详细分享列表',
 			3 => 'share_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'share_search_icon',
 			6 => '分享类型',
 			7 => 'share_search_uid',
@@ -6022,11 +6022,11 @@ $lang = array (
 		array (
 			0 => '标签管理',
 			1 => 'tagname',
-			2 => '标签名称',
+			2 => 'ชื่อแท็ก',
 			3 => 'feed_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'misc_tag_status',
-			6 => '状态',
+			6 => 'สถานะ',
 		),
 	),
 	275 =>
@@ -6048,7 +6048,7 @@ $lang = array (
 		'index' =>
 		array (
 			'论坛主题管理' => 'action=threads',
-			'搜索' => 'action=threads&search=true',
+			'ค้นหา' => 'action=threads&search=true',
 		),
 		'text' =>
 		array (
@@ -6056,7 +6056,7 @@ $lang = array (
 			1 => 'threads_search_detail',
 			2 => '显示详细主题列表',
 			3 => 'threads_search_perpage',
-			4 => '每页显示数',
+			4 => 'จำนวนแสดงผลในหนึ่งหน้า',
 			5 => 'threads_search_time',
 			6 => '发表时间范围',
 			7 => '格式 yyyy-mm-dd，不限制请输入 0',
@@ -6195,11 +6195,11 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 		),
 		'text' =>
 		array (
-			0 => '用户组',
+			0 => 'กลุ่มผู้ใช้',
 			1 => 'usergroups_tips',
 			2 => '用户组分为系统组、会员组和自定义组，会员组以积分确定组别和权限，而系统组和自定义组是人为设定，不会由系统自行改变。系统组和自定义组的设定不需要指定积分，Discuz! 预留了从站点管理员到游客等的 8 个系统头衔，自定义组的用户需要在编辑会员时将其加入。会员用户组至少分为两组，其积分下限分别为负值(任一负数)和 0，否则将导致部分用户无法与用户组匹配的问题。',
 		),
@@ -6208,7 +6208,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'基本设置' => 'action=usergroups&operation=edit&anchor=system',
 		),
 		'text' =>
@@ -6229,7 +6229,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'基本设置' => 'action=usergroups&operation=edit&anchor=basic',
 		),
 		'text' =>
@@ -6327,7 +6327,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'特殊主题' => 'action=usergroups&operation=edit&anchor=special',
 		),
 		'text' =>
@@ -6380,7 +6380,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'帖子相关' => 'action=usergroups&operation=edit&anchor=post',
 		),
 		'text' =>
@@ -6470,16 +6470,16 @@ $lang = array (
 			82 => '设置是否允许在没有设置特殊权限的论坛中查看图片',
 			83 => 'usergroups_edit_attach_post',
 			84 => '允许上传附件',
-			85 => 'การตั้งค่าว่าจะอัปโหลดไปยังฟอรัมโดยไม่ได้รับอนุญาตพิเศษความต้องการ PHP การตั้งค่าอนุญาตให้ใช้งานได้โปรดดูหน้าแรกของศูนย์การจัดการ',
+			85 => 'การตั้งค่าว่าจะอัปโหลดไปยังฟอรั่มโดยไม่ได้รับอนุญาตพิเศษความต้องการ PHP การตั้งค่าอนุญาตให้ใช้งานได้โปรดดูหน้าแรกของศูนย์บริหารจัดการ',
 			86 => 'usergroups_edit_attach_set_perm',
 			87 => '允许设置附件权限',
 			88 => '设置是否允许设置附件需要指定积分以上才可下载',
 			89 => 'usergroups_edit_image_post',
 			90 => '允许上传图片',
-			91 => 'การตั้งค่าว่าจะอัปโหลดรูปภาพไปยังฟอรัมโดยไม่ได้รับอนุญาตพิเศษความต้องการ PHP การตั้งค่าอนุญาตให้ใช้งานได้โปรดดูหน้าแรกของศูนย์การจัดการ',
+			91 => 'การตั้งค่าว่าจะอัปโหลดรูปภาพไปยังฟอรั่มโดยไม่ได้รับอนุญาตพิเศษความต้องการ PHP การตั้งค่าอนุญาตให้ใช้งานได้โปรดดูหน้าแรกของศูนย์บริหารจัดการ',
 			92 => 'usergroups_edit_attach_max_size',
 			93 => '论坛最大附件尺寸(单位K 1M=1024K)',
-			94 => '设置附件最大尺寸(单位K 1M=1024K)，0 สำหรับไม่มีข้อ จำกัด จำเป็นต้อง PHP การตั้งค่าอนุญาตให้ใช้งานได้โปรดดูหน้าแรกของศูนย์การจัดการ',
+			94 => '设置附件最大尺寸(单位K 1M=1024K)，0 สำหรับไม่มีข้อ จำกัด จำเป็นต้อง PHP การตั้งค่าอนุญาตให้ใช้งานได้โปรดดูหน้าแรกของศูนย์บริหารจัดการ',
 			95 => 'usergroups_edit_attach_max_size_per_day',
 			96 => '每天最大附件总尺寸(单位K 1M=1024K)',
 			97 => '设置用户每天可以上传的附件总量(单位K 1M=1024K)，0 为不限制',
@@ -6495,7 +6495,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'道具相关' => 'action=usergroups&operation=edit&anchor=magic',
 		),
 		'text' =>
@@ -6518,7 +6518,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'注册相关' => 'action=usergroups&operation=edit&anchor=invite',
 		),
 		'text' =>
@@ -6547,7 +6547,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'积分相关' => 'action=usergroups&operation=edit&anchor=credit',
 		),
 		'text' =>
@@ -6573,7 +6573,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'空间相关' => 'action=usergroups&operation=edit&anchor=home',
 		),
 		'text' =>
@@ -6598,7 +6598,7 @@ $lang = array (
 			17 => '上传图片需要审核',
 			18 => 'usergroups_edit_home_image_max_size',
 			19 => '相册单张图片最大尺寸(单位K 1M=1024K)',
-			20 => 'ตั้งค่าขนาดสูงสุดของภาพเดียวของอัลบั้ม(单位K 1M=1024K)，0 ไม่มีข้อ จำกัด ใด ๆ PHP การตั้งค่าอนุญาตให้ใช้งานได้โปรดดูหน้าแรกของศูนย์การจัดการ',
+			20 => 'ตั้งค่าขนาดสูงสุดของภาพเดียวของอัลบั้ม(单位K 1M=1024K)，0 ไม่มีข้อ จำกัด ใด ๆ PHP การตั้งค่าอนุญาตให้ใช้งานได้โปรดดูหน้าแรกของศูนย์บริหารจัดการ',
 			21 => 'usergroups_edit_home_allow_share',
 			22 => '发布分享',
 			23 => 'usergroups_edit_home_allow_share_mod',
@@ -6632,7 +6632,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'群组相关' => 'action=usergroups&operation=edit&anchor=group',
 		),
 		'text' =>
@@ -6656,7 +6656,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'用户组' => 'action=usergroups',
+			'กลุ่มผู้ใช้' => 'action=usergroups',
 			'门户相关' => 'action=usergroups&operation=edit&anchor=portal',
 		),
 		'text' =>

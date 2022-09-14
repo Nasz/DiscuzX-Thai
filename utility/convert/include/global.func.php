@@ -158,9 +158,9 @@ function timetounix($time) {
 	if($time > 100000000) {
 		return $time;
 	}
-	$time = str_replace(array(' 一月 ',' 二月 ',' 三月 ',' 四月 ',' 五月 ',' 六月 ',' 七月 ',' 八月 ',' 九月 ',' 十月 ',' 十一月 ',' 十二月 ', ' 上午 '), array('-1-','-2-','-3-','-4-','-5-','-6-','-7-','-8-','-9-','-10-','-11-','-12-', ' '), $time);
-	if(strrchr($time, '下午') !== false) {
-		return strtotime(str_replace(' 下午 ', ' ', $time)) + 43200;
+	$time = str_replace(array(' มกราคม ',' กุมภาพันธ์ ',' มีนาคม ',' เมษายน ',' พฤษภาคม ',' มิถุนายน ',' กรกฎาคม ',' สิงหาคม ',' กันยายน ',' ตุลาคม ',' พฤศจิกายน ',' ธันวาคม ', ' ตอนเช้า '), array('-1-','-2-','-3-','-4-','-5-','-6-','-7-','-8-','-9-','-10-','-11-','-12-', ' '), $time);
+	if(strrchr($time, 'ตอนบ่าย') !== false) {
+		return strtotime(str_replace(' ตอนบ่าย ', ' ', $time)) + 43200;
 	} else {
 		return strtotime($time);
 	}
@@ -227,7 +227,7 @@ function showmessage($message, $url_forward = '', $vars = array(), $timeout = 1)
 
 	echo <<<EOT
 <table class="showtable">
-	<tbody><tr class="title"><td style="color: white">系统提示</td></tr>
+	<tbody><tr class="title"><td style="color: white">คำเตือนระบบ</td></tr>
 		<tr><td style="padding: 10px; background-color: #fefefe;font-size: 14px "><br>$message<br><br></td></tr>
 		<tr><td>$messageadd</td></tr>
 	</tbody>
@@ -249,7 +249,7 @@ echo <<<EOT
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Discuz! X 系列产品升级转换</title>
+<title>การคอนเวิร์ทเพื่อการอัพเกรดผลิตภัณฑ์ Discuz! X</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 body,td { font-family: Tahoma; font-size: 12px; line-height: 150%;}
@@ -327,15 +327,15 @@ function checkAll(type, form, value, checkall, changestyle) {
 </head>
 <body style="table-layout:fixed; word-break:break-all; margin-top: 4px;">
 <div class="main">
-<h1>Discuz! X 系列产品升级/转换 向导 $titleadd</h1>
+<h1>ชุดของตัวช่วยสร้างการอัพเกรด/แปลงผลิตภัณฑ์ Discuz! X $titleadd</h1>
 <div class="content">
 <table id="menu">
 	<tr>
-	<td $class[source]>1.选择产品转换程序 </td>
-	<td $class[config]>2.设置服务器信息 </td>
-	<td $class[select]>3.配置转换过程 </td>
-	<td $class[convert]>4.执行数据转换 </td>
-	<td $class[finish]>5.转换完成 </td>
+	<td $class[source]>1.เลือกโปรแกรมการแปลงผลิตภัณฑ์ </td>
+	<td $class[config]>2.ตั้งค่าข้อมูลเซิร์ฟเวอร์ </td>
+	<td $class[select]>3.กำหนดค่ากระบวนคอนเวิร์ท </td>
+	<td $class[convert]>4.ทำการแปลงข้อมูล </td>
+	<td $class[finish]>5.รูปแบบข้อมูลที่ทันสมัย </td>
 	</tr>
 </table>
 

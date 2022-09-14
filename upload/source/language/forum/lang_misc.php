@@ -320,7 +320,7 @@ $lang = array
 	'plugin_memo' => '您有 <span class="xi1">{number}</span> 款应用有可用更新',
 	'plugin_link' => '现在更新',
 
-	'seccode' => 'รหัสตรวจสอบ',
+	'seccode' => 'แคปต์ชา',
 	'seccode_update' => 'เปลี่ยน',
 	'seccode_player' => '<span style="padding:2px"><img border="0" style="vertical-align:middle" src="'.STATICURL.'image/common/seccodeplayer.gif" /> <a href="javascript:;" id="seccodeplay_{idhash}">播放验证码</a></span>',
 	'secqaa' => 'ยืนยันคำตอบ',

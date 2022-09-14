@@ -73,7 +73,7 @@ INSERT INTO pre_common_member_profile_setting VALUES('constellation', 1, 1, 0, '
 INSERT INTO pre_common_member_profile_setting VALUES('zodiac', 1, 1, 0, 'จักรราศี', 'จักรราศี(กรอกอัตโนมัติตามวันเกิด)', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('telephone', 1, 1, 0, 'โทรศัพท์ประจำที่', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('mobile', 1, 1, 0, 'โทรศัพท์มือถือ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('idcardtype', 1, 1, 0, 'ประเภทของใบรับรอง', 'บัตรประจำตัวประชาชน หนังสือเดินทาง ใบขับขี่ ฯลฯ', 0, 0, 0, 0, 0, 0, 0, 'select', 0, 'บัตรประจำตัวประชาชน\nหนังสือเดินทาง\nใบอนุญาตขับรถ', '');
+INSERT INTO pre_common_member_profile_setting VALUES('idcardtype', 1, 1, 0, 'ประเภทของใบอนุญาต', 'บัตรประจำตัวประชาชน หนังสือเดินทาง ใบขับขี่ ฯลฯ', 0, 0, 0, 0, 0, 0, 0, 'select', 0, 'บัตรประจำตัวประชาชน\nหนังสือเดินทาง\nใบอนุญาตขับรถ', '');
 INSERT INTO pre_common_member_profile_setting VALUES('idcard', 1, 1, 0, 'เลขที่ใบอนุญาต', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('address', 1, 1, 0, 'ที่อยู่ทางไปรษณีย์', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('zipcode', 1, 1, 0, 'รหัสไปรษณีย์', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
@@ -283,7 +283,7 @@ INSERT INTO pre_common_setting VALUES ('commentpostself','0');
 INSERT INTO pre_common_setting VALUES ('connect', 'a:19:{s:5:"allow";s:1:"1";s:4:"feed";a:2:{s:5:"allow";s:1:"1";s:5:"group";s:1:"0";}s:1:"t";a:2:{s:5:"allow";s:1:"1";s:5:"group";s:1:"0";}s:10:"like_allow";s:1:"1";s:7:"like_qq";s:0:"";s:10:"turl_allow";s:1:"1";s:7:"turl_qq";s:0:"";s:8:"like_url";s:0:"";s:17:"register_birthday";s:1:"0";s:15:"register_gender";s:1:"0";s:17:"register_uinlimit";s:0:"";s:21:"register_rewardcredit";s:1:"1";s:18:"register_addcredit";s:0:"";s:16:"register_groupid";s:1:"0";s:18:"register_regverify";s:1:"1";s:15:"register_invite";s:1:"0";s:10:"newbiespan";s:0:"";s:9:"turl_code";s:0:"";s:13:"mblog_app_key";s:3:"abc";}');
 INSERT INTO pre_common_setting VALUES ('creditnotice','1');
 INSERT INTO pre_common_setting VALUES ('creditsformula','posts+digestposts*5+extcredits1*2+extcredits2+extcredits3');
-INSERT INTO pre_common_setting VALUES ('creditsformulaexp','<u>คะแนนรวม</u>=<u>จำนวนโพสต์</u>+<u>จำนวนตอบกลับ</u>*5+<u>ศักดิ์ศรี</u>*2+<u>เงิน</u>+<u>สนับสนุน</u>');
+INSERT INTO pre_common_setting VALUES ('creditsformulaexp','<u>คะแนนรวม</u>=<u>จำนวนโพสต์</u>+<u>จำนวนตอบกลับ</u>*5+<u>ศักดิ์ศรี</u>*2+<u>เหรียญ</u>+<u>สนับสนุน</u>');
 INSERT INTO pre_common_setting VALUES ('creditsnotify','');
 INSERT INTO pre_common_setting VALUES ('creditspolicy','a:12:{s:4:\"post\";a:0:{}s:5:\"reply\";a:0:{}s:6:\"digest\";a:1:{i:1;i:10;}s:10:\"postattach\";a:0:{}s:9:\"getattach\";a:0:{}s:6:\"sendpm\";a:0:{}s:6:\"search\";a:0:{}s:15:\"promotion_visit\";a:0:{}s:18:\"promotion_register\";a:0:{}s:13:\"tradefinished\";a:0:{}s:8:\"votepoll\";a:0:{}s:10:\"lowerlimit\";a:0:{}}');
 INSERT INTO pre_common_setting VALUES ('creditspolicymobile','0');

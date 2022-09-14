@@ -1,4 +1,4 @@
-<?phpวด์
+<?php
 
 $languages = array(
 	'title'=>'标题',
@@ -22,11 +22,11 @@ $languages = array(
 
 	'copyright' => 'ลิขสิทธิ์ &copy; 2001-'.date('Y').' เทนเซ็นต์คลาวด์',
 
-	'founder'=>'UCenter创始人',
-	'login_username'=>'用户名',
-	'login_password'=>'密　码',
+	'founder'=>'ผู้ก่อตั้ง UCenter',
+	'login_username'=>'ชื่อผู้ใช้',
+	'login_password'=>'รหัสผ่าน',
 	'login_submit'=>'登 录',
-	'login_seccode'=>'รหัสตรวจสอบ',
+	'login_seccode'=>'แคปต์ชา',
 	'login_incorrect' => '<em>登录失败!</em><br />用户名无效，或密码错误。',
 	'login_founder_incorrect' => 'UCenter创始人密码错误',
 	'login_admin_noexists' => '该管理员不存在',
@@ -63,7 +63,7 @@ $languages = array(
 	'pm_system_pm'=>'系统消息',
 	'pm_ignore_list'=>'忽略列表',
 	'pm_ignore_list_comment'=>'添加到该列表中的用户给您发送短消息时将不予接收<br />添加多个忽略人员名单时用逗号 "," 隔开，如“张三,李四,王五”<br />如需禁止所有用户发来的短消息，请设置为 "&#123;ALL&#125;"',
-	'save'=>'保存',
+	'save'=>'บันทึก',
 	'pm_central'=>'短消息中心',
 	'pm_send'=>'发送短消息',
 	'pm_send_announce'=>'发送公共消息',
@@ -359,7 +359,7 @@ $languages = array(
 	'ip' => 'IP',
 
 	'user_search' => '搜索用户',
-	'user_name' => '用户名',
+	'user_name' => 'ชื่อผู้ใช้',
 	'user_regdate' => '注册日期',
 	'user_regip' => '注册IP',
 	'user_before' => '之前',
@@ -447,11 +447,11 @@ $languages = array(
 	'home_attach_size' => 'พื้นที่จัดเก็บไฟล์แนบ',
 	'home_dev' => 'Discuz! ทีมพัฒนา',
 	'home_dev_copyright' => 'สงวนลิขสิทธิ์',
-	'home_dev_manager' => 'การวางแผนทั่วไปและผู้จัดการโครงการ',
+	'home_dev_manager' => 'ผู้จัดการโครงการ',
 	'home_dev_team' => 'ทีมพัฒนา',
 	'home_safe_team' => 'ทีมรักษาความปลอดภัย',
 	'home_supported_team' => 'ทีมสนับสนุน',
-	'home_supported_ui' => 'ทีมอินเทอร์เฟซและประสบการณ์ผู้ใช้',
+	'home_supported_ui' => 'ทีม UI/UX',
 	'home_supported_thanks' => 'ขอบคุณผู้สนับสนุน',
 	'home_dev_addons' => 'Hack ออกแบบด้วยปลั๊กใน',
 	'home_dev_skins' => 'การออกแบบบทความอินเทอร์เฟซ',

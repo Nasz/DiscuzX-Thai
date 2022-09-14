@@ -16,7 +16,7 @@ $_config['db']['common']['slave_except_table'] = '';
 $_config['db']['common']['engine'] = 'innodb';
 
 // --------------------------  CONFIG MEMORY  --------------------------- //
-$_config['memory']['prefix'] = 'bNzt75_';
+$_config['memory']['prefix'] = 'u4qIg4_';
 $_config['memory']['redis']['server'] = '';
 $_config['memory']['redis']['port'] = 6379;
 $_config['memory']['redis']['pconnect'] = 1;
@@ -57,12 +57,12 @@ $_config['output']['upgradeinsecure'] = 0;
 $_config['output']['css4legacyie'] = 1;
 
 // --------------------------  CONFIG COOKIE  --------------------------- //
-$_config['cookie']['cookiepre'] = 'UAT4_';
+$_config['cookie']['cookiepre'] = '8eQR_';
 $_config['cookie']['cookiedomain'] = '';
 $_config['cookie']['cookiepath'] = '/';
 
 // -------------------------  CONFIG SECURITY  -------------------------- //
-$_config['security']['authkey'] = '05b77b836979558afdc642ff106963ecuIqjJLnJZSUFeVenM90nSDANSxEDfKsb';
+$_config['security']['authkey'] = '18930f77acfada4078f448a1e3f57e76ADUZFw47IJ3QCyDSbUMBcph3oiCqvpVm';
 $_config['security']['urlxssdefend'] = 1;
 $_config['security']['attackevasive'] = 0;
 $_config['security']['onlyremoteaddr'] = 1;

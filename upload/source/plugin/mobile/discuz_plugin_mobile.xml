@@ -66,7 +66,7 @@
 				<item id="invite_code"><![CDATA[邀请码]]></item>
 				<item id="register_message"><![CDATA[注册原因]]></item>
 				<item id="seccode"><![CDATA[验证码]]></item>
-				<item id="change_seccode"><![CDATA[换一个]]></item>
+				<item id="change_seccode"><![CDATA[เปลี่ยน]]></item>
 				<item id="secqaa"><![CDATA[验证问答]]></item>
 				<item id="close"><![CDATA[关闭]]></item>
 				<item id="admin_tips"><![CDATA[尊敬的站长，您可以在Discuz!程序根目录上传"mobile.png"图片(尺寸178x178)，以确保论坛客户端能成功获得到论坛的logo]]></item>

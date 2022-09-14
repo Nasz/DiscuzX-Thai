@@ -321,9 +321,9 @@ $lang = array
 	'plugin_link' => '现在更新',
 
 	'seccode' => 'รหัสตรวจสอบ',
-	'seccode_update' => '换一个',
+	'seccode_update' => 'เปลี่ยน',
 	'seccode_player' => '<span style="padding:2px"><img border="0" style="vertical-align:middle" src="'.STATICURL.'image/common/seccodeplayer.gif" /> <a href="javascript:;" id="seccodeplay_{idhash}">播放验证码</a></span>',
-	'secqaa' => '验证问答',
+	'secqaa' => 'ยืนยันคำตอบ',
 
 	'mobileoem_creditrule' => '掌上论坛签到',
 

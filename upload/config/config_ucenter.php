@@ -16,7 +16,7 @@ define('UC_AVTURL', '');
 define('UC_AVTPATH', '');
 
 define('UC_CHARSET', 'utf-8');
-define('UC_KEY', 'weTbx0d0y6idJ3v3f8K6a169TaP3T7Ffp688Vap670q0E6w6WdzaL2W005P2V4Y2');
+define('UC_KEY', 'AcMdrcq636l07eC1raXeNcres0zfK4fdo225l7m7a290Y9H8Se41Z1ydE4G3Qekd');
 define('UC_API', 'http://localhost:8080/uc_server');
 define('UC_APPID', '1');
 define('UC_IP', '');

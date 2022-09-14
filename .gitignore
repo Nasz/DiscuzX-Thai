@@ -1,9 +1,10 @@
-data/cache/*
-data/log/*
-data/sysdata/*
-data/template/*
-uc_server/data/logs/*
-uc_server/data/cache/*
-uc_server/data/config.inc.php
+upload/data/cache/*
+upload/data/log/*
+upload/data/sysdata/*
+upload/data/template/*
+upload/uc_server/data/avatar/*
+upload/uc_server/data/cache/*
+upload/uc_server/data/config.inc.php
+upload/uc_server/data/logs/*
 *.lock
 *.bak

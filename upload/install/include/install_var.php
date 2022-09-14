@@ -13,7 +13,7 @@ if(!defined('IN_COMSENZ')) {
 
 define('SOFT_NAME', 'Discuz!');
 
-define('INSTALL_LANG', 'SC_UTF8');
+define('INSTALL_LANG', 'TH_UTF8');
 
 define('CONFIG', './config/config_global.php');
 define('CONFIG_UC', './config/config_ucenter.php');
@@ -365,11 +365,12 @@ $serialize_sql_setting = array (
       array (
         'telephone' => 'telephone',
         'mobile' => 'mobile',
-        'icq' => 'icq',
-        'qq' => 'qq',
-        'yahoo' => 'yahoo',
-        'msn' => 'msn',
-        'taobao' => 'taobao',
+        'facebook' => 'facebook',
+        'line' => 'wechat',
+        'twitter' => 'twitter',
+        'instagram' => 'instagram',
+        'tiktok' => 'tiktok',
+        'wechat' => 'wechat',
       ),
     ),
     'edu' =>

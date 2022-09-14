@@ -21,7 +21,7 @@ define('UC_VERNAME', 'ภาษาไทย');
 $lang = array(
 	'SC_UTF8' => 'เวอร์ชัน UTF8 ภาษาจีนตัวย่อ',
 	'TC_UTF8' => 'เวอร์ชัน UTF8 ภาษาจีนตัวเต็ม',
-	'TH_UTF8' => 'ภาษาไทย UTF8',
+	'TH_UTF8' => 'เวอร์ชั่น UTF8 ภาษาไทย',
 
 	'title_install' => SOFT_NAME.' คู่มือการติดตั้ง',
 	'agreement_yes' => 'ยอมรับ',

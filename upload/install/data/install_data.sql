@@ -91,7 +91,7 @@ INSERT INTO pre_common_member_profile_setting VALUES('residedist', 1, 0, 0, 'เ
 INSERT INTO pre_common_member_profile_setting VALUES('residecommunity', 1, 0, 0, 'ย่านที่อยู่อาศัย', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('residesuite', 0, 0, 0, 'เลขที่', 'บ้านเลขที่หรือเลขกำกับยูนิต', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('graduateschool', 1, 0, 0, 'สำเร็จการศึกษาจาก', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('education', 1, 0, 0, 'ระดับการศึกษา', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, 'ปริญญาเอก\nผู้เชี่ยวชาญ\nระดับปริญญาตรี\nพิเศษ\nโรงเรียนมัธยม\nโรงเรียนประถม\nอื่นๆ', '');
+INSERT INTO pre_common_member_profile_setting VALUES('education', 1, 0, 0, 'ระดับการศึกษา', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, 'ปริญญาเอก\nปริญญาโท\nระดับปริญญาตรี\nประกาศนียบัตรวิชาชีพ\nโรงเรียนมัธยม\nโรงเรียนประถม\nอื่นๆ', '');
 INSERT INTO pre_common_member_profile_setting VALUES('company', 1, 0, 0, 'บริษัท', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('occupation', 1, 0, 0, 'วิชาชีพ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('position', 1, 0, 0, 'ตำแหน่ง', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
@@ -106,12 +106,13 @@ INSERT INTO pre_common_member_profile_setting VALUES('icq', 0, 1, 0, 'ICQ', '', 
 INSERT INTO pre_common_member_profile_setting VALUES('qq', 1, 1, 0, 'QQ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('yahoo', 0, 1, 0, 'YAHOO', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('msn', 1, 1, 0, 'MSN', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('line', 1, 1, 0, 'LINE', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('twitter', 1, 1, 0, 'Twitter', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('facebook', 1, 1, 0, 'Facebook', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('tiktok', 1, 1, 0, 'Tiktok', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('taobao', 1, 1, 0, 'Taobao', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('twitter', 1, 1, 0, 'Twitter', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('line', 1, 1, 0, 'LINE', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('instagram', 1, 1, 0, 'Instagram', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('tiktok', 1, 1, 0, 'Tiktok', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('wechat', 1, 1, 0, 'WeChat', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('taobao', 1, 1, 0, 'Taobao', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('site', 1, 0, 0, 'เว็บไซต์', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('bio', 1, 1, 0, 'แนะนำตัว', '', 0, 0, 0, 0, 0, 0, 0, 'textarea', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('interest', 1, 0, 0, 'งานอดิเรก', '', 0, 0, 0, 0, 0, 0, 0, 'textarea', 0, '', '');
@@ -670,7 +671,7 @@ INSERT INTO pre_common_setting VALUES ('zoomstatus','1	600');
 INSERT INTO pre_common_smiley VALUES ('1','1','1','smiley',':)','smile.gif');
 INSERT INTO pre_common_smiley VALUES ('2','1','2','smiley',':(','sad.gif');
 INSERT INTO pre_common_smiley VALUES ('3','1','3','smiley',':D','biggrin.gif');
-INSERT INTO pre_common_smiley VALUES ('4','1','4','smiley',':\'(','cry.gif');
+/*INSERT INTO pre_common_smiley VALUES ('4','1','4','smiley',':\'(','cry.gif');*/
 INSERT INTO pre_common_smiley VALUES ('5','1','5','smiley',':@','huffy.gif');
 INSERT INTO pre_common_smiley VALUES ('6','1','6','smiley',':o','shocked.gif');
 INSERT INTO pre_common_smiley VALUES ('7','1','7','smiley',':P','tongue.gif');

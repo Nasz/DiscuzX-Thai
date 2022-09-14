@@ -25,7 +25,7 @@ Git เป็นทางการของ ดิสคัส! ไทย ([http
 - อัพโหลดไฟล์ทั้งหมดในไดเรกทอรี upload ไปยังโฮสติ้งโดยใช้โปรแกรม FTP（โฟลเดอร์ readme และ utility ไม่จำเป็นต้องอัปโหลด<br />
 - เปิดคู่มือการติดตั้ง Discuz! X3.5 โดยเข้าไปที่เบราว์เซอร์แล้วพิมพ์ที่อยู่ http://ชื่อโดเมนของคุณ/install/ ดำเนินการติดตั้งทีละขั้นตอนตามคำแนะที่ปรากฏ
 
-การสอนโดยละเอียด:
+การสอนโดยละเอียด:<br />
 [https://www.dismall.com/thread-77-1-1.html](https://www.dismall.com/thread-77-1-1.html) (ภาษาจีน)<br />
 [https://discuzthai.com/thread-39894-1-1.html](https://discuzthai.com/thread-39894-1-1.html) (ภาษาไทย)
 
@@ -37,7 +37,7 @@ Git เป็นทางการของ ดิสคัส! ไทย ([http
 
 ประกอบด้วยไฟล์ติดตั้ง Discuz รหัสอักขระแบบ UTF8 จาก GIT อย่างเป็นทางการ ที่อยู่สำหรับโหลดเวอร์ชั่นอย่างเป็นทางการ [https://gitee.com/Discuz/DiscuzX](https://gitee.com/Discuz/DiscuzX)
 
-มองหาเวอร์ชั่นอย่างเป็นทางการรุ่นล่าสุดได้ที่：:[https://gitee.com/3dming/DiscuzL/attach_files](https://gitee.com/3dming/DiscuzL/attach_files)<br />
+มองหาเวอร์ชั่นอย่างเป็นทางการรุ่นล่าสุดได้ที่: [https://gitee.com/3dming/DiscuzL/attach_files](https://gitee.com/3dming/DiscuzL/attach_files)<br />
 QQกลุ่มแฟนคลับ：[181616145](https://qm.qq.com/cgi-bin/qm/qr?k=fP3Uzw3w7vKgOKDagTQF4KCFytenflXp&jump_from=webapi)(ภาษาจีน)<br />
 QQกลุ่มสำรอง(หากกลุ่มบนเต็ม)：15326940(ภาษาจีน)<br />
 กลุ่มผู้ใช้งานไทย [LINE Openchat](https://line.me/ti/g2/aQG_0-x6WcphQ4ChUDul9Q)(ภาษาไทย)

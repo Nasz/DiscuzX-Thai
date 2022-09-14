@@ -61,7 +61,7 @@ INSERT INTO pre_common_cron VALUES ('20','1','system','งานอัปเด�
 INSERT INTO pre_common_cron VALUES ('21','1','system','ทุกสัปดาห์ งานล้างบันทึกการส่ง SMS แจ้งเตือนการเข้าสู่ระบบ','cron_smslog_daily.php','1269746639','1269792000','-1','-1','03','0');
 
 INSERT INTO pre_common_friendlink VALUES ('1','0','ฟอรัมอย่างเป็นทางการ','https://www.discuz.net','Discuz! เวอร์ชั่นล่าสุด ข่าวผลิตภัณฑ์ ดาวน์โหลดซอฟต์แวร์ และการแลกเปลี่ยนทางเทคนิค','static/image/common/logo_88_31.gif','2');
-INSERT INTO pre_common_friendlink VALUES ('1','0','ดิสคัสไทย!','https://discuzthai.com/','กลุ่มผู้ใช้งานกระดานข่าว ดิสคัส! ในประเทศไทย!','static/image/common/logo_88_31.gif','2');
+INSERT INTO pre_common_friendlink VALUES ('1','0','ดิสคัสไทย!','https://discuzthai.com/','กลุ่มผู้ใช้งานกระดานข่าว ดิสคัส! ในประเทศไทย!','static/image/common/discuzthai.gif','2');
 INSERT INTO pre_common_friendlink VALUES ('2','4','แอปเซนเตอร์','https://addon.dismall.com/','','','2');
 
 INSERT INTO pre_common_member_profile_setting VALUES('realname', 1, 0, 0, 'ชื่อจริง', '', 0, 0, 0, 0, 0, 0, 1, 'text', 0, '', '');
@@ -203,7 +203,7 @@ INSERT INTO pre_common_setting VALUES ('activityextnum','0');
 INSERT INTO pre_common_setting VALUES ('activityfield','');
 INSERT INTO pre_common_setting VALUES ('activityforumid','0');
 INSERT INTO pre_common_setting VALUES ('activitypp','8');
-INSERT INTO pre_common_setting VALUES ('activitytype','นัดเพื่อนรวมแก้ง\r\nท่องเที่ยวเอ้าท์ดอร์\r\nขับรถเที่ยวเล่น\r\nกิจกรรมการกุศล\r\nกิจกรรมออนไลน์');
+INSERT INTO pre_common_setting VALUES ('activitytype','นัดเพื่อนร่วมแก้ง\r\nท่องเที่ยวเอ้าท์ดอร์\r\nขับรถเที่ยวเล่น\r\nกิจกรรมการกุศล\r\nกิจกรรมออนไลน์');
 INSERT INTO pre_common_setting VALUES ('adminemail','');
 INSERT INTO pre_common_setting VALUES ('adminipaccess','');
 INSERT INTO pre_common_setting VALUES ('adminnotifytypes','verifythread,verifypost,verifyuser,verifyblog,verifydoing,verifypic,verifyshare,verifycommontes,verifyrecycle,verifyrecyclepost,verifyarticle,verifyacommont,verifymedal,verify_1,verify_2,verify_3,verify_4,verify_5,verify_6,verify_7');

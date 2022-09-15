@@ -1,4 +1,6 @@
+upload/config/*
 upload/data/cache/*
+upload/data/diy/*
 upload/data/log/*
 upload/data/sysdata/*
 upload/data/template/*
@@ -6,5 +8,6 @@ upload/uc_server/data/avatar/*
 upload/uc_server/data/cache/*
 upload/uc_server/data/config.inc.php
 upload/uc_server/data/logs/*
+upload/uc_server/data/view/*
 *.lock
 *.bak

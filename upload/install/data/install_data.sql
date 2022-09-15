@@ -81,7 +81,7 @@ INSERT INTO pre_common_member_profile_setting VALUES('nationality', 0, 0, 0, '�
 INSERT INTO pre_common_member_profile_setting VALUES('race', 0, 0, 0, 'เชื้อชาติ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthcountry', 1, 0, 0, 'ประเทศ', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthprovince', 1, 0, 0, 'จังหวัด', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('birthcity', 1, 0, 0, 'สถานที่เกิด', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('birthcity', 1, 0, 0, 'ภูมิลำเนา', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthdist', 1, 0, 0, 'เขต', 'อำเภอ/เขต', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthcommunity', 1, 0, 0, 'คน', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('residecountry', 1, 0, 0, 'ประเทศที่อยู่อาศัย', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');

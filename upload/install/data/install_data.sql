@@ -167,7 +167,7 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'เพื่อน', '', 'home.php?
 INSERT INTO pre_common_nav VALUES ('', '0', 'โพสต์', '', 'home.php?mod=space&do=thread&view=me', 'thread', 0, 0, 0, 2, 0, 0, 0, 0, '{STATICURL}image/feed/thread_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ชื่นชอบ', '', 'home.php?mod=space&do=favorite&view=me', 'favorite', 0, 0, -1, 3, 0, 0, 0, 0, '{STATICURL}image/feed/favorite_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'เมจิค', '', 'home.php?mod=magic', 'magic', 0, 0, -1, 4, 0, 0, 0, 0, '{STATICURL}image/feed/magic_b.png', '', '', 3, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'เหรียญ', '', 'home.php?mod=medal', 'medal', 0, 0, -1, 5, 0, 0, 0, 0, '{STATICURL}image/feed/medal_b.png', '', '', 3, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'เงินรางวัล', '', 'home.php?mod=medal', 'medal', 0, 0, -1, 5, 0, 0, 0, 0, '{STATICURL}image/feed/medal_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'งาน', '', 'home.php?mod=task', 'task', 0, 0, -1, 6, 0, 0, 0, 0, '{STATICURL}image/feed/task_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'คอเลคชั่น', '', 'forum.php?mod=collection&op=my', 'collection', 0, 0, -1, 7, 0, 0, 0, 0, '{STATICURL}image/feed/collection_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ฟีด', '', 'home.php', 'feed', 0, 0, -1, 8, 0, 0, 0, 0, '{STATICURL}image/feed/feed_b.png', '', '', 3, '');
@@ -733,7 +733,7 @@ INSERT INTO pre_common_smiley VALUES ('62','3','22','smiley','{:3_62:}','22.gif'
 INSERT INTO pre_common_smiley VALUES ('63','3','23','smiley','{:3_63:}','23.gif');
 INSERT INTO pre_common_smiley VALUES ('64','3','24','smiley','{:3_64:}','24.gif');
 INSERT INTO pre_common_smiley VALUES ('65','0','0','stamp','แก่นแท้','001.gif');
-INSERT INTO pre_common_smiley VALUES ('66','0','1','stamp','กระทู้มาแรง','002.gif');
+INSERT INTO pre_common_smiley VALUES ('66','0','1','stamp','ร้อนแรง','002.gif');
 INSERT INTO pre_common_smiley VALUES ('67','0','2','stamp','แผนที่ที่สวยงาม','003.gif');
 INSERT INTO pre_common_smiley VALUES ('68','0','3','stamp','ยอดเยี่ยม','004.gif');
 INSERT INTO pre_common_smiley VALUES ('69','0','4','stamp','วางไว้ด้านบน','005.gif');
@@ -742,7 +742,7 @@ INSERT INTO pre_common_smiley VALUES ('71','0','6','stamp','ต้นฉบั�
 INSERT INTO pre_common_smiley VALUES ('72','0','7','stamp','คำแนะนำผู้ดูแล','008.gif');
 INSERT INTO pre_common_smiley VALUES ('73','0','8','stamp','ทำลายข่าว','009.gif');
 INSERT INTO pre_common_smiley VALUES ('74','0','9','stamplist','แก่นแท้','001.small.gif');
-INSERT INTO pre_common_smiley VALUES ('75','0','10','stamplist','กระทู้มาแรง','002.small.gif');
+INSERT INTO pre_common_smiley VALUES ('75','0','10','stamplist','ร้อนแรง','002.small.gif');
 INSERT INTO pre_common_smiley VALUES ('76','0','11','stamplist','แผนที่ที่สวยงาม','003.small.gif');
 INSERT INTO pre_common_smiley VALUES ('77','0','12','stamplist','ยอดเยี่ยม','004.small.gif');
 INSERT INTO pre_common_smiley VALUES ('78','0','13','stamplist','วางไว้ด้านบน','005.small.gif');

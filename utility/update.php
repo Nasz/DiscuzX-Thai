@@ -2059,7 +2059,7 @@ function show_footer() {
 
 	print<<<END
 	</div>
-	<div id="footer">Copyright &copy; 2001-$now Tencent Cloud.</div>
+	<div id="footer">สงวนลิขสิทธิ์ &copy; 2001-$now เทนเซ็นคลาวด์</div>
 	</div>
 	<br>
 	</body>

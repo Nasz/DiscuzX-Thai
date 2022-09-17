@@ -69,11 +69,11 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'性能优化' => 'action=setting&operation=cachethread',
+			'ปรับเพิ่มประสิทธิภาพ' => 'action=setting&operation=cachethread',
 		),
 		'text' =>
 		array (
-			0 => '性能优化',
+			0 => 'ปรับเพิ่มประสิทธิภาพ',
 		),
 	),
 	6 =>
@@ -1059,11 +1059,11 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点广告' => 'action=adv',
+			'โฆษณาเว็บ' => 'action=adv',
 		),
 		'text' =>
 		array (
-			0 => '站点广告',
+			0 => 'โฆษณาเว็บ',
 		),
 	),
 	96 =>
@@ -1601,12 +1601,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点广告' => 'action=adv',
+			'โฆษณาเว็บ' => 'action=adv',
 			'广告位' => 'action=adv&operation=list',
 		),
 		'text' =>
 		array (
-			0 => '站点广告 &raquo; 广告位',
+			0 => 'โฆษณาเว็บ &raquo; 广告位',
 			1 => 'adv_list_tip',
 			2 => '您可以使用“自定义广告位”在页面的任意位置添加广告位。系统广告位位于 source/class/adv/ 目录中，插件广告位位于 source/plugin/插件目录/adv/ 目录中。插件开发人员在设计新的广告位前请务必仔细阅读《Discuz! 技术文档》中的内容。',
 		),
@@ -1686,9 +1686,9 @@ $lang = array (
 			1 => 'announce_edit',
 			2 => '站点公告编辑',
 			3 => 'start_time',
-			4 => '起始时间',
+			4 => 'เวลาเริ่มต้น',
 			5 => 'end_time',
-			6 => '终止时间',
+			6 => 'เวลาสิ้นสุด',
 			7 => 'announce_type',
 			8 => '公告类型',
 			9 => 'announce_message',
@@ -2947,7 +2947,7 @@ $lang = array (
 			1 => 'makehtml_tips_all',
 			2 => '生成指定起始时间以后发布的文章的HTML文件生成指定起始时间以后发布过文章的频道HTML文件生成门户首页的HTML文件',
 			3 => 'start_time',
-			4 => '起始时间',
+			4 => 'เวลาเริ่มต้น',
 		),
 	),
 	179 =>
@@ -3447,13 +3447,13 @@ $lang = array (
 		'index' =>
 		array (
 			'站长推荐' => 'action=misc&operation=focus',
-			'设置' => 'action=misc&operation=focus&do=config',
+			'ตั้งค่า' => 'action=misc&operation=focus&do=config',
 		),
 		'text' =>
 		array (
 			0 => '站长推荐 &raquo; 设置',
 			1 => 'config',
-			2 => '设置',
+			2 => 'ตั้งค่า',
 			3 => 'misc_focus_area_title',
 			4 => '站长推荐区域标题',
 			5 => '默认为“站长推荐”，您可以设置为您希望的标题',
@@ -3664,7 +3664,7 @@ $lang = array (
 		'index' =>
 		array (
 			'主题回收站' => 'action=recyclebin',
-			'清理' => 'action=recyclebin&operation=clean',
+			'ลบ' => 'action=recyclebin&operation=clean',
 		),
 		'text' =>
 		array (
@@ -3710,7 +3710,7 @@ $lang = array (
 		'index' =>
 		array (
 			'回帖回收站' => 'action=recyclebinpost',
-			'清理' => 'action=recyclebinpost&operation=clean',
+			'ลบ' => 'action=recyclebinpost&operation=clean',
 		),
 		'text' =>
 		array (
@@ -4412,7 +4412,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'性能优化' => 'action=setting&operation=seo',
+			'ปรับเพิ่มประสิทธิภาพ' => 'action=setting&operation=seo',
 			'搜索引擎优化' => 'action=setting&operation=seo',
 		),
 		'text' =>
@@ -4435,14 +4435,14 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'性能优化' => 'action=setting&operation=seo',
-			'论坛页面缓存设置' => 'action=setting&operation=cachethread',
+			'ปรับเพิ่มประสิทธิภาพ' => 'action=setting&operation=seo',
+			'ตั้งค่าแคชของฟอรั่ม' => 'action=setting&operation=cachethread',
 		),
 		'text' =>
 		array (
 			0 => '性能优化 &raquo; 论坛页面缓存设置',
 			1 => 'setting_cachethread',
-			2 => '论坛页面缓存设置',
+			2 => 'ตั้งค่าแคชของฟอรั่ม',
 			3 => '开启后，缓存页面内容到静态文件，游客访问时速度将大大提升，建议独立服务器使用，虚拟空间请根据实际情况调节缓存的有效期',
 			4 => 'setting_cachethread_indexlife',
 			5 => '缓存论坛首页有效期',
@@ -4467,8 +4467,8 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'性能优化' => 'action=setting&operation=seo',
-			'服务器优化' => 'action=setting&operation=serveropti',
+			'ปรับเพิ่มประสิทธิภาพ' => 'action=setting&operation=seo',
+			'ปรับปรุงเซิร์ฟเวอร์' => 'action=setting&operation=serveropti',
 		),
 		'text' =>
 		array (
@@ -4476,7 +4476,7 @@ $lang = array (
 			1 => 'setting_tips',
 			2 => '以红色虚线标示的选项，表示该选项和系统效率、负载能力与资源消耗有关(提高效率、或降低效率)，建议依据自身服务器情况进行调整。',
 			3 => 'setting_serveropti',
-			4 => '服务器优化',
+			4 => 'ปรับปรุงเซิร์ฟเวอร์',
 			5 => 'setting_serveropti_optimize_thread_view',
 			6 => '是否优化更新主题浏览量',
 			7 => 'setting_serveropti_preventrefresh',
@@ -4999,7 +4999,7 @@ $lang = array (
 		'index' =>
 		array (
 			'邮件设置' => 'action=setting&operation=mail',
-			'设置' => 'action=setting&operation=mail&anchor=setting',
+			'ตั้งค่า' => 'action=setting&operation=mail&anchor=setting',
 		),
 		'text' =>
 		array (
@@ -5793,7 +5793,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'性能优化' => 'action=setting&operation=seo',
+			'ปรับเพิ่มประสิทธิภาพ' => 'action=setting&operation=seo',
 			'内存优化' => 'action=setting&operation=memory',
 		),
 		'text' =>
@@ -5802,7 +5802,7 @@ $lang = array (
 			1 => 'setting_memory_tips',
 			2 => '启用内存优化功能将会大幅度提升程序性能和服务器的负载能力，内存优化功能需要服务器系统以及PHP扩展模块支持目前支持的内存优化接口有 Memcache、eAccelerator、Alternative PHP Cache(APC)、Xcache、Redis、YAC、APCu，优化系统将会依据当前服务器环境依次选用接口内存接口的主要设置位于 config_global.php 当中，您可以通过编辑 config_global.php 进行高级设置',
 			3 => 'setting_memory_status',
-			4 => '当前内存工作状态',
+			4 => 'สถานะการทำงานหน่วยความจำตอนนี้',
 			5 => 'setting_memory_function',
 			6 => '内存优化功能设置',
 		),
@@ -5811,7 +5811,7 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'性能优化' => 'action=setting&operation=seo',
+			'ปรับเพิ่มประสิทธิภาพ' => 'action=setting&operation=seo',
 			'内存缓存管理' => 'action=setting&operation=memorydata',
 		),
 		'text' =>
@@ -6593,7 +6593,7 @@ $lang = array (
 			12 => 'usergroups_edit_home_allow_doing_mod',
 			13 => '发表记录需要审核',
 			14 => 'usergroups_edit_home_allow_upload',
-			15 => '上传图片',
+			15 => 'อัปโหลดรูปภาพ',
 			16 => 'usergroups_edit_home_allow_upload_mod',
 			17 => '上传图片需要审核',
 			18 => 'usergroups_edit_home_image_max_size',

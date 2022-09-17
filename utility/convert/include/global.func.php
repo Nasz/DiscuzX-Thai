@@ -327,11 +327,11 @@ function checkAll(type, form, value, checkall, changestyle) {
 </head>
 <body style="table-layout:fixed; word-break:break-all; margin-top: 4px;">
 <div class="main">
-<h1>ชุดของตัวช่วยสร้างการอัพเกรด/แปลงผลิตภัณฑ์ Discuz! X $titleadd</h1>
+<h1>ชุดตัวช่วยสร้างการอัพเกรด/แปลงฐานข้อมูลผลิตภัณฑ์ Discuz! X $titleadd</h1>
 <div class="content">
 <table id="menu">
 	<tr>
-	<td $class[source]>1.เลือกโปรแกรมการแปลงผลิตภัณฑ์ </td>
+	<td $class[source]>1.เลือกโปรแกรมแปลงผลิตภัณฑ์ </td>
 	<td $class[config]>2.ตั้งค่าข้อมูลเซิร์ฟเวอร์ </td>
 	<td $class[select]>3.กำหนดค่ากระบวนคอนเวิร์ท </td>
 	<td $class[convert]>4.ทำการแปลงข้อมูล </td>

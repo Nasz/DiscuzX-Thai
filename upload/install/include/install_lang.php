@@ -180,7 +180,7 @@ $lang = array(
 	'install_succeed' => 'การติดตั้งที่ประสบความสำเร็จคลิกเพื่อเข้าสู่',
 
 	'init_credits_karma' => 'ศักดิ์ศรี',
-	'init_credits_money' => 'เหรียญ',
+	'init_credits_money' => 'เงินรางวัล',
 
 	'init_postno0' => 'เจ้าบ้าน',
 	'init_postno1' => 'โซฟา',

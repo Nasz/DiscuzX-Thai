@@ -136,7 +136,7 @@ $lang = array(
 	'admin_invalid' => '您的信息管理员信息没有填写完整，请仔细填写每个项目',
 	'admin_exist_password_error' => '该用户已经存在，如果您要设置此用户为论坛的管理员，请正确输入该用户的密码，或者请更换论坛管理员的名字',
 
-	'tagtemplates_subject' => '标题',
+	'tagtemplates_subject' => 'หัวข้อ',
 	'tagtemplates_uid' => '用户 ID',
 	'tagtemplates_username' => '发帖者',
 	'tagtemplates_dateline' => '日期',

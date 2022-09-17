@@ -536,7 +536,7 @@ function showtime() {
 				timestr += timer_day + '天';
 			}
 			if(timer_hour > 0) {
-				timestr += timer_hour + '小时'
+				timestr += timer_hour + 'ชั่วโมง'
 			}
 			if(timer_minute > 0) {
 				timestr += timer_minute + '分'

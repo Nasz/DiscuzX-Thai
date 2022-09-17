@@ -165,9 +165,9 @@ $lang = array
 	'menu_misc_link' => '友情链接',
 	'menu_misc_relatedlink' => '关联链接',
 	'memu_focus_topic' => '站长推荐',
-	'menu_adv_custom' => '站点广告',
+	'menu_adv_custom' => 'โฆษณาเว็บ',
 
-	'menu_misc_announce' => 'ประกาศไซต์',
+	'menu_misc_announce' => 'ประกาศเว็บ',
 	'menu_tools_updatecaches' => 'รีเฟรชแคช',
 	'menu_tools_postposition' => 'การเพิ่มประสิทธิภาพของโพสต์',
 	'menu_tools_updatecounters' => 'อัปเดตสถิติ',

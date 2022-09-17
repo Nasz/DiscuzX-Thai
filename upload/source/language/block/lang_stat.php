@@ -31,7 +31,7 @@ $lang = array
 	'stat_edit_showtitle' => '显示名称',
 	'stat_edit_showtitle_detail' => '您可以编辑以下对应项来自定义各统计项的显示名称',
 
-	'stat_posts' => '帖子',
+	'stat_posts' => 'โพสต์',
 	'stat_groups' => '群组',
 	'stat_members' => '会员',
 	'stat_groupnewposts' => '群组今日发帖',

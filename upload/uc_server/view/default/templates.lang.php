@@ -1,7 +1,7 @@
 <?php
 
 $languages = array(
-	'title'=>'标题',
+	'title'=>'หัวข้อ',
 	'return'=>'返回',
 	'dateline'=>'时间',
 	'delete'=>'删除',
@@ -86,7 +86,7 @@ $languages = array(
 	'pm_transmit'=>'转发',
 	'pm_mark_unread'=>'标记未读',
 	'pm_swith_friendls'=>'打开/关闭 好友列表',
-	'reply'=>'回复',
+	'reply'=>'ตอบ',
 	'upload'=>'上传',
 	'pm_inbox'=>'短消息',
 	'pm_inboxnew'=>'收件箱有',
@@ -260,10 +260,10 @@ $languages = array(
 	'note_times' => '通知次数',
 	'note_param' => '参数',
 	'note_last_note_time' => '最后通知时间',
-	'note_view' => '查看',
+	'note_view' => 'อ่าน',
 	'setting_forbidden_username' => '禁止的用户名',
 	'setting_ceonsor_comment' => '可以设置通配符，每个关键字一行，可使用通配符 "*" 如 "*版主*"(不含引号)。',
-	'note_view' => '查看',
+	'note_view' => 'อ่าน',
 	'note_status' => '通知状态',
 	'note_fail_apps' => '通知失败的应用',
 
@@ -282,7 +282,7 @@ $languages = array(
 	'mail_list_updated' => '邮件列表成功更新。',
 	'mail_send' => '邮件发送',
 
-	'setting' => '设置',
+	'setting' => 'ตั้งค่า',
 	'setting_tips' => '',
 	'setting_dateformat' => '日期格式',
 	'setting_dateformat_comment' => '使用 yyyy(yy) 表示年，mm 表示月，dd 表示天。如 yyyy-mm-dd 表示 2000-1-1',

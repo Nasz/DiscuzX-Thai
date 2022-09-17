@@ -12,8 +12,8 @@ drag.extend({
 	'blockDefaultClass' : [{'key':'选择样式','value':''},{'key':'无边框且无边距','value':'cl_block_bm'},{'key':'样式1','value':'xbs_1'},{'key':'样式2','value':'xbs xbs_2'},{'key':'样式3','value':'xbs xbs_3'},{'key':'样式4','value':'xbs xbs_4'},{'key':'样式5','value':'xbs xbs_5'},{'key':'样式6','value':'xbs xbs_6'},{'key':'样式7','value':'xbs xbs_7'}],
 	'frameDefaultClass' : [{'key':'选择样式','value':''},{'key':'无边框且无边距','value':'cl_frame_bm'},{'key':'无边框框架','value':'xfs xfs_nbd'},{'key':'样式1','value':'xfs xfs_1'},{'key':'样式2','value':'xfs xfs_2'},{'key':'样式3','value':'xfs xfs_3'},{'key':'样式4','value':'xfs xfs_4'},{'key':'样式5','value':'xfs xfs_5'}],
 	setDefalutMenu : function () {
-		this.addMenu('default','标题','drag.openTitleEdit(event)');
-		this.addMenu('default','样式','drag.openStyleEdit(event)');
+		this.addMenu('default','หัวข้อ','drag.openTitleEdit(event)');
+		this.addMenu('default','สไตล์'ล์','drag.openStyleEdit(event)');
 		this.addMenu('default', '删除', 'drag.removeBlock(event)');
 		this.addMenu('block', '属性', 'drag.openBlockEdit(event)');
 		this.addMenu('block', '数据', 'drag.openBlockEdit(event,"data")');

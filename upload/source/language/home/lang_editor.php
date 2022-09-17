@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 $lang = array(
 	'editor_switch_media' => '切换到多媒体',
 	'editor_cut' => '剪切',
-	'editor_copy' => '复制',
+	'editor_copy' => 'คัดลอก',
 	'editor_paste' => '粘贴',
 	'editor_font' => '字体',
 	'editor_fontsize' => '字号',

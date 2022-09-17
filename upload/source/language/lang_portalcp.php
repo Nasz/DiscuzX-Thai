@@ -36,7 +36,7 @@ $lang = array(
 	'article_edit_nopermission' => '抱歉，您没有权限进行当前文章操作',
 	'article_publish' => '发布文章',
 	'article_manage' => '文章管理',
-	'article_tag' => '标签',
+	'article_tag' => 'แท็ก',
 	'select_category' => '选择分类',
 	'blockstyle_diy' => '自定义模板',
 

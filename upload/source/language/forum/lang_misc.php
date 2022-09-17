@@ -216,7 +216,7 @@ $lang = array
 	'perms_attachextensions' => '附件类型',
 	'perms_allowstickthread' => '主题置顶',
 	'perms_allowdigestthread' => '主题精华',
-	'perms_allowstickthread_value' => '置顶',
+	'perms_allowstickthread_value' => 'ปักหมุด',
 	'perms_allowdigestthread_value' => 'ประกาศ',
 	'perms_allowbumpthread' => '提升主题',
 	'perms_allowhighlightthread' => '主题高亮',
@@ -314,7 +314,7 @@ $lang = array
 	'patch_name' => '漏洞名称',
 	'patch_dateline' => '发布日期',
 	'patch_status' => '当前状态',
-	'patch_close' => '关闭',
+	'patch_close' => 'ปิด',
 
 	'plugin_title' => '应用更新提醒',
 	'plugin_memo' => '您有 <span class="xi1">{number}</span> 款应用有可用更新',

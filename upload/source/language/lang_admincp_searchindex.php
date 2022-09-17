@@ -3337,7 +3337,7 @@ $lang = array (
 		'index' =>
 		array (
 			'主题鉴定' => 'action=misc&operation=stamp',
-			'图章' => 'action=misc&operation=stamp&anchor=list',
+			'ปั้มตรา' => 'action=misc&operation=stamp&anchor=list',
 		),
 		'text' =>
 		array (
@@ -3351,7 +3351,7 @@ $lang = array (
 		'index' =>
 		array (
 			'主题鉴定' => 'action=misc&operation=stamp',
-			'图标' => 'action=misc&operation=stamp&anchor=llist',
+			'ไอคอน' => 'action=misc&operation=stamp&anchor=llist',
 		),
 		'text' =>
 		array (
@@ -6688,7 +6688,7 @@ $lang = array (
 			1 => 'usertag_add_tips',
 			2 => '可以给线下活动的用户批量贴标签当只填写了标签，用户列表为空时，是批量添加用户标签如果标签和用户列表都有输入，说明是给指定用户批量贴标签',
 			3 => 'usertag_add_tags',
-			4 => '标签',
+			4 => 'แท็ก',
 			5 => '可以输入多个标签，多个标签可以用空格、逗号 分隔',
 			6 => 'usertag_add_usernames',
 			7 => '用户列表',

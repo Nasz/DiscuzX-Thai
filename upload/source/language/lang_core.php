@@ -212,7 +212,7 @@ $lang = array
 	'search' => 'ค้นหา',
 	'page' => '第{page}页',
 
-	'close' => '关闭',
+	'close' => 'ปิด',
 );
 
 ?>

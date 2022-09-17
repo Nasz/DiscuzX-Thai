@@ -34,7 +34,7 @@ $lang = array
 	'polllist_credit_yes' => '只取悬赏投票',
 	'polllist_expirefilter' => '过期投票',
 	'polllist_expirefilter_off' => '不屏蔽',
-	'polllist_expirefilter_on' => '屏蔽',
+	'polllist_expirefilter_on' => 'แบนโพสต์',
 
 );
 

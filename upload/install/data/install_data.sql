@@ -732,27 +732,27 @@ INSERT INTO pre_common_smiley VALUES ('61','3','21','smiley','{:3_61:}','21.gif'
 INSERT INTO pre_common_smiley VALUES ('62','3','22','smiley','{:3_62:}','22.gif');
 INSERT INTO pre_common_smiley VALUES ('63','3','23','smiley','{:3_63:}','23.gif');
 INSERT INTO pre_common_smiley VALUES ('64','3','24','smiley','{:3_64:}','24.gif');
-INSERT INTO pre_common_smiley VALUES ('65','0','0','stamp','แก่นแท้','001.gif');
-INSERT INTO pre_common_smiley VALUES ('66','0','1','stamp','ร้อนแรง','002.gif');
-INSERT INTO pre_common_smiley VALUES ('67','0','2','stamp','แผนที่ที่สวยงาม','003.gif');
-INSERT INTO pre_common_smiley VALUES ('68','0','3','stamp','ยอดเยี่ยม','004.gif');
-INSERT INTO pre_common_smiley VALUES ('69','0','4','stamp','วางไว้ด้านบน','005.gif');
-INSERT INTO pre_common_smiley VALUES ('70','0','5','stamp','แนะนำ','006.gif');
-INSERT INTO pre_common_smiley VALUES ('71','0','6','stamp','ต้นฉบับ','007.gif');
-INSERT INTO pre_common_smiley VALUES ('72','0','7','stamp','คำแนะนำผู้ดูแล','008.gif');
-INSERT INTO pre_common_smiley VALUES ('73','0','8','stamp','ทำลายข่าว','009.gif');
-INSERT INTO pre_common_smiley VALUES ('74','0','9','stamplist','แก่นแท้','001.small.gif');
+INSERT INTO pre_common_smiley VALUES ('65','0','0','stamp','สำคัญ','001.png');
+INSERT INTO pre_common_smiley VALUES ('66','0','1','stamp','ร้อนแรง','002.png');
+INSERT INTO pre_common_smiley VALUES ('67','0','2','stamp','ดีงาม','003.png');
+INSERT INTO pre_common_smiley VALUES ('68','0','3','stamp','ยอดเยี่ยม','004.png');
+INSERT INTO pre_common_smiley VALUES ('69','0','4','stamp','ยอดนิยม','005.png');
+INSERT INTO pre_common_smiley VALUES ('70','0','5','stamp','แนะนำ','006.png');
+INSERT INTO pre_common_smiley VALUES ('71','0','6','stamp','ต้นฉบับ','007.png');
+INSERT INTO pre_common_smiley VALUES ('72','0','7','stamp','ตรวจแล้ว','008.png');
+INSERT INTO pre_common_smiley VALUES ('73','0','8','stamp','ข่าวสาร','009.png');
+INSERT INTO pre_common_smiley VALUES ('74','0','9','stamplist','สำคัญ','001.small.gif');
 INSERT INTO pre_common_smiley VALUES ('75','0','10','stamplist','ร้อนแรง','002.small.gif');
-INSERT INTO pre_common_smiley VALUES ('76','0','11','stamplist','แผนที่ที่สวยงาม','003.small.gif');
+INSERT INTO pre_common_smiley VALUES ('76','0','11','stamplist','ดีงาม','003.small.gif');
 INSERT INTO pre_common_smiley VALUES ('77','0','12','stamplist','ยอดเยี่ยม','004.small.gif');
-INSERT INTO pre_common_smiley VALUES ('78','0','13','stamplist','วางไว้ด้านบน','005.small.gif');
+INSERT INTO pre_common_smiley VALUES ('78','0','13','stamplist','ยอดนิยม','005.small.gif');
 INSERT INTO pre_common_smiley VALUES ('79','0','14','stamplist','แนะนำ','006.small.gif');
 INSERT INTO pre_common_smiley VALUES ('80','0','15','stamplist','ต้นฉบับ','007.small.gif');
-INSERT INTO pre_common_smiley VALUES ('81','0','16','stamplist','คำแนะนำผู้ดูแล','008.small.gif');
-INSERT INTO pre_common_smiley VALUES ('82','0','17','stamplist','ทำลายข่าว','009.small.gif');
-INSERT INTO pre_common_smiley VALUES ('83','4','19','stamp','แก้ไข','010.gif');
-INSERT INTO pre_common_smiley VALUES ('84','0','18','stamplist','แก้ไข','010.small.gif');
-INSERT INTO pre_common_smiley VALUES ('85','0','20','stamplist','โพสต์ผู้มาใหม่','011.small.gif');
+INSERT INTO pre_common_smiley VALUES ('81','0','16','stamplist','ตรวจแล้ว','008.small.gif');
+INSERT INTO pre_common_smiley VALUES ('82','0','17','stamplist','ข่าวสาร','009.small.gif');
+INSERT INTO pre_common_smiley VALUES ('83','4','19','stamp','ฉบับปรับปรุง','010.png');
+INSERT INTO pre_common_smiley VALUES ('84','0','18','stamplist','ฉบับปรับปรุง','010.small.gif');
+INSERT INTO pre_common_smiley VALUES ('85','0','20','stamplist','โพสต์ใหม่','011.small.gif');
 
 
 

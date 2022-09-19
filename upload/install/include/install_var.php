@@ -179,7 +179,7 @@ $serialize_sql_setting = array (
     3 =>
     array (
       'img' => '',
-      'title' => 'อุปถัมภ์',
+      'title' => 'สนับสนุน',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',

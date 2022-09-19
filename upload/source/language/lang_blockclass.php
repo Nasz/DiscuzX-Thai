@@ -36,9 +36,9 @@ $lang = array(
 	'blockclass_announcement_field_endtime' => '结束时间',
 	'blockclass_announcement_script_announcement' => '站点公告',
 
-	'blockclass_forum' => '论坛类',
+	'blockclass_forum' => 'ฟอรั่ม',
 
-	'blockclass_forum_thread' => '帖子模块',
+	'blockclass_forum_thread' => 'โมดูลกระทู้',
 	'blockclass_thread_field_url' => '帖子URL',
 	'blockclass_thread_field_title' => '帖子标题',
 	'blockclass_thread_field_pic' => '附件图片',
@@ -49,7 +49,7 @@ $lang = array(
 	'blockclass_thread_field_avatar_middle' => '楼主头像(中)',
 	'blockclass_thread_field_avatar_big' => '楼主头像(大)',
 	'blockclass_thread_field_forumurl' => '版块URL',
-	'blockclass_thread_field_forumname' => '版块名称',
+	'blockclass_thread_field_forumname' => 'ชื่อบอร์ด',
 	'blockclass_thread_field_typename' => '主题分类名称',
 	'blockclass_thread_field_typeicon' => '主题分类图标',
 	'blockclass_thread_field_typeurl' => '主题分类URL',
@@ -76,8 +76,8 @@ $lang = array(
 	'blockclass_thread_script_threadspecified' => '指定帖子',
 	'blockclass_thread_script_thread' => '高级自定义',
 
-	'blockclass_forum_forum' => '版块模块',
-	'blockclass_forum_field_title' => '版块名称',
+	'blockclass_forum_forum' => 'โมดูลหมวด',
+	'blockclass_forum_field_title' => 'ชื่อบอร์ด',
 	'blockclass_forum_field_url' => '版块链接',
 	'blockclass_forum_field_summary' => '版块介绍',
 	'blockclass_forum_field_icon' => '版块图标',
@@ -107,8 +107,8 @@ $lang = array(
 	'blockclass_trade_script_tradespecified' => '指定商品',
 	'blockclass_trade_script_trade' => '高级自定义',
 
-	'blockclass_forum_activity' => '活动模块',
-	'blockclass_activity_activity' => '活动模块',
+	'blockclass_forum_activity' => 'โมดูลกิจกรรม',
+	'blockclass_activity_activity' => 'โมดูลกิจกรรม',
 	'blockclass_activity_field_url' => '活动帖URL',
 	'blockclass_activity_field_title' => '活动标题',
 	'blockclass_activity_field_pic' => '主题图片',

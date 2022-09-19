@@ -137,8 +137,8 @@ $lang = array
 	'menu_founder_memberperm' => 'รายการสิทธิ์รายบุคคล - {username}',
 
 	'menu_patch' => '安全中心',
-	'menu_upgrade' => '在线升级',
-	'menu_optimizer' => '优化大师',
+	'menu_upgrade' => 'อัพเกรด',
+	'menu_optimizer' => 'เพิ่มประสิทธิภาพ',
 	'menu_security' => 'ตรวจสอบความปลอดภัย',
 	'menu_serversec' => 'ความปลอดภัยเซิฟเวอร์',
 
@@ -180,7 +180,7 @@ $lang = array
 	'menu_tools_replacekey' => 'การอัปเดตที่สำคัญ',
 	'menu_db' => 'ฐานข้อมูล',
 	'menu_postsplit' => 'แบ่งโพสต์',
-	'menu_threadsplit' => 'แบ่งธีม',
+	'menu_threadsplit' => 'แบ่งกระทู้',
 	'menu_membersplit' => 'แบ่งผู้ใช้',
 	'menu_logs' => 'บันทึกการดำเนินงาน',
 	'menu_custommenu_manage' => 'จัดการเมนูที่ใช้บ่อย',

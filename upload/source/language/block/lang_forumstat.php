@@ -23,7 +23,7 @@ $lang = array
 	'forumstat_threads_allow' => 'แสดงสถิติหัวข้อ',
 	'forumstat_threads_order' => 'หมายเลขหัวข้อสถิติการแสดงผล',
 	'forumstat_threads_text' => 'หมายเลขหัวข้อข้อความแจ้งเตือนทางสถิติ',
-	'forumstat_threads_default' => 'หมายเลขธีม:',
+	'forumstat_threads_default' => 'หมายเลขกระทู้:',
 
 	'forumstat_posts_allow' => 'แสดงสถิติหมายเลขโพสต์',
 	'forumstat_posts_order' => 'คำสั่งแสดงสถิติโพสต์',

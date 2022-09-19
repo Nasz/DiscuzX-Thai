@@ -19,7 +19,7 @@ drag.extend({
 		} else {
 			id = e;
 		}
-		if (!confirm('您确实要删除吗,删除以后将不可恢复')) return false;
+		if (!confirm('คุณต้องการลบมันจริงใช่ไหม ลบไปแล้วมันจะกู้คืนไม่ได้นะ')) return false;
 		$(id).parentNode.removeChild($(id));
 		var el = $('chk'+id);
 		if (el != null) el.className = '';

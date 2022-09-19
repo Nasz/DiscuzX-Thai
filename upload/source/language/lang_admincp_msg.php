@@ -594,7 +594,7 @@ $lang = array (
   'threadtype_content_delete_succeed' => '数据删除完成',
   'threadtype_export_error' => '分类选项导出失败',
 
-  'update_cache_succeed' => '全部缓存更新完毕',
+  'update_cache_succeed' => 'การปรับปรุงแคชทั้งหมดเสร็จสมบูรณ์',
 
   'topic_choose_at_least_one_topic' => '请至少选择一个专题',
   'topic_delete_succeed' => '删除专题成功 ',

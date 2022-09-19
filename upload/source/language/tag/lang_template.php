@@ -26,11 +26,11 @@ $lang = array (
   'personal_category' => 'การจำแนกประเภทส่วนตัว',
   'related_blog' => 'บันทึกที่เกี่ยวข้อง',
   'related_thread' => 'กระทู้ที่เกี่ยวข้อง',
-  'replies' => 'ตอบกลับ/ตรวจสอบ',
+  'replies' => 'ตอบ/ตรวจ',
   'price' => 'ราคา',
   'attach_img' => 'แนบภาพ',
   'attachment' => 'ไฟล์แนบ',
-  'thread_digest' => 'ประกาศ',
+  'thread_digest' => 'สารสำคัญ',
 );
 
 ?>

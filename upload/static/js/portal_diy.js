@@ -14,7 +14,7 @@ drag.extend({
 	setDefalutMenu : function () {
 		this.addMenu('default','หัวข้อ','drag.openTitleEdit(event)');
 		this.addMenu('default','สไตล์'ล์','drag.openStyleEdit(event)');
-		this.addMenu('default', '删除', 'drag.removeBlock(event)');
+		this.addMenu('default', 'ลบทิ้ง', 'drag.removeBlock(event)');
 		this.addMenu('block', '属性', 'drag.openBlockEdit(event)');
 		this.addMenu('block', '数据', 'drag.openBlockEdit(event,"data")');
 		this.addMenu('block', '更新', 'drag.blockForceUpdate(event)');
@@ -866,7 +866,7 @@ drag.extend({
 	},
 	goonDIY : function () {
 		if ($('prefile').value == '1') {
-			showDialog('<div style="line-height:28px;">按继续按钮将打开暂存数据并DIY，<br />按删除按钮将删除暂存数据。</div>','confirm','是否继续暂存数据的DIY？', function(){location.replace(location.href+'&preview=yes');}, true, 'spaceDiy.cancelDIY()', '', '继续', '删除');
+			showDialog('<div style="line-height:28px;">按继续按钮将打开暂存数据并DIY，<br />按删除按钮将删除暂存数据。</div>','confirm','是否继续暂存数据的DIY？', function(){location.replace(location.href+'&preview=yes');}, true, 'spaceDiy.cancelDIY()', '', '继续', 'ลบทิ้ง');
 		} else if (location.search.indexOf('preview=yes') > -1) {
 			spaceDiy.enablePreviewButton();
 		} else {

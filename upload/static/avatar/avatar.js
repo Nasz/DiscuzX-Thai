@@ -309,7 +309,7 @@ function rectAvatarDone(res) {
         jQuery('#avataradjuster').hide();
         jQuery('#avatarfileselector').hide();
     } else if (res == 'failure') {
-        alert('การอัพโหลดล้มเหลว');
+        alert('การอัปโหลดล้มเหลว');
     }
 }
 })();

@@ -44,7 +44,7 @@ foreach (array('start', 'tables', 'steps') as $program) {
 
 			list($rday, $rhour, $rmin, $rsec) = remaintime(time() - $process['timestart']);
 			$stime = gmdate('Y-m-d H:i:s', $process['timestart'] + 3600* 8);
-			$timetodo = "อัพเกรดเริ่มต้นเวลา：<strong>$stime</strong> โปรแกรมอัปเกรดดำเนินการไปแล้ว <strong>$rday</strong>วัน <strong>$rhour</strong>ชั่วโมง <strong>$rmin</strong>นาที <strong>$rsec</strong>วินาที";
+			$timetodo = "อัพเกรดเริ่มต้นเวลา：<strong>$stime</strong> โปรแกรมอัพเกรดดำเนินการไปแล้ว <strong>$rday</strong>วัน <strong>$rhour</strong>ชั่วโมง <strong>$rmin</strong>นาที <strong>$rsec</strong>วินาที";
 			$timetodo .= "<br><br>โปรแกรมคอนเวิร์ทกำลังดำเนินการอยู่ในขณะนี้ ( $prg_done / $prg_total ) <strong>$prg</strong> จะมีรีไดเรคเกิดขึ้นหลายครั้งในระหว่างนั้นโปรดอย่าปิดเบราว์เซอร์ของคุณ";
 			$timetodo .= "<br><br>หากโปรแกรมถูกขัดจังหวะหรือจำเป็นต้องเริ่มโปรแกรมปัจจุบัน，กรุณาคลิก (<a href=\"index.php?a=convert&source=$source&prg=$prg\">เริ่มต้นใหม่</a>)";
 

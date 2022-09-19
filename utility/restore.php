@@ -601,7 +601,7 @@ function lang($lang_key, $force = true, $replace = array()) {
 		'db_export_zip' => '压缩备份',
 		'db_zip' => 'ZIP',
 		'db_shell' => 'Shell',
-		'unknown' => '未知',
+		'unknown' => 'ไม่รู้จัก',
 		'backup_file_unexist' => '备份文件不存在',
 		'connect_error' => '连接数据库失败，请您查看数据库配置文件config/config_global.php和config/config_ucenter.php是否存在以及配置是否正确',
 		'dbcharsetdiff' => ' 数据库字符集('.$_config['db']['1']['dbcharset'].')',

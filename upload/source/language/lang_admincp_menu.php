@@ -17,11 +17,11 @@ $lang = array
 
 	'header_index' => 'หน้าแรก',
 	'header_global' => 'ครอบคลุม',
-	'header_forum' => 'ฟอรั่ม',
+	'header_forum' => 'ฟอรัม',
 	'header_user' => 'ผู้ใช้',
 	'header_topic' => 'เนื้อหา',
 	'header_extended' => 'ส่วนขยาย',
-	'header_plugin' => 'ปลั๊คอิน',
+	'header_plugin' => 'ปลั๊กอิน',
 	'header_template' => 'เทมเพลต',
 	'header_style' => 'อินเตอร์เฟซ',
 	'header_adv' => 'โฆษณา',

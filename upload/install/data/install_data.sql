@@ -33,7 +33,7 @@ INSERT INTO pre_common_credit_rule VALUES ('22','ลงคะแนนเสี�
 INSERT INTO pre_common_credit_rule VALUES ('23','เริ่มการแบ่งปัน','createshare','1','0','3','0','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('24','อ่านความเห็น','comment','1','0','40','1','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('25','แสดงความเห็น','getcomment','1','0','20','1','0','2','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('28','ดูข้อมูล','click','1','0','10','1','0','0','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('28','กดไลค์','click','1','0','10','1','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('29','แก้ไขโดเมน','modifydomain','0','0','1','0','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('30','บทวิจาร','portalcomment','1','0','40','1','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('31','กดติดตาม','followedcollection','1','0','3','0','0','1','0','0','0','0','0','0','');
@@ -883,13 +883,13 @@ INSERT INTO pre_forum_grouplevel VALUES ('3','default','ขั้นสูง','
 
 
 INSERT INTO pre_forum_imagetype VALUES ('1','1','ค่าเริ่มต้น','smiley','1','default');
-INSERT INTO pre_forum_imagetype VALUES ('2','1','ลิงหล่อ','smiley','2','coolmonkey');
-INSERT INTO pre_forum_imagetype VALUES ('3','1','มนุษย์องุ่น','smiley','3','grapeman');
+INSERT INTO pre_forum_imagetype VALUES ('2','1','หน้าลิง','smiley','2','coolmonkey');
+INSERT INTO pre_forum_imagetype VALUES ('3','1','หน้าสไลม์','smiley','3','grapeman');
 
 
 
-INSERT INTO pre_forum_medal VALUES ('1','ผู้มาใหม่ที่ดีที่สุด','0','medal1.gif','0','0','สมาชิกโพสต์อย่างแข็งขันหลังจากลงทะเบียนบัญชี','0','','0','0');
-INSERT INTO pre_forum_medal VALUES ('2','สมาชิก','0','medal2.gif','0','0','ฉันมักจะมีส่วนร่วมในการอภิปรายของหัวข้อต่าง ๆ และเนื้อหาของโพสต์นั้นมีความคิดเห็นมากกว่า','0','','0','0');
+INSERT INTO pre_forum_medal VALUES ('1','เด็กใหม่มาแรง','0','medal1.gif','0','0','สมาชิกใหม่ที่โพสต์อย่างแข็งขันหลังจากลงทะเบียนบัญชี','0','','0','0');
+INSERT INTO pre_forum_medal VALUES ('2','สมาชิก','0','medal2.gif','0','0','ฉันมักจะมีร่วมแสดงความคิดเห็นต่อเนื้อหาของโพสต์และการดีเบตในหัวข้อต่าง ๆ','0','','0','0');
 INSERT INTO pre_forum_medal VALUES ('3','สมาชิกที่กระตือรือร้น','0','medal3.gif','0','0','ฉันมักจะช่วยให้สมาชิกคนอื่นตอบคำถาม','0','','0','0');
 INSERT INTO pre_forum_medal VALUES ('4','ผู้เชี่ยวชาญด้านโปรโมชั่น','0','medal4.gif','0','0','โปรโมตเว็บไซต์นี้อย่างแข็งขันและนำสมาชิกที่ลงทะเบียนมากขึ้นไปยังเว็บไซต์นี้','0','','0','0');
 INSERT INTO pre_forum_medal VALUES ('5','การโฆษณาชวนเชื่อ','0','medal5.gif','0','0','โปรโมตเว็บไซต์นี้อย่างแข็งขันและนำการเยี่ยมชมผู้ใช้มาสู่เว็บไซต์นี้มากขึ้น','0','','0','0');
@@ -910,21 +910,21 @@ INSERT INTO pre_forum_onlinelist VALUES ('0','4','สมาชิก','online_me
 
 INSERT INTO pre_forum_typeoption SET `optionid`=1, `title`='หมวดหมู่เริ่มต้น';
 
-INSERT INTO pre_home_click VALUES ('1','ผ่าน','luguo.gif','blogid','1','0');
-INSERT INTO pre_home_click VALUES ('2','ฟ้าร้อง','leiren.gif','blogid','1','0');
-INSERT INTO pre_home_click VALUES ('3','การจับมือกัน','woshou.gif','blogid','1','0');
+INSERT INTO pre_home_click VALUES ('1','ผ่านศึก','luguo.gif','blogid','1','0');
+INSERT INTO pre_home_click VALUES ('2','สายฟ้า','leiren.gif','blogid','1','0');
+INSERT INTO pre_home_click VALUES ('3','ร่วมมือ','woshou.gif','blogid','1','0');
 INSERT INTO pre_home_click VALUES ('4','ดอกไม้','xianhua.gif','blogid','1','0');
-INSERT INTO pre_home_click VALUES ('5','ไข่','jidan.gif','blogid','1','0');
-INSERT INTO pre_home_click VALUES ('6','สวย','piaoliang.gif','picid','1','0');
-INSERT INTO pre_home_click VALUES ('7','เย็น','kubi.gif','picid','1','0');
-INSERT INTO pre_home_click VALUES ('8','ฟ้าร้อง','leiren.gif','picid','1','0');
+INSERT INTO pre_home_click VALUES ('5','ไข่ดาว','jidan.gif','blogid','1','0');
+INSERT INTO pre_home_click VALUES ('6','น่ารักอะ','piaoliang.gif','picid','1','0');
+INSERT INTO pre_home_click VALUES ('7','เท่ห์','kubi.gif','picid','1','0');
+INSERT INTO pre_home_click VALUES ('8','สายฟ้า','leiren.gif','picid','1','0');
 INSERT INTO pre_home_click VALUES ('9','ดอกไม้','xianhua.gif','picid','1','0');
-INSERT INTO pre_home_click VALUES ('10','ไข่','jidan.gif','picid','1','0');
-INSERT INTO pre_home_click VALUES ('11','ผ่าน','luguo.gif','aid','1','0');
-INSERT INTO pre_home_click VALUES ('12','ฟ้าร้อง','leiren.gif','aid','1','0');
-INSERT INTO pre_home_click VALUES ('13','การจับมือกัน','woshou.gif','aid','1','0');
+INSERT INTO pre_home_click VALUES ('10','ไข่ดาว','jidan.gif','picid','1','0');
+INSERT INTO pre_home_click VALUES ('11','ผ่านศึก','luguo.gif','aid','1','0');
+INSERT INTO pre_home_click VALUES ('12','สายฟ้า','leiren.gif','aid','1','0');
+INSERT INTO pre_home_click VALUES ('13','ร่วมมือ','woshou.gif','aid','1','0');
 INSERT INTO pre_home_click VALUES ('14','ดอกไม้','xianhua.gif','aid','1','0');
-INSERT INTO pre_home_click VALUES ('15','ไข่','jidan.gif','aid','1','0');
+INSERT INTO pre_home_click VALUES ('15','ไข่ดาว','jidan.gif','aid','1','0');
 
 -- [block_style]
 INSERT INTO pre_common_block_style (styleid, blockclass, `name`, template, `hash`, getpic, getsummary, makethumb, settarget, `fields`) VALUES(1, 'html_html', '[บิลท์อิน]เทมเพลตอากาศ', 'a:9:{s:3:"raw";s:0:"";s:6:"footer";s:0:"";s:6:"header";s:0:"";s:9:"indexplus";a:0:{}s:5:"index";a:0:{}s:9:"orderplus";a:0:{}s:5:"order";a:0:{}s:8:"loopplus";a:0:{}s:4:"loop";a:0:{}}', 'ee3e718a', 0, 0, 0, 0, 'a:0:{}');
@@ -1036,13 +1036,13 @@ INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic
 INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic, getsummary, makethumb, settarget, `fields`) VALUES('other_otherstat', '[บิลท์อิน]ข้อมูลสถิติทั้งหมด', 'a:9:{s:3:"raw";s:664:"[loop]<div class="tns">\r\n<ul>\r\n<li>{posts_title}:<em>{posts}</em></li>\r\n<li>{groups_title}:<em>{groups}</em></li>\r\n<li>{members_title}:<em>{members}</em></li>\r\n<li>{groupnewposts_title}:<em>{groupnewposts}</em></li>\r\n<li>{bbsnewposts_title}:<em>{bbsnewposts}</em></li>\r\n<li>{bbslastposts_title}:<em>{bbslastposts}</em></li>\r\n<li>{onlinemembers_title}:<em>{onlinemembers}</em></li>\r\n<li>{maxmembers_title}:<em>{maxmembers}</em></li>\r\n<li>{doings_title}:<em>{doings}</em></li>\r\n<li>{blogs_title}:<em>{blogs}</em></li>\r\n<li>{albums_title}:<em>{albums}</em></li>\r\n<li>{pics_title}:<em>{pics}</em></li>\r\n<li>{shares_title}:<em>{shares}</em></li>\r\n</ul>\r\n</div>\r\n[/loop]";s:6:"footer";s:0:"";s:6:"header";s:0:"";s:9:"indexplus";a:0:{}s:5:"index";a:0:{}s:9:"orderplus";a:0:{}s:5:"order";a:0:{}s:8:"loopplus";a:0:{}s:4:"loop";s:649:"<div class="tns">\r\n<ul>\r\n<li>{posts_title}:<em>{posts}</em></li>\r\n<li>{groups_title}:<em>{groups}</em></li>\r\n<li>{members_title}:<em>{members}</em></li>\r\n<li>{groupnewposts_title}:<em>{groupnewposts}</em></li>\r\n<li>{bbsnewposts_title}:<em>{bbsnewposts}</em></li>\r\n<li>{bbslastposts_title}:<em>{bbslastposts}</em></li>\r\n<li>{onlinemembers_title}:<em>{onlinemembers}</em></li>\r\n<li>{maxmembers_title}:<em>{maxmembers}</em></li>\r\n<li>{doings_title}:<em>{doings}</em></li>\r\n<li>{blogs_title}:<em>{blogs}</em></li>\r\n<li>{albums_title}:<em>{albums}</em></li>\r\n<li>{pics_title}:<em>{pics}</em></li>\r\n<li>{shares_title}:<em>{shares}</em></li>\r\n</ul>\r\n</div>";}', '027d3e60', 0, 0, 0, 0, 'a:26:{i:0;s:11:"posts_title";i:1;s:5:"posts";i:2;s:12:"groups_title";i:3;s:6:"groups";i:4;s:13:"members_title";i:5;s:7:"members";i:6;s:19:"groupnewposts_title";i:7;s:13:"groupnewposts";i:8;s:17:"bbsnewposts_title";i:9;s:11:"bbsnewposts";i:10;s:18:"bbslastposts_title";i:11;s:12:"bbslastposts";i:12;s:19:"onlinemembers_title";i:13;s:13:"onlinemembers";i:14;s:16:"maxmembers_title";i:15;s:10:"maxmembers";i:16;s:12:"doings_title";i:17;s:6:"doings";i:18;s:11:"blogs_title";i:19;s:5:"blogs";i:20;s:12:"albums_title";i:21;s:6:"albums";i:22;s:10:"pics_title";i:23;s:4:"pics";i:24;s:12:"shares_title";i:25;s:6:"shares";}');
 -- [/key]
 -- [key:9e2ea31f]
-INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic, getsummary, makethumb, settarget, `fields`) VALUES('forum_thread', '[บิลท์อิน]แนะนำสั้น ๆ+สองคอลัมน์', 'a:9:{s:3:"raw";s:284:"<div class="bm bw0">\r\n[index=1]\r\n<dl class="cl xld">\r\n<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>\r\n<dd>{summary}</dd>\r\n</dl>\r\n<hr class="da" />\r\n[/index]\r\n<ul class="xl xl2 cl">\r\n[loop]<li><a href="{url}" title="{title}"{target}>{title}</a></li>[/loop]\r\n</ul>\r\n</div>";s:6:"footer";s:0:"";s:6:"header";s:0:"";s:9:"indexplus";a:0:{}s:5:"index";a:1:{i:1;s:127:"<dl class="cl xld">\r\n<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>\r\n<dd>{summary}</dd>\r\n</dl>\r\n<hr class="da" />";}s:9:"orderplus";a:0:{}s:5:"order";a:0:{}s:8:"loopplus";a:0:{}s:4:"loop";s:60:"<li><a href="{url}" title="{title}"{target}>{title}</a></li>";}', '9e2ea31f', 0, 1, 0, 1, 'a:3:{i:0;s:3:"url";i:1;s:5:"title";i:2;s:7:"summary";}');
+INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic, getsummary, makethumb, settarget, `fields`) VALUES('forum_thread', '[บิลท์อิน]แนะนำสั้น ๆ + สองคอลัมน์', 'a:9:{s:3:"raw";s:284:"<div class="bm bw0">\r\n[index=1]\r\n<dl class="cl xld">\r\n<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>\r\n<dd>{summary}</dd>\r\n</dl>\r\n<hr class="da" />\r\n[/index]\r\n<ul class="xl xl2 cl">\r\n[loop]<li><a href="{url}" title="{title}"{target}>{title}</a></li>[/loop]\r\n</ul>\r\n</div>";s:6:"footer";s:0:"";s:6:"header";s:0:"";s:9:"indexplus";a:0:{}s:5:"index";a:1:{i:1;s:127:"<dl class="cl xld">\r\n<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>\r\n<dd>{summary}</dd>\r\n</dl>\r\n<hr class="da" />";}s:9:"orderplus";a:0:{}s:5:"order";a:0:{}s:8:"loopplus";a:0:{}s:4:"loop";s:60:"<li><a href="{url}" title="{title}"{target}>{title}</a></li>";}', '9e2ea31f', 0, 1, 0, 1, 'a:3:{i:0;s:3:"url";i:1;s:5:"title";i:2;s:7:"summary";}');
 -- [/key]
 -- [key:cba1f109]
 INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic, getsummary, makethumb, settarget, `fields`) VALUES('forum_thread', '[บิลท์อิน]โพสต์รูปภาพสไลด์โชว์', 'a:9:{s:3:"raw";s:333:"<div class="module cl slidebox">\r\n<ul class="slideshow">\r\n[loop]\r\n<li style="width: {picwidth}px; height: {picheight}px;"><a href="{url}"{target}><img src="{pic}" width="{picwidth}" height="{picheight}" /></a><span class="title">{title}</span></li>\r\n[/loop]\r\n</ul>\r\n</div>\r\n<script type="text/javascript">\r\nrunslideshow();\r\n</script>";s:6:"footer";s:0:"";s:6:"header";s:0:"";s:9:"indexplus";a:0:{}s:5:"index";a:0:{}s:9:"orderplus";a:0:{}s:5:"order";a:0:{}s:8:"loopplus";a:0:{}s:4:"loop";s:182:"<li style="width: {picwidth}px; height: {picheight}px;"><a href="{url}"{target}><img src="{pic}" width="{picwidth}" height="{picheight}" /></a><span class="title">{title}</span></li>";}', 'cba1f109', 1, 0, 1, 1, 'a:3:{i:0;s:3:"url";i:1;s:3:"pic";i:2;s:5:"title";}');
 -- [/key]
 -- [key:0ab2e307]
-INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic, getsummary, makethumb, settarget, `fields`) VALUES('forum_thread', '[บิลท์อิน]รายการรูปภาพโพสต์', 'a:9:{s:3:"raw";s:271:"<div class="module cl ml">\r\n<ul>\r\n[loop]\r\n<li style="width: {picwidth}px;">\r\n	<a href="{url}"{target}><img src="{pic}" width="{picwidth}" height="{picheight}" alt="{title}" /></a>\r\n	<p><a href="{url}" title="{title}"{target}>{title}</a></p>\r\n</li>\r\n[/loop]\r\n</ul>\r\n</div>";s:6:"footer";s:0:"";s:6:"header";s:0:"";s:9:"indexplus";a:0:{}s:5:"index";a:0:{}s:9:"orderplus";a:0:{}s:5:"order";a:0:{}s:8:"loopplus";a:0:{}s:4:"loop";s:205:"<li style="width: {picwidth}px;">\r\n	<a href="{url}"{target}><img src="{pic}" width="{picwidth}" height="{picheight}" alt="{title}" /></a>\r\n	<p><a href="{url}" title="{title}"{target}>{title}</a></p>\r\n</li>";}', '0ab2e307', 1, 0, 1, 1, 'a:3:{i:0;s:3:"url";i:1;s:3:"pic";i:2;s:5:"title";}');
+INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic, getsummary, makethumb, settarget, `fields`) VALUES('forum_thread', '[บิลท์อิน]รายการโพสต์รูปภาพ', 'a:9:{s:3:"raw";s:271:"<div class="module cl ml">\r\n<ul>\r\n[loop]\r\n<li style="width: {picwidth}px;">\r\n	<a href="{url}"{target}><img src="{pic}" width="{picwidth}" height="{picheight}" alt="{title}" /></a>\r\n	<p><a href="{url}" title="{title}"{target}>{title}</a></p>\r\n</li>\r\n[/loop]\r\n</ul>\r\n</div>";s:6:"footer";s:0:"";s:6:"header";s:0:"";s:9:"indexplus";a:0:{}s:5:"index";a:0:{}s:9:"orderplus";a:0:{}s:5:"order";a:0:{}s:8:"loopplus";a:0:{}s:4:"loop";s:205:"<li style="width: {picwidth}px;">\r\n	<a href="{url}"{target}><img src="{pic}" width="{picwidth}" height="{picheight}" alt="{title}" /></a>\r\n	<p><a href="{url}" title="{title}"{target}>{title}</a></p>\r\n</li>";}', '0ab2e307', 1, 0, 1, 1, 'a:3:{i:0;s:3:"url";i:1;s:3:"pic";i:2;s:5:"title";}');
 -- [/key]
 -- [/block_style]
 

@@ -71,8 +71,8 @@ $lang = array(
 	'mail_my' => '好友与我的互动提醒',
   	'mail_system' => '系统提醒',
 
-	'person' => '人',
-	'delete' => '删除',
+	'person' => 'คน',
+	'delete' => 'ลบทิ้ง',
 
 	'space_update' => '{actor} 被SHOW了一下',
 
@@ -119,7 +119,7 @@ $lang = array(
 	'inadequate_capacity_space' => '空间容量不足，不能上传新附件',
 	'mobile_picture_temporary_failure' => '无法转移临时文件到服务器指定目录',
 	'ftp_upload_file_size' => '远程上传图片失败',
-	'comment' => '评论',
+	'comment' => 'ความเห็น',
 	'upload_a_new_picture' => '上传了新图片',
 	'upload_album' => '更新了相册',
 	'the_total_picture' => '共 \\1 张图片',
@@ -279,7 +279,7 @@ $lang = array(
 	'group' => '群组',
 	'follow' => '广播',
 	'collection' => '淘帖',
-	'guide' => '导读',
+	'guide' => 'ไกด์',
 	'feed' => '动态',
 	'blog' => '日志',
 	'doing' => '记录',

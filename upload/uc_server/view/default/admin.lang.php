@@ -11,7 +11,7 @@ $lang = array(
 	'user_add' => '添加用户',
 	'user_password' => '密码',
 	'user_addsubmit' => '添 加',
-	'delete' => '删除',
+	'delete' => 'ลบทิ้ง',
 	'email' => 'Email',
 	'user_list' => '用户列表',
 );

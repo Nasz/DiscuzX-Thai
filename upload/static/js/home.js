@@ -740,7 +740,7 @@ function feedcomment_close(feedid) {
 	$(showid).style.display = 'none';
 	$(showid).style.className = '';
 
-	$(opid).innerHTML = '评论';
+	$(opid).innerHTML = 'ความเห็น';
 	$(opid).onclick = function() {
 		feedcomment_get(feedid);
 	}

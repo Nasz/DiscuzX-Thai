@@ -378,11 +378,11 @@ function toggleRatelogCollapse(tarId, ctrlObj) {
 	if($(tarId).className == 'rate') {
 		$(tarId).className = 'rate rate_collapse';
 		setcookie('ratecollapse', 1, 2592000);
-		ctrlObj.innerHTML = '展开';
+		ctrlObj.innerHTML = 'เปิด';
 	} else {
 		$(tarId).className = 'rate';
 		setcookie('ratecollapse', 0, -2592000);
-		ctrlObj.innerHTML = '收起';
+		ctrlObj.innerHTML = 'ปิด';
 	}
 }
 
@@ -745,7 +745,7 @@ function succeedhandle_vfastpost(url, message, param) {
 }
 
 function vmessage() {
-	var vf_tips = '#在这里快速回复#';
+	var vf_tips = '#ตอบกลับด่วนที่นี่#';
 	$('vmessage').value = vf_tips;
 	$('vmessage').style.color = '#CDCDCD';
 	$('vmessage').onclick = function() {

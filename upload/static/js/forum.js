@@ -186,7 +186,7 @@ function announcement() {
 }
 
 function removeindexheats() {
-	return confirm('您确认要把此主题从热点主题中移除么？');
+	return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบหัวข้อนี้ออกจากกระทู้ร้อนแรง?');
 }
 
 function showTypes(id, mod) {
@@ -196,7 +196,7 @@ function showTypes(id, mod) {
 	mod = isUndefined(mod) ? 1 : mod;
 	var baseh = o.getElementsByTagName('li')[0].offsetHeight * 2;
 	var tmph = o.offsetHeight;
-	var lang = ['展开', '收起'];
+	var lang = ['เปิด', 'ปิด'];
 	var cls = ['unfold', 'fold'];
 	if(tmph > baseh) {
 		var octrl = document.createElement('li');
@@ -237,18 +237,18 @@ function fastpostvalidate(theform, noajaxpost) {
 		}
 	}
 	if(theform.message.value == '' || theform.subject.value == '') {
-		s = '抱歉，您尚未输入标题或内容';
+		s = 'ขออภัยคุณยังไม่ได้ป้อนหัวข้อหรือเนื้อหา';
 		theform.message.focus();
 	} else if(dstrlen(theform.subject.value) > 255) {
-		s = '您的标题超过 255 个字符的限制';
+		s = 'หัวข้อของคุณเกินขีดิจำกัด (มากกว่า 255 ตัวอักษร)';
 		theform.subject.focus();
 	}
 	if(!disablepostctrl && dstrlen(trim(theform.subject.value)) && ((postminsubjectchars != 0 && dstrlen(theform.subject.value) < postminsubjectchars) || (postminsubjectchars != 0 && dstrlen(theform.subject.value) > postmaxsubjectchars))) {
-		showError('您的标题长度不符合要求。\n\n当前长度: ' + dstrlen(theform.subject.value) + ' 字\n系统限制: ' + postminsubjectchars + ' 到 ' + postmaxsubjectchars + ' 字');
+		showError('ความยาวหัวข้อของคุณไม่เป็นไปตามข้อกำหนด\n\nความยาวปัจจุบัน: ' + dstrlen(theform.subject.value) + ' 字\n系统限制: ' + postminsubjectchars + ' 到 ' + postmaxsubjectchars + ' 字');
 		return false;
 	}
 	if(!disablepostctrl && ((postminchars != 0 && mb_strlen(theform.message.value) < postminchars) || (postmaxchars != 0 && mb_strlen(theform.message.value) > postmaxchars))) {
-		s = '您的帖子长度不符合要求。\n\n当前长度: ' + mb_strlen(theform.message.value) + ' ' + '字节\n系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节';
+		s = '您的帖子长度不符合要求。\n\nความยาวปัจจุบัน: ' + mb_strlen(theform.message.value) + ' ' + '字节\n系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节';
 	}
 	if(s) {
 		showError(s);

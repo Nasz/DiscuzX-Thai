@@ -736,14 +736,14 @@ if($_GET['step'] == 'start') {
 			$newsettings['targetblank'] = $targetblanknew;
 		}
 		if(!isset($settings['article_tags'])) {
-			$article_tagsnew = array(1 => '原创', 2 => '热点', 3 => '组图', 4 => '爆料', 5 => '头条', 6 => '幻灯', 7 => '滚动', 8 => '推荐');
+			$article_tagsnew = array(1 => '原创', 2 => 'โดดเด่น', 3 => '组图', 4 => '爆料', 5 => '头条', 6 => '幻灯', 7 => '滚动', 8 => 'แนะนำ');
 			$newsettings['article_tags'] = $article_tagsnew;
 		}
 		if(empty($settings['anonymoustext'])) {
 			$newsettings['anonymoustext'] = '匿名';
 		}
 		if(!$word_type_count = DB::result_first("SELECT count(*) FROM ".DB::table('common_word_type')."")) {
-			DB::query("INSERT INTO ".DB::table('common_word_type')." VALUES('1', '政治'),('2', '广告')");
+			DB::query("INSERT INTO ".DB::table('common_word_type')." VALUES('1', '政治'),('2', 'โฆษณา')");
 		}
 		if(!isset($settings['userreasons'])) {
 			$newsettings['userreasons'] = '很给力!\r\n神马都是浮云\r\n赞一个!\r\n山寨\r\n淡定';

@@ -487,7 +487,7 @@ function checkFocus() {
 
 function checklength(theform) {
 	var message = wysiwyg ? html2bbcode(getEditorContents()) : (!theform.parseurloff.checked ? parseurl(theform.message.value) : theform.message.value);
-	showDialog('当前长度: ' + mb_strlen(message) + ' 字节，' + (postmaxchars != 0 ? '系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节。' : ''), 'notice', '字数检查');
+	showDialog('ความยาวปัจจุบัน: ' + mb_strlen(message) + ' 字节，' + (postmaxchars != 0 ? '系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节。' : ''), 'notice', '字数检查');
 }
 
 function setUnselectable(obj) {
@@ -936,7 +936,7 @@ function setContext(cmd) {
 			}
 		}
 	} catch(e) {
-		ss = '大小';
+		ss = 'ขนาด';
 	}
 
 	if(ss != $(editorid + '_size').sizestate) {
@@ -981,7 +981,7 @@ function formatFontsize(csssize) {
 		case '24pt': return 6;
 		case '48px':
 		case '36pt': return 7;
-		default: return '大小';
+		default: return 'ขนาด';
 	}
 }
 

@@ -9,7 +9,7 @@ var drag = new Drag();
 drag.extend({
 
 	setDefalutMenu : function () {
-		this.addMenu('default', '删除', 'drag.removeBlock(event)');
+		this.addMenu('default', 'ลบทิ้ง', 'drag.removeBlock(event)');
 		this.addMenu('block', '属性', 'drag.openBlockEdit(event)');
 	},
 	removeBlock : function (e) {

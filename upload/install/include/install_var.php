@@ -263,7 +263,7 @@ $serialize_sql_setting = array (
   'seotitle' =>
   array (
     'portal' => 'พอร์ทัล',
-    'forum' => 'ฟอรั่ม',
+    'forum' => 'ฟอรัม',
     'group' => 'กลุ่ม',
     'home' => 'โฮม',
   ),

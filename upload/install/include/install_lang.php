@@ -183,7 +183,7 @@ $lang = array(
 	'init_credits_money' => 'เงินรางวัล',
 
 	'init_postno0' => 'เจ้าบ้าน',
-	'init_postno1' => 'โซฟา',
+	'init_postno1' => 'เม้นแรก',
 	'init_postno2' => 'ม้านั่ง',
 	'init_postno3' => 'พื้น',
 

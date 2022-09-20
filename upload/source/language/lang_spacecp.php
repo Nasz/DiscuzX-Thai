@@ -289,7 +289,7 @@ $lang = array(
 	'medal' => 'เหรียญตรา',
 	'task' => 'ภารกิจ',
 	'magic' => 'พร็อพ',
-	'favorite' => 'เก็บ',
+	'favorite' => 'รายการโปรด',
 	'select_the_navigation_position' => '选择{type}导航位置',
 	'close_module' => '关闭{type}功能',
 

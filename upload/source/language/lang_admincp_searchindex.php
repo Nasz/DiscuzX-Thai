@@ -3405,7 +3405,7 @@ $lang = array (
 		'index' =>
 		array (
 			'站长推荐' => 'action=misc&operation=focus',
-			'管理' => 'action=misc&operation=focus',
+			'จัดการ' => 'action=misc&operation=focus',
 		),
 		'text' =>
 		array (
@@ -3413,7 +3413,7 @@ $lang = array (
 			1 => 'misc_focus_tips',
 			2 => '站长推荐将以浮窗的形式显示在帖子内容页面右下角。您可以手动添加一些指定的主题，或者选择一些版主推荐的主题。最多 10 条，每次随机显示其中 1 条。',
 			3 => 'admin',
-			4 => '管理',
+			4 => 'จัดการ',
 		),
 	),
 	201 =>

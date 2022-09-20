@@ -11,7 +11,7 @@
 
 $lang = array (
   'credits' => 'เครดิต',
-  'favorite' => 'เก็บ',
+  'favorite' => 'รายการโปรด',
   'group_admin' => '管理{$_G[\'setting\'][\'navs\'][3][\'navname\']}',
   'group_create' => '创建{$_G[\'setting\'][\'navs\'][3][\'navname\']}',
   'group_create_buildcredits' => '创建{$_G[\'setting\'][\'navs\'][3][\'navname\']}需要消耗',

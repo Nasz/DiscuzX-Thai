@@ -16,7 +16,7 @@ $lang = array(
 	'editor_cut' => '剪切',
 	'editor_copy' => 'คัดลอก',
 	'editor_paste' => '粘贴',
-	'editor_font' => '字体',
+	'editor_font' => 'ฟอนท์',
 	'editor_fontsize' => '字号',
 	'editor_fontbold' => '加粗',
 	'editor_fontitalic' => '斜体',
@@ -79,7 +79,7 @@ $lang = array(
 	'editor_prompt_video_media' => 'Media 视频',
 	'editor_prompt_video_real' => 'Real 视频',
 	'editor_prompt_mp3' => 'mp3 音乐',
-	'editor_full_screen' => '全屏',
+	'editor_full_screen' => 'เต็มจอ',
 );
 
 ?>

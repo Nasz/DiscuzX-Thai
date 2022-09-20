@@ -62,7 +62,7 @@ function checklength(theform) {
 	if(!theform.parseurloff.checked) {
 		message = parseurl(message);
 	}
-	showDialog('ความยาวปัจจุบัน: ' + mb_strlen(message) + ' 字节，' + (postmaxchars != 0 ? '系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节。' : ''), 'notice', '字数检查');
+	showDialog('ความยาวปัจจุบัน: ' + mb_strlen(message) + ' 字节，' + (postmaxchars != 0 ? '系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节。' : ''), 'notice', 'คำแนะนำ');
 }
 
 if(!tradepost) {

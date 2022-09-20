@@ -315,12 +315,12 @@ function loadData(quiet, formobj) {
 
 	if(in_array((data = trim(data)), ['', 'null', 'false', null, false])) {
 		if(!quiet) {
-			showDialog('没有可以恢复的数据！', 'notice');
+			showDialog('ไม่มีข้อมูลที่สามารถกู้คืนได้!', 'notice');
 		}
 		return;
 	}
 
-	if(!quiet && !confirm('此操作将覆盖当前帖子内容，确定要恢复数据吗？')) {
+	if(!quiet && !confirm('การดำเนินการนี้จะยกเลิกเนื้อหาของโพสต์ในปัจจุบัน ยังต้องการกู้คืนข้อมูลหรือไม่?')) {
 		return;
 	}
 

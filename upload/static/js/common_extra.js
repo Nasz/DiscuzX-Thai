@@ -226,7 +226,7 @@ function _showselect(obj, inpid, t, rettype) {
 		$('append_parent').appendChild(div);
 		s = '';
 		if(!t) {
-			s += showselect_row(inpid, '一天', 1, 0, rettype);
+			s += showselect_row(inpid, 'เมื่อวาน', 1, 0, rettype);
 			s += showselect_row(inpid, '一周', 7, 0, rettype);
 			s += showselect_row(inpid, '一个月', 30, 0, rettype);
 			s += showselect_row(inpid, '三个月', 90, 0, rettype);

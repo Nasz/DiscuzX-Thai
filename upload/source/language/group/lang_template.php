@@ -11,7 +11,7 @@
 
 $lang = array (
   'credits' => 'เครดิต',
-  'favorite' => '收藏',
+  'favorite' => 'เก็บ',
   'group_admin' => '管理{$_G[\'setting\'][\'navs\'][3][\'navname\']}',
   'group_create' => '创建{$_G[\'setting\'][\'navs\'][3][\'navname\']}',
   'group_create_buildcredits' => '创建{$_G[\'setting\'][\'navs\'][3][\'navname\']}需要消耗',
@@ -129,7 +129,7 @@ $lang = array (
   'pass_all' => '全部通过',
   'search' => 'ค้นหา',
   'subdomain' => '二级域名',
-  'submit' => '提交',
+  'submit' => 'ส่ง',
   'threadtype' => '主题分类',
   'threadtype_add' => '添加分类',
   'threadtype_name' => '分类名称',

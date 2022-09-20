@@ -39,7 +39,7 @@ $lang = array
 	'post_thread' => '的帖子',
 
 	'price' => '售价',
-	'pay_view' => '记录',
+	'pay_view' => 'โน๊ต',
 	'attachment_buy' => '购买',
 
 	'post_trade_yuan' => 'บาท',
@@ -212,7 +212,7 @@ $lang = array
 	'perms_maxattachsize' => 'ขนาดไฟล์แนบสูงสุด',
 	'perms_maxsizeperday' => 'ขนาดไฟล์แนบสูงสุดต่อวัน',
 	'perms_maxattachnum' => 'จำนวนไฟล์แนบสูงสุดต่อวัน',
-	'perms_attachextensions' => 'ประเภทไฟล์แนบ',
+	'perms_attachextensions' => 'ขนาดของไฟล์แนบ',
 	'perms_allowstickthread' => '主题置顶',
 	'perms_allowdigestthread' => '主题精华',
 	'perms_allowstickthread_value' => 'ปักหมุด',

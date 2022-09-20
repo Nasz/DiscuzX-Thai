@@ -530,7 +530,7 @@ function show_msg($message, $url_forward = '', $type = 'message', $success = 0) 
 		echo "<script>setTimeout(\"redirect('$url_forward');\", 1250);</script>";
 	} elseif($type == 'confirm') {
 		echo "$message";
-		echo "<br /><br /><br /><button id=\"confirmbtn\" onclick=\"redirect('$url_forward')\">确定</button>&nbsp;<button id=\"cancelbtn\" onclick=\"redirect('{$siteurl}restore.php')\">取消</button>";
+		echo "<br /><br /><br /><button id=\"confirmbtn\" onclick=\"redirect('$url_forward')\">确定</button>&nbsp;<button id=\"cancelbtn\" onclick=\"redirect('{$siteurl}restore.php')\">ยกเลิก</button>";
 	}
 
 	show_footer();

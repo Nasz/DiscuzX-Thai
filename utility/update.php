@@ -656,7 +656,7 @@ if($_GET['step'] == 'start') {
 		DB::query("REPLACE INTO ".DB::table('common_setting')." VALUES ('regname', 'register')");
 		$newsettings['regname'] = 'register';
 		if(empty($settings['reglinkname'])) {
-			$newsettings['reglinkname'] = '注册';
+			$newsettings['reglinkname'] = 'ลงทะเบียน';
 		}
 
 		if(empty($settings['domain'])) {

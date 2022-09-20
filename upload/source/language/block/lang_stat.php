@@ -32,17 +32,17 @@ $lang = array
 	'stat_edit_showtitle_detail' => '您可以编辑以下对应项来自定义各统计项的显示名称',
 
 	'stat_posts' => 'โพสต์',
-	'stat_groups' => '群组',
+	'stat_groups' => 'กลุ่ม',
 	'stat_members' => '会员',
 	'stat_groupnewposts' => '群组今日发帖',
 	'stat_bbsnewposts' => '论坛今日发帖',
 	'stat_bbslastposts' => '论坛昨日发帖',
 	'stat_onlinemembers' => '当前在线会员',
 	'stat_maxmembers' => '历史最高在线',
-	'stat_doings' => '动态',
-	'stat_blogs' => '日志',
-	'stat_albums' => '相册',
+	'stat_doings' => 'ฟีด',
+	'stat_blogs' => 'ไดอารี',
+	'stat_albums' => 'อัลบัม',
 	'stat_pics' => '图片',
-	'stat_shares' => '分享',
+	'stat_shares' => 'แชร์',
 );
 ?>

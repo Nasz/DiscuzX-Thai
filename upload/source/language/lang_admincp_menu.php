@@ -126,7 +126,7 @@ $lang = array
 	'menu_maint_comment' => '评论/留言管理',
 	'menu_maint_share' => '分享管理',
 
-	'menu_posting_attachtypes' => '附件类型尺寸',
+	'menu_posting_attachtypes' => 'ขนาดของไฟล์แนบ',
 	'menu_moderate_recyclebin' => '主题回收站',
 	'menu_moderate_recyclebinpost' => '回帖回收站',
 

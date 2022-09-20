@@ -304,22 +304,22 @@ function checkpassword(id1, id2) {
 		for(var i in strongpw) {
 			if(strongpw[i] === 1 && !$(id1).value.match(/\d+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = '数字';
+				strongpw_str[j] = 'ตัวเลข';
 				j++;
 			}
 			if(strongpw[i] === 2 && !$(id1).value.match(/[a-z]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = '小写字母';
+				strongpw_str[j] = 'ตัวอักษรตัวพิมพ์เล็ก';
 				j++;
 			}
 			if(strongpw[i] === 3 && !$(id1).value.match(/[A-Z]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = '大写字母';
+				strongpw_str[j] = 'อักษรตัวพิมพ์ใหญ่';
 				j++;
 			}
 			if(strongpw[i] === 4 && !$(id1).value.match(/[^A-Za-z0-9]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = '特殊符号';
+				strongpw_str[j] = 'เครื่องหมาย';
 				j++;
 			}
 		}

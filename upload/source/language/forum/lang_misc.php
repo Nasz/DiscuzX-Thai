@@ -17,7 +17,7 @@ $lang = array
 	'contact' => '联系方式:',
 	'anonymous' => '匿名',
 	'anonymoususer' => '匿名者',
-	'guestuser' => '游客',
+	'guestuser' => 'นักท่องเที่ยว',
 	'has_expired' => '该信息已经过期',
 	'click_view' => '点击查看',
 	'never_expired' => '永不过期',
@@ -39,7 +39,7 @@ $lang = array
 	'post_thread' => '的帖子',
 
 	'price' => '售价',
-	'pay_view' => 'โน๊ต',
+	'pay_view' => 'บันทึก',
 	'attachment_buy' => '购买',
 
 	'post_trade_yuan' => 'บาท',

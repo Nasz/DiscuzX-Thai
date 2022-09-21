@@ -16,7 +16,7 @@ $lang = array(
 	'by' => '通过',
 	'tab_space' => ' ',
 
-	'share' => 'แชร์',
+	'share' => 'แบ่งปัน',
 	'share_action' => '分享了',
 
 	'pm_comment' => '答复点评',
@@ -148,7 +148,7 @@ $lang = array(
 	'do_stat_add' => '信息发布',
 	'do_stat_comment' => '信息互动',
 	'do_stat_space' => '互动',
-	'do_stat_doing' => 'โน๊ต',
+	'do_stat_doing' => 'สมุดโน๊ต',
 	'do_stat_blog' => 'ไดอารี',
 	'do_stat_activity' => '活动',
 	'do_stat_reward' => '悬赏',
@@ -164,7 +164,7 @@ $lang = array(
 	'do_stat_pic' => '图片',
 	'do_stat_poll' => '投票',
 	'do_stat_event' => '活动',
-	'do_stat_share' => 'แชร์',
+	'do_stat_share' => 'แบ่งปัน',
 	'do_stat_thread' => 'กระทู้',
 	'do_stat_docomment' => '记录回复',
 	'do_stat_blogcomment' => '日志评论',
@@ -276,14 +276,14 @@ $lang = array(
 	'portal' => 'พอร์ทัล',
 	'forum' => 'ฟอรั่ม',
 	'friend' => 'เพื่อน',
-	'group' => 'กลุ่ม',
-	'follow' => 'ติดตาม',
-	'collection' => 'คอเลคชั่น',
+	'group' => 'กรุ๊ป',
+	'follow' => 'การติดตาม',
+	'collection' => 'กล่องเอกสาร',
 	'guide' => 'ไกด์',
-	'feed' => 'ฟีด',
+	'feed' => 'ฟีด RSS',
 	'blog' => 'ไดอารี',
-	'doing' => 'โน๊ต',
-	'wall' => 'บอร์ดข้อความ',
+	'doing' => 'สมุดโน๊ต',
+	'wall' => 'ฝากข้อความ',
 	'homepage' => '个人主页',
 	'ranklist' => 'ลีดเดอร์บอร์ด',
 	'medal' => 'เหรียญตรา',
@@ -317,5 +317,3 @@ $lang = array(
 	'payment_credit' => 'ค่าทำเนียม',
 
 );
-
-?>

@@ -16,7 +16,7 @@ $lang = array
 
 
 	'header_index' => 'หน้าแรก',
-	'header_global' => 'ครอบคลุม',
+	'header_global' => 'ภาพรวม',
 	'header_forum' => 'ฟอรัม',
 	'header_user' => 'ผู้ใช้',
 	'header_topic' => 'เนื้อหา',
@@ -31,18 +31,18 @@ $lang = array
 	'header_logout' => 'ล็อคเอ้าท์',
 	'header_bbs' => 'หน้าแรก',
 	'header_portal' => 'พอร์ทัล',
-	'header_group' => 'กลุ่ม',
+	'header_group' => 'กรุ๊ป',
 	'header_safe' => 'ความปลอดภัย',
 	'header_founder' => 'ผู้ดูแล',
 	'header_cloudaddons' => 'แอปเซนเตอร์',
 
 
-	'menu_home' => 'ศูนย์จัดการบ้าน',
+	'menu_home' => 'ศูนย์การจัดการ',
 	'menu_home_clearhistorymenus' => 'การดำเนินงานทางประวัติศาสตร์ที่ชัดเจน',
 
 	'menu_setting_basic' => 'ข้อมูลเว็บไซต์',
 	'menu_setting_access' => 'ควบคุมการเข้าถึง',
-	'menu_setting_customnav' => 'เมนูที่ใช้บ่อย',
+	'menu_setting_customnav' => 'เมนูลัด',
 	'menu_setting_styles' => 'สไตล์',
 	'menu_setting_optimize' => 'ออปติไมซ์',
 	'menu_setting_seo' => 'ปรับSEO',
@@ -183,7 +183,7 @@ $lang = array
 	'menu_threadsplit' => 'แบ่งกระทู้',
 	'menu_membersplit' => 'แบ่งผู้ใช้',
 	'menu_logs' => 'บันทึกการดำเนินงาน',
-	'menu_custommenu_manage' => 'จัดการเมนูที่ใช้บ่อย',
+	'menu_custommenu_manage' => 'จัดการเมนูลัด',
 	'menu_misc_cron' => 'งานที่กำหนด',
 
 	'menu_article' => '文章管理',

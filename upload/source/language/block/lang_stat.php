@@ -32,7 +32,7 @@ $lang = array
 	'stat_edit_showtitle_detail' => '您可以编辑以下对应项来自定义各统计项的显示名称',
 
 	'stat_posts' => 'โพสต์',
-	'stat_groups' => 'กลุ่ม',
+	'stat_groups' => 'กรุ๊ป',
 	'stat_members' => '会员',
 	'stat_groupnewposts' => '群组今日发帖',
 	'stat_bbsnewposts' => '论坛今日发帖',
@@ -43,6 +43,6 @@ $lang = array
 	'stat_blogs' => 'ไดอารี',
 	'stat_albums' => 'อัลบัม',
 	'stat_pics' => '图片',
-	'stat_shares' => 'แชร์',
+	'stat_shares' => 'แบ่งปัน',
 );
 ?>

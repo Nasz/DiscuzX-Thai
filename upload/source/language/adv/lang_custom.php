@@ -14,11 +14,11 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'custom_name' => 'โฆษณาที่กำหนดเอง',
-	'custom_desc' => 'ด้วยการเพิ่มรหัสโฆษณาลงในไฟล์เทมเพลตและ HTML คุณสามารถเพิ่มโฆษณาลงในหน้าใดก็ได้ของเว็บไซต์ใช้ได้กับการรู้ html ง่ายๆเว็บมาสเตอร์ความรู้<br /><br />
-		<a href="javascript:;" onclick="prompt(\'กรุณาคัดลอก(CTRL+C)เนื้อหาต่อไปนี้ถูกเพิ่มลงในเทมเพลตเพิ่มตำแหน่งโฆษณานี้\', \'<!--{ad/custom_'.$_GET['customid'].'}-->\')" />การโทรภายใน</a>&nbsp;
-		<a href="javascript:;" onclick="prompt(\'กรุณาคัดลอก(CTRL+C)มีการเพิ่มเนื้อหาต่อไปนี้ลงใน HTML ในไฟล์เพิ่มตำแหน่งโฆษณานี้\', \'&lt;script type=\\\'text/javascript\\\' src=\\\''.$_G['siteurl'].'api.php?mod=ad&adid=custom_'.$_GET['customid'].'\\\'&gt;&lt;/script&gt;\')" />การโทรภายนอก</a>',
+	'custom_desc' => 'ด้วยการเพิ่มโค๊ตโฆษณาลงในไฟล์เทมเพลตและ HTML คุณสามารถเพิ่มโฆษณาลงในหน้าใดก็ได้ของเว็บไซต์ ใช้กับเว็บมาสเตอร์รู้ html ขั้นพื้นฐาน<br /><br />
+		<a href="javascript:;" onclick="prompt(\'กรุณาคัดลอก(CTRL+C)เนื้อหาต่อไปนี้ แล้ววางในเทมเพลต ในตำแหน่งที่ต้องการแสดงโฆษณา\', \'<!--{ad/custom_'.$_GET['customid']. '}-->\')" />ตัวเรียก js ภายใน</a>&nbsp;
+		<a href="javascript:;" onclick="prompt(\'กรุณาคัดลอก(CTRL+C)เนื้อหาต่อไปนี้ แล้ววางในไฟล์ HTML ในตำแหน่งที่ต้องการแสดงโฆษณา\', \'&lt;script type=\\\'text/javascript\\\' src=\\\''.$_G['siteurl'].'api.php?mod=ad&adid=custom_'.$_GET['customid'].'\\\'&gt;&lt;/script&gt;\')" />ตัวเรียก js ภายนอก</a>',
 	'custom_id_notfound' => 'ไม่มีโฆษณาที่กำหนดเอง',
-	'custom_codelink' => 'การโทรภายใน',
+	'custom_codelink' => 'ตัวเรียก js ภายใน',
 	'custom_text' => 'โฆษณาที่กำหนดเอง',
 );
 

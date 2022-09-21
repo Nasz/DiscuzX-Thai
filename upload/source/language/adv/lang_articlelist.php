@@ -14,15 +14,15 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'articlelist_name' => 'โฆษณารายการบทความหน้าพอร์ทัล',
-	'articlelist_desc' => 'วิธีการแสดงผล: โฆษณารายการบทความจะแสดงในหน้าพอร์ทัลรวมบทความ ซึ่งแบ่งการวางตำแหน่งออกเป็น 2 ตำแหน่งด้านบนและด้านล่าง',
-	'articlelist_position' => 'ตำแหน่ง',
-	'articlelist_position_comment' => 'การแบมีตำแหน่งแต่ละครตำแหน่งการแสดงผลใกล้เคียงใกล้เคียงละลง，แตกต่าง 2 ตำแหน่งการแสดงผลใกล้เคียงใกล้เคียง',
-	'articlelist_position_up1' => 'บนสุด(ขึ้น)',
-	'articlelist_position_up2' => 'บนสุด(ลง)',
-	'articlelist_position_down1' => 'ล่าง(ขึ้น)',
-	'articlelist_position_down2' => 'ล่าง(ลง)',
-	'articlelist_category' => 'การจำแนกประเภทของช่องเปิดตัว',
-	'articlelist_category_comment' => 'ตั้งค่าการจำแนกประเภทช่องโฆษณา',
+	'articlelist_desc' => 'วิธีการแสดงผล: โฆษณาจะแสดงในรายการบทความหน้าพอร์ทัล ซึ่งแบ่งการวางตำแหน่งออกเป็น 2 ตำแหน่งด้านบนและด้านล่าง',
+	'articlelist_position' => 'ตำแหน่งโฆษณา',
+	'articlelist_position_comment' => 'แบ่งตำแหน่งการแสดงผลออกเป็นส่วนบนและส่วนล่าง ทั้งคู่สามารถเลือกได้อีกว่าจะอยู่เหนือหรือต่ำกว่า',
+	'articlelist_position_up1' => 'ส่วนบน(เหนือ)',
+	'articlelist_position_up2' => 'ส่วนล่าง(ต่ำกว่า)',
+	'articlelist_position_down1' => 'ส่วนล่าง(เหนือ)',
+	'articlelist_position_down2' => 'ส่วนล่าง(ต่ำกว่า)',
+	'articlelist_category' => 'หมวดเป้าหมาย',
+	'articlelist_category_comment' => 'ตั้งค่าหมวดเพื่อนโฆษณา',
 );
 
 ?>

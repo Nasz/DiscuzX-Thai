@@ -31,7 +31,7 @@ $lang = array (
   'medal_status_off'  => 'ขออภัยฟังก์ชั่นเหรียญยังไม่เปิด',
   'share_status_off'  => 'ขออภัยฟังก์ชั่นการแชร์ยังไม่ได้เปิด',
   'wall_status_off'  => 'ขออภัยฟังก์ชั่นกระดานข้อความยังไม่เปิด',
-  'favorite_status_off'  => 'ขออภัยฟังก์ชั่นคอลเลกชันยังไม่ได้เปิด',
+  'favorite_status_off'  => 'ขออภัยฟังก์ชั่นรายการโปรดยังไม่ได้เปิด',
   'forum_not_group' => 'ส่วนนี้ไม่ได้{_G/setting/navs/3/navname}',
   'forum_group_status_off' => 'ควร{_G/setting/navs/3/navname}ปิด',
   'forum_group_noallowed' => 'ขออภัยคุณไม่มีอำนาจในการเยี่ยมชม{_G/setting/navs/3/navname}',
@@ -112,7 +112,7 @@ $lang = array (
   'collection_teamworkers_exceed' => 'จำนวนการบำรุงรักษาร่วมได้ถึงขีด จำกัด สูงสุดและคุณไม่สามารถเชิญหรือยอมรับผู้อื่นให้เข้าร่วมการบำรุงรักษา',
   'no_privilege_guest' => 'ขออภัยนักท่องเที่ยวไม่มีสิทธิ์ในการดำเนินการนี้',
   'forum_nonexistence' => 'ขออภัยส่วนที่ระบุไม่มีอยู่จริง',
-  'ranklist_this_status_off' => 'การจัดอันดับนี้ถูกปิด',
+  'ranklist_this_status_off' => 'ลีดเดอร์บอร์ดนี้ถูกปิด',
   'modcp_mod_succeed' => 'หลังจากตรวจสอบและประมวลผล',
   'article_not_exist' => 'ขออภัยไม่มีบทความที่กำหนดไว้',
   'article_delete_success' => 'ลบออกสำเร็จ ',
@@ -516,7 +516,7 @@ $lang = array (
   'noperm_at_user' => 'คุณทำไม่ได้@ผู้ใช้งาน',
   'thread_at_usernum_limit' => 'ชุดรูปแบบนี้@จำนวนผู้ใช้ถึงขีด จำกัด',
 
-  'ranklist_status_off' => 'ฟังก์ชั่นการจัดอันดับการจัดอันดับปิด',
+  'ranklist_status_off' => 'ฟังก์ชั่นลีดเดอร์บอร์ดปิด',
 
   'report_parameters_invalid' => 'พารามิเตอร์หน้าผิดและรายงานไม่สามารถรายงานได้ในขณะนี้',
   'report_succeed' => 'รายงานสำเร็จ ',
@@ -771,12 +771,12 @@ $lang = array (
   'eccredit_reexplanation_repeat' => 'อย่าทำซ้ำคำอธิบาย',
   'eccredit_reexplanation_closed' => 'ขออภัยระยะเวลาที่ถูกต้องสำหรับการให้คำอธิบายผ่านไปแล้ว',
 
-  'favorite_delete_succeed' => 'การลบที่ชื่นชอบประสบความสำเร็จ ',
-  'favorite_does_not_exist' => 'ขออภัยไม่มีคอลเลกชันที่คุณกำหนดไว้',
+  'favorite_delete_succeed' => 'การลบรายการโปรดประสบความสำเร็จ ',
+  'favorite_does_not_exist' => 'ขออภัยไม่มีรายการโปรดที่คุณกำหนดไว้',
   'no_privilege' => 'ขออภัยคุณไม่มีสิทธิ์ที่จะดำเนินการนี้ในปัจจุบัน<a href="home.php?mod=spacecp&ac=usergroup" target="_blank">คลิกที่นี่เพื่อดูสิทธิ์</a>',
-  'favorite_cannot_favorite' => 'ขออภัยไม่สามารถรวบรวมข้อมูลที่กำหนดของคุณได้',
+  'favorite_cannot_favorite' => 'ขออภัยไม่สามารถเก็บไว้ในรายการโปรดของคุณได้',
   'favorite_repeat' => 'ขออภัยคุณได้เก็บไว้ในรายการโปรดแล้วอย่าทำซ้ำ',
-  'favorite_do_success' => 'การรวบรวมข้อมูลที่ประสบความสำเร็จ ',
+  'favorite_do_success' => 'เก็บไว้ในรายการโปรดแล้ว ',
 
   'feed_no_found' => 'ขออภัยคุณระบุพลวัตที่คุณต้องการดูไม่มีอยู่จริง',
   'no_privilege_feed_del' => 'ขออภัยคุณไม่มีสิทธิ์ที่จะลบพลวัตนี้',
@@ -854,7 +854,7 @@ $lang = array (
 
   'not_to_their_own_greeted' => 'ไม่สามารถสะกิดตัวเองได้',
   'no_privilege_poke' => 'ขออภัยคุณไม่ได้รับอนุญาตให้สะกิด<a href="home.php?mod=spacecp&ac=usergroup" target="_blank">คลิกที่นี่เพื่อดูสิทธิ์</a>',
-  'poke_success' => 'ได้ถูกส่งไป,{username}จะได้รับการแจ้งเตือนในการเยี่ยมชมครั้งต่อไป',
+  'poke_success' => 'สะกิดไปแล้ว {username} จะได้รับการแจ้งเตือนในการเยี่ยมชมครั้งต่อไป',
   'has_been_hailed_overlooked' => 'เจลถูกเพิกเฉย',
 
   'profile_passwd_empty' => 'กรุณาตั้งรหัสผ่านใหม่',

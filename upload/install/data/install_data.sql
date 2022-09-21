@@ -27,7 +27,7 @@ INSERT INTO pre_common_credit_rule VALUES ('16','เยี่ยมชม','visi
 INSERT INTO pre_common_credit_rule VALUES ('17','สะกิด','poke','1','0','10','2','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('18','สมุดเยี่ยม','guestbook','1','0','20','2','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('19','ฝากข้อความ','getguestbook','1','0','5','2','0','1','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('20','ทักทาย','doing','1','0','5','0','0','1','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('20','สมุดโน๊ต','doing','1','0','5','0','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('21','เขียนบล็อก','publishblog','1','0','3','0','0','2','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('22','ลงคะแนนเสียง','joinpoll','1','0','10','1','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('23','เริ่มการแบ่งปัน','createshare','1','0','3','0','0','1','0','0','0','0','0','0','');
@@ -140,18 +140,18 @@ INSERT INTO pre_common_member_profile_setting VALUES('field8', 0, 1, 0, 'ฟิ�
 
 INSERT INTO pre_common_nav VALUES ('','0','พอร์ทัล','Portal','portal.php','1','0','0','-1','1','0','0','0', 0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','ฟอรัม','BBS','forum.php','2','0','0','1','2','0','0','0', 0, '', '', '', 0, '');
-INSERT INTO pre_common_nav VALUES ('','0','กลุ่ม','Group','group.php','3','0','0','-1','7','0','0','0', 0, '', '', '', 0, '');
+INSERT INTO pre_common_nav VALUES ('','0','กรุ๊ป','Group','group.php','3','0','0','-1','7','0','0','0', 0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','สเปซ','Space','home.php','4','0','0','-1','8','0','0','0', 0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','ปลั๊กอิน','Plugin','#','6','0','0','1','9','0','0','0', 0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','ช่วยเหลือ','Help','misc.php?mod=faq','7','0','0','0','10','0','0','0', 0, '', '', '', 0, '');
-INSERT INTO pre_common_nav VALUES ('','0','การจัดอันดับ','Ranklist','misc.php?mod=ranklist','8','0','0','-1','16','0','0','0',  0, '', '', '', 0, '');
-INSERT INTO pre_common_nav VALUES ('','0','ติดตาม','Follow','home.php?mod=follow','9','0','0','-1','5','0','0','0',  0, '', '', '', 0, '');
+INSERT INTO pre_common_nav VALUES ('','0','ลีดเดอร์บอร์ด','Ranklist','misc.php?mod=ranklist','8','0','0','-1','16','0','0','0',  0, '', '', '', 0, '');
+INSERT INTO pre_common_nav VALUES ('','0','การติดตาม','Follow','home.php?mod=follow','9','0','0','-1','5','0','0','0',  0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','ไกด์','Guide','forum.php?mod=guide','10','0','0','-1','3','0','0','0',  0, '', '', '', 0, '');
-INSERT INTO pre_common_nav VALUES ('','0','คอเลคชั่น','Collection','forum.php?mod=collection','11','0','0','-1','11','0','0','0',  0, '', '', '', 0, '');
-INSERT INTO pre_common_nav VALUES ('','0','บล็อก','Blog','home.php?mod=space&do=blog','12','0','0','-1','12','0','0','0',  0, '', '', '', 0, '');
+INSERT INTO pre_common_nav VALUES ('','0','กล่องเอกสาร','Collection','forum.php?mod=collection','11','0','0','-1','11','0','0','0',  0, '', '', '', 0, '');
+INSERT INTO pre_common_nav VALUES ('','0','ไดอารี','Blog','home.php?mod=space&do=blog','12','0','0','-1','12','0','0','0',  0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','อัลบั้ม','Album','home.php?mod=space&do=album','13','0','0','-1','13','0','0','0',  0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','แบ่งปัน','Share','home.php?mod=space&do=share','14','0','0','-1','14','0','0','0',  0, '', '', '', 0, '');
-INSERT INTO pre_common_nav VALUES ('','0','ทักทาย','Doing','home.php?mod=space&do=doing','15','0','0','-1','15','0','0','0',  0, '', '', '', 0, '');
+INSERT INTO pre_common_nav VALUES ('','0','สมุดโน๊ต','Doing','home.php?mod=space&do=doing','15','0','0','-1','15','0','0','0',  0, '', '', '', 0, '');
 
 INSERT INTO pre_common_nav VALUES ('', '0', 'สถิติเว็บไซต์', '', 'misc.php?mod=stat', 'stat', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 1, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'รายงาน', '', '#', 'report', 0, 0, 1, 2, 0, 0, 0, 0, '', '', '', 1, '');
@@ -159,10 +159,10 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'คลังเอกสาร', ''
 INSERT INTO pre_common_nav VALUES ('', '0', 'เวอร์ชันมือถือ', '', 'forum.php?showmobile=yes', 'mobile', 0, 0, 1, 3, 0, 0, 0, 0, '', '', '', 1, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ห้องดำ', '', 'forum.php?mod=misc&action=showdarkroom', 'darkroom', 0, 0, 1, 3, 0, 0, 0, 0, '', '', '', 1, '');
 
-INSERT INTO pre_common_nav VALUES ('', '0', 'บล็อก', '', 'home.php?mod=space&do=blog', 'blog', 0, 0, -1, 2, 0, 0, 0, 0, '{STATICURL}image/feed/blog.gif', '发布', 'home.php?mod=spacecp&ac=blog', 2, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'ไดอารี', '', 'home.php?mod=space&do=blog', 'blog', 0, 0, -1, 2, 0, 0, 0, 0, '{STATICURL}image/feed/blog.gif', '发布', 'home.php?mod=spacecp&ac=blog', 2, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'อัลบั้ม', '', 'home.php?mod=space&do=album', 'album', 0, 0, -1, 3, 0, 0, 0, 0, '{STATICURL}image/feed/album.gif', 'อัปโหลด', 'home.php?mod=spacecp&ac=upload', 2, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'แบ่งปัน', '', 'home.php?mod=space&do=share', 'share', 0, 0, -1, 4, 0, 0, 0, 0, '{STATICURL}image/feed/share.gif', '添加', 'home.php?mod=spacecp&ac=share', 2, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'ทักทาย', '', 'home.php?mod=space&do=doing', 'doing', 0, 0, -1, 5, 0, 0, 0, 0, '{STATICURL}image/feed/doing.gif', '', '', 2, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'สมุดโน๊ต', '', 'home.php?mod=space&do=doing', 'doing', 0, 0, -1, 5, 0, 0, 0, 0, '{STATICURL}image/feed/doing.gif', '', '', 2, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ติดตาม', '', 'home.php?mod=follow', 'follow', 0, 0, -1, 6, 0, 0, 0, 0, '{STATICURL}image/feed/follow.gif', '', '', 2, '');
 INSERT INTO pre_common_nav VALUES ('', '0', '{hr}', '', '', '', 0, 1, 1, 8, 0, 0, 0, 0, '', '', '', 2, '');
 
@@ -172,18 +172,18 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'ชื่นชอบ', '', 'home.p
 INSERT INTO pre_common_nav VALUES ('', '0', 'เมจิค', '', 'home.php?mod=magic', 'magic', 0, 0, -1, 4, 0, 0, 0, 0, '{STATICURL}image/feed/magic_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'เงินรางวัล', '', 'home.php?mod=medal', 'medal', 0, 0, -1, 5, 0, 0, 0, 0, '{STATICURL}image/feed/medal_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ภารกิจ', '', 'home.php?mod=task', 'task', 0, 0, -1, 6, 0, 0, 0, 0, '{STATICURL}image/feed/task_b.png', '', '', 3, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'คอเลคชั่น', '', 'forum.php?mod=collection&op=my', 'collection', 0, 0, -1, 7, 0, 0, 0, 0, '{STATICURL}image/feed/collection_b.png', '', '', 3, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'กล่องเอกสาร', '', 'forum.php?mod=collection&op=my', 'collection', 0, 0, -1, 7, 0, 0, 0, 0, '{STATICURL}image/feed/collection_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ฟีด', '', 'home.php', 'feed', 0, 0, -1, 8, 0, 0, 0, 0, '{STATICURL}image/feed/feed_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'บล็อก', '', 'home.php?mod=space&do=blog', 'blog', 0, 0, -1, 9, 0, 0, 0, 0, '{STATICURL}image/feed/blog_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'อัลบั้ม', '', 'home.php?mod=space&do=album', 'album', 0, 0, -1, 10, 0, 0, 0, 0, '{STATICURL}image/feed/album_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'แบ่งปัน', '', 'home.php?mod=space&do=share', 'share', 0, 0, -1, 11, 0, 0, 0, 0, '{STATICURL}image/feed/share_b.png', '', '', 3, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'ทักทาย', '', 'home.php?mod=space&do=doing', 'doing', 0, 0, -1, 12, 0, 0, 0, 0, '{STATICURL}image/feed/doing_b.png', '', '', 3, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'สมุดโน๊ต', '', 'home.php?mod=space&do=doing', 'doing', 0, 0, -1, 12, 0, 0, 0, 0, '{STATICURL}image/feed/doing_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'สเปซ', '', 'home.php?mod=space&do=wall', 'wall', 0, 0, -1, 13, 0, 0, 0, 0, '{STATICURL}image/feed/wall_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ติดตาม', '', 'home.php?mod=follow', 'follow', 0, 0, -1, 14, 0, 0, 0, 0, '{STATICURL}image/feed/follow_b.png', '', '', 3, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'กลุ่ม', '', 'group.php', 'group', 0, 0, -1, 15, 0, 0, 0, 0, '{STATICURL}image/feed/group_b.png', '', '', 3, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'กรุ๊ป', '', 'group.php', 'group', 0, 0, -1, 15, 0, 0, 0, 0, '{STATICURL}image/feed/group_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'พอร์ทัล', '', 'portal.php', 'portal', 0, 0, -1, 16, 0, 0, 0, 0, '{STATICURL}image/feed/portal_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ไกด์', '', 'forum.php?mod=guide', 'guide', 0, 0, -1, 17, 0, 0, 0, 0, '{STATICURL}image/feed/guide_b.png', '', '', 3, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'การจัดอันดับ', '', 'misc.php?mod=ranklist', 'ranklist', 0, 0, -1, 18, 0, 0, 0, 0, '{STATICURL}image/feed/ranklist_b.png', '', '', 3, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'ลีดเดอร์บอร์ด', '', 'misc.php?mod=ranklist', 'ranklist', 0, 0, -1, 18, 0, 0, 0, 0, '{STATICURL}image/feed/ranklist_b.png', '', '', 3, '');
 
 
 INSERT INTO pre_common_nav VALUES ('', '0', 'ตั้งเป็นหน้าแรกบนเบราว์เซอร์', '', '#', 'sethomepage', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 4, '');
@@ -195,7 +195,7 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'ไกด์', '', 'forum.php?mod=g
 INSERT INTO pre_common_nav VALUES ('', '0', 'พอร์ทัล', '', 'portal.php?mod=list&catid=1', 'portal', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'บล็อก', '', 'home.php?mod=space&do=blog', 'blog', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'แบ่งปัน', '', 'home.php?mod=space&do=share', 'share', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'การจัดอันดับ', '', 'misc.php?mod=ranklist', 'ranklist', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'ลีดเดอร์บอร์ด', '', 'misc.php?mod=ranklist', 'ranklist', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
 
 -- [/update_nav]
 

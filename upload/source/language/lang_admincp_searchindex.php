@@ -14,22 +14,22 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'ศูนย์จัดการบ้าน' => 'action=index',
+			'ศูนย์การจัดการ' => 'action=index',
 		),
 		'text' =>
 		array (
-			0 => 'ศูนย์จัดการบ้าน',
+			0 => 'ศูนย์การจัดการ',
 		),
 	),
 	1 =>
 	array (
 		'index' =>
 		array (
-			'เมนูที่ใช้บ่อย' => 'action=misc&operation=custommenu',
+			'เมนูลัด' => 'action=misc&operation=custommenu',
 		),
 		'text' =>
 		array (
-			0 => 'ปรับแต่งเมนูที่ใช้บ่อย',
+			0 => 'เมนูลัด',
 		),
 	),
 	2 =>
@@ -58,11 +58,11 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 		),
 		'text' =>
 		array (
-			0 => '站点功能',
+			0 => 'ฟังค์ชั่น',
 		),
 	),
 	5 =>
@@ -3125,7 +3125,7 @@ $lang = array (
 			1 => 'members_edit_username',
 			2 => 'ชื่อผู้ใช้',
 			3 => 'members_edit_avatar',
-			4 => '头像',
+			4 => 'รูปโปรไฟล์',
 			5 => 'members_edit_statistics',
 			6 => 'สถิติ',
 			7 => 'members_edit_password',
@@ -3883,12 +3883,12 @@ $lang = array (
 			7 => 'setting_home_privacy_view_friend',
 			8 => 'รายชื่อเพื่อน',
 			9 => 'setting_home_privacy_view_wall',
-			10 => 'บอร์ดข้อความ',
+			10 => 'ฝากข้อความ',
 			11 => 'setting_home_privacy_view_feed',
 			12 => 'ฟีด',
 			13 => '非“全站用户可见”同时限制了动态首页的游客访问',
 			14 => 'setting_home_privacy_view_doing',
-			15 => 'โน๊ต',
+			15 => 'สมุดโน๊ต',
 			16 => '在全站的记录列表中可能会出现记录信息。 ',
 			17 => 'setting_home_privacy_view_blog',
 			18 => 'ไดอารี',
@@ -3897,7 +3897,7 @@ $lang = array (
 			21 => 'อัลบัม',
 			22 => '相关浏览权限需要在每个相册中单独设置方可完全生效',
 			23 => 'setting_home_privacy_view_share',
-			24 => 'แชร์',
+			24 => 'แบ่งปัน',
 			25 => '在全站的分享列表中可能会出现分享信息。 ',
 			26 => 'setting_home_privacy_default_feed',
 			27 => '默认动态发布设置',
@@ -3990,7 +3990,7 @@ $lang = array (
 			75 => '限时注册的 IP 列表',
 			76 => '当用户处于本列表中的 IP 地址时，在限时注册IP注册间隔限制内将至多只允许注册一个账号。每个 IP 一行，既可输入完整地址，也可只输入 IP 开头，例如 "192.168."(不含引号) 可匹配 192.168.0.0～192.168.255.255 范围内的所有地址，留空为不设置',
 			77 => 'setting_access_register_welcomemsg',
-			78 => '发送欢迎信息',
+			78 => 'ส่งข้อความต้อนรับ',
 			79 => '可选择是否自动向新注册用户发送一条欢迎信息',
 			80 => 'setting_access_register_welcomemsgtitle',
 			81 => '欢迎信息标题',
@@ -4564,12 +4564,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 			'管理相关' => 'action=setting&operation=functions&anchor=mod',
 		),
 		'text' =>
 		array (
-			0 => '站点功能 &raquo; 管理相关',
+			0 => 'ฟังค์ชั่น &raquo; 管理相关',
 			1 => 'setting_tips',
 			2 => '以红色虚线标示的选项，表示该选项和系统效率、负载能力与资源消耗有关(提高效率、或降低效率)，建议依据自身服务器情况进行调整。',
 			3 => 'setting_functions_mod_updatestat',
@@ -4620,12 +4620,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 			'主题热度' => 'action=setting&operation=functions&anchor=heatthread',
 		),
 		'text' =>
 		array (
-			0 => '站点功能 &raquo; 主题热度',
+			0 => 'ฟังค์ชั่น &raquo; 主题热度',
 			1 => 'setting_functions_heatthread_tips',
 			2 => '主题热度将按参与人次计算，包括回帖，点评，收藏，分享，评分，推荐',
 			3 => 'setting_functions_heatthread_period',
@@ -4640,12 +4640,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 			'主题评价' => 'action=setting&operation=functions&anchor=recommend',
 		),
 		'text' =>
 		array (
-			0 => '站点功能 &raquo; 主题评价',
+			0 => 'ฟังค์ชั่น &raquo; 主题评价',
 			1 => 'setting_functions_recommend_tips',
 			2 => '不同用户组会员的主题评价影响值不同，您可以在”用户组”设置的“帖子相关”中设置。',
 			3 => 'setting_functions_recommend_status',
@@ -4672,12 +4672,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 			'帖子点评' => 'action=setting&operation=functions&anchor=comment',
 		),
 		'text' =>
 		array (
-			0 => '站点功能 &raquo; 帖子点评',
+			0 => 'ฟังค์ชั่น &raquo; 帖子点评',
 			1 => 'setting_functions_comment_allow',
 			2 => '点评方式',
 			3 => '设置点评的发表方式，如不选择表示不启用点评功能。开启任意一种点评方式都需要在用户组中设置点评权限“直接点评”即通过帖子每楼层中的“点评”链接发表点评“楼层回复”即通过帖子每楼层中的“回复”链接发表回帖时，自动对该楼层产生点评注意：点击主题中的“回复”链接，不会对主题产生点评',
@@ -4714,12 +4714,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 			'帖子阅读' => 'action=setting&operation=functions&anchor=threadexp',
 		),
 		'text' =>
 		array (
-			0 => '站点功能 &raquo; 帖子阅读',
+			0 => 'ฟังค์ชั่น &raquo; 帖子阅读',
 			1 => 'setting_functions_threadexp_repliesrank',
 			2 => '启用回帖投票',
 			3 => '开启后，用户可对回帖进行“支持”、“反对”操作。',
@@ -4747,12 +4747,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 			'其他' => 'action=setting&operation=functions&anchor=other',
 		),
 		'text' =>
 		array (
-			0 => '站点功能 &raquo; 其他',
+			0 => 'ฟังค์ชั่น &raquo; 其他',
 			1 => 'setting_tips',
 			2 => '以红色虚线标示的选项，表示该选项和系统效率、负载能力与资源消耗有关(提高效率、或降低效率)，建议依据自身服务器情况进行调整。',
 			3 => 'setting_functions_other_pwdsafety',
@@ -4815,12 +4815,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 			'导读设置' => 'action=setting&operation=functions&anchor=guide',
 		),
 		'text' =>
 		array (
-			0 => '站点功能 &raquo; 导读设置',
+			0 => 'ฟังค์ชั่น &raquo; 导读设置',
 			1 => 'setting_functions_heatthread_guidelimit',
 			2 => '热度值聚合下限',
 			3 => '导读功能中收集热门主题时的热度值下限,默认值“3”',
@@ -4834,12 +4834,12 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'站点功能' => 'action=setting&operation=functions',
+			'ฟังค์ชั่น' => 'action=setting&operation=functions',
 			'活动主题' => 'action=setting&operation=functions&anchor=activity',
 		),
 		'text' =>
 		array (
-			0 => '站点功能 &raquo; 活动主题',
+			0 => 'ฟังค์ชั่น &raquo; 活动主题',
 			1 => 'setting_functions_activity_type',
 			2 => '内置类别',
 			3 => '本设定将在用户发起活动时显示活动类别，每个类别一行',
@@ -6441,13 +6441,13 @@ $lang = array (
 			53 => '设置是否允许发表新话题时使用标签',
 			54 => 'usergroups_edit_post_allowcommentpost',
 			55 => '帖子直接点评',
-			56 => '设置允许点评的范围，如不选择表示不启用点评功能注意：只有在 全局 - 站点功能 - 帖子点评 中开启直接点评功能，本设置才会生效',
+			56 => '设置允许点评的范围，如不选择表示不启用点评功能注意：只有在 全局 - ฟังค์ชั่น - 帖子点评 中开启直接点评功能，本设置才会生效',
 			57 => 'usergroups_edit_post_allowcommentreply',
 			58 => '楼层回复点评',
-			59 => '允许用户通过点击帖子中的“回复”链接回复他人回帖时，自动对该楼层产生点评注意：只有在 全局 - 站点功能 - 帖子点评 中开启楼层回复功能，本设置才会生效；点击主题中的“回复”链接，不会对主题产生点评',
+			59 => '允许用户通过点击帖子中的“回复”链接回复他人回帖时，自动对该楼层产生点评注意：只有在 全局 - ฟังค์ชั่น - 帖子点评 中开启楼层回复功能，本设置才会生效；点击主题中的“回复”链接，不会对主题产生点评',
 			60 => 'usergroups_edit_post_allowcommentitem',
 			61 => '允许用户在点评时发表观点',
-			62 => '允许用户在点评时发表观点注意：只有在 全局 - 站点功能 - 帖子点评 中开启直接点评功能，本设置才会生效',
+			62 => '允许用户在点评时发表观点注意：只有在 全局 - ฟังค์ชั่น - 帖子点评 中开启直接点评功能，本设置才会生效',
 			63 => 'usergroups_edit_post_allowat',
 			64 => '发帖时可 @ 其他人的数量',
 			65 => '0为不允许 @ 其他人（包括他关注的人和他的好友）',

@@ -44,7 +44,7 @@ function loadcalendar() {
 	s += '</div></div>';
 	s += '<div id="calendar_month" onclick="_cancelBubble(event)" style="display: none; padding: 3px; z-index: 140" class="calendarmenu">';
 	for(var k = 1; k <= 12; k++) {
-		s += '<a href="###" onclick="refreshcalendar(yy, ' + (k - 1) + ');$(\'calendar_month\').style.display=\'none\'; "><span' + (today.getMonth()+1 == k ? ' class="bold"' : '') + ' id="calendar_month_' + k + '">' + k + ( k < 10 ? '&nbsp;' : '') + ' 月</span></a><br />';
+		s += '<a href="###" onclick="refreshcalendar(yy, ' + (k - 1) + ');$(\'calendar_month\').style.display=\'none\'; "><span' + (today.getMonth()+1 == k ? ' class="bold"' : '') + ' id="calendar_month_' + k + '">เดือน ' + k + ( k < 10 ? '&nbsp;' : '') + '</span></a><br />';
 	}
 
 	s += '</div>';

@@ -46,7 +46,7 @@ function loadcalendar() {
 	s += '</div></div>';
 	s += '<div id="calendar_month" onclick="doane(event)" style="display: none;z-index:100001;">';
 	for(var k = 1; k <= 12; k++) {
-		s += '<a href="javascript:;" onclick="refreshcalendar(yy, ' + (k - 1) + ');$(\'calendar_month\').style.display=\'none\'"><span' + (today.getMonth()+1 == k ? ' class="calendar_today"' : '') + ' id="calendar_month_' + k + '">' + k + ( k < 10 ? '&nbsp;' : '') + ' เดือน</span></a><br />';
+		s += '<a href="javascript:;" onclick="refreshcalendar(yy, ' + (k - 1) + ');$(\'calendar_month\').style.display=\'none\'"><span' + (today.getMonth()+1 == k ? ' class="calendar_today"' : '') + ' id="calendar_month_' + k + '">เดือน ' + k + ( k < 10 ? '&nbsp;' : '') + '</span></a><br />';
 	}
 	s += '</div>';
 	if(BROWSER.ie && BROWSER.ie < 7) {

@@ -4,11 +4,7 @@
  *      [Discuz!] (C)2001-2099 Comsenz Inc.
  *      This is NOT a freeware, use is subject to license terms
  *
- *      $Id: install_lang.php 36287 2016-12-12 03:59:05Z nemohou $ * 
- * 
- *      แปลจากภาษาจีนโดยใช้ Google และ Baidu ในการ Translate 
- * 
- *      $All new translate Thai lang 2022-09-13 06:53:07GMT nasz$
+ *      $Id: install_lang.php 36287 2016-12-12 03:59:05Z nemohou $
  */
 
 if(!defined('IN_COMSENZ')) {

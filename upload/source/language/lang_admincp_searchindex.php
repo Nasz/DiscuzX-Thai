@@ -25,11 +25,11 @@ $lang = array (
 	array (
 		'index' =>
 		array (
-			'เมนูลัด' => 'action=misc&operation=custommenu',
+			'ปรับแต่งเมนู' => 'action=misc&operation=custommenu',
 		),
 		'text' =>
 		array (
-			0 => 'เมนูลัด',
+			0 => 'ปรับแต่งเมนู',
 		),
 	),
 	2 =>

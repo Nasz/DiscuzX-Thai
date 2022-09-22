@@ -131,12 +131,12 @@ $lang = array (
   'cloudaddons_check_write_error' => '"data/download/" 或 "data/addonmd5/" 目录无法创建或写入，这将会导致应用无法安装，请检查服务器环境',
   'cloudaddons_file_read_error' => '文件读取错误，请重试',
   'cloudaddons_file_write_error' => '文件写入错误，请重试',
-  'cloudaddons_noaccess' => 'บัญชีผู้ก่อตั้งเว็บไซต์เท่านั้นที่สามารถใช้ได้ <a href="https://addon.dismall.com/" target="_blank">Discuz! แอปเซนเตอร์</a> หากคุณมีคำถามใด ๆ ในการติดตั้งปลั๊กและเทมเพลต สามารถมองหาคำปรึกษาได้ที่ศูนย์บริการแอปพลิเคชั่นและการให้บริการหลังการขาย:<a href="https://addon.dismall.com/" target="_blank">https://addon.dismall.com/</a>',
+  'cloudaddons_noaccess' => 'บัญชีผู้ก่อตั้งเว็บไซต์เท่านั้นที่สามารถใช้ <a href="https://addon.dismall.com/" target="_blank">Discuz! แอปเซนเตอร์</a> ได้ หากคุณมีคำถามใด ๆ ในการติดตั้งปลั๊กและเทมเพลต สามารถมองหาคำปรึกษาได้ที่ศูนย์บริการแอปพลิเคชั่นและการให้บริการหลังการขาย:<a href="https://addon.dismall.com/" target="_blank">https://addon.dismall.com/</a>(เฉพาะชาวจีน)',
 
   'admingroups_edit_nonexistence' => '请先选择您要进行操作的管理组：',
 
-  'adv_update_succeed' => '广告列表更新成功 ',
-  'advertisement_nonexistence' => '广告ID不存在',
+  'adv_update_succeed' => 'การอัปเดตรายการโฆษณาสำเร็จ ',
+  'advertisement_nonexistence' => 'ไม่มี ID โฆษณา',
   'adv_title_invalid' => '您没有填写广告标题',
   'adv_title_more' => '抱歉，您的广告标题超过 50 个字符',
   'adv_endtime_invalid' => '您输入的广告结束时间早于当前时间或广告起始时间',

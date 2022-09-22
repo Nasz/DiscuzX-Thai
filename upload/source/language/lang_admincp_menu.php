@@ -42,7 +42,7 @@ $lang = array
 
 	'menu_setting_basic' => 'ข้อมูลเว็บไซต์',
 	'menu_setting_access' => 'ควบคุมการเข้าถึง',
-	'menu_setting_customnav' => 'เมนูลัด',
+	'menu_setting_customnav' => 'ปรับแต่งเมนู',
 	'menu_setting_styles' => 'สไตล์',
 	'menu_setting_optimize' => 'ออปติไมซ์',
 	'menu_setting_seo' => 'ปรับSEO',

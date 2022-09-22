@@ -290,8 +290,8 @@ $lang = array(
 	'task' => 'ภารกิจ',
 	'magic' => 'พร็อพ',
 	'favorite' => 'รายการโปรด',
-	'select_the_navigation_position' => '选择{type}导航位置',
-	'close_module' => '关闭{type}功能',
+	'select_the_navigation_position' => 'เลือกเพิ่ม {type} ไปยังเมนู',
+	'close_module' => 'การปิดการทำงานของ {type}',
 
 	'follow_add_remark' => '添加备注',
 	'follow_modify_remark' => '修改备注',

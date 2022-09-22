@@ -16,6 +16,9 @@ class ip {
 	function __construct() {
 	}
 
+	/*
+	 * 将IPv6地址外面加方括号，用于显示
+	 */
 	public static function to_display($ip) {
 		if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
 			return '[' . $ip . ']';
@@ -23,6 +26,11 @@ class ip {
 		return $ip;
 	}
 
+	/*
+	 * 将各种显示格式的IPv6地址处理回标准IPv6格式
+	 * [::1] -> ::1
+	 * [::1]/16 -> ::1/16
+	 */
 	public static function to_ip($ip) {
 		if (strlen($ip) == 0) return $ip;
 		if (preg_match('/(.*?)\[((.*?:)+.*)\](.*)/', $ip, $m)) { // [xx:xx:xx]格式
@@ -33,18 +41,34 @@ class ip {
 		return $ip;
 	}
 
+	/*
+	 * 验证IP是否合法，支持v4和v6
+	 */
 	public static function validate_ip($ip) {
 		return filter_var($ip, FILTER_VALIDATE_IP) !== false;
 	}
 
+	/*
+	 * 验证是否是合法的CIDR:
+	 * 	- 包含 /
+	 * 	- / 后面大于0
+	 * 	- / 前面是合法的IP
+	 * 返回值：
+	 * 	- TRUE，表示是合法的CIDR，$new_str为处理过的CIDR(IP部分调用了to_ip)
+	 * 	- FALSE, 不是合法的CIDR
+	 */
 	public static function validate_cidr($str, &$new_str) {
 		if(strpos($str, '/') !== false) {
 			list($newip, $mask) = explode('/', $str);
 			if($mask <= 0) {
 				return FALSE;
 			}
+			$newmask = intval($mask);
 			$newip = self::to_ip($newip);
 			if (!self::validate_ip($newip)) {
+				return FALSE;
+			}
+			if($newmask > 128 || ($newmask > 32 && strpos($newip, ':') === FALSE)) {
 				return FALSE;
 			}
 			$new_str = $newip . "/" . $mask;
@@ -53,6 +77,14 @@ class ip {
 		return FALSE;
 	}
 
+	/*
+	 * 给一个ipv4或v6的cidr，计算最小IP和最大IP
+	 * 如果输入的是一个IP，那最大最小IP都等于其自身
+	 * $as_hex = true
+	 * 	返回值为 二进制表达的字符串格式
+	 * $as_hex = false
+	 * 	返回值可用inet_ntop轮换为IP字符串表达式 
+	 */
 	public static function calc_cidr_range($str, $as_hex = false) {
 		if(self::validate_cidr($str, $str)) {
 			list($ip, $prefix) = explode('/', $str);
@@ -79,8 +111,8 @@ class ip {
 				$vary_byte = $ip_bytes[$num_same_bytes];
 				$diff_bytes_start[0] = $vary_byte & bindec(str_pad(str_repeat('1', $start_same_bits), 8, '0', STR_PAD_RIGHT));
 				$diff_bytes_end[0] = $diff_bytes_start[0] + bindec(str_repeat('1', 8 - $start_same_bits));
-			}
-
+			} 
+			
 			$start_array = array_merge($same_bytes, $diff_bytes_start);
 			$end_array = array_merge($same_bytes, $diff_bytes_end);
 			if ($as_hex) {
@@ -90,17 +122,20 @@ class ip {
 				}
 				$start = unpack('H*hex', join(array_map('chr', $start_array)))['hex'];
 				$end = unpack('H*hex', join(array_map('chr', $end_array)))['hex'];
-				return array($start, $end);
+				return array($start, $end);	
 			} else {
 				$start = call_user_func_array('pack', array_merge(array("C*"), $start_array));
 				$end = call_user_func_array('pack', array_merge(array("C*"), $end_array));
-				return array($start, $end);
+				return array($start, $end);	
 			}
 		}
 
 		return FALSE;
 	}
 
+	/*
+	 * 将一个IP地址转为16进制表达的字符串
+	 */
 	public static function ip_to_hex_str($ip)
 	{
 		if (!self::validate_ip($ip)) {
@@ -114,6 +149,9 @@ class ip {
 		return unpack('H*hex', join(array_map('chr', $ip_bytes)))['hex'];
 	}
 
+	/*
+	 * 以下三个函数，检查$requestIp是否在$ip给出的cidr范围内
+	 */
 
 	public static function check_ip($requestIp, $ips)
 	{
@@ -182,6 +220,9 @@ class ip {
 		return 0 === substr_compare(sprintf('%032b', ip2long($requestIp)), sprintf('%032b', ip2long($address)), 0, $netmask);
 	}
 
+	/*
+	 * 将IP转为位置，支持传入CIDR
+	 */
 	public static function convert($ip) {
 		global $_G;
 		if (false !== strpos($ip, '/')) {
@@ -212,7 +253,8 @@ class ip {
 		} else {
 			$c = 'ip_tiny';
 		}
-		return $c::getInstance()->convert($ip);
+		$ipobject = $c::getInstance();
+		return $ipobject === NULL ? '- Error' : $ipobject->convert($ip);
 	}
 
 	public static function checkaccess($ip, $accesslist) {
@@ -234,4 +276,3 @@ class ip {
 	}
 
 }
-?>

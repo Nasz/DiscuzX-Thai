@@ -13,48 +13,48 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'feed_thread_pin_title' =>		'{actor} 发表的主题 {subject} 被 {operater} 置顶',
+	'feed_thread_pin_title' =>		'{operater} ปักหมุดกระทู้ {subject} ของ {actor} วางไว้ด้านบน',
 
-	'feed_thread_digest_title' =>		'{actor} 发表的主题 {subject} 被 {operater} 加精',
+	'feed_thread_digest_title' =>		'{operater} ปรับ {subject} ของ {actor} เป็นกระทู้สำคัญ',
 
-	'feed_thread_highlight_title' =>	'{actor} 发表的主题 {subject} 被 {operater} 高亮',
+	'feed_thread_highlight_title' =>	'{operater} ทำไฮไลท์กระทู้ {subject} ของ {actor}',
 
-	'feed_thread_del_title' =>		'{actor} 发表的主题 {subject} 被 {operater} 删除',
+	'feed_thread_del_title' =>		'{operater} ลบกระทู้ {subject} ของ {actor}',
 
-	'feed_thread_move_title' =>		'{actor} 发表的主题 {subject} 被 {operater} 移动',
+	'feed_thread_move_title' =>		'{operater} ย้ายกระทู้ {subject} ของ {actor}',
 
-	'feed_thread_views_title' =>		'{actor} 发表的主题 {subject} 查看数超过了 {count}',
+	'feed_thread_views_title' =>		'กระทู้ {subject} ของ {actor} มีคนเข้าชมเกิน {count}',
 
-	'feed_thread_replies_title' =>		'{actor} 发表的主题 {subject} 回复数超过了 {count}',
+	'feed_thread_replies_title' =>		'กระทู้ {subject} ของ {actor} มีคนตอบกลับเกิน {count}',
 
-	'feed_thread_rate_title' =>		'{actor} 发表的主题 {subject} 评分超过了 {count}',
+	'feed_thread_rate_title' =>		'กระทู้ {subject} ของ {actor} มีคนให้คะแนนเกิน {count}',
 
-	'feed_thread_magic_title' =>		'{actor} 发表的主题 {subject} 被 {operater} 使用了 {magiccard}',
+	'feed_thread_magic_title' =>		'{operater} แต่งพร๊อพ {magiccard} ให้กับกระทู้ {subject} ของ {actor}',
 
-	'feed_thread_recommend_title' =>	'{actor} 发表的主题 {subject} 被版主推荐',
+	'feed_thread_recommend_title' =>	'กระทู้ {subject} ของ {actor} แนะนำโดยผู้ดูแล',
 
-	'feed_post_rate_title' =>		'{actor} 在 {thread} 的回复评分超过了{count}',
+	'feed_post_rate_title' =>		'โพสต์ {thread} ของ {actor} มีคนตอบกลับเกิน {count}',
 
-	'feed_post_magic_title' =>		'{actor} 在 {thread} 的回复被 {operater} 使用了 {magiccard}',
+	'feed_post_magic_title' =>		'{operater} แต่งพร๊อพ {magiccard} ให้กับโพสต์ {thread} ของ {actor}',
 
-	'feed_user_profile_title' =>		'{actor} 更新了自己的个人资料',
+	'feed_user_profile_title' =>		'{actor} อัปเดตข้อมูลส่วนตัว',
 
-	'feed_user_usergroup_title' =>		'{actor} 的用户组升级为 {usergroup}',
+	'feed_user_usergroup_title' =>		'{actor} อัพเกรดกลุ่มเป็น {usergroup}',
 
-	'feed_user_credit_title' =>		'{actor} 的总积分达到 {count}',
+	'feed_user_credit_title' =>		'{actor} จำนวนเครดิตถึง {count}',
 
-	'feed_user_threads_title' =>		'{actor} 发表的主题数达到 {count}',
+	'feed_user_threads_title' =>		'{actor} จำนวนกระทู้ถึง {count}',
 
-	'feed_user_posts_title' =>		'{actor} 的发帖数达到 {count}',
+	'feed_user_posts_title' =>		'{actor} จำนวนโพสต์ถึง {count}',
 
-	'feed_user_digest_title' =>		'{actor} 的精华帖数达到 {count}',
+	'feed_user_digest_title' =>		'{actor} มีกระทู้สำคัญถึง {count}',
 
-	'feed_user_medal_title' =>		'{actor} 得到勋章 {medal} 奖励',
+	'feed_user_medal_title' =>		'{actor} ได้รับเหรียญตรา {medal}',
 
-	'feed_announce_title' =>		'公告: {subject}',
+	'feed_announce_title' =>		'ประกาศ: {subject}',
 	'feed_announce_body' =>			'{message}',
 
-	'you' => '您',
+	'you' => 'คุณ',
 
 );
 

@@ -13,7 +13,7 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array (
 	  'forum_archive' => 'คลังเอกสาร',
-	  'source' => '来源',
+	  'source' => 'ที่มา',
 
 	  't_question' => '？',
 	  't_comma' => '，',

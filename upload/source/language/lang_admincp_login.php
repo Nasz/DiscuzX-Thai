@@ -18,7 +18,7 @@ $lang = array
 	'login_username' => 'ชื่อผู้ใช้',
 	'login_password' => 'รหัสผ่าน',
 
-	'submit' => 'ส่ง',
+	'submit' => 'ล็อกอิน',
 	'forcesecques' => 'ต้องการรายการ',
 	'security_question' => 'คำถามเพื่อความปลอดภัย',
 	'security_answer' => 'ตอบกลับ',

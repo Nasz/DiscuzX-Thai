@@ -2,7 +2,7 @@
 
 $lang = array(
 
-	'other' => '其他',
+	'other' => 'เพิ่มเติม',
 	'app_connent_ok' => '通信成功 ',
 	'app_connent_false' => '通信失败',
 

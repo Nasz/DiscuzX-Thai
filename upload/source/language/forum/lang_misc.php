@@ -279,7 +279,7 @@ $lang = array
 	'join_reward' => '参与悬赏',
 	'join_activity' => '参与活动',
 	'join_debate' => '参与辩论',
-	'at_invite' => '@我的好友',
+	'at_invite' => '@เพื่อนของฉัน',
 
 	'lower' => '低于',
 	'higher' => '高于',

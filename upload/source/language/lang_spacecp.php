@@ -100,7 +100,7 @@ $lang = array(
 	'event_time' => '活动时间',
 	'event_location' => '活动地点',
 	'event_creator' => '发起人',
-	'the_default_style' => '默认风格',
+	'the_default_style' => 'เทมเพลตเริ่มต้น',
 	'the_diy_style' => '自定义风格',
 
 	'thread_edit_trail' => '<ins class="modify">[本话题由 \\1 于 \\2 编辑]</ins>',

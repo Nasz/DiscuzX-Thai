@@ -9,20 +9,20 @@ var drag = new Drag();
 drag.extend({
 	'getBlocksTimer' : '',
 	'blocks' : [],
-	'blockDefaultClass' : [{'key':'เลือกรูปแบบ','value':''},{'key':'ไร้กรอบและพรหมแดน','value':'cl_block_bm'},{'key':'สไตล์ 1','value':'xbs_1'},{'key':'สไตล์ 2','value':'xbs xbs_2'},{'key':'สไตล์ 3','value':'xbs xbs_3'},{'key':'สไตล์ 4','value':'xbs xbs_4'},{'key':'สไตล์ 5','value':'xbs xbs_5'},{'key':'สไตล์ 6','value':'xbs xbs_6'},{'key':'สไตล์ 7','value':'xbs xbs_7'}],
-	'frameDefaultClass' : [{'key':'เลือกรูปแบบ','value':''},{'key':'ไร้กรอบและพรหมแดน','value':'cl_frame_bm'},{'key':'กรอบไร้ขอบ','value':'xfs xfs_nbd'},{'key':'สไตล์ 1','value':'xfs xfs_1'},{'key':'สไตล์ 2','value':'xfs xfs_2'},{'key':'สไตล์ 3','value':'xfs xfs_3'},{'key':'สไตล์ 4','value':'xfs xfs_4'},{'key':'สไตล์ 5','value':'xfs xfs_5'}],
+	'blockDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไร้กรอบและพรหมแดน','value':'cl_block_bm'},{'key':'สไตล์ 1','value':'xbs_1'},{'key':'สไตล์ 2','value':'xbs xbs_2'},{'key':'สไตล์ 3','value':'xbs xbs_3'},{'key':'สไตล์ 4','value':'xbs xbs_4'},{'key':'สไตล์ 5','value':'xbs xbs_5'},{'key':'สไตล์ 6','value':'xbs xbs_6'},{'key':'สไตล์ 7','value':'xbs xbs_7'}],
+	'frameDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไร้กรอบและพรหมแดน','value':'cl_frame_bm'},{'key':'กรอบไร้ขอบ','value':'xfs xfs_nbd'},{'key':'สไตล์ 1','value':'xfs xfs_1'},{'key':'สไตล์ 2','value':'xfs xfs_2'},{'key':'สไตล์ 3','value':'xfs xfs_3'},{'key':'สไตล์ 4','value':'xfs xfs_4'},{'key':'สไตล์ 5','value':'xfs xfs_5'}],
 	setDefalutMenu : function () {
 		this.addMenu('default','หัวข้อ','drag.openTitleEdit(event)');
 		this.addMenu('default','สไตล์','drag.openStyleEdit(event)');
 		this.addMenu('default', 'ลบทิ้ง', 'drag.removeBlock(event)');
-		this.addMenu('block', 'ลักษณะ', 'drag.openBlockEdit(event)');
+		this.addMenu('block', 'แก้ไข', 'drag.openBlockEdit(event)');
 		this.addMenu('block', 'ข้อมูล', 'drag.openBlockEdit(event,"data")');
 		this.addMenu('block', 'อัปเดต', 'drag.blockForceUpdate(event)');
 		this.addMenu('frame', 'ส่งออก', 'drag.frameExport(event)');
 		this.addMenu('tab', 'ส่งออก', 'drag.frameExport(event)');
 	},
 	setSampleMenu : function () {
-		this.addMenu('block', 'ลักษณะ', 'drag.openBlockEdit(event)');
+		this.addMenu('block', 'แก้ไข', 'drag.openBlockEdit(event)');
 		this.addMenu('block', 'ข้อมูล', 'drag.openBlockEdit(event,"data")');
 		this.addMenu('block', 'อัปเดต', 'drag.blockForceUpdate(event)');
 	},

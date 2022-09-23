@@ -5,7 +5,7 @@
 		<item id="plugin">
 			<item id="available"><![CDATA[1]]></item>
 			<item id="adminid"><![CDATA[1]]></item>
-			<item id="name"><![CDATA[QQ互联]]></item>
+			<item id="name"><![CDATA[การเชื่อม QQ]]></item>
 			<item id="identifier"><![CDATA[qqconnect]]></item>
 			<item id="description"><![CDATA[]]></item>
 			<item id="datatables"><![CDATA[]]></item>
@@ -42,7 +42,7 @@
 				<item id="2">
 					<item id="name"><![CDATA[admincp]]></item>
 					<item id="param"><![CDATA[ac=setting]]></item>
-					<item id="menu"><![CDATA[设置]]></item>
+					<item id="menu"><![CDATA[ติดตั้ง]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[3]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
@@ -55,7 +55,7 @@
 				<item id="3">
 					<item id="name"><![CDATA[spacecp]]></item>
 					<item id="param"><![CDATA[]]></item>
-					<item id="menu"><![CDATA[QQ绑定]]></item>
+					<item id="menu"><![CDATA[การผูก QQ]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[7]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
@@ -72,7 +72,7 @@
 		<item id="upgradefile"><![CDATA[upgrade.php]]></item>		
 		<item id="language">
 			<item id="scriptlang">
-				<item id="qqconnect_closed"><![CDATA[抱歉，QQ互联功能尚未开启]]></item>
+				<item id="qqconnect_closed"><![CDATA[ขออภัยฟังก์ชั่นการเชื่อมต่อระหว่างกันของ QQ ยังไม่ได้เปิด]]></item>
 				<item id="connect_appid_desc"><![CDATA[请填写在QQ互联(connect.qq.com)申请的 appid 和 appkey]]></item>
 				<item id="connect_app_invalid"><![CDATA[抱歉，QQ互联功能暂时不可用]]></item>
 				<item id="connect_register_bind_already"><![CDATA[抱歉，该用户已绑定过另一个QQ用户，无法再次绑定]]></item>

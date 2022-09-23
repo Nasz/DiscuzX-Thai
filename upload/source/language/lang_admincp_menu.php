@@ -143,7 +143,7 @@ $lang = array
 	'menu_serversec' => 'ความปลอดภัยเซิฟเวอร์',
 
 	'menu_addons' => '应用中心',
-	'menu_plugins' => '插件管理',
+	'menu_plugins' => 'รายการปลั๊กอิน',
 	'menu_tasks' => '站点任务',
 	'menu_magics' => '道具中心',
 	'menu_medals' => '勋章中心',
@@ -152,7 +152,7 @@ $lang = array
 	'menu_ec' => '电子商务',
 	'menu_card' => '充值卡密',
 
-	'menu_styles' => '模板管理',
+	'menu_styles' => 'จัดการเทมเพลต',
 	'menu_styles_templates' => '模板套系管理',
 	'menu_templates_add' => '设计新模板',
 	'menu_posting_smilies' => '表情管理',

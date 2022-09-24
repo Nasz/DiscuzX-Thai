@@ -36,7 +36,7 @@ $lang = array(
 	'blockclass_announcement_field_endtime' => 'เวลาสิ้นสุด',
 	'blockclass_announcement_script_announcement' => 'ประกาศไซต์',
 
-	'blockclass_forum' => 'ฟอรั่ม',
+	'blockclass_forum' => 'เว็บบอร์ด',
 
 	'blockclass_forum_thread' => 'โมดูลกระทู้',
 	'blockclass_thread_field_url' => 'URLโพสต์',

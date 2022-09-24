@@ -193,7 +193,7 @@ $lang = array
 
 	'title_stats' => 'สถิติเว็บไซต์',
 	'title_stats_basic' => 'สถิติภาพรวม',
-	'title_stats_forumstat' => 'สถิติฟอรั่ม',
+	'title_stats_forumstat' => 'สถิติเว็บบอร์ด',
 	'title_stats_team' => 'ทีมบริหาร',
 	'title_stats_modworks' => 'สถิติการจัดการ',
 	'title_stats_memberlist' => 'รายชื่อสมาชิก',

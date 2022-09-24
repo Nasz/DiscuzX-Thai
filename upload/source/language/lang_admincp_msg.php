@@ -420,7 +420,7 @@ $lang = array (
   'crons_filename_invalid' => '您指定的任务脚本文件({cronfile})不存在或包含语法错误',
   'crons_time_invalid' => '您没有指定计划任务执行的时间或条件',
   'crons_run_invalid' => '您要运行任务的脚本文件({cronfile})不存在或包含语法错误，任务无法运行',
-  'crons_run_succeed' => '计划任务执行成功 ',
+  'crons_run_succeed' => 'ดำเนินการตามแผนงานสำเร็จ ',
   'focus_update_succeed' => '站长推荐更新成功 ',
   'focus_add_num_limit' => '抱歉，最多只能添加 10 条站长推荐',
   'focus_topic_exists' => '添加的站长推荐已存在',
@@ -544,7 +544,7 @@ $lang = array (
   'style_not_found' => '风格未找到',
   'styles_edit_variable_duplicate' => '新增的替换变量名已经存在',
   'styles_edit_variable_illegal' => '新增的替换变量名称不合法',
-  'styles_validator_noupdate' => 'ไม่พบฟอรัมมือถือเวอร์ชันใหม่',
+  'styles_validator_noupdate' => 'ไม่พบเว็บบอร์ดมือถือเวอร์ชันใหม่',
 
   'tag_admin_updated' => '标签更新成功 ',
 

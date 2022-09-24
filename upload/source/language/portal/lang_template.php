@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 }
 
 $lang = array (
-  'forum' => 'ฟอรั่ม',
+  'forum' => 'เว็บบอร์ด',
   'homepage' => 'หน้าแรก',
   'no_content' => 'เสียใจ ในโมดูลนี้ยังไม่มีเนื้อหาเพิ่มเติม',
   'portal' => '{$_G[\'setting\'][\'navs\'][1][\'navname\']}',

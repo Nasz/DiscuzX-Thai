@@ -199,7 +199,7 @@
 				<item id="wsq_tips"><![CDATA[
 					<li>完善以下资料后，您的微社区将自动开通，开通后用户可以在微信内阅读您的论坛内容，发帖也将同步到您的论坛</li>
 					<li>开通完成后，请将系统提供的微社区 URL 添加到微信自定义菜单或者设为关键词触发内容以便用户快速访问</li>
-					<li>如果您的微社区始终无法开通，请确认您的网站处于公网环境下，并将“<a href="https://addon.dismall.com/?@mobile.plugin" target="_blank">ฟอรัมมือถือ</a>”插件升级到最新版本</li>
+					<li>如果您的微社区始终无法开通，请确认您的网站处于公网环境下，并将“<a href="https://addon.dismall.com/?@mobile.plugin" target="_blank">เว็บบอร์ดมือถือ</a>”插件升级到最新版本</li>
 					<li>如果您的微社区无法正常发帖，请确认您的论坛当前版本已升级到最新 <a href="{ADMINSCRIPT}upgrade">检查版本</a></li>
 					]]></item>
 				<item id="menu_tips"><![CDATA[
@@ -311,7 +311,7 @@
 				<item id="wsq_menu_pub_succeed"><![CDATA[菜单已成功更新到您的微信公众号中]]></item>
 				<item id="wsq_menu_pub_error"><![CDATA[菜单发布失败（{errno}）]]></item>
 				<item id="wsq_fid_empty"><![CDATA[微社区默认版块不能为空]]></item>
-				<item id="wsq_mobile_plugin_error"><![CDATA[“ฟอรัมมือถือ”插件缺失，请检查]]></item>
+				<item id="wsq_mobile_plugin_error"><![CDATA[“เว็บบอร์ดมือถือ”插件缺失，请检查]]></item>
 				<item id="wsq_wapdefault"><![CDATA[手机版是否默认显示微社区]]></item>
 				<item id="wsq_apicredit"><![CDATA[微社区使用的积分]]></item>
 				<item id="wsq_apicredit_comment"><![CDATA[设置微社区使用的积分，设置为“无”表示不允许微社区操作论坛积分]]></item>

@@ -17,7 +17,7 @@ $lang = array
 
 	'header_index' => 'หน้าแรก',
 	'header_global' => 'ภาพรวม',
-	'header_forum' => 'ฟอรัม',
+	'header_forum' => 'เว็บบอร์ด',
 	'header_user' => 'ผู้ใช้',
 	'header_topic' => 'เนื้อหา',
 	'header_extended' => 'ส่วนขยาย',

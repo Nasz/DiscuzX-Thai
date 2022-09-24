@@ -274,7 +274,7 @@ $lang = array(
 	'invite_you_to_visit' => '{user}邀请您访问{bbname}',
 
 	'portal' => 'พอร์ทัล',
-	'forum' => 'ฟอรั่ม',
+	'forum' => 'เว็บบอร์ด',
 	'friend' => 'เพื่อน',
 	'group' => 'กรุ๊ป',
 	'follow' => 'การติดตาม',

@@ -256,15 +256,15 @@ $lang = array(
 	'follow_view_type_profile' => 'โปรไฟล์',
 	'follow_view_type_follower' => '听众列表',
 	'follow_view_type_following' => '收听用户',
-	'follow_view_my_follower' => '听众ของฉัน',
-	'follow_view_my_following' => '我收听的人',
-	'follow_view_do_follower' => '他的听众',
-	'follow_view_do_following' => '他收听的人',
+	'follow_view_my_follower' => 'ติดตามฉัน',
+	'follow_view_my_following' => 'ฉันติดตาม',
+	'follow_view_do_follower' => 'ติดตามเขา',
+	'follow_view_do_following' => 'เขาติดตาม',
 	'follow_view_fulltext' => '...查看全文',
 	'follow_retract' => '收起',
 	'follow_click_play' => '点击播放',
 	'follow_cancle_follow' => '取消收听',
-	'follow_follow_ta' => '收听TA',
+	'follow_follow_ta' => 'ติดตาม',
 
 
 );

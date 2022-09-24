@@ -509,10 +509,10 @@
 					<span class="o"><a href="forum.php?showoldetails=no#online" title="{lang spread}"><em class="tg_no" title="{lang spread}"></em></a></span>
 					<h3>
 						<strong><a href="home.php?mod=space&do=friend&view=online&type=member">{lang onlinemember}</a></strong>
-						<span class="xs1">- <strong>$onlinenum</strong> {lang onlines}
-						- <strong>$membercount</strong> {lang index_members}(<strong>$invisiblecount</strong> {lang index_invisibles}),
-						<strong>$guestcount</strong> {lang index_guests}
-						- {lang index_mostonlines} <strong>$onlineinfo[0]</strong> {lang on} <strong>$onlineinfo[1]</strong>.</span>
+						<span class="xs1">- {lang onlines} <strong>$onlinenum</strong>
+						- {lang index_members} <strong>$membercount</strong><!--{if $invisiblecount}-->({lang index_invisibles} <strong>$invisiblecount</strong>)<!--{/if}-->,
+						{lang index_guests} <strong>$guestcount</strong>
+						- {lang index_mostonlines} <strong>$onlineinfo[0]</strong> {lang on} <strong>$onlineinfo[1]</strong></span>
 					</h3>
 				<!--{else}-->
 					<!--{if empty($_G['setting']['sessionclose'])}-->
@@ -527,8 +527,8 @@
 							<!--{/if}-->
 						</strong>
 						<span class="xs1">- {lang total} <strong>$onlinenum</strong> {lang onlines}
-						<!--{if $membercount}-->- <strong>$membercount</strong> {lang index_members},<strong>$guestcount</strong> {lang index_guests}<!--{/if}-->
-						- {lang index_mostonlines} <strong>$onlineinfo[0]</strong> {lang on} <strong>$onlineinfo[1]</strong>.</span>
+						<!--{if $membercount}-->- <strong>$membercount</strong> {lang index_members}, {lang index_guests} <strong>$guestcount</strong><!--{/if}-->
+						- {lang index_mostonlines} <strong>$onlineinfo[0]</strong> {lang on} <strong>$onlineinfo[1]</strong></span>
 					</h3>
 				<!--{/if}-->
 				</div>

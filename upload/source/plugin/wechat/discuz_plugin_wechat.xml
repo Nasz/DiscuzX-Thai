@@ -481,31 +481,31 @@
         <item id="show_export_title"><![CDATA[用户名,点赞数,楼层数]]></item>
 			</item>
 			<item id="templatelang">
-				<item id="wechat_qrcode_inputcode"><![CDATA[请在扫描关注后输入以下数字码<br />]]></item>
-				<item id="wechat_qrcode_input_cancel"><![CDATA[您已取消本次登录请求，数字码已失效<br />请点击左上角返回微信聊天]]></item>
-				<item id="wechat_qrcode_input_confirm"><![CDATA[即将在 PC 浏览器上登录用户 $member[username]<br />请确认是否本人操作]]></item>
-				<item id="wechat_qrcode_input_confirm_yes"><![CDATA[我确认登录此用户]]></item>
-				<item id="wechat_spacecp_bind_title"><![CDATA[您已将本站账号 <strong>{$_G[member][username]}</strong> 与微信绑定]]></item>
-				<item id="wechat_spacecp_setpw"><![CDATA[设置独立密码]]></item>
-				<item id="wechat_spacecp_pw"><![CDATA[新密码]]></item>
+				<item id="wechat_qrcode_inputcode"><![CDATA[โปรดป้อนหมายเลขต่อไปนี้หลังจากสแกน<br />]]></item>
+				<item id="wechat_qrcode_input_cancel"><![CDATA[การเข้าสู่ระบบถูกยกเลิก รหัสหมายเลขหมดอายุ<br /> กรุณาคลิกที่มุมซ้ายบนเพื่อกลับไปยัง WeChat]]></item>
+				<item id="wechat_qrcode_input_confirm"><![CDATA[ผู้ที่กำลังใช้งานพีซีเครื่องนี้คือ $member[username]<br />กรุณายืนยันว่าใช่ตัวคุณเองหรือไม่]]></item>
+				<item id="wechat_qrcode_input_confirm_yes"><![CDATA[ยืนยันว่าจะเข้าสู่ระบบด้วยชื่อนี้]]></item>
+				<item id="wechat_spacecp_bind_title"><![CDATA[คุณ <strong>{$_G[member][username]}</strong> ได้ผูกบัญชีเว็บไซต์นี้กับบัญชี WeChat แล้ว]]></item>
+				<item id="wechat_spacecp_setpw"><![CDATA[ตั้งรหัสผ่านอิสระ]]></item>
+				<item id="wechat_spacecp_pw"><![CDATA[รหัสผ่านใหม่]]></item>
 				<item id="wechat_spacecp_repw"><![CDATA[ยืนยันรหัสผ่าน]]></item>
-				<item id="wechat_spacecp_unbind"><![CDATA[解除已绑定账号？]]></item>
-				<item id="wechat_spacecp_setpw_first"><![CDATA[请设置独立密码后再解除绑定关系]]></item>
-				<item id="wechat_spacecp_unbind_confirm"><![CDATA[您确认要解除与本站账号的绑定关系？]]></item>
-				<item id="wechat_spacecp_unbind_button"><![CDATA[确认解除]]></item>
-				<item id="wechat_bind"><![CDATA[绑定微信账号]]></item>
-				<item id="wechat_login"><![CDATA[微信账号登录]]></item>
-				<item id="wechat_bind_comfirm_prompt"><![CDATA[请输入您的论坛登录密码以确认身份]]></item>
+				<item id="wechat_spacecp_unbind"><![CDATA[ยกเลิกการเชื่อมโยงบัญชี？]]></item>
+				<item id="wechat_spacecp_setpw_first"><![CDATA[โปรดตั้งรหัสผ่านแยกอิสระก่อนที่จะยกเลิอกการเชื่อมโยงบัญชี]]></item>
+				<item id="wechat_spacecp_unbind_confirm"><![CDATA[คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการเชื่อมโยงบัญชีกับเว็บไซต์นี้？]]></item>
+				<item id="wechat_spacecp_unbind_button"><![CDATA[ยืนยันการตัดขาด]]></item>
+				<item id="wechat_bind"><![CDATA[ผูกบัญชี WeChat]]></item>
+				<item id="wechat_login"><![CDATA[เข้าสู่ระบบบัญชี WeChat]]></item>
+				<item id="wechat_bind_comfirm_prompt"><![CDATA[โปรดป้อนรหัสผ่านเพื่อยืนยันตัวตนการเข้าสู่ระบบเว็บบอร์ดของคุณ]]></item>
 				<item id="quickregister"><![CDATA[สมัครเลย]]></item>
-				<item id="inputyourname"><![CDATA[请输入用户名]]></item>
-				<item id="wsq_indexqr"><![CDATA[用微信扫一扫<br />互动赢积分]]></item>
-				<item id="wsq_threadqr"><![CDATA[用微信扫一扫，互动赢积分]]></item>
-				<item id="wechat_share"><![CDATA[微信]]></item>
-				<item id="wechat_sharetitle"><![CDATA[分享到微信]]></item>
-				<item id="wechat_register"><![CDATA[填写以下信息完成微信账号注册]]></item>
-				<item id="show_recommend_number"><![CDATA[已有 <strong class="xi1">{$post[voters]}</strong> 人点赞]]></item>
-				<item id="show_scanqr"><![CDATA[通过微信扫描二维码为我拉票]]></item>
-				<item id="resource_push"><![CDATA[推送到微信素材]]></item>
+				<item id="inputyourname"><![CDATA[กรุณากรอกชื่อผู้ใช้]]></item>
+				<item id="wsq_indexqr"><![CDATA[สแกนด้วย WeChat<br />互动赢积分]]></item>
+				<item id="wsq_threadqr"><![CDATA[สแกนด้วย WeChat，互动赢积分]]></item>
+				<item id="wechat_share"><![CDATA[Wechat]]></item>
+				<item id="wechat_sharetitle"><![CDATA[แชร์ไปบน WeChat]]></item>
+				<item id="wechat_register"><![CDATA[กรอกข้อมูลต่อไปนี้เพื่อดำเนินการลงทะเบียนบัญชี WeChat]]></item>
+				<item id="show_recommend_number"><![CDATA[มีผู้ชื่นชม <strong class="xi1">{$post[voters]}</strong> คน]]></item>
+				<item id="show_scanqr"><![CDATA[แสกน QR โค๊ต WeChat ของฉัน]]></item>
+				<item id="resource_push"><![CDATA[ส่งข้อมูลเข้า WeChat]]></item>
 			</item>
 		</item>
 		<item id="installfile"><![CDATA[install.php]]></item>

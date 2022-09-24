@@ -11,7 +11,7 @@ INSERT INTO pre_common_adminnote VALUES ('2','ดิสคัซไซนช์'
 
 INSERT INTO pre_common_credit_rule VALUES ('1','ตั้งกระทู้','post','4','0','0','0','0','2','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('2','ตอบกระทู้','reply','4','0','0','0','0','1','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('3','ฉบับย่อ','digest','4','0','0','0','0','5','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('3','กระทู้สำคัญ','digest','4','0','0','0','0','5','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('4','อัปโหลดไฟล์','postattach','4','0','0','0','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('5','ดาวน์โหลดไฟล์','getattach','4','0','0','0','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('6','ข้อความ','sendpm','4','0','0','0','0','0','0','0','0','0','0','0','');
@@ -146,7 +146,7 @@ INSERT INTO pre_common_nav VALUES ('','0','ปลั๊กอิน','Plugin','#
 INSERT INTO pre_common_nav VALUES ('','0','ช่วยเหลือ','Help','misc.php?mod=faq','7','0','0','0','10','0','0','0', 0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','ลีดเดอร์บอร์ด','Ranklist','misc.php?mod=ranklist','8','0','0','-1','16','0','0','0',  0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','การติดตาม','Follow','home.php?mod=follow','9','0','0','-1','5','0','0','0',  0, '', '', '', 0, '');
-INSERT INTO pre_common_nav VALUES ('','0','ไกด์','Guide','forum.php?mod=guide','10','0','0','-1','3','0','0','0',  0, '', '', '', 0, '');
+INSERT INTO pre_common_nav VALUES ('','0','สำรวจ','Guide','forum.php?mod=guide','10','0','0','-1','3','0','0','0',  0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','คอลเลกชัน','Collection','forum.php?mod=collection','11','0','0','-1','11','0','0','0',  0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','ไดอารี','Blog','home.php?mod=space&do=blog','12','0','0','-1','12','0','0','0',  0, '', '', '', 0, '');
 INSERT INTO pre_common_nav VALUES ('','0','อัลบั้ม','Album','home.php?mod=space&do=album','13','0','0','-1','13','0','0','0',  0, '', '', '', 0, '');
@@ -182,7 +182,7 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'สเปซ', '', 'home.php?mod=sp
 INSERT INTO pre_common_nav VALUES ('', '0', 'ติดตาม', '', 'home.php?mod=follow', 'follow', 0, 0, -1, 14, 0, 0, 0, 0, '{STATICURL}image/feed/follow_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'กรุ๊ป', '', 'group.php', 'group', 0, 0, -1, 15, 0, 0, 0, 0, '{STATICURL}image/feed/group_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'พอร์ทัล', '', 'portal.php', 'portal', 0, 0, -1, 16, 0, 0, 0, 0, '{STATICURL}image/feed/portal_b.png', '', '', 3, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'ไกด์', '', 'forum.php?mod=guide', 'guide', 0, 0, -1, 17, 0, 0, 0, 0, '{STATICURL}image/feed/guide_b.png', '', '', 3, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'สำรวจ', '', 'forum.php?mod=guide', 'guide', 0, 0, -1, 17, 0, 0, 0, 0, '{STATICURL}image/feed/guide_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ลีดเดอร์บอร์ด', '', 'misc.php?mod=ranklist', 'ranklist', 0, 0, -1, 18, 0, 0, 0, 0, '{STATICURL}image/feed/ranklist_b.png', '', '', 3, '');
 
 
@@ -191,7 +191,7 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'บุ๊กมาร์กเว�
 
 INSERT INTO pre_common_nav VALUES ('', '0', 'ค้นหา', '', 'search.php?mod=forum', 'search', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 5, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ประกาศ', '', 'forum.php?mod=announcement', 'announcement', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 5, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'ไกด์', '', 'forum.php?mod=guide&view=newthread', 'guide', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'สำรวจ', '', 'forum.php?mod=guide&view=newthread', 'guide', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'พอร์ทัล', '', 'portal.php?mod=list&catid=1', 'portal', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ไดอารี่', '', 'home.php?mod=space&do=blog', 'blog', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'แบ่งปัน', '', 'home.php?mod=space&do=share', 'share', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
@@ -1049,11 +1049,11 @@ INSERT INTO pre_common_block_style (blockclass, `name`, template, `hash`, getpic
 -- [/key]
 -- [/block_style]
 
-INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (1, 'พอร์ทัลผู้ดูแลระบบ');
-INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (2, 'เว็บบอร์ดผู้ดูแลระบบ');
-INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (3, 'กลุ่มผู้ดูแลระบบ');
-INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (4, 'ช่องว่างผู้ดูแลระบบ');
-INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (5, 'ผู้ใช้ผู้ดูแลระบบ');
+INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (1, 'ผู้ดูแลพอร์ทัล');
+INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (2, 'ผู้ดูแลเว็บบอร์ด');
+INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (3, 'ผู้ดูแลกรุ๊ป');
+INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (4, 'ผู้ดูแลสเปซ');
+INSERT INTO `pre_common_admincp_group` (`cpgroupid`, `cpgroupname`) VALUES (5, 'ผู้ดูแลยูเซอร์');
 
 INSERT INTO `pre_common_admincp_perm` (`cpgroupid`, `perm`) VALUES (1, 'albumcategory');
 INSERT INTO `pre_common_admincp_perm` (`cpgroupid`, `perm`) VALUES (1, 'article');

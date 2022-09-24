@@ -40,7 +40,7 @@ $lang = array
 	'share_article' => '{actor} 分享了您的文章 <a href="{url}" target="_blank">{subject}</a>',
 	'magic_present_note' => '送给您一个道具 <a href="{url}" target="_blank">{name}</a>',
 	'friend_add' => '{actor} 和您成为了好友',
-	'friend_request' => '{actor} 请求加您为好友{note}&nbsp;&nbsp;<a onclick="showWindow(this.id, this.href, \'get\', 0);" class="xw1" id="afr_{uid}" href="{url}">批准申请</a>',
+	'friend_request' => '{actor} ขอคุณเป็นเพื่อน{note}&nbsp;&nbsp;<a onclick="showWindow(this.id, this.href, \'get\', 0);" class="xw1" id="afr_{uid}" href="{url}">批准申请</a>',
 	'doing_reply' => '{actor} 回复了您的 <a href="{url}" target="_blank">记录</a>',
 	'wall_reply' => '{actor} 回复了您的 <a href="{url}" target="_blank">留言</a>',
 	'pic_comment_reply' => '{actor} 回复了您的 <a href="{url}" target="_blank">图片评论</a>',

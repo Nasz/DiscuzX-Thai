@@ -388,7 +388,7 @@ function toggleRatelogCollapse(tarId, ctrlObj) {
 
 function copyThreadUrl(obj, bbname) {
 	bbname = bbname || SITEURL;
-	setCopy($('thread_subject').innerHTML.replace(/&amp;/g, '&') + '\n' + obj.href + '\n' + '(出处: '+bbname+')' + '\n', '帖子地址已经复制到剪贴板');
+	setCopy($('thread_subject').innerHTML.replace(/&amp;/g, '&') + '\n' + obj.href + '\n' + '(ที่มา: '+bbname+')' + '\n', 'ที่อยู่โพสต์ถูกคัดลอกไปยังคลิปบอร์ด');
 	return false;
 }
 
@@ -398,11 +398,11 @@ function replyNotice() {
 	var status = replynotice.getAttribute("status");
 	if(status == 1) {
 		replynotice.href = newurl + 'receive';
-		replynotice.innerHTML = '接收回复通知';
+		replynotice.innerHTML = 'แจ้งเตือนเมื่อมีการตอบกลับ';
 		replynotice.setAttribute("status", 0);
 	} else {
 		replynotice.href = newurl + 'ignore';
-		replynotice.innerHTML = '取消回复通知';
+		replynotice.innerHTML = 'ยกเลิกการแจ้งเตือน';
 		replynotice.setAttribute("status", 1);
 	}
 }

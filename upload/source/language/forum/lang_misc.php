@@ -147,7 +147,7 @@ $lang = array
 
 	'modcp_logs_action_home' => '内部留言',
 	'modcp_logs_action_moderate' => '审核',
-	'modcp_logs_action_member' => '用户管理',
+	'modcp_logs_action_member' => 'จัดการผู้ใช้',
 	'modcp_logs_action_forumaccess' => '用户权限',
 	'modcp_logs_action_thread' => '主题管理',
 	'modcp_logs_action_forum' => '版块管理',
@@ -239,9 +239,9 @@ $lang = array
 	'perms_allowviewreport' => '查看用户报告',
 	'perms_allowmodpost' => '审核帖子',
 	'perms_allowmoduser' => 'ตรวจสอบผู้ใช้',
-	'perms_allowbanuser' => '禁止用户',
+	'perms_allowbanuser' => 'แบนผู้ใช้',
 	'perms_allowbanip' => '禁止 IP',
-	'perms_allowedituser' => '编辑用户',
+	'perms_allowedituser' => 'แก้ไขผู้ใช้',
 	'perms_allowmassprune' => '批量删帖',
 	'perms_allowpostannounce' => '发布公告',
 	'perms_disablepostctrl' => 'ไม่จำกัดการโพสต์',
@@ -299,7 +299,7 @@ $lang = array
 	'signature' => 'ลายเซ็น',
 	'custom_title' => 'สเตตัส',
 
-	'forum_guide' => 'ไกด์',
+	'forum_guide' => 'สำรวจ',
 
 	'patch_site_have' => '您的网站有',
 	'patch_is_fixed' => '个安全漏洞，已修复',

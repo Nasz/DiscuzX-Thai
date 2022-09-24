@@ -338,10 +338,10 @@ function strLenCalc(obj, checklen, maxlen) {
 	checklen = $(checklen);
 	if(checklen.style.display == 'none') checklen.style.display = '';
 	if(curlen <= maxlen) {
-		checklen.innerHTML = '已输入 <b>'+(curlen)+'</b> 个字符';
+		checklen.innerHTML = '已输入 <b>'+(curlen)+'</b> ตัวอักษร';
 		return true;
 	} else {
-		checklen.innerHTML = '超出 <b style="color:red">'+(curlen - maxlen)+'</b> 个字符';
+		checklen.innerHTML = '超出 <b style="color:red">'+(curlen - maxlen)+'</b> ตัวอักษร';
 		return false;
 	}
 }

@@ -23,8 +23,8 @@ $lang = array
 	'stat_option_onlinemembers' => '当前在线会员数',
 	'stat_option_maxmembers' => '历史最高在线会员数',
 	'stat_option_doings' => '动态数',
-	'stat_option_blogs' => '日志数',
-	'stat_option_albums' => '相册数',
+	'stat_option_blogs' => 'ไดอารี่',
+	'stat_option_albums' => 'จำนวนอัลบั้ม',
 	'stat_option_pics' => '图片数',
 	'stat_option_shares' => '分享数',
 
@@ -41,8 +41,8 @@ $lang = array
 	'stat_maxmembers' => '历史最高在线',
 	'stat_doings' => 'ฟีด',
 	'stat_blogs' => 'ไดอารี',
-	'stat_albums' => 'อัลบัม',
-	'stat_pics' => '图片',
+	'stat_albums' => 'อัลบั้ม',
+	'stat_pics' => 'ภาพ',
 	'stat_shares' => 'แบ่งปัน',
 );
 ?>

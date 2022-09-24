@@ -197,7 +197,7 @@
 					<li>开发技术交流，欢迎访问“<a href="https://open.dismall.com/?!bbs" target="_blank">Discuz! 开发者交流</a>”论坛</li>
 					]]></item>
 				<item id="wsq_tips"><![CDATA[
-					<li>完善以下资料后，您的微社区将自动开通，开通后用户可以在微信内阅读您的论坛内容，发帖也将同步到您的论坛</li>
+					<li>หลังจากกรอกข้อมูลต่อไปนี้แล้ว ไมโครชุมชนของคุณจะเปิดใช้งานโดยอัตโนมัติ หลังจากเปิดใช้งาน ผู้ใช้สามารถอ่านเนื้อหาเว็บบอร์ดของคุณใน WeChat โพสต์จะถูกซิงค์กับเว็บบอร์ดของคุณ</li>
 					<li>开通完成后，请将系统提供的微社区 URL 添加到微信自定义菜单或者设为关键词触发内容以便用户快速访问</li>
 					<li>如果您的微社区始终无法开通，请确认您的网站处于公网环境下，并将“<a href="https://addon.dismall.com/?@mobile.plugin" target="_blank">เว็บบอร์ดมือถือ</a>”插件升级到最新版本</li>
 					<li>如果您的微社区无法正常发帖，请确认您的论坛当前版本已升级到最新 <a href="{ADMINSCRIPT}upgrade">检查版本</a></li>
@@ -291,7 +291,7 @@
 				<item id="wsq_fid_comment"><![CDATA[设置在微社区中默认显示的版块]]></item>
 				<item id="wsq_domain"><![CDATA[微社区二级域名]]></item>
 				<item id="wsq_domain_comment"><![CDATA[您可以设置一个二级域名直接访问本站的微社区(仅限拥有“高级接口”服务的公众号)。根域名设置完后，此处域名绑定才能生效</a>]]></item>
-				<item id="wechat_forumdisplay_reply"><![CDATA[帖子列表页是否显示最新回复]]></item>
+				<item id="wechat_forumdisplay_reply"><![CDATA[帖子列表页是否显示ตอบกลับล่าสุด]]></item>
 				<item id="wsq_api_register_error"><![CDATA[微社区注册失败，请稍后再试]]></item>
 				<item id="wsq_api_register_close"><![CDATA[微社区已不再对新用户提供服务，请使用公众号模式向站长提供服务]]></item>
 				<item id="wsq_api_servertime_error"><![CDATA[服务器时间错误，请修改后再试]]></item>

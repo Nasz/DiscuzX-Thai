@@ -45,8 +45,8 @@
 				<item id="mobile_tip_ios"><![CDATA[<a href="http://www.discuz.net/mobile.php?platform=ios">用掌上论坛访问本站,拥有更好阅读体验</a>]]></item>
 				<item id="mobile_tip_android"><![CDATA[<a href="http://www.discuz.net/mobile.php?platform=android">用掌上论坛访问本站,拥有更好阅读体验</a>]]></item>
 				<item id="mobile_tip_wp7"><![CDATA[<a href="http://www.discuz.net/mobile.php?platform=windowsphone">用掌上论坛访问本站,拥有更好阅读体验</a>]]></item>
-				<item id="mobile_extend_newthread"><![CDATA[最新发表]]></item>
-				<item id="mobile_extend_newreply"><![CDATA[最新回复]]></item>
+				<item id="mobile_extend_newthread"><![CDATA[โพสต์ล่าสุด]]></item>
+				<item id="mobile_extend_newreply"><![CDATA[ตอบกลับล่าสุด]]></item>
 				<item id="mobile_extend_digest"><![CDATA[最新精华]]></item>
 				<item id="mobile_extend_newpic"><![CDATA[最新图片]]></item>
 				<item id="mobile_fromtype_ios"><![CDATA[来自: iPhone客户端]]></item>

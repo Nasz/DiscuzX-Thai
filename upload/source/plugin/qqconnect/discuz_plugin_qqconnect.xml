@@ -215,7 +215,7 @@
 				<item id="connect_feed_published_post"><![CDATA[参与了《{subject}》的讨论：]]></item>
 				<item id="connect_spacecp_share_a_post"><![CDATA[分享一个好帖#{bbname}#《{subject}》：{message}]]></item>
 				<item id="connect_spacecp_share_qq_default"><![CDATA[看看这个吧，还不错哦，也许你会喜欢^_^]]></item>
-				<item id="connect_post_sync_method"><![CDATA[将此回复同步到]]></item>
+				<item id="connect_post_sync_method"><![CDATA[ซิงค์ตอบกลับนี้]]></item>
 			</item>
 			<item id="templatelang">
 				<item id="connect_header_login"><![CDATA[QQ登录]]></item>

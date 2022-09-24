@@ -13,10 +13,10 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'promotion_name' => '站点推广任务',
-	'promotion_desc' => '到“<a href="home.php?mod=spacecp&ac=promotion" target="_blank" class="xi2">ร่วมโปรโมตเว็บ</a>”页面，复制您的推广链接，发给QQ好友、您的博客或其他大型网站，推广获积分',
-	'promotion_complete_var_iplimit' => '推广 IP 数下限',
-	'promotion_complete_var_iplimit_comment' => '当日推广 IP 数大于或等于此设置，才能完成任务',
+	'promotion_name' => 'โปรโมทเว็บไซต์ของเรา',
+	'promotion_desc' => 'ไปยังหน้าเพจ “<a href="home.php?mod=spacecp&ac=promotion" target="_blank" class="xi2">ร่วมโปรโมตเว็บ</a>” เพื่อรับคะแนนเครดิต คัดลอกลิงค์โปรโมตของคุณ ส่งให้เพื่อน QQ โพสต์ลบบล็อกของคุณหรือเว็บไซต์ขนาดใหญ่อื่น ๆ',
+	'promotion_complete_var_iplimit' => 'จำนวน IP ขั้นต่ำ',
+	'promotion_complete_var_iplimit_comment' => 'ผู้เข้าชมจากลิงค์โปรโมทต้องมาจาก IP ที่ไม่ซ้ำกันเป็นจำนวนมากกว่าหรือเท่ากับการตั้งค่านี้ ถึงจะถือว่าประสบความสำเร็จ',
 );
 
 ?>

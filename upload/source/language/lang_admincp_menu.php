@@ -184,10 +184,10 @@ $lang = array
 	'menu_membersplit' => 'แบ่งผู้ใช้',
 	'menu_logs' => 'บันทึกการดำเนินงาน',
 	'menu_custommenu_manage' => 'จัดการเมนูลัด',
-	'menu_misc_cron' => 'งานที่กำหนด',
+	'menu_misc_cron' => 'งานตามกำหนด',
 
 	'menu_article' => '文章管理',
-	'menu_portalcategory' => '频道栏目',
+	'menu_portalcategory' => 'คอลัมน์พอร์ทัล',
 	'menu_blogcategory' => '日志分类',
 	'menu_albumcategory' => '相册分类',
 	'menu_block' => '模块管理',

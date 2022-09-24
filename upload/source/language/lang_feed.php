@@ -26,10 +26,10 @@ $lang = array
 
 	'feed_poll' => '{actor} 发起了新投票',
 
-	'feed_comment_space' => '{actor} 在 {touser} 的留言板留了言',
-	'feed_comment_image' => '{actor} 评论了 {touser} 的图片',
-	'feed_comment_blog' => '{actor} 评论了 {touser} 的日志 {blog}',
-	'feed_comment_poll' => '{actor} 评论了 {touser} 的投票 {poll}',
+	'feed_comment_space' => '{actor} ทิ้งคำพูดไว้ที่กระดานข้อความของ {touser}',
+	'feed_comment_image' => '{actor} การแสดงความคิดเห็นรูปของ {touser}',
+	'feed_comment_blog' => '{actor} การแสดงความคิดเห็นไดอารี่ของ {touser} {blog}',
+	'feed_comment_poll' => '{actor} การแสดงความคิดเห็นโพลของ {touser} {poll}',
 	'feed_comment_event' => '{actor} 在 {touser} 组织的活动 {event} 中留言了',
 	'feed_comment_share' => '{actor} 对 {touser} 分享的 {share} 发表了评论',
 

@@ -73,7 +73,7 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 		if(firstObj.value == '') {
 			var pwmsg = !modifypwd ? '请填写密码' : profileTips;
 			if(pwlength > 0) {
-				pwmsg += ', 最小长度为 '+pwlength+' 个字符';
+				pwmsg += ', 最小长度为 '+pwlength+' ตัวอักษร';
 			}
 			errormessage(firstObj.id, pwmsg);
 		}else{
@@ -278,7 +278,7 @@ function checkusername(id) {
 	}
 	var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
 	if(unlen < 3 || unlen > 15) {
-		errormessage(id, unlen < 3 ? '用户名不得小于 3 个字符' : '用户名不得超过 15 个字符');
+		errormessage(id, unlen < 3 ? '用户名不得小于 3 ตัวอักษร' : '用户名不得超过 15 ตัวอักษร');
 		return;
 	}
 	var x = new Ajax();
@@ -294,7 +294,7 @@ function checkpassword(id1, id2) {
 	}
 	if(pwlength > 0) {
 		if($(id1).value.length < pwlength) {
-			errormessage(id1, '密码太短，不得少于 '+pwlength+' 个字符');
+			errormessage(id1, 'รหัสผ่านสั้นเกินไป ต้องมากกว่า '+pwlength+' ตัวอักษร');
 			return;
 		}
 	}

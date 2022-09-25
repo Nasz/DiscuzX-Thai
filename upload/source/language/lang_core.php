@@ -151,7 +151,7 @@ $lang = array
 	'title_magics_log' => '道具记录',
 	'title_medals_list' => 'เหรียญตรา',
 	'title_setup' => 'ตั้งค่า',
-	'title_memcp_blog' => '发表日志',
+	'title_memcp_blog' => 'เขียนไดอารี่',
 	'title_memcp_upload' => 'อัปโหลด',
 	'title_memcp_share' => 'เพิ่มแบ่งปัน',
 	'title_memcp_sendmail' => 'จดหมายแจ้งเตือน',
@@ -202,7 +202,7 @@ $lang = array
 	'title_memcp_pm' => 'ส่งข้อความ',
 	'title_memcp_domain' => 'โดเมนของฉัน',
 
-	'title_collection' => 'คอลเลกชัน',
+	'title_collection' => 'คอลเลคชั่น',
 	'title_collection_create' => '创建淘专辑',
 	'title_collection_edit' => '编辑淘专辑',
 	'title_collection_comment_list' => '评论列表',

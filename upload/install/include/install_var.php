@@ -246,9 +246,9 @@ $serialize_sql_setting = array (
   'postnocustom' =>
   array (
     0 => 'เจ้าของกระทู้',
-    1 => 'เม้นแรก',
-    2 => 'เม้นสอง',
-    3 => 'เม้นสาม',
+    1 => 'โซฟา',
+    2 => 'เก้าอี้',
+    3 => 'ยืน',
   ),
   'recommendthread' =>
   array (

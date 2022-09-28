@@ -169,7 +169,7 @@ INSERT INTO pre_common_nav VALUES ('', '0', '{hr}', '', '', '', 0, 1, 1, 8, 0, 0
 INSERT INTO pre_common_nav VALUES ('', '0', 'เพื่อน', '', 'home.php?mod=space&do=friend', 'friend', 0, 0, -1, 1, 0, 0, 0, 0, '{STATICURL}image/feed/friend_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'โพสต์', '', 'home.php?mod=space&do=thread&view=me', 'thread', 0, 0, 0, 2, 0, 0, 0, 0, '{STATICURL}image/feed/thread_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ชื่นชอบ', '', 'home.php?mod=space&do=favorite&view=me', 'favorite', 0, 0, -1, 3, 0, 0, 0, 0, '{STATICURL}image/feed/favorite_b.png', '', '', 3, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'พร็อพ', '', 'home.php?mod=magic', 'magic', 0, 0, -1, 4, 0, 0, 0, 0, '{STATICURL}image/feed/magic_b.png', '', '', 3, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'แมจิก', '', 'home.php?mod=magic', 'magic', 0, 0, -1, 4, 0, 0, 0, 0, '{STATICURL}image/feed/magic_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'เงินรางวัล', '', 'home.php?mod=medal', 'medal', 0, 0, -1, 5, 0, 0, 0, 0, '{STATICURL}image/feed/medal_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ภารกิจ', '', 'home.php?mod=task', 'task', 0, 0, -1, 6, 0, 0, 0, 0, '{STATICURL}image/feed/task_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'คอลเลคชั่น', '', 'forum.php?mod=collection&op=my', 'collection', 0, 0, -1, 7, 0, 0, 0, 0, '{STATICURL}image/feed/collection_b.png', '', '', 3, '');
@@ -829,12 +829,12 @@ INSERT INTO pre_common_usergroup VALUES ('6','0','system','private','แบน I
 INSERT INTO pre_common_usergroup VALUES ('7','0','system','private','นักท่องเที่ยว','0','0','0','','','1','1','0','0','0','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('8','0','system','private','รอการยืนยัน','0','0','0','','','1','1','0','0','0','0','0','0');
 INSERT INTO pre_common_usergroup VALUES ('9','0','member','private','ปีศาจ','-9999999','0','0','','','1','1','0','0','0','0','0','0');
-INSERT INTO pre_common_usergroup VALUES ('10','0','member','private','คลาสสิก','0','50','1','','','1','1','0','0','0','0','0','10');
-INSERT INTO pre_common_usergroup VALUES ('11','0','member','private','เงิน','50','200','2','','','1','1','0','0','0','0','0','10');
-INSERT INTO pre_common_usergroup VALUES ('12','0','member','private','ทอง','200','500','3','','','1','1','0','0','0','0','0','10');
-INSERT INTO pre_common_usergroup VALUES ('13','0','member','private','แพลทินัม','500','1000','4','','','1','1','0','0','1','0','0','10');
-INSERT INTO pre_common_usergroup VALUES ('14','0','member','private','เพชร','1000','3000','6','','','1','1','0','0','1','0','0','10');
-INSERT INTO pre_common_usergroup VALUES ('15','0','member','private','กูรู','3000','9999999','8','','','1','1','0','0','1','0','0','10');
+INSERT INTO pre_common_usergroup VALUES ('10','0','member','private','สมาชิกคลาสสิก','0','50','1','','','1','1','0','0','0','0','0','10');
+INSERT INTO pre_common_usergroup VALUES ('11','0','member','private','สมาชิกระดับเงิน','50','200','2','','','1','1','0','0','0','0','0','10');
+INSERT INTO pre_common_usergroup VALUES ('12','0','member','private','สมาชิกระดับทอง','200','500','3','','','1','1','0','0','0','0','0','10');
+INSERT INTO pre_common_usergroup VALUES ('13','0','member','private','สมาชิกแพลทินัม','500','1000','4','','','1','1','0','0','1','0','0','10');
+INSERT INTO pre_common_usergroup VALUES ('14','0','member','private','สมาชิกระดับเพชร','1000','3000','6','','','1','1','0','0','1','0','0','10');
+INSERT INTO pre_common_usergroup VALUES ('15','0','member','private','สมาชิกระดับกูรู','3000','9999999','8','','','1','1','0','0','1','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('16','3','special','private','ผนักงานฝึกหัด','0','0','7','','','1','1','0','0','1','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('17','2','special','private','บรรณาธิการ','0','0','8','','','1','1','0','0','1','0','0','10');
 INSERT INTO pre_common_usergroup VALUES ('18','1','special','private','ผู้สื่อข่าว','0','0','9','','','1','1','0','0','1','0','0','10');
@@ -870,8 +870,8 @@ INSERT INTO pre_forum_bbcode VALUES ('3','0','sup','bb_sup.gif','<sup>{1}</sup>'
 INSERT INTO pre_forum_bbcode VALUES ('4','0','sub','bb_sub.gif','<sub>{1}</sub>','X[sub]2[/sub]','การเสนอราคา','1','กรุณากรอกข้อความประมูล:','1','23','1	2	3	12	13	14	15	16	17	18	19');
 
 
-INSERT INTO pre_forum_forum SET `fid`='1',`fup`='0',`type`='group',`name`='Discuz!',`status`='1';
-INSERT INTO pre_forum_forum SET `fid`='2',`fup`='1',`type`='forum',`name`='กระดานเริ่มต้น',`status`='1',`allowsmilies`='1',`allowbbcode`='1',`allowimgcode`='1',`allowmediacode`='1',`allowpostspecial`='1',`recyclebin`='1', `allowfeed`='1';
+INSERT INTO pre_forum_forum SET `fid`='1',`fup`='0',`type`='group',`name`='Discuz! หมวดเริ่มต้น',`status`='1';
+INSERT INTO pre_forum_forum SET `fid`='2',`fup`='1',`type`='forum',`name`='บอร์ดเริ่มต้น',`status`='1',`allowsmilies`='1',`allowbbcode`='1',`allowimgcode`='1',`allowmediacode`='1',`allowpostspecial`='1',`recyclebin`='1', `allowfeed`='1';
 
 INSERT INTO pre_forum_forumfield SET `fid`='1';
 INSERT INTO pre_forum_forumfield SET `fid`='2';
@@ -886,8 +886,8 @@ INSERT INTO pre_forum_grouplevel VALUES ('3','default','ขั้นสูง','
 
 
 INSERT INTO pre_forum_imagetype VALUES ('1','1','ค่าเริ่มต้น','smiley','1','default');
-INSERT INTO pre_forum_imagetype VALUES ('2','1','หน้าลิง','smiley','2','coolmonkey');
-INSERT INTO pre_forum_imagetype VALUES ('3','1','หน้าสไลม์','smiley','3','grapeman');
+INSERT INTO pre_forum_imagetype VALUES ('2','1','ลิงจ๋อ','smiley','2','coolmonkey');
+INSERT INTO pre_forum_imagetype VALUES ('3','1','องุ่น','smiley','3','grapeman');
 
 
 

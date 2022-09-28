@@ -27,9 +27,9 @@ $lang = array
 	'feed_poll' => '{actor} สร้างโพลใหม่',
 
 	'feed_comment_space' => '{actor} ทิ้งคำพูดไว้ที่กระดานข้อความของ {touser}',
-	'feed_comment_image' => '{actor} การแสดงความคิดเห็นรูปของ {touser}',
-	'feed_comment_blog' => '{actor} การแสดงความคิดเห็นไดอารี่ของ {touser} {blog}',
-	'feed_comment_poll' => '{actor} การแสดงความคิดเห็นโพลของ {touser} {poll}',
+	'feed_comment_image' => '{actor} คอมเมนต์รูปของ {touser}',
+	'feed_comment_blog' => '{actor} คอมเมนต์ไดอารี่ของ {touser} {blog}',
+	'feed_comment_poll' => '{actor} คอมเมนต์โพลของ {touser} {poll}',
 	'feed_comment_event' => '{actor} 在 {touser} 组织的活动 {event} 中留言了',
 	'feed_comment_share' => '{actor} 对 {touser} 分享的 {share} 发表了评论',
 

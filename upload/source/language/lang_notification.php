@@ -28,7 +28,7 @@ $lang = array
 	'type_system' => '系统',
 	'type_thread' => 'กระทู้',
 	'type_task' => 'ภารกิจ',
-	'type_group' => 'กรุ๊ป',
+	'type_group' => 'คลับ',
 
 	'mail_to_user' => '有新的通知',
 	'showcredit' => '{actor} 赠送给您 {credit} 个竞价积分，帮助提升您在 <a href="misc.php?mod=ranklist&type=member" target="_blank">竞价排行榜</a> 中的名次',

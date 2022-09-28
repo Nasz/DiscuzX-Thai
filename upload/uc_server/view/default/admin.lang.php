@@ -1,17 +1,17 @@
 <?php
 
 $lang = array(
-	'user_search' => '搜索用户',
+	'user_search' => 'ค้นหาผู้ใช้',
 	'user_name' => 'ชื่อผู้ใช้',
-	'user_regdate' => '注册日期',
-	'user_regip' => '注册IP',
-	'user_before' => '之前',
-	'user_after' => '之后',
-	'user_search' => '搜 索',
-	'user_add' => '添加用户',
-	'user_password' => '密码',
-	'user_addsubmit' => '添 加',
+	'user_regdate' => 'ลงทะเบียน',
+	'user_regip' => 'ลงทะเบียนIP',
+	'user_before' => 'ก่อน',
+	'user_after' => 'หลังจาก',
+	'user_search' => 'ค้นหา',
+	'user_add' => 'เพิ่มผู้ใช้',
+	'user_password' => 'รหัสผ่าน',
+	'user_addsubmit' => 'เพิ่ม',
 	'delete' => 'ลบทิ้ง',
 	'email' => 'Email',
-	'user_list' => '用户列表',
+	'user_list' => 'รายชื่อผู้ใช้',
 );

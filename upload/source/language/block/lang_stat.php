@@ -26,13 +26,13 @@ $lang = array
 	'stat_option_blogs' => 'ไดอารี่',
 	'stat_option_albums' => 'จำนวนอัลบั้ม',
 	'stat_option_pics' => '图片数',
-	'stat_option_shares' => '分享数',
+	'stat_option_shares' => 'จำนวนแบ่งปัน',
 
 	'stat_edit_showtitle' => '显示名称',
 	'stat_edit_showtitle_detail' => '您可以编辑以下对应项来自定义各统计项的显示名称',
 
 	'stat_posts' => 'โพสต์',
-	'stat_groups' => 'กรุ๊ป',
+	'stat_groups' => 'คลับ',
 	'stat_members' => '会员',
 	'stat_groupnewposts' => '群组今日发帖',
 	'stat_bbsnewposts' => '论坛今日发帖',

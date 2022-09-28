@@ -31,7 +31,7 @@ $lang = array
 	'header_logout' => 'ล็อคเอ้าท์',
 	'header_bbs' => 'หน้าแรก',
 	'header_portal' => 'พอร์ทัล',
-	'header_group' => 'กรุ๊ป',
+	'header_group' => 'คลับ',
 	'header_safe' => 'ความปลอดภัย',
 	'header_founder' => 'ผู้ดูแล',
 	'header_cloudaddons' => 'แอปเซนเตอร์',
@@ -182,7 +182,7 @@ $lang = array
 	'menu_postsplit' => 'แบ่งโพสต์',
 	'menu_threadsplit' => 'แบ่งกระทู้',
 	'menu_membersplit' => 'แบ่งผู้ใช้',
-	'menu_logs' => 'บันทึกการดำเนินงาน',
+	'menu_logs' => 'บันทึกกิจกรรม',
 	'menu_custommenu_manage' => 'จัดการเมนูลัด',
 	'menu_misc_cron' => 'งานตามกำหนด',
 

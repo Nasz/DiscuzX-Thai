@@ -53,7 +53,7 @@ $lang = array
 
 	'fullblankspace' => '　',
 
-	'title_goruptype' => 'กรุ๊ป',
+	'title_goruptype' => 'คลับ',
 	'title_of' => 'ของ',
 	'title_board_message' => 'แจ้งข้อมูล',
 	'title_view_all' => 'ดูทั้งหมด',
@@ -180,7 +180,7 @@ $lang = array
 	'title_ranklist_group' => '群组排行',
 	'title_ranklist_app' => '应用排行',
 	'title_ranklist_index' => '全部排行',
-	'title_ranklist_rankname' => 'ลีดเดอร์บอร์ด',
+	'title_ranklist_rankname' => 'ชาร์ตอันดับ',
 	'title_search' => 'ค้นหา',
 	'title_topic_management' => '创建专题',
 	'title_portal_management' => '门户管理',
@@ -208,7 +208,7 @@ $lang = array
 	'title_collection_comment_list' => '评论列表',
 	'title_collection_followers_list' => '订阅用户列表',
 
-	'faq' => '帮助',
+	'faq' => 'ช่วยเหลือ',
 	'search' => 'ค้นหา',
 	'page' => '第{page}页',
 

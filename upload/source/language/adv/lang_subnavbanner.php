@@ -18,8 +18,8 @@ $lang = array
 	'subnavbanner_index' => 'หน้าแรก',
 	'subnavbanner_fids' => 'เว็บบอร์ดเป้าหมาย',
 	'subnavbanner_fids_comment' => 'การตั้งค่าสำหรับแสดงโฆษณาในเว็บบอร์ดซึ่งมีผลบังคับใช้เมื่อ scope ของโฆษณามี "เว็บบอร์ด"',
-	'subnavbanner_groups' => 'กรุ๊ปเป้าหมาย',
-	'subnavbanner_groups_comment' => 'การตั้งค่าสำหรับแสดงโฆษณาในกรุ๊ปซึ่งมีผลบังคับใช้เมื่อ scope ของโฆษณามี "กรุ๊ป"',
+	'subnavbanner_groups' => 'คลับเป้าหมาย',
+	'subnavbanner_groups_comment' => 'การตั้งค่าสำหรับแสดงโฆษณาในคลับซึ่งมีผลบังคับใช้เมื่อ scope ของโฆษณามี "คลับ"',
 	'subnavbanner_category' => 'หมวดเป้าหมาย',
 	'subnavbanner_category_comment' => 'การตั้งค่าสำหรับแสดงโฆษณาในหมวดซึ่งมีผลบังคับใช้เมื่อ scope ของโฆษณามี "หมวด"',
 );

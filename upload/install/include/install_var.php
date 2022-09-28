@@ -264,7 +264,7 @@ $serialize_sql_setting = array (
   array (
     'portal' => 'พอร์ทัล',
     'forum' => 'เว็บบอร์ด',
-    'group' => 'กรุ๊ป',
+    'group' => 'คลับ',
     'home' => 'โฮม',
   ),
   'activityfield' =>

@@ -1,7 +1,7 @@
 ![โลโก้เว็บบอร์ด](https://github.com/Nasz/DiscuzX/blob/master/upload/static/image/common/logo.svg)<br />
 เวอร์ชั่นภาษาไทยของโปรแกรมเว็บบอร์ดสำเร็จรูป "ดิสคัซ!สิบ"
 
-## จากต้นฉบับเวอร์ชั่น 3.5 เบต้า-20220910 (UTF8) อัปเดทล่าสุดถึง 2022-09-26
+## จากต้นฉบับเวอร์ชั่น 3.5 เบต้า-20220910 (UTF8) อัปเดทล่าสุดถึง 2022-09-29
 
 Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discuz/DiscuzX](https://gitee.com/Discuz/DiscuzX)) เวอร์ชั่นภาษาจีนตัวย่อ UTF8<br />
 Git เป็นทางการของ ดิสคัส! ไทย ([https://github.com/jaideejung007/discuzth](https://github.com/jaideejung007/discuzth)) เวอร์ชั่นภาษาไทย UTF8

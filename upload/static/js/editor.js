@@ -1100,8 +1100,8 @@ function showEditorMenu(tag, params) {
 			case 'index':
 				stitle = '创建帖子目录';
 				str = '<p class="pbn">[index]<br />\n\
-					[#<span class="xi1">页码</span>]<span class="xi1">标题</span> &nbsp;&nbsp;<span class="xg1">跳转到指定的页</span><br />\n\
-					<span class="xi1">*</span>[#<span class="xi1">tid,pid</span>]<span class="xi1">标题</span> &nbsp;&nbsp;<span class="xg1">跳转到指定的帖子</span><br />\n\
+					[#<span class="xi1">页码</span>]<span class="xi1">ชื่อ</span> &nbsp;&nbsp;<span class="xg1">跳转到指定的页</span><br />\n\
+					<span class="xi1">*</span>[#<span class="xi1">tid,pid</span>]<span class="xi1">ชื่อ</span> &nbsp;&nbsp;<span class="xg1">跳转到指定的帖子</span><br />\n\
 					[/index]<br />\n\
 					<br />\n\
 					<span class="xi1">页码</span> &nbsp;&nbsp;<span class="xg1">用 [page] 对当前帖子分页后的页码</span><br />\n\

@@ -141,9 +141,9 @@ drag.extend({
 		var repeatarr = [{'key':'ทำซ้ำ','value':'repeat'},{'key':'ไม่ทำซ้ำ','value':'no-repeat'},{'key':'ทำซ้ำแนบนอน','value':'repeat-x'},{'key':'ทำซ้ำแนวตั้ง','value':'repeat-y'}];
 		var stylearr = [{'key':'ไม่มีสไตล์','value':'none'},{'key':'เส้นทึบ','value':'solid'},{'key':'จุดไข่ปลา','value':'dotted'},{'key':'ยัติภาค','value':'dashed'}];
 		var table = '<table class="tfm">';
-		table += '<tr><th>字体</th><td><input type="text" id="fontsize" class="px p_fre vm" value="'+fontsize+'" size="2" />px <input type="text" id="fontcolor" class="px p_fre vm" value="'+fontcolor+'" size="2" />';
+		table += '<tr><th>ขนาดฟ้อนต์</th><td><input type="text" id="fontsize" class="px p_fre vm" value="'+fontsize+'" size="2" />px <input type="text" id="fontcolor" class="px p_fre vm" value="'+fontcolor+'" size="2" />';
 		table += getColorPalette(id+'_fontPalette', 'fontcolor' ,fontcolor)+'</td></tr>';
-		table += '<tr><th>链接</th><td><input type="text" id="linkfontsize" class="px p_fre vm" value="'+linkfontsize+'" size="2" />px <input type="text" id="linkcolor" class="px p_fre vm" value="'+linkcolor+'" size="2" />';
+		table += '<tr><th>ฟ้อนต์ลิงค์</th><td><input type="text" id="linkfontsize" class="px p_fre vm" value="'+linkfontsize+'" size="2" />px <input type="text" id="linkcolor" class="px p_fre vm" value="'+linkcolor+'" size="2" />';
 		table += getColorPalette(id+'_linkPalette', 'linkcolor' ,linkcolor)+'</td></tr>';
 
 		var ulclass = 'borderul', opchecked = '';
@@ -152,27 +152,27 @@ drag.extend({
 			opchecked = ' checked="checked"';
 		}
 
-		table += '<tr><th>边框</th><td><ul id="borderul" class="'+ulclass+'">';
-		table += '<li><label>上</label><select class="ps vm" id="bdtwidth" ><option value="">大小</option>'+this.getOption(widtharr,bdtwidth)+'</select>';
-		table += ' <select class="ps vm" id="bdtstyle" ><option value="">样式</option>'+this.getOption(stylearr,bdtstyle)+'</select>';
-		table += ' 颜色 <input type="text" id="bdtcolor" class="px p_fre vm" value="'+bdtcolor+'" size="7" />';
+		table += '<tr><th>ขอบ</th><td><ul id="borderul" class="'+ulclass+'">';
+		table += '<li><label>บน </label><select class="ps vm" id="bdtwidth" ><option value="">ขนาด</option>'+this.getOption(widtharr,bdtwidth)+'</select>';
+		table += ' <select class="ps vm" id="bdtstyle" ><option value="">สไตล์</option>'+this.getOption(stylearr,bdtstyle)+'</select>';
+		table += ' สี <input type="text" id="bdtcolor" class="px p_fre vm" value="'+bdtcolor+'" size="7" />';
 		table += getColorPalette(id+'_bdtPalette', 'bdtcolor' ,bdtcolor)+'</li>';
 
-		table += '<li class="bordera mtn"><label>右</label><select class="ps vm" id="bdrwidth" ><option value="">大小</option>'+this.getOption(widtharr,bdrwidth)+'</select>';
-		table += ' <select class="ps vm" id="bdrstyle" ><option value="">样式</option>'+this.getOption(stylearr,bdrstyle)+'</select>';
-		table += ' 颜色 <input type="text" id="bdrcolor" class="px p_fre vm" value="'+bdrcolor+'" size="7" />';
+		table += '<li class="bordera mtn"><label>ขวา</label><select class="ps vm" id="bdrwidth" ><option value="">ขนาด</option>'+this.getOption(widtharr,bdrwidth)+'</select>';
+		table += ' <select class="ps vm" id="bdrstyle" ><option value="">สไตล์</option>'+this.getOption(stylearr,bdrstyle)+'</select>';
+		table += ' สี <input type="text" id="bdrcolor" class="px p_fre vm" value="'+bdrcolor+'" size="7" />';
 		table += getColorPalette(id+'_bdrPalette', 'bdrcolor' ,bdrcolor)+'</li>';
 
-		table += '<li class="bordera mtn"><label>下</label><select class="ps vm" id="bdbwidth" ><option value="">大小</option>'+this.getOption(widtharr,bdbwidth)+'</select>';
-		table += ' <select class="ps vm" id="bdbstyle" ><option value="">样式</option>'+this.getOption(stylearr,bdbstyle)+'</select>';
-		table += ' 颜色 <input type="text" id="bdbcolor" class="px p_fre vm" value="'+bdbcolor+'" size="7" />';
+		table += '<li class="bordera mtn"><label>ล่าง</label><select class="ps vm" id="bdbwidth" ><option value="">ขนาด</option>'+this.getOption(widtharr,bdbwidth)+'</select>';
+		table += ' <select class="ps vm" id="bdbstyle" ><option value="">สไตล์</option>'+this.getOption(stylearr,bdbstyle)+'</select>';
+		table += ' สี <input type="text" id="bdbcolor" class="px p_fre vm" value="'+bdbcolor+'" size="7" />';
 		table += getColorPalette(id+'_bdbPalette', 'bdbcolor' ,bdbcolor)+'</li>';
 
-		table += '<li class="bordera mtn"><label>左</label><select class="ps vm" id="bdlwidth" ><option value="">大小</option>'+this.getOption(widtharr,bdlwidth)+'</select>';
-		table += ' <select class="ps vm" id="bdlstyle" ><option value="">样式</option>'+this.getOption(stylearr,bdlstyle)+'</select>';
-		table += ' 颜色 <input type="text" id="bdlcolor" class="px p_fre vm" value="'+bdlcolor+'" size="7" />';
+		table += '<li class="bordera mtn"><label>ซ้าย</label><select class="ps vm" id="bdlwidth" ><option value="">ขนาด</option>'+this.getOption(widtharr,bdlwidth)+'</select>';
+		table += ' <select class="ps vm" id="bdlstyle" ><option value="">สไตล์</option>'+this.getOption(stylearr,bdlstyle)+'</select>';
+		table += ' สี <input type="text" id="bdlcolor" class="px p_fre vm" value="'+bdlcolor+'" size="7" />';
 		table += getColorPalette(id+'_bdlPalette', 'bdlcolor' ,bdlcolor)+'</li>';
-		table += '</ul><p class="ptm"><label><input id="borderop" type="checkbox" value="1" class="pc"'+opchecked+' onclick="$(\'borderul\').className = $(\'borderul\').className == \'borderul\' ? \'borderula\' : \'borderul\'">分别设置</label></p></td></tr>';
+		table += '</ul><p class="ptm"><label><input id="borderop" type="checkbox" value="1" class="pc"'+opchecked+' onclick="$(\'borderul\').className = $(\'borderul\').className == \'borderul\' ? \'borderula\' : \'borderul\'">แยกกำหนดค่า</label></p></td></tr>';
 
 		bigarr = [];
 		for (k=-20;k<31;k++) {
@@ -186,11 +186,11 @@ drag.extend({
 			opchecked = ' checked="checked"';
 		}
 
-		table += '<tr><th>外边距</th><td><div id="margindiv" class="'+ulclass+'"><span><label>上</label> <input type="text" id="margint" class="px p_fre vm" value="'+margint+'" size="1"/>px </span>';
-		table += '<span class="bordera"><label>右</label> <input type="text" id="marginr" class="px p_fre vm" value="'+marginr+'" size="1" />px </span>';
-		table += '<span class="bordera"><label>下</label> <input type="text" id="marginb" class="px p_fre vm" value="'+marginb+'" size="1" />px </span>';
-		table += '<span class="bordera"><label>左</label> <input type="text" id="marginl" class="px p_fre vm" value="'+marginl+'" size="1" />px</span>';
-		table += '</div><p class="ptm"><label><input id="marginop" type="checkbox" value="1" class="pc"'+opchecked+' onclick="$(\'margindiv\').className = $(\'margindiv\').className == \'borderul\' ? \'borderula\' : \'borderul\'">分别设置</label></p></td></tr>';
+		table += '<tr><th>ระยะขอบ</th><td><div id="margindiv" class="'+ulclass+'"><span><label>บน </label> <input type="text" id="margint" class="px p_fre vm" value="'+margint+'" size="1"/>px </span>';
+		table += '<span class="bordera"><label>ขวา</label> <input type="text" id="marginr" class="px p_fre vm" value="'+marginr+'" size="1" />px </span>';
+		table += '<span class="bordera"><label>ล่าง</label> <input type="text" id="marginb" class="px p_fre vm" value="'+marginb+'" size="1" />px </span>';
+		table += '<span class="bordera"><label>ซ้าย</label> <input type="text" id="marginl" class="px p_fre vm" value="'+marginl+'" size="1" />px</span>';
+		table += '</div><p class="ptm"><label><input id="marginop" type="checkbox" value="1" class="pc"'+opchecked+' onclick="$(\'margindiv\').className = $(\'margindiv\').className == \'borderul\' ? \'borderula\' : \'borderul\'">แยกกำหนดค่า</label></p></td></tr>';
 
 		if (objType == 1) {
 
@@ -200,23 +200,23 @@ drag.extend({
 				opchecked = ' checked="checked"';
 			}
 
-			table += '<tr><th>内边距</th><td><div id="cmargindiv" class="'+ulclass+'"><span><label>上</label> <input class="px p_fre" id="cmargint" value="'+cmargint+'" size="1" />px </span>';
-			table += '<span class="bordera"><label>右</label> <input class="px p_fre" id="cmarginr" value="'+cmarginr+'" size="1" />px </span>';
-			table += '<span class="bordera"><label>下</label> <input class="px p_fre" id="cmarginb" value="'+cmarginb+'" size="1" />px </span>';
-			table += '<span class="bordera"><label>左</label> <input class="px p_fre" id="cmarginl" value="'+cmarginl+'" size="1" />px </span>';
-			table += '</div><p class="ptm"><label><input id="cmarginop" type="checkbox" value="1" class="pc"'+opchecked+' onclick="$(\'cmargindiv\').className = $(\'cmargindiv\').className == \'borderul\' ? \'borderula\' : \'borderul\'"> 分别设置</label></p></td></tr>';
+			table += '<tr><th>แพดดิ้ง</th><td><div id="cmargindiv" class="'+ulclass+'"><span><label>บน </label> <input class="px p_fre" id="cmargint" value="'+cmargint+'" size="1" />px </span>';
+			table += '<span class="bordera"><label>ขวา</label> <input class="px p_fre" id="cmarginr" value="'+cmarginr+'" size="1" />px </span>';
+			table += '<span class="bordera"><label>ล่าง</label> <input class="px p_fre" id="cmarginb" value="'+cmarginb+'" size="1" />px </span>';
+			table += '<span class="bordera"><label>ซ้าย</label> <input class="px p_fre" id="cmarginl" value="'+cmarginl+'" size="1" />px </span>';
+			table += '</div><p class="ptm"><label><input id="cmarginop" type="checkbox" value="1" class="pc"'+opchecked+' onclick="$(\'cmargindiv\').className = $(\'cmargindiv\').className == \'borderul\' ? \'borderula\' : \'borderul\'"> แยกกำหนดค่า</label></p></td></tr>';
 		}
-		table += '<tr><th>背景颜色</th><td><input type="text" id="bgcolor" class="px p_fre vm" value="'+bgcolor+'" size="4" />';
+		table += '<tr><th>สีพื้นหลัง</th><td><input type="text" id="bgcolor" class="px p_fre vm" value="'+bgcolor+'" size="4" />';
 		table += getColorPalette(id+'_bgcPalette', 'bgcolor' ,bgcolor)+'</td></tr>';
-		table += '<tr><th>背景图片</th><td><input type="text" id="bgimage" class="px p_fre vm" value="'+bgimage+'" size="25" /> <select class="ps vm" id="bgrepeat" >'+this.getOption(repeatarr,bgrepeat)+'</select></td></tr>';
+		table += '<tr><th>รูปพี้นหลัง</th><td><input type="text" id="bgimage" class="px p_fre vm" value="'+bgimage+'" size="25" /> <select class="ps vm" id="bgrepeat" >'+this.getOption(repeatarr,bgrepeat)+'</select></td></tr>';
 		var classarr = objType == 1 ? this.blockDefaultClass : this.frameDefaultClass;
-		table += '<tr><th>指定class</th><td><input type="text" id="diyClassName" class="px p_fre" value="'+diyClassName+'" size="8" /> <select class="ps vm" id="bgrepeat" onchange="$(\'diyClassName\').value=this.value;" >'+this.getOption(classarr, diyClassName)+'</select></td></tr>';
+		table += '<tr><th>เลือกclass</th><td><input type="text" id="diyClassName" class="px p_fre" value="'+diyClassName+'" size="8" /> <select class="ps vm" id="bgrepeat" onchange="$(\'diyClassName\').value=this.value;" >'+this.getOption(classarr, diyClassName)+'</select></td></tr>';
 		table += '</table>';
 
 		var wname = objType ? 'โมดูล' : 'กรอบ';
 		html = '<div class="c diywin" style="width:450px;position:relative;">'+table+'</div>';
-		var h = '<h3 class="flb"><em>编辑'+wname+'样式</em><span><a href="javascript:;" class="flbc" onclick="drag.closeStyleEdit(\''+id+'\');return false;" title="ปิด">\n\
-			关闭</a></span></h3>';
+		var h = '<h3 class="flb"><em>แก้ไข'+wname+'สไตล์</em><span><a href="javascript:;" class="flbc" onclick="drag.closeStyleEdit(\''+id+'\');return false;" title="ปิด">\n\
+			ปิด</a></span></h3>';
 		var f = '<p class="o pns"><button onclick="drag.saveStyle(\''+id+'\');drag.closeStyleEdit(\''+id+'\');" class="pn pnc" value="true">\n\
 			<strong>ยืนยัน</strong></button><button onclick="drag.closeStyleEdit(\''+id+'\')" class="pn" value="true"><strong>ยกเลิก</strong></button></p>';
 		this.removeMenu(e);
@@ -355,13 +355,13 @@ drag.extend({
 		}
 		common += '</table><hr class="l">';
 		var li = '';
-		li += '<div id="titleInput_0"><table class="tfm"><tr><th>'+titlename+'标题:</th><td><input type="text" id="titleText_0" class="px p_fre" value="`title`" /></td></tr>';
-		li += '<tr><th>链接:</th><td><input type="text" id="titleLink_0" class="px p_fre" value="`link`" /></td></tr>';
-		li += '<tr><th>图片:</th><td><input type="text" id="titleSrc_0" class="px p_fre" value="`src`" /></td></tr>';
-		li += '<tr><th>位置:</th><td><select id="titleFloat_0" class="ps vm"><option value="" `left`>居左</option><option value="right" `right`>居右</option></select>';
-		li += '&nbsp;&nbsp;偏移量: <input type="text" id="titleMargin_0" class="px p_fre vm" value="`margin`" size="2" />px</td></tr>';
-		li += '<tr><th>字体:</th><td><select class="ps vm" id="titleSize_0" ><option value="">大小</option>`size`</select>';
-		li += '&nbsp;&nbsp;颜色: <input type="text" id="titleColor_0" class="px p_fre vm" value="`color`" size="4" />';
+		li += '<div id="titleInput_0"><table class="tfm"><tr><th>'+titlename+'ชื่อ:</th><td><input type="text" id="titleText_0" class="px p_fre" value="`title`" /></td></tr>';
+		li += '<tr><th>ลิงก์:</th><td><input type="text" id="titleLink_0" class="px p_fre" value="`link`" /></td></tr>';
+		li += '<tr><th>ภาพ:</th><td><input type="text" id="titleSrc_0" class="px p_fre" value="`src`" /></td></tr>';
+		li += '<tr><th>ตำแหน่ง:</th><td><select id="titleFloat_0" class="ps vm"><option value="" `left`>ซ้าย</option><option value="right" `right`>ขวา</option></select>';
+		li += '&nbsp;&nbsp;ออฟเซ็ต: <input type="text" id="titleMargin_0" class="px p_fre vm" value="`margin`" size="2" />px</td></tr>';
+		li += '<tr><th>แบบอักษร:</th><td><select class="ps vm" id="titleSize_0" ><option value="">ขนาด</option>`size`</select>';
+		li += '&nbsp;&nbsp;สี: <input type="text" id="titleColor_0" class="px p_fre vm" value="`color`" size="4" />';
 		li += getColorPalette(fid+'Palette_0', 'titleColor_0' ,'`color`');
 		li += '</td></tr><tr><td colspan="2"><hr class="l"></td></tr></table></div>';
 		var html = '';
@@ -382,9 +382,9 @@ drag.extend({
 		}
 
 		var c = len + 1;
-			html = '<div class="c diywin" style="width:450px;height:400px; overflow:auto;"><table cellspacing="0" cellpadding="0" class="tfm pns"><tr><th></th><td><button type="button" id="addTitleInput" class="pn" onclick="drag.addTitleInput('+c+');"><em>添加新标题</em></button></td></tr></table><div id="titleEdit">'+html+common+'</div></div>';
-		var h = '<h3 class="flb"><em>编辑'+titlename+'标题</em><span><a href="javascript:;" class="flbc" onclick="drag.closeTitleEdit(\''+fid+'\');return false;" title="ปิด">\n\
-			关闭</a></span></h3>';
+			html = '<div class="c diywin" style="width:450px;height:400px; overflow:auto;"><table cellspacing="0" cellpadding="0" class="tfm pns"><tr><th></th><td><button type="button" id="addTitleInput" class="pn" onclick="drag.addTitleInput('+c+');"><em>เพิ่มใหม่ชื่อ</em></button></td></tr></table><div id="titleEdit">'+html+common+'</div></div>';
+		var h = '<h3 class="flb"><em>แก้ไข'+titlename+'ชื่อ</em><span><a href="javascript:;" class="flbc" onclick="drag.closeTitleEdit(\''+fid+'\');return false;" title="ปิด">\n\
+			ปิด</a></span></h3>';
 		var f = '<p class="o pns"><button onclick="drag.saveTitleEdit(\''+fid+'\');drag.closeTitleEdit(\''+fid+'\');" class="pn pnc" value="true">\n\
 			<strong>ยืนยัน</strong></button><button onclick="drag.closeTitleEdit(\''+fid+'\')" class="pn" value="true"><strong>ยกเลิก</strong></button></p>';
 		this.removeMenu(e);
@@ -735,7 +735,7 @@ drag.extend({
 			this.blocks = this.allBlocks;
 		}
 		this.blocksLen = this.blocks.length;
-		showDialog('<div id="allupdate" style="width:350px;line-height:28px;">เริ่มปรับปรุง...</div>','confirm','更新模块数据', '', true, 'drag.endBlockForceUpdateBatch()');
+		showDialog('<div id="allupdate" style="width:350px;line-height:28px;">เริ่มปรับปรุง...</div>','confirm','อัปเดตข้อมูลโมดูล', '', true, 'drag.endBlockForceUpdateBatch()');
 		var wait = function() {
 			if($('fwin_dialog_submit')) {
 				$('fwin_dialog_submit').style.display = 'none';
@@ -749,7 +749,7 @@ drag.extend({
 		doane();
 	},
 	clearAll : function () {
-		if (confirm('您确实要清空页面上所在DIY数据吗,清空以后将不可恢复')) {
+		if (confirm('คุณต้องการล้างข้อมูล DIY บนเพจจริงหรือไม่ มันจะไม่ถูกกู้คืนหลังจากการล้าง')) {
 			for (var i in this.data) {
 				for (var j in this.data[i]) {
 					if (typeof(this.data[i][j]) == 'object' && this.data[i][j].name.indexOf('_temp')<0) {
@@ -764,7 +764,7 @@ drag.extend({
 		doane();
 	},
 	createObj : function (e,objType,contentType) {
-		if (objType == 'block' && !this.checkHasFrame()) {alert("提示：未找到框架，请先添加框架。");spaceDiy.getdiy('frame');return false;}
+		if (objType == 'block' && !this.checkHasFrame()) {alert("เคล็ดลับ：หากไม่พบกรอบ ให้เพิ่มกรอบก่อน");spaceDiy.getdiy('frame');return false;}
 		e = Util.event(e);
 		if(e.which != 1 ) {return false;}
 		var html = '',offWidth = 0;
@@ -866,7 +866,7 @@ drag.extend({
 	},
 	goonDIY : function () {
 		if ($('prefile').value == '1') {
-			showDialog('<div style="line-height:28px;">按继续按钮将打开暂存数据并DIY，<br />按删除按钮将删除暂存数据。</div>','confirm','是否继续暂存数据的DIY？', function(){location.replace(location.href+'&preview=yes');}, true, 'spaceDiy.cancelDIY()', '', '继续', 'ลบทิ้ง');
+			showDialog('<div style="line-height:28px;">กดปุ่มดำเนินต่อเพื่อเปิดข้อมูลชั่วคราว DIY<br />กดปุ่มลบทิ้งเพื่อลบข้อมูลชั่วคราว</div>','confirm','คุณยังคงเซฟข้อมูลชั่วคราวหรือไม่?', function(){location.replace(location.href+'&preview=yes');}, true, 'spaceDiy.cancelDIY()', '', 'ดำเนินต่อ', 'ลบทิ้ง');
 		} else if (location.search.indexOf('preview=yes') > -1) {
 			spaceDiy.enablePreviewButton();
 		} else {
@@ -891,8 +891,8 @@ spaceDiy.extend({
 					} else {
 						schecked = ' checked';
 					}
-					showDialog('<form name="selectsave" action="" method="get"><label><input type="radio" value="0" name="savemod"'+schecked+' />应用于此类全部页面</label>\n\
-					<label><input type="radio" value="1" name="savemod"'+dchecked+' />只应用于本页面</label></form>','notice', '', spaceDiy.save);
+					showDialog('<form name="selectsave" action="" method="get"><label><input type="radio" value="0" name="savemod"'+schecked+' />นำไปใช้กับหน้าประเภทนี้ทั้งหมด</label>\n\
+					<label><input type="radio" value="1" name="savemod"'+dchecked+' />เซฟเฉพาะในหน้านี้</label></form>','notice', '', spaceDiy.save);
 					return false;
 				}
 				if (document.selectsave) {
@@ -956,14 +956,14 @@ spaceDiy.extend({
 	cancel : function () {
 		saveUserdata('diy_advance_mode', '');
 		if (drag.isClearClose) {
-			showDialog('<div style="line-height:28px;">是否保留暂存数据？<br />按确定按钮将保留暂存数据，按取消按钮将删除暂存数据。</div>','confirm','保留暂存数据', function(){location.href = spaceDiy.cancelDiyUrl();}, true, function(){window.onunload=function(){spaceDiy.cancelDIY()};location.href = spaceDiy.cancelDiyUrl();});
+			showDialog('<div style="line-height:28px;">คุณต้องการเซฟข้อมูลชั่วคราวหรือไม่?<br />กดปุ่มเก็บเป็นข้อมูลชั่วคราวเพื่อเก็บข้อมูลชั่วคราวไว้ หรือ กดปุ่มยกเลิกเพื่อลบข้อมูลชั่วคราว</div>','confirm','เก็บเป็นข้อมูลชั่วคราว', function(){location.href = spaceDiy.cancelDiyUrl();}, true, function(){window.onunload=function(){spaceDiy.cancelDIY()};location.href = spaceDiy.cancelDiyUrl();});
 		} else {
 			location.href = this.cancelDiyUrl();
 		}
 
 	},
 	recover : function() {
-		if (confirm('您确定要恢复到上一版本保存的结果吗？')) {
+		if (confirm('คุณต้องการกลับไปใช้เวอร์ชันก่อนหน้านี้ใช่หรือไม่?')) {
 			drag.clearClose();
 			document.diyform.recover.value = '1';
 			document.diyform.gobackurl.value = location.href.replace(/(\?diy=yes)|(\&diy=yes)/,'').replace(/[\?|\&]preview=yes/,'');

@@ -18,7 +18,7 @@ $lang = array
 	'portalcategory_catid' => '指定父级栏目',
 	'portalcategory_catid_comment' => '选择父级栏目',
 	'portalcategory_orderby' => 'เรียงตาม',
-	'portalcategory_orderby_comment' => '设置以哪一字段或方式对分类进行排序',
+	'portalcategory_orderby_comment' => 'ตั้งค่าวิธีการเรียงลำดับจากฟิลด์ของพอร์ทัล',
 	'portalcategory_orderby_displayorder' => '按默认顺序排序',
 	'portalcategory_orderby_articles' => '按文章数倒序',
 );

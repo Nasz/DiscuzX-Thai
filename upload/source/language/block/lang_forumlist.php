@@ -13,7 +13,7 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'forumlist_fids' => 'ส่วนที่ระบุ',
+	'forumlist_fids' => 'เลือกบอร์ด',
 	'forumlist_fids_comment' => 'กรอก ID ของส่วนที่ระบุ (fid) ระหว่างหลายส่วนใช้เครื่องหมายจุลภาค (,) แยก',
 	'forumlist_fups' => 'ส่วนที่เหนือกว่า',
 	'forumlist_fups_comment' => 'ตั้งค่าส่วนที่แสดงหมวดหมู่หรือส่วนต่างๆ',
@@ -21,8 +21,8 @@ $lang = array
 	'forumlist_titlelength_comment' => 'ตั้งค่าความยาวสูงสุดของการแสดงชื่อที่ตั้งไว้',
 	'forumlist_summarylength' => 'ความยาวบทนำ',
 	'forumlist_summarylength_comment' => 'ตั้งค่าความยาวสูงสุดที่แสดง',
-	'forumlist_orderby' => 'วิธีการจัดเรียงตำแหน่ง',
-	'forumlist_orderby_comment' => 'ตั้งค่าส่วนเพื่อจัดเรียงส่วนที่ฟิลด์หรือวิธีการ',
+	'forumlist_orderby' => 'เรียงตาม',
+	'forumlist_orderby_comment' => 'ตั้งค่าวิธีการเรียงลำดับจากฟิลด์ของบอร์ด',
 	'forumlist_orderby_displayorder' => 'เรียงลำดับตามลำดับของจอแสดงผล',
 	'forumlist_orderby_threads' => 'เรียงลำดับตามหัวข้อของหัวข้อ',
 	'forumlist_orderby_todayposts' => 'เรียงลำดับเพื่อโพสต์จำนวนโพสต์วันนี้',

@@ -15,7 +15,7 @@ $lang = array
 (
 	'forumtree_name' => '版块树形列表',
 	'forumtree_desc' => '树形显示版块列表',
-	'forumtree_fids' => '显示的版块',
+	'forumtree_fids' => 'เลือกบอร์ด',
 	'forumtree_fids_comment' => '设置允许显示的版块，留空为显示บอร์ดทั้งหมด',
 );
 

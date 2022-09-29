@@ -20,7 +20,7 @@ $lang = array
 	'magics_type_2' => '会员类',
 	'magics_type_3' => '其他类',
 
-	'CCK_color' => '颜色',
+	'CCK_color' => 'สี',
 	'MOK_info' => '获得的钱币数目规则：大于 1 且小于购买价格 150% 的随机数',
 	'CODE_info' => '获得 Discuz! 测试邀请码一个',
 	'MVK_target' => '要移动到的版面',

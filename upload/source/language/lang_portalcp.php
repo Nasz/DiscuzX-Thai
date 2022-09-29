@@ -97,7 +97,7 @@ $lang = array(
 
 	'itemtypename0' => '自动',
 	'itemtypename1' => '<span style="color: #FF0000">固定</span>',
-	'itemtypename2' => '<span style="color: #00BFFF">编辑</span>',
+	'itemtypename2' => '<span style="color: #00BFFF">แก้ไข</span>',
 	'itemtypename3' => '<span style="color: #0000FF">推送</span>',
 
 );

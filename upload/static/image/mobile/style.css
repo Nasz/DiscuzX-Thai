@@ -903,7 +903,7 @@ body.pg_logging, body.pg_register {background-color:var(--dz-BG-0)}
 .post_attlist li .minput .input {padding:0 6px;height:24px;line-height:24px;font-size:13px;border-radius:4px;display:block;}
 .post_attlist li .minput .price {width: inherit;}
 
-/*----- 帖子内容页 -----*/
+/*----- หน้าเนื้อหาโพสต์ -----*/
 .quote {padding:8px 10px;margin:8px 0;background-color:var(--dz-BG-5);font-size:14px;border-radius:4px}
 .quote a {color:var(--dz-BG-3)}
 .viewthread {background-color:var(--dz-BG-0);overflow:hidden}

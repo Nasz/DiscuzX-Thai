@@ -907,7 +907,7 @@ if(!submitcheck('settingsubmit')) {
 
 		echo '<div id="other"'.($_GET['anchor'] != 'other' ? ' style="display: none"' : '').'>';
 			showboxheader('<em class="right">'.cplang('setting_seo_robots_output').'</em>'.cplang('setting_seo'));
-			echo '<div class="tips2"><ul><li>'.cplang('setting_seo_seotitle_comment').'</li><li>'.cplang('setting_seo_seodescription_comment').'</li><li>'.cplang('setting_seo_seokeywords_comment').'</li></ul></div>';
+			//echo '<div class="tips2"><ul><li>'.cplang('setting_seo_seotitle_comment').'</li><li>'.cplang('setting_seo_seodescription_comment').'</li><li>'.cplang('setting_seo_seokeywords_comment').'</li></ul></div>';
 			showboxfooter();
 			showtableheader();
 			showsetting('setting_seo_seohead', 'settingnew[seohead]', $setting['seohead'], 'textarea');
@@ -942,13 +942,13 @@ if(!submitcheck('settingsubmit')) {
 		}
 		$staticurl = STATICURL;
 		print <<<EOF
-		<div id="codediv" style="display:none; top: 707px;background: url('{$staticurl}image/common/mdly.png') no-repeat scroll 0 0 transparent; height: 100px; line-height: 32px; margin-top: -16px; overflow: hidden; padding: 10px 25px; position: absolute; left: 500px; width: 250px;">
+		<div id="codediv" style="display:none; top: 707px;background: url('{$staticurl}image/common/mdly.png') no-repeat scroll 0 0 transparent; height: 114px; line-height: 32px; margin-top: -16px; overflow: hidden; padding: 10px 25px; position: absolute; left: 500px; width: 295px;">
 		<p>
 EOF;
 		echo cplang('setting_seo_insallowcode');
 		print <<<EOF
 		</p>
-		<p id="seocodes">
+		<p id="seocodes" style="overflow-y: auto;">
 		<a onclick="insertcode('subject');return false;" href="javascript:;">{subject}</a>
 		<span class="pipe">|</span>
 		<a onclick="insertcode('forum');return false;" href="javascript:;">{forum}</a>

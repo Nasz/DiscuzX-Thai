@@ -661,7 +661,7 @@ drag.extend({
 			if(s.indexOf('errorhandle_') != -1) {
 				bcontent.innerHTML = boldcontent;
 				runslideshow();
-				showDialog('抱歉，您没有权限添加或编辑模块', 'alert');
+				showDialog('เสียใจ，您没有权限添加或编辑模块', 'alert');
 				doane();
 			} else {
 				var obj = document.createElement('div');

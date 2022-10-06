@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'threadlist_fids' => 'เลือกบอร์ด',
-	'threadlist_fids_comment' => '设置允许参与新帖调用的版块，可以按住 CTRL 多选，全选或全不选均为不做限制',
+	'threadlist_fids_comment' => '设置允许参与新帖调用的版块，กด CTRL เพื่อเลือกหลายอัน，全选或全不选均为不做限制',
 	'threadlist_uids' => 'UIDผู้สร้าง',
 	'threadlist_uids_comment' => 'กรอก IDผู้สร้าง(uid) สามารถกรอกได้หลายคนโดยใช้เครื่องหมายจุลภาค (,) แยกออกจากกัน',
 	'threadlist_startrow' => 'แถวข้อมูลเริ่มต้น',

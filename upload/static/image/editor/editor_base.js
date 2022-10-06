@@ -622,7 +622,7 @@ function changeEditFull(flag, ev) {
 		parent.changeEditFull(flag);
 		ev = ev || event;
 		var ele = ev.target || ev.srcElement;
-		ele.innerHTML = flag ? '返回' : 'เต็มจอ';
+		ele.innerHTML = flag ? 'ย้อนกลับ' : 'เต็มจอ';
 		ele.onclick = function() {changeEditFull(!flag, ev)};
 	}
 }

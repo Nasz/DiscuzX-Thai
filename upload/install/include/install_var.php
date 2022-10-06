@@ -168,7 +168,7 @@ $serialize_sql_setting = array (
     2 =>
     array (
       'img' => '',
-      'title' => 'เงินรางวัล',
+      'title' => 'เหรียญรางวัล',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',

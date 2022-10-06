@@ -319,7 +319,7 @@ function editorfull(op) {
 		editorisfull = 0;
 		editorcontrolpos();
 	}
-	$(editorid + '_fullswitcher').innerHTML = editorisfull ? '返回' : 'เต็มจอ';
+	$(editorid + '_fullswitcher').innerHTML = editorisfull ? 'ย้อนกลับ' : 'เต็มจอ';
 	initesbar();
 }
 

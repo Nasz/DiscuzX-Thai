@@ -219,7 +219,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 /** end **/
 
 /** forum::modcp,misc::stat **/
-	/* 版块管理 */
+	/* จัดการบอร์ด */
 		.mdcp {}
 			.stl { float: left; width: 15%; }
 			.str { float: left; overflow: auto; overflow-y: hidden; width: 84%; }

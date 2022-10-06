@@ -146,19 +146,19 @@ $lang = array
 	'eccredit_explain' => '解释',
 
 	'modcp_logs_action_home' => '内部留言',
-	'modcp_logs_action_moderate' => '审核',
+	'modcp_logs_action_moderate' => 'ตรวจ',
 	'modcp_logs_action_member' => 'จัดการผู้ใช้',
 	'modcp_logs_action_forumaccess' => '用户权限',
 	'modcp_logs_action_thread' => '主题管理',
-	'modcp_logs_action_forum' => '版块管理',
-	'modcp_logs_action_announcement' => '公告',
+	'modcp_logs_action_forum' => 'จัดการบอร์ด',
+	'modcp_logs_action_announcement' => 'ประกาศ',
 	'modcp_logs_action_log' => '管理日志',
 	'modcp_logs_action_stat' => '管理统计',
 
 	'modcp_logs_action_login' => 'เข้าสู่ระบบ',
 
 	'uch_selectalbum' => '请选择相册',
-	'uch_noalbum' => '抱歉，您还没有相册，',
+	'uch_noalbum' => 'เสียใจ，您还没有相册，',
 	'click_here' => '点击这里',
 	'uch_createalbum' => '创建自己的相册吧！',
 

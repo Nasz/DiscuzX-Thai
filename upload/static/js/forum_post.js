@@ -75,7 +75,7 @@ function validate(theform) {
 		message = parseurl(message);
 	}
 	if(($('postsubmit').name != 'replysubmit' && !($('postsubmit').name == 'editsubmit' && !isfirstpost) && theform.subject.value == "") || !sortid && !special && trim(message) == "") {
-		showError('抱歉，您尚未输入标题或内容');
+		showError('เสียใจ，您尚未输入标题或内容');
 		return false;
 	} else if(dstrlen(theform.subject.value) > 255) {
 		showError('您的标题超过 255 ตัวอักษร的限制');
@@ -475,7 +475,7 @@ function updateImageList(action, aids) {
 function updateDownImageList(msg) {
 	hideMenu('fwin_dialog', 'dialog');
 	if(msg == '') {
-		showError('抱歉，暂无远程附件');
+		showError('เสียใจ，暂无远程附件');
 	} else {
 		ajaxget('forum.php?mod=ajax&action=imagelist&pid=' + pid + '&posttime=' + $('posttime').value + (!fid ? '' : '&fid=' + fid), 'imgattachlist', null, null, null, function(){if(wysiwyg) {editdoc.body.innerHTML = msg;switchEditor(0);switchEditor(1)} else {textobj.value = msg;}});
 		switchImagebutton('imgattachlist');$('imgattach_notice').style.display = '';

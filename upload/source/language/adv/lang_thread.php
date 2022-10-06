@@ -25,7 +25,7 @@ $lang = array
 	'thread_position_top' => 'ด้านบนของโพสต์',
 	'thread_position_right' => 'ทางด้านขวาของโพสต์',
 	'thread_pnumber' => 'โฆษณาจอแสดงผลโฆษณา',
-	'thread_pnumber_comment' => 'ตัวเลือก #1 #2 #3 ... แสดงโพสต์พื้นคุณสามารถกดค้างไว้ได้ CTRL ทางเลือก',
+	'thread_pnumber_comment' => 'ตัวเลือก #1 #2 #3 ... แสดงโพสต์พื้นคุณสามารถกด CTRL เพื่อเลือกหลายอัน',
 	'thread_pnumber_all' => 'ทั้งหมด',
 );
 

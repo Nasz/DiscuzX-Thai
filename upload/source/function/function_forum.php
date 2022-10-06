@@ -492,7 +492,7 @@ function loadforum($fid = null, $tid = null) {
 			}
 			$forum['ismoderator'] = !empty($forum['ismoderator']) || $adminid == 1 || $adminid == 2 ? 1 : 0;
 			$fid = $forum['fid'];
-			$gorup_admingroupids = $_G['setting']['group_admingroupids'] ? dunserialize($_G['setting']['group_admingroupids']) : array('1' => '1');
+			$group_admingroupids = $_G['setting']['group_admingroupids'] ? dunserialize($_G['setting']['group_admingroupids']) : array('1' => '1');
 
 			if($forum['status'] == 3) {
 				if(!empty($forum['moderators'])) {
@@ -504,9 +504,9 @@ function loadforum($fid = null, $tid = null) {
 				if($_G['uid'] && $_G['adminid'] != 1) {
 					$forum['ismoderator'] = !empty($forum['moderators'][$_G['uid']]) ? 1 : 0;
 					$_G['adminid'] = 0;
-					if($forum['ismoderator'] || $gorup_admingroupids[$_G['groupid']]) {
+					if($forum['ismoderator'] || $group_admingroupids[$_G['groupid']]) {
 						$_G['adminid'] = $_G['adminid'] ? $_G['adminid'] : 3;
-						if(!empty($gorup_admingroupids[$_G['groupid']])) {
+						if(!empty($group_admingroupids[$_G['groupid']])) {
 							$forum['ismoderator'] = 1;
 							$_G['adminid'] = 2;
 						}

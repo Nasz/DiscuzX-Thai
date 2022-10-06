@@ -66,7 +66,7 @@ $_GET['script'] = !empty($_GET['script']) && isset($theclass['script'][$_GET['sc
 		: (!empty($block['script']) ? $block['script'] : key($theclass['script']));
 
 $blocktype = (!empty($_GET['blocktype']) || !empty($block['blocktype'])) ? 1 : 0;
-$nocachetime = in_array($_GET['script'], array('blank', 'line', 'banner', 'vedio', 'google')) ? true : false;
+$nocachetime = in_array($_GET['script'], array('blank', 'line', 'banner', 'video', 'google')) ? true : false;
 $is_htmlblock = ($_GET['classname'] == 'html_html') ? 1 : 0;
 $showhtmltip = false;
 if($op == 'data' && $is_htmlblock) {

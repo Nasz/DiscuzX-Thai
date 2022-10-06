@@ -242,7 +242,7 @@ b1c489a764d511dcb7502885d4a4acec *source/class/block/html/block_line.php
 b0649f03334d8869e8b5e99e94b6e375 *source/class/block/html/block_search.php
 bd654802caddb256183f0254cdce1468 *source/class/block/html/block_sort.php
 63d001714d9d2b58e43da40373984336 *source/class/block/html/block_stat.php
-a2915a6fa0289122625c953e04f79ea8 *source/class/block/html/block_vedio.php
+a2915a6fa0289122625c953e04f79ea8 *source/class/block/html/block_video.php
 c7e373099c30438eb607dfb5a196236e *source/class/block/html/commonblock_html.php
 d41d8cd98f00b204e9800998ecf8427e *source/class/block/html/index.htm
 d41d8cd98f00b204e9800998ecf8427e *source/class/block/index.htm
@@ -1063,7 +1063,7 @@ a8a6fa07d8346c286a7c7460af01092b *source/language/block/lang_stat.php
 6e43c610ec1b1c9f70b7e305f461c36c *source/language/block/lang_threadlist.php
 07d3d4d9ea96c45055514174484d9c41 *source/language/block/lang_topiclist.php
 ec3ae95cf610ec046b204eceba0f7633 *source/language/block/lang_tradelist.php
-fa018d1e46f913b244d05b65673bdfab *source/language/block/lang_vedio.php
+fa018d1e46f913b244d05b65673bdfab *source/language/block/lang_video.php
 7215ee9c7d9dc229d2921a40e899ec5f *source/language/email/index.htm
 1ce58d0920556a61b6096206c9b5b392 *source/language/email/lang_template.php
 7215ee9c7d9dc229d2921a40e899ec5f *source/language/forum/index.htm

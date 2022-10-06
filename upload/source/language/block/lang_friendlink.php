@@ -22,8 +22,8 @@ $lang = array
 	'friendlink_type_group2' => '分组2',
 	'friendlink_type_group3' => '分组3',
 	'friendlink_type_group4' => '分组4',
-	'friendlink_titlelength' => '站点名称长度',
-	'friendlink_titlelength_comment' => '设置站点名称的最大长度',
+	'friendlink_titlelength' => 'ความยาวชื่อไซต์',
+	'friendlink_titlelength_comment' => 'ตั้งค่าความยาวสูงสุดของชื่อไซต์',
 	'friendlink_summarylength' => '简介长度',
 	'friendlink_summarylength_comment' => '设置站点简介最大长度',
 );

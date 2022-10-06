@@ -470,14 +470,14 @@ function show_git_thanks() {
 	showboxrow('', array('class="dcol d-1 lineheight"', 'class="dcol lineheight team"'), array(
 		cplang('home_git_thanks'),
 		'
-				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=laozhoubuluo" class="lightlink2" target="_blank">&#x8001;&#x5468;&#x90E8;&#x843D;</a>
+				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=laozhoubuluo" class="lightlink2" target="_blank">เหลาจัวปูลัว</a>
 				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=popcorner" class="lightlink2" target="_blank">popcorner</a>
 				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=oldhuhu" class="lightlink2" target="_blank">oldhuhu</a>
-				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=zoewho" class="lightlink2" target="_blank">&#x6E56;&#x4E2D;&#x6C89;</a>
-				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=3dming" class="lightlink2" target="_blank">&#x8BF8;&#x845B;&#x6653;&#x660E;</a>
+				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=zoewho" class="lightlink2" target="_blank">หูจุงเฉิน</a>
+				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=3dming" class="lightlink2" target="_blank">จูเก่อเสียวหมิง</a>
 				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=brotherand2" class="lightlink2" target="_blank">brotherand2</a>
 				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=contributions" class="lightlink2" target="_blank">git</a>
-				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=nftstudio" class="lightlink2" target="_blank">&#x9006;&#x98CE;&#x5929;</a>
+				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=nftstudio" class="lightlink2" target="_blank">หนีเฟิงเทียน</a>
 				<a href="https://gitee.com/Discuz/DiscuzX/commits/master?user=ONEXIN" class="lightlink2" target="_blank">ONEXIN</a>'
 	));
 	showboxrow('', array('class="dcol d-1 lineheight"', 'class="dcol lineheight team"'), array(

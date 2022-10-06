@@ -14,9 +14,9 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'grouptrade_fids' => 'เลือกบอร์ด',
-	'grouptrade_fids_comment' => '设置允许参与新帖调用的群组，可以按住 CTRL 多选，全选或全不选均为不做限制',
+	'grouptrade_fids_comment' => '设置允许参与新帖调用的群组，กด CTRL เพื่อเลือกหลายอัน，全选或全不选均为不做限制',
 	'grouptrade_gtids' => '群组分类',
-	'grouptrade_gtids_comment' => '设置群组所在分类，可以按住 CTRL 多选，全选或全不选均为不做限制',
+	'grouptrade_gtids_comment' => '设置群组所在分类，กด CTRL เพื่อเลือกหลายอัน，全选或全不选均为不做限制',
 	'grouptrade_uids' => 'UIDผู้ใช้',
 	'grouptrade_uids_comment' => 'กรอก IDผู้ใช้(uid) สามารถกรอกได้หลายคนโดยใช้เครื่องหมายจุลภาค (,) แยกออกจากกัน',
 	'grouptrade_startrow' => 'แถวข้อมูลเริ่มต้น',

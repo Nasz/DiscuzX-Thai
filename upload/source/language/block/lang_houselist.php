@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'categorylist_fids' => 'เลือกบอร์ด',
-	'categorylist_fids_comment' => '设置允许参与新帖调用的版块，可以按住 CTRL 多选，全选或全不选均为不做限制',
+	'categorylist_fids_comment' => '设置允许参与新帖调用的版块，กด CTRL เพื่อเลือกหลายอัน，全选或全不选均为不做限制',
 	'categorylist_startrow' => 'แถวข้อมูลเริ่มต้น',
 	'categorylist_startrow_comment' => 'หากต้องการกำหนดแถวเริ่มต้นของข้อมูล ใส่ 0 หมายถึงเริ่มจากแถวแรกเป็นต้นไป',
 	'categorylist_showitems' => '显示数据条数',

@@ -15,12 +15,12 @@ $lang = array
 (
 
 	'type_wall' => 'ฝากข้อความ',
-	'type_piccomment' => '图片评论',
+	'type_piccomment' => 'เมนท์รูปภาพ',
 	'type_blogcomment' => '日志评论',
 	'type_clickblog' => '日志表态',
 	'type_clickarticle' => '文章表态',
-	'type_clickpic' => '图片表态',
-	'type_sharecomment' => '分享评论',
+	'type_clickpic' => 'ไลค์รูปภาพ',
+	'type_sharecomment' => 'แบ่งปันเมนท์',
 	'type_doing' => 'สมุดโน๊ต',
 	'type_friend' => 'เพื่อน',
 	'type_credit' => 'เครดิต',
@@ -45,7 +45,7 @@ $lang = array
 	'wall_reply' => '{actor} 回复了您的 <a href="{url}" target="_blank">留言</a>',
 	'pic_comment_reply' => '{actor} 回复了您的 <a href="{url}" target="_blank">图片评论</a>',
 	'blog_comment_reply' => '{actor} 回复了您的 <a href="{url}" target="_blank">日志评论</a>',
-	'share_comment_reply' => '{actor} 回复了您的 <a href="{url}" target="_blank">分享评论</a>',
+	'share_comment_reply' => '{actor} 回复了您的 <a href="{url}" target="_blank">แบ่งปันเมนท์</a>',
 	'wall' => '{actor} 在留言板上给您 <a href="{url}" target="_blank">留言</a>',
 	'pic_comment' => '{actor} 评论了您的 <a href="{url}" target="_blank">图片</a>',
 	'blog_comment' => '{actor} 评论了您的日志 <a href="{url}" target="_blank">{subject}</a>',
@@ -156,21 +156,21 @@ $lang = array
 
 	'comment_add' => '{actor} 点评了您曾经在主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 发表的帖子 &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
 
-	'reppost_noticeauthor' => '{actor} 回复了您的帖子 <a href="forum.php?mod=redirect&goto=findpost&ptid={tid}&pid={pid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">查看</a>',
+	'reppost_noticeauthor' => '{actor} ตอบกลับโพสต์ของคุณ <a href="forum.php?mod=redirect&goto=findpost&ptid={tid}&pid={pid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">查看</a>',
 
-	'task_reward_credit' => '恭喜您完成任务：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得积分 {creditbonus} &nbsp; <a href="home.php?mod=spacecp&ac=credit&op=base" target="_blank" class="lit">查看我的积分 &rsaquo;</a></p>',
+	'task_reward_credit' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得积分 {creditbonus} &nbsp; <a href="home.php?mod=spacecp&ac=credit&op=base" target="_blank" class="lit">查看我的积分 &rsaquo;</a></p>',
 
-	'task_reward_magic' => '恭喜您完成任务：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得道具 <a href="home.php?mod=magic&action=mybox" target="_blank">{rewardtext}</a> {bonus} 张',
+	'task_reward_magic' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得道具 <a href="home.php?mod=magic&action=mybox" target="_blank">{rewardtext}</a> {bonus} 张',
 
-	'task_reward_medal' => '恭喜您完成任务：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得勋章 <a href="home.php?mod=medal" target="_blank">{rewardtext}</a> 有效期 {bonus} 天',
+	'task_reward_medal' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得勋章 <a href="home.php?mod=medal" target="_blank">{rewardtext}</a> 有效期 {bonus} วัน',
 
-	'task_reward_medal_forever' => '恭喜您完成任务：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得勋章 <a href="home.php?mod=medal" target="_blank">{rewardtext}</a> 永久有效',
+	'task_reward_medal_forever' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得勋章 <a href="home.php?mod=medal" target="_blank">{rewardtext}</a> 永久有效',
 
-	'task_reward_invite' => '恭喜您完成任务：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得<a href="home.php?mod=spacecp&ac=invite" target="_blank">邀请码 {rewardtext}个</a> 有效期 {bonus} 天',
+	'task_reward_invite' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得<a href="home.php?mod=spacecp&ac=invite" target="_blank">邀请码 {rewardtext}个</a> 有效期 {bonus} วัน',
 
-	'task_reward_group' => '恭喜您完成任务：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得用户组 {rewardtext} 有效期 {bonus} 天 &nbsp; <a href="home.php?mod=spacecp&ac=usergroup" target="_blank" class="lit">看看我能做什么 &rsaquo;</a>',
+	'task_reward_group' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得用户组 {rewardtext} 有效期 {bonus} วัน &nbsp; <a href="home.php?mod=spacecp&ac=usergroup" target="_blank" class="lit">看看我能做什么 &rsaquo;</a>',
 
-	'user_usergroup' => '您的用户组升级为 {usergroup} &nbsp; <a href="home.php?mod=spacecp&ac=usergroup" target="_blank" class="lit">看看我能做什么 &rsaquo;</a>',
+	'user_usergroup' => 'คุณได้กลายเป็น {usergroup} &nbsp; <a href="home.php?mod=spacecp&ac=usergroup" target="_blank" class="lit">看看我能做什么 &rsaquo;</a>',
 
 	'grouplevel_update' => '恭喜您，您的群组 {groupname} 已升级到 {newlevel}。',
 

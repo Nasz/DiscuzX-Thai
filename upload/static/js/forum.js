@@ -533,7 +533,7 @@ function showtime() {
 			var timer_minute = Math.floor(((DTimers[i] % 86400) % 3600) / 60);
 			var timer_second = (((DTimers[i] % 86400) % 3600) % 60);
 			if(timer_day > 0) {
-				timestr += timer_day + '天';
+				timestr += timer_day + 'วัน';
 			}
 			if(timer_hour > 0) {
 				timestr += timer_hour + 'ชั่วโมง'

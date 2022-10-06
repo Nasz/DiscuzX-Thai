@@ -757,7 +757,7 @@
 				<item id="picwidth"><![CDATA[0]]></item>
 				<item id="picheight"><![CDATA[0]]></item>
 				<item id="target"><![CDATA[blank]]></item>
-				<item id="script"><![CDATA[vedio]]></item>
+				<item id="script"><![CDATA[video]]></item>
 				<item id="param">
 					<item id="url"><![CDATA[http://v.youku.com/v_show/id_XMjM1NDM0NDA0.html]]></item>
 					<item id="width"><![CDATA[370]]></item>
@@ -1430,7 +1430,7 @@
 			<item id="9">
 				<item id="styleid"><![CDATA[9]]></item>
 				<item id="blockclass"><![CDATA[forum_thread]]></item>
-				<item id="name"><![CDATA[帖子标题]]></item>
+				<item id="name"><![CDATA[ชื่อโพสต์]]></item>
 				<item id="template">
 					<item id="loop"><![CDATA[<li><a href="{url}" title="{title}"{target}>{title}</a></li>]]></item>
 					<item id="footer"><![CDATA[
@@ -1454,7 +1454,7 @@
 			<item id="17">
 				<item id="styleid"><![CDATA[17]]></item>
 				<item id="blockclass"><![CDATA[forum_thread]]></item>
-				<item id="name"><![CDATA[帖子标题+摘要]]></item>
+				<item id="name"><![CDATA[ชื่อโพสต์+摘要]]></item>
 				<item id="template">
 					<item id="loop"><![CDATA[<dl class="cl">
 	<dt><a href="{url}" title="{title}"{target}>{title}</a></dt>
@@ -1480,7 +1480,7 @@
 			<item id="47">
 				<item id="styleid"><![CDATA[47]]></item>
 				<item id="blockclass"><![CDATA[portal_article]]></item>
-				<item id="name"><![CDATA[文章标题]]></item>
+				<item id="name"><![CDATA[ชื่อบทความ]]></item>
 				<item id="template">
 					<item id="loop"><![CDATA[<li><a href="{url}" title="{title}"{target}>{title}</a></li>]]></item>
 					<item id="footer"><![CDATA[

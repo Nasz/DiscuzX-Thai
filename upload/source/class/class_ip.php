@@ -229,13 +229,13 @@ class ip {
 			list($ip, $netmask) = explode('/', $ip, 2);
 		}
 		if(!self::validate_ip($ip)) {
-			return '- Invalid';
+			return 'ไม่พบข้อมูล';
 		}
 		if (!(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE) !== false)) {
-			return '- LAN';
+			return 'LAN';
 		}
 		if (!(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_RES_RANGE) !== false)) {
-			return '- Reserved';
+			return 'สงวนไว้';
 		}
 		if (array_key_exists('ipdb', $_G['config']) && array_key_exists('setting', $_G['config']['ipdb'])) {
 			$s = $_G['config']['ipdb']['setting'];
@@ -254,7 +254,7 @@ class ip {
 			$c = 'ip_tiny';
 		}
 		$ipobject = $c::getInstance();
-		return $ipobject === NULL ? '- Error' : $ipobject->convert($ip);
+		return $ipobject === NULL ? 'ผิดพลาด' : $ipobject->convert($ip);
 	}
 
 	public static function checkaccess($ip, $accesslist) {

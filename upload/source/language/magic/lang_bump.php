@@ -13,15 +13,15 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'bump_name' => '提升卡',
-	'bump_forum' => 'อนุญาตให้本道具的版块',
-	'bump_desc' => '可以提升某个主题',
-	'bump_info' => '提升指定的主题，请输入主题的 ID',
-	'bump_info_nonexistence' => '请指定要提升的主题',
-	'bump_succeed' => '您操作的主题已提升',
-	'bump_info_noperm' => '对不起，主题所在版块不อนุญาตให้本道具',
+	'bump_name' => 'การ์ดที่ได้รับการปรับปรุง',
+	'bump_forum' => 'อนุญาตให้ส่วนของรายการนี้',
+	'bump_desc' => 'สามารถปรับปรุงชุดรูปแบบที่แน่นอน',
+	'bump_info' => 'ปรับปรุงกระทู้ที่ระบุโปรดป้อน ID ของกระทู้',
+	'bump_info_nonexistence' => 'โปรดระบุหัวข้อที่จะปรับปรุง',
+	'bump_succeed' => 'ชุดรูปแบบการดำเนินการของคุณดีขึ้น',
+	'bump_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
 
-	'bump_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">快去看看吧！</a>',
+	'bump_notification' => 'กระทู้ของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
 );
 
 ?>

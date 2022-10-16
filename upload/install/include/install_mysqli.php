@@ -30,7 +30,7 @@ class dbstuff {
 		}
 
 		if ($this->version() < '5.5.3') {
-			$this->halt('เวอร์ชัน MySQL ต้องเป็น 5.5.3 หรือมากกว่า');
+			$this->halt('MySQL ต้องเป็นรุ่น 5.5.3 หรือมากกว่า');
 		}
 
 		if($dbcharset) {

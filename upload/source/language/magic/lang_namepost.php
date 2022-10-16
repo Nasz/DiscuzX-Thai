@@ -13,16 +13,16 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'namepost_name' => '照妖镜',
-	'namepost_desc' => '可以查看一次匿名用户的真实身份。',
-	'namepost_forum' => 'อนุญาตให้本道具的版块',
-	'namepost_num' => '拥有个数: {magicnum}',
-	'namepost_info' => '指定要显身的帖子，请输入帖子的 ID',
-	'namepost_info_nonexistence' => '参数错误，不能在此使用本道具。',
-	'namepost_succeed' => '匿名的用户是 <a title="{username}" href="space.php?uid={uid}" target="_blank"><b>{username}</b></a>',
-	'namepost_info_noperm' => '对不起，主题所在版块不อนุญาตให้本道具',
-	'namepost_info_user_noperm' => '对不起，您不能对此人使用本道具',
-	'magic_namepost_succeed' => '匿名的用户是',
+	'namepost_name' => 'กระจกช็อต',
+	'namepost_desc' => 'คุณสามารถดูตัวตนที่แท้จริงของผู้ใช้ที่ไม่ระบุชื่อ',
+	'namepost_forum' => 'อนุญาตให้ส่วนของรายการนี้',
+	'namepost_num' => 'เป็นเจ้าของตัวเลข: {magicnum}',
+	'namepost_info' => 'ระบุโพสต์เพื่อแสดงร่างกายของคุณโปรดป้อน ID ของโพสต์',
+	'namepost_info_nonexistence' => 'ไม่สามารถใช้ข้อผิดพลาดของพารามิเตอร์ได้ที่นี่',
+	'namepost_succeed' => 'ผู้ใช้ที่ไม่ระบุชื่อคือ <a title="{username}" href="space.php?uid={uid}" target="_blank"><b>{username}</b></a>',
+	'namepost_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
+	'namepost_info_user_noperm' => 'ขออภัยคุณไม่สามารถใช้เสานี้กับบุคคลนี้ได้',
+	'magic_namepost_succeed' => 'ผู้ใช้ที่ไม่ระบุชื่อคือ',
 );
 
 ?>

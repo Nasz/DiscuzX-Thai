@@ -19,7 +19,7 @@
 				<li class="swiper-slide{if $_GET[view] == 'favtimes'} mon{/if}"><a href="misc.php?mod=ranklist&type=blog&view=favtimes&orderby=$orderby">{lang ranklist_favorite}</a></li>
 				<!--{if $clicks}-->
 				<!--{loop $clicks $key $value}-->
-				<li class="swiper-slide {if $_GET[view] == $key} mon{/if}"><a href="misc.php?mod=ranklist&type=blog&view=$key&orderby=$orderby">$value[name]{lang ranklist}</a></li>
+				<li class="swiper-slide {if $_GET[view] == $key} mon{/if}"><a href="misc.php?mod=ranklist&type=blog&view=$key&orderby=$orderby">{lang ranklist}$value[name]</a></li>
 				<!--{/loop}-->
 				<!--{/if}-->
 			</ul>

@@ -228,7 +228,7 @@ EOF;
 		'<div id="__debugbar_s">
 			<table class="w" width=99%><tr><td valign=top width=50%>'.
 				'<b style="float:left;width:1em;height:4em">เอกสาร</b>'.
-					'<em>เวอร์ชั่น:</em> Discuz! '.DISCUZ_VERSION.($svn ? $svn : ' '.DISCUZ_RELEASE).'<br />'.
+					'<em>รุ่น:</em> Discuz! '.DISCUZ_VERSION.($svn ? $svn : ' '.DISCUZ_RELEASE).'<br />'.
 					'<em>ModID:</em> <s>'.$modid.'</s><br />'.
 					'<em>สรุป:</em> '.
 						'<a id="__debug_3" href="#debugbar" onclick="switchTab(\'__debug\', 3, '.$max.')">[รายการไฟล์]</a>'.

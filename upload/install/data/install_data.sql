@@ -7,10 +7,10 @@ INSERT INTO pre_common_admingroup SET `admingid`='18',`alloweditpost`='0',`allow
 INSERT INTO pre_common_admingroup SET `admingid`='19',`alloweditpost`='0',`alloweditpoll`='0',`allowstickthread`='0',`allowmodpost`='1',`allowdelpost`='0',`allowmassprune`='0',`allowrefund`='0',`allowcensorword`='0',`allowviewip`='1',`allowbanip`='1',`allowedituser`='0',`allowmoduser`='1',`allowbanuser`='1',`allowbanvisituser`='0',`allowpostannounce`='0',`allowviewlog`='0',`allowbanpost`='0',`supe_allowpushthread`='0',`allowhighlightthread`='0',`allowlivethread`='0',`allowdigestthread`='0',`allowrecommendthread`='0',`allowbumpthread`='0',`allowclosethread`='0',`allowmovethread`='0',`allowedittypethread`='0',`allowstampthread`='0',`allowcopythread`='0',`allowmergethread`='0',`allowsplitthread`='0',`allowrepairthread`='0',`allowwarnpost`='0',`allowviewreport`='0',`alloweditforum`='0',`allowremovereward`='0',`allowedittrade`='0',`alloweditactivity`='0',`allowstickreply`='0',`allowmanagearticle`='0',`allowaddtopic`='0',`allowmanagetopic`='0',`allowdiy`='0',`allowclearrecycle`='0',`allowmanagetag`='0',`managefeed`='0',`managedoing`='0',`manageshare`='0',`manageblog`='0',`managealbum`='0',`managecomment`='0',`managemagiclog`='0',`managereport`='0',`managehotuser`='0',`managedefaultuser`='0',`managemagic`='0',`manageclick`='0',`allowstamplist`='0',`allowmanagecollection`='0',`allowmakehtml`='0';
 
 INSERT INTO pre_common_adminnote VALUES ('1','Discuz','0','0','0','0','ขอบคุณสำหรับการติดตั้งและการใช้งาน Discuz! X，ที่นี่คือ ศูนย์บริหารจัดการของคุณ คุณสามารถปรับการตั้งค่าต่างๆของเว็บไซต์ได้ที่นี่');
-INSERT INTO pre_common_adminnote VALUES ('2','ดิสคัซไซนช์','0','0','0','0','ภาษาไทยในแอปพลิเคชั่นนี้อาจยังไม่สมบูรณ์คุณสามารถมองหาเวอร์ชั่นที่สมบูรณ์กว่าได้ที่ https://discuzthai.com/');
+INSERT INTO pre_common_adminnote VALUES ('2','ดิสคัซไซนช์','0','0','0','0','ภาษาไทยในแอปพลิเคชั่นนี้อาจยังไม่สมบูรณ์คุณสามารถมองหารุ่นที่สมบูรณ์กว่าได้ที่ https://discuzthai.com/');
 
-INSERT INTO pre_common_credit_rule VALUES ('1','ตั้งกระทู้','post','4','0','0','0','0','2','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('2','ตอบกระทู้','reply','4','0','0','0','0','1','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('1','โพสต์','post','4','0','0','0','0','2','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('2','ตอบกลับ','reply','4','0','0','0','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('3','กระทู้สำคัญ','digest','4','0','0','0','0','5','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('4','อัปโหลดไฟล์','postattach','4','0','0','0','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('5','ดาวน์โหลดไฟล์','getattach','4','0','0','0','0','0','0','0','0','0','0','0','');
@@ -31,9 +31,9 @@ INSERT INTO pre_common_credit_rule VALUES ('20','สมุดโน๊ต','doin
 INSERT INTO pre_common_credit_rule VALUES ('21','เขียนไดอารี่','publishblog','1','0','3','0','0','2','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('22','ลงคะแนนเสียง','joinpoll','1','0','10','1','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('23','เริ่มการแบ่งปัน','createshare','1','0','3','0','0','1','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('24','อ่านความเห็น','comment','1','0','40','1','0','1','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('25','แสดงความเห็น','getcomment','1','0','20','1','0','2','0','0','0','0','0','0','');
-INSERT INTO pre_common_credit_rule VALUES ('28','กดไลค์','click','1','0','10','1','0','0','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('24','แสดงความเห็น','comment','1','0','40','1','0','1','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('25','รับความคิดเห็น','getcomment','1','0','20','1','0','2','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('28','กดถูกใจ','click','1','0','10','1','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('29','แก้ไขโดเมน','modifydomain','0','0','1','0','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('30','บทวิจาร','portalcomment','1','0','40','1','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('31','กดติดตาม','followedcollection','1','0','3','0','0','1','0','0','0','0','0','0','');
@@ -60,12 +60,9 @@ INSERT INTO pre_common_cron VALUES ('19','1','system','ทุกวัน งา
 INSERT INTO pre_common_cron VALUES ('20','1','system','งานอัปเดตลำดับของกระทู้ล่าสุด(ตามลำดับความสำคัญ)','cron_security_cleanup_lastpost.php','1269746623','1269792000','-1','-1','7','0');
 INSERT INTO pre_common_cron VALUES ('21','1','system','ทุกสัปดาห์ งานล้างบันทึกการส่ง SMS แจ้งเตือนการเข้าสู่ระบบ','cron_smslog_daily.php','1269746639','1269792000','-1','-1','03','0');
 
-INSERT INTO pre_common_friendlink VALUES ('1','0','เว็บบอร์ดอย่างเป็นทางการ','https://www.discuz.net','Discuz! เวอร์ชั่นล่าสุด ข่าวผลิตภัณฑ์ ดาวน์โหลดซอฟต์แวร์ และการแลกเปลี่ยนทางเทคนิค','static/image/common/logo_88_31.gif','2');
-INSERT INTO pre_common_friendlink VALUES ('2','0','ดิสคัสไทย!','https://discuzthai.com/','กลุ่มผู้ใช้งานกระดานข่าว ดิสคัส! ในประเทศไทย!','static/image/common/discuzthai.gif','2');
-INSERT INTO pre_common_friendlink VALUES ('3','4','แอปเซนเตอร์','https://addon.dismall.com/','','','2');
-INSERT INTO pre_common_friendlink VALUES ('4','4','ดิสคัซไซนซ์','https://github.com/Nasz/DiscuzX/releases','','','2');
-INSERT INTO pre_common_friendlink VALUES ('5','4','ดีสคัสไทย','https://github.com/jaideejung007/discuzth/releases','','','2');
-INSERT INTO pre_common_friendlink VALUES ('6','4','OPENCHAT','https://line.me/ti/g2/4alFLJV-P7QEoCkv9FsyQBTLqn_3IC6kXoMHIQ','','','2');
+INSERT INTO pre_common_friendlink VALUES ('1','0','เว็บบอร์ดอย่างเป็นทางการ','https://www.discuz.net','Discuz! รุ่นล่าสุด ข่าวผลิตภัณฑ์ ดาวน์โหลดซอฟต์แวร์ และการแลกเปลี่ยนทางเทคนิค','static/image/common/logo_88_31.gif','2');
+INSERT INTO pre_common_friendlink VALUES ('2','4','แอปเซนเตอร์','https://addon.dismall.com/','','','2');
+INSERT INTO pre_common_friendlink VALUES ('3','4','ดิสคัซไซนซ์','https://github.com/Nasz/DiscuzX/releases','','','2');
 
 INSERT INTO pre_common_member_profile_setting VALUES('realname', 1, 0, 0, 'ชื่อจริง', '', 0, 0, 0, 0, 0, 0, 1, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('gender', 1, 0, 0, 'เพศสภาพ', '', 0, 0, 0, 0, 0, 0, 1, 'select', 0, '', '');
@@ -170,7 +167,7 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'เพื่อน', '', 'home.php?
 INSERT INTO pre_common_nav VALUES ('', '0', 'โพสต์', '', 'home.php?mod=space&do=thread&view=me', 'thread', 0, 0, 0, 2, 0, 0, 0, 0, '{STATICURL}image/feed/thread_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ชื่นชอบ', '', 'home.php?mod=space&do=favorite&view=me', 'favorite', 0, 0, -1, 3, 0, 0, 0, 0, '{STATICURL}image/feed/favorite_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'แมจิก', '', 'home.php?mod=magic', 'magic', 0, 0, -1, 4, 0, 0, 0, 0, '{STATICURL}image/feed/magic_b.png', '', '', 3, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'เหรียญรางวัล', '', 'home.php?mod=medal', 'medal', 0, 0, -1, 5, 0, 0, 0, 0, '{STATICURL}image/feed/medal_b.png', '', '', 3, '');
+INSERT INTO pre_common_nav VALUES ('', '0', 'คอยน์', '', 'home.php?mod=medal', 'medal', 0, 0, -1, 5, 0, 0, 0, 0, '{STATICURL}image/feed/medal_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ภารกิจ', '', 'home.php?mod=task', 'task', 0, 0, -1, 6, 0, 0, 0, 0, '{STATICURL}image/feed/task_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'คอลเลคชั่น', '', 'forum.php?mod=collection&op=my', 'collection', 0, 0, -1, 7, 0, 0, 0, 0, '{STATICURL}image/feed/collection_b.png', '', '', 3, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'ฟีด', '', 'home.php', 'feed', 0, 0, -1, 8, 0, 0, 0, 0, '{STATICURL}image/feed/feed_b.png', '', '', 3, '');
@@ -286,7 +283,7 @@ INSERT INTO pre_common_setting VALUES ('commentpostself','0');
 INSERT INTO pre_common_setting VALUES ('connect', 'a:19:{s:5:"allow";s:1:"1";s:4:"feed";a:2:{s:5:"allow";s:1:"1";s:5:"group";s:1:"0";}s:1:"t";a:2:{s:5:"allow";s:1:"1";s:5:"group";s:1:"0";}s:10:"like_allow";s:1:"1";s:7:"like_qq";s:0:"";s:10:"turl_allow";s:1:"1";s:7:"turl_qq";s:0:"";s:8:"like_url";s:0:"";s:17:"register_birthday";s:1:"0";s:15:"register_gender";s:1:"0";s:17:"register_uinlimit";s:0:"";s:21:"register_rewardcredit";s:1:"1";s:18:"register_addcredit";s:0:"";s:16:"register_groupid";s:1:"0";s:18:"register_regverify";s:1:"1";s:15:"register_invite";s:1:"0";s:10:"newbiespan";s:0:"";s:9:"turl_code";s:0:"";s:13:"mblog_app_key";s:3:"abc";}');
 INSERT INTO pre_common_setting VALUES ('creditnotice','1');
 INSERT INTO pre_common_setting VALUES ('creditsformula','posts+digestposts*5+extcredits1*2+extcredits2+extcredits3');
-INSERT INTO pre_common_setting VALUES ('creditsformulaexp','<u>คะแนนรวม</u>=<u>จำนวนโพสต์</u>+<u>จำนวนตอบกลับ</u>*5+<u>ศักดิ์ศรี</u>*2+<u>เหรียญรางวัล</u>+<u>สนับสนุน</u>');
+INSERT INTO pre_common_setting VALUES ('creditsformulaexp','<u>คะแนนรวม</u>=<u>จำนวนโพสต์</u>+<u>จำนวนตอบกลับ</u>*5+<u>ศักดิ์ศรี</u>*2+<u>คอยน์</u>+<u>สนับสนุน</u>');
 INSERT INTO pre_common_setting VALUES ('creditsnotify','');
 INSERT INTO pre_common_setting VALUES ('creditspolicy','a:12:{s:4:\"post\";a:0:{}s:5:\"reply\";a:0:{}s:6:\"digest\";a:1:{i:1;i:10;}s:10:\"postattach\";a:0:{}s:9:\"getattach\";a:0:{}s:6:\"sendpm\";a:0:{}s:6:\"search\";a:0:{}s:15:\"promotion_visit\";a:0:{}s:18:\"promotion_register\";a:0:{}s:13:\"tradefinished\";a:0:{}s:8:\"votepoll\";a:0:{}s:10:\"lowerlimit\";a:0:{}}');
 INSERT INTO pre_common_setting VALUES ('creditspolicymobile','0');
@@ -620,7 +617,7 @@ INSERT INTO pre_common_setting VALUES ('thumbsource','0');
 INSERT INTO pre_common_setting VALUES ('thumbstatus','');
 INSERT INTO pre_common_setting VALUES ('thumbwidth','400');
 INSERT INTO pre_common_setting VALUES ('timeformat','H:i');
-INSERT INTO pre_common_setting VALUES ('timeoffset','8');
+INSERT INTO pre_common_setting VALUES ('timeoffset','7');
 INSERT INTO pre_common_setting VALUES ('topcachetime','60');
 INSERT INTO pre_common_setting VALUES ('topicperpage','20');
 INSERT INTO pre_common_setting VALUES ('tradeforumid','0');

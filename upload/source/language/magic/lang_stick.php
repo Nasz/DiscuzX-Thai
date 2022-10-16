@@ -13,17 +13,17 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'stick_name' => '置顶卡',
-	'stick_desc' => '可以将主题置顶',
-	'stick_expiration' => '置顶有效期',
-	'stick_expiration_comment' => '设置主题可以被置顶多长时间，默认 24 小时',
-	'stick_forum' => 'อนุญาตให้本道具的版块',
-	'stick_info' => '置顶指定的主题 {expiration} 小时，请输入主题的 ID',
-	'stick_info_nonexistence' => '请指定要置顶的主题',
-	'stick_succeed' => '您操作的主题已置顶',
-	'stick_info_noperm' => '对不起，主题所在版块不อนุญาตให้本道具',
+	'stick_name' => 'การ์ดด้านบน',
+	'stick_desc' => 'สามารถใส่กระทู้ด้านบน',
+	'stick_expiration' => 'การเล่นระยะเวลาที่ถูกต้อง',
+	'stick_expiration_comment' => 'หัวข้อจะตั้งค่าไว้ที่ด้านบนได้นานเท่าใดค่าเริ่มต้น 24 ชั่วโมง',
+	'stick_forum' => 'อนุญาตให้ส่วนของรายการนี้',
+	'stick_info' => 'หัวข้อที่ระบุไว้ที่ด้านบน {expiration} ชั่วโมงโปรดป้อน ID ของกระทู้',
+	'stick_info_nonexistence' => 'โปรดระบุหัวข้อที่จะเติม',
+	'stick_succeed' => 'กระทู้ของการดำเนินการของคุณได้รับการเติมเต็มแล้ว',
+	'stick_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
 
-	'stick_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">快去看看吧！</a>',
+	'stick_notification' => 'กระทู้ของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
 );
 
 ?>

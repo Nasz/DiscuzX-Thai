@@ -168,7 +168,7 @@ $serialize_sql_setting = array (
     2 =>
     array (
       'img' => '',
-      'title' => 'เหรียญรางวัล',
+      'title' => 'คอยน์',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -322,7 +322,7 @@ $serialize_sql_setting = array (
   ),
   'focus' =>
   array (
-    'title' => 'ผู้ดูแลเว็บแนะนำ',
+    'title' => 'แนะนำโดยทีมงาน',
     'data' =>
     array (
     ),

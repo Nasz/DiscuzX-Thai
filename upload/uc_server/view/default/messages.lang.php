@@ -64,7 +64,7 @@ $lang = array(
 
 	'appid_invalid' => 'แอปพลิเคชันidผิดกฎหมาย',
 	'app_apifile_not_exists' => 'เอกสาร #$apifile ไม่มีการดำรงอยู่โปรดกลับไปตรวจสอบว่าเส้นทางของแอปพลิเคชันนั้นถูกต้องหรือไม่',
-	'app_apifile_too_low' => 'ไฟล์อินเตอร์เฟส #$apifile เวอร์ชันต่ำเกินไป',
+	'app_apifile_too_low' => 'ไฟล์อินเตอร์เฟส #$apifile รุ่นต่ำเกินไป',
 	'app_path_not_exists' => 'เส้นทางนี้ไม่มีอยู่โปรดกลับไปตรวจสอบ',
 	'pm_send_seccode_error' => 'รหัสการตรวจสอบที่ไม่ถูกต้อง',
 	'pm_send_regdays_error' => 'ลงทะเบียน #$pmsendregdays ไม่สามารถส่งข้อความ ภายในท้องฟ้าได้',

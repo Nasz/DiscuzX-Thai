@@ -20,7 +20,7 @@ $lang = array
 	'intercat_position' => 'ตำแหน่ง',
 	'intercat_position_comment' => 'โฆษณาจะปรากฏขึ้นบริเวณส่วนแบ่งด้านล่าง',
 	'intercat_position_random' => 'ตำแหน่งแบบสุ่ม',
-	'intercat_position_fav' => 'คอลัมน์รายการโปรด',
+	'intercat_position_fav' => 'คอลัมน์ชื่นชอบ',
 );
 
 ?>

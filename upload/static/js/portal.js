@@ -223,10 +223,10 @@ function blockSetCacheTime(timer) {
 function toggleSettingShow() {
 	if(!$('tbody_setting').style.display) {
 		$('tbody_setting').style.display = 'none';
-		$('a_setting_show').innerHTML = '展开设置项';
+		$('a_setting_show').innerHTML = 'ขยายการตั้งค่า';
 	} else {
 		$('tbody_setting').style.display = '';
-		$('a_setting_show').innerHTML = '收起设置项';
+		$('a_setting_show').innerHTML = 'ยุบการตั้งค่า';
 	}
 	doane();
 }
@@ -234,7 +234,7 @@ function switchSetting() {
 	var checked = $('isblank').checked;
 	if(checked) {
 		$('tbody_setting').style.display = 'none';
-		$('a_setting_show').innerHTML = '展开设置项';
+		$('a_setting_show').innerHTML = 'ขยายการตั้งค่า';
 	} else {
 		$('tbody_setting').style.display = '';
 		$('a_setting_show').innerHTML = '收起设置项';

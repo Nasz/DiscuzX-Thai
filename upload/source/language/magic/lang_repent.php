@@ -13,15 +13,15 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'repent_name' => '悔悟卡',
-	'repent_desc' => '可以删除自己的帖子',
-	'repent_forum' => 'อนุญาตให้本道具的版块',
-	'repent_info' => '删除自己的帖子，请输入帖子的 ID',
-	'repent_info_nonexistence' => '请指定要删除的帖子',
-	'repent_succeed' => '您操作的帖子已删除',
-	'repent_info_noperm' => '对不起，主题所在版块不อนุญาตให้本道具',
-	'repent_info_user_noperm' => '对不起，您只能删除自己的帖子',
-	'repent_do_not_rushreply' => '不能在抢楼帖中使用此道具',
+	'repent_name' => 'บัตรสำนึก',
+	'repent_desc' => 'คุณสามารถลบโพสต์ของคุณ',
+	'repent_forum' => 'อนุญาตให้ส่วนของรายการนี้',
+	'repent_info' => 'ลบโพสต์ของคุณโปรดป้อน ID ของโพสต์',
+	'repent_info_nonexistence' => 'โปรดระบุโพสต์ที่จะลบ',
+	'repent_succeed' => 'โพสต์ที่คุณดำเนินการถูกลบไปแล้ว',
+	'repent_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
+	'repent_info_user_noperm' => 'ขออภัยคุณสามารถลบโพสต์ของคุณได้เท่านั้น',
+	'repent_do_not_rushreply' => 'ไม่สามารถใช้เสานี้ในการจับโพสต์',
 );
 
 ?>

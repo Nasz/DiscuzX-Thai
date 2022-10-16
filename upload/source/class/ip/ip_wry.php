@@ -66,7 +66,7 @@ class ip_wry {
 			fseek($this->fp, $this->ipbegin + 7 * $Middle);
 			$ipData1 = fread($this->fp, 4);
 			if(strlen($ipData1) < 4) {
-				return '- System Error';
+				return 'ระบบผิดพลาด';
 			}
 			$ip1num = implode('', unpack('L', $ipData1));
 			if($ip1num < 0) $ip1num += pow(2, 32);
@@ -78,20 +78,20 @@ class ip_wry {
 
 			$DataSeek = fread($this->fp, 3);
 			if(strlen($DataSeek) < 3) {
-				return '- System Error';
+				return 'ระบบผิดพลาด';
 			}
 			$DataSeek = implode('', unpack('L', $DataSeek.chr(0)));
 			fseek($this->fp, $DataSeek);
 			$ipData2 = fread($this->fp, 4);
 			if(strlen($ipData2) < 4) {
-				return '- System Error';
+				return 'ระบบผิดพลาด';
 			}
 			$ip2num = implode('', unpack('L', $ipData2));
 			if($ip2num < 0) $ip2num += pow(2, 32);
 
 			if($ip2num < $ipNum) {
 				if($Middle == $BeginNum) {
-					return '- Unknown';
+					return 'ไม่ทราบ';
 				}
 				$BeginNum = $Middle;
 			}
@@ -101,7 +101,7 @@ class ip_wry {
 		if($ipFlag == chr(1)) {
 			$ipSeek = fread($this->fp, 3);
 			if(strlen($ipSeek) < 3) {
-				return '- System Error';
+				return 'ระบบผิดพลาด';
 			}
 			$ipSeek = implode('', unpack('L', $ipSeek.chr(0)));
 			fseek($this->fp, $ipSeek);
@@ -111,13 +111,13 @@ class ip_wry {
 		if($ipFlag == chr(2)) {
 			$AddrSeek = fread($this->fp, 3);
 			if(strlen($AddrSeek) < 3) {
-				return '- System Error';
+				return 'ระบบผิดพลาด';
 			}
 			$ipFlag = fread($this->fp, 1);
 			if($ipFlag == chr(2)) {
 				$AddrSeek2 = fread($this->fp, 3);
 				if(strlen($AddrSeek2) < 3) {
-					return '- System Error';
+					return 'ระบบผิดพลาด';
 				}
 				$AddrSeek2 = implode('', unpack('L', $AddrSeek2.chr(0)));
 				fseek($this->fp, $AddrSeek2);
@@ -142,7 +142,7 @@ class ip_wry {
 			if($ipFlag == chr(2)) {
 				$AddrSeek2 = fread($this->fp, 3);
 				if(strlen($AddrSeek2) < 3) {
-					return '- System Error';
+					return 'ระบบผิดพลาด';
 				}
 				$AddrSeek2 = implode('', unpack('L', $AddrSeek2.chr(0)));
 				fseek($this->fp, $AddrSeek2);
@@ -161,7 +161,7 @@ class ip_wry {
 		$ipaddr = preg_replace('/^\s*/is', '', $ipaddr);
 		$ipaddr = preg_replace('/\s*$/is', '', $ipaddr);
 		if(preg_match('/http/i', $ipaddr) || $ipaddr == '') {
-			$ipaddr = '- Unknown';
+			$ipaddr = 'ไม่ทราบ';
 		}
 
 		return '- '.diconv($ipaddr, 'GBK');

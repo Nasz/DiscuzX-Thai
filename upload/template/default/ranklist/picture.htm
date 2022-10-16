@@ -20,7 +20,7 @@
 				<li{if $_GET[view] == 'hot'} class="a"{/if}><a href="misc.php?mod=ranklist&type=picture&view=hot&orderby=$orderby">{lang hot_pic_ranklist}</a></li>
 				<!--{if $clicks}-->
 				<!--{loop $clicks $key $value}-->
-				<li{if $_GET[view] == $key} class="a"{/if}><a href="misc.php?mod=ranklist&type=picture&view=$key&orderby=$orderby">$value[name]{lang ranklist}</a></li>
+				<li{if $_GET[view] == $key} class="a"{/if}><a href="misc.php?mod=ranklist&type=picture&view=$key&orderby=$orderby">{lang ranklist}$value[name]</a></li>
 				<!--{/loop}-->
 				<!--{/if}-->
 				<li{if $_GET[view] == 'sharetimes'} class="a"{/if}><a href="misc.php?mod=ranklist&type=picture&view=sharetimes&orderby=$orderby">{lang ranklist_share}</a></li>

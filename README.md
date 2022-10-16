@@ -1,13 +1,13 @@
 ![โลโก้เว็บบอร์ด](https://github.com/Nasz/DiscuzX/blob/master/upload/static/image/common/logo.svg)<br />
-เวอร์ชั่นภาษาไทยของโปรแกรมเว็บบอร์ดสำเร็จรูป "ดิสคัซ!สิบ"
+รุ่นภาษาไทยของโปรแกรมเว็บบอร์ดสำเร็จรูป "ดิสคัซ!สิบ"
 
 ## จากต้นฉบับ Discuz! X3.5 Development UTF-8 อัปเดทล่าสุดถึง 2022-09-29
 
-Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discuz/DiscuzX](https://gitee.com/Discuz/DiscuzX)) เวอร์ชั่นภาษาจีนตัวย่อ UTF8<br />
+Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discuz/DiscuzX](https://gitee.com/Discuz/DiscuzX)) รุ่นภาษาจีนตัวย่อ UTF8<br />
 
 # คำอธิบาย
 
-ลำดับเครื่องมือที่ใช้ในการแปล Google Translate->Baidu翻译->Longdo Dict->WordyGURU->Wiktionary->bab.la และบางส่วนจาก Discuz! Thai เวอร์ชั่นเก่า
+ลำดับเครื่องมือที่ใช้ในการแปล Google Translate->Baidu翻译->Longdo Dict->WordyGURU->Wiktionary->bab.la และบางส่วนจาก Discuz! Thai รุ่นเก่า
 
 เพื่อให้เป็นไปตามเงื่อนไขและข้อตกลงการใช้งานของเทนเซนคลาวด์เราจึงขอชี้แจงว่า ผู้แปลไม่มีความเกี่ยวข้องได ๆ กับบริษัทเทนเซนคลาวด์ 
 แม้ว่ายูชเชอร์อินเตอร์เฟซนี้จะถูกดัดแปลงอย่างระมัดระวังโดยการเลือกแปลเฉพาะส่วนที่เป็นภาษาจีนเท่านั้น 
@@ -17,10 +17,10 @@ Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discu
 คำเตือน:
 - แอปพลิเคชั่นนี้เป็นแอปพลิเคชั่นดัดแปลงควรใช้งานด้วยความระมัดระวัง ([ละเมิดข้อตกลงข้อ 2.3 ](https://github.com/Nasz/DiscuzX/blob/master/LICENSE) ปัจจุบันดัดแปลงไปแล้วกว่า 250+ ไฟล์)
 - ผู้พัฒนาไม่เปิดรับการสะท้อนความเห็นได ๆ เกี่ยวกับการพัฒนาแอปพลิเคชั่นเนื่องจากเป็นเพียงการแปลภาษาเท่านั้น
-- หากต้องการใช้งานระยะยาวสามารถมองหาเวอร์ชั่นภาษาไทยที่สมบูรณ์กว่านี้ได้ที่ https://discuzthai.com
+- หากต้องการใช้งานระยะยาวสามารถมองหารุ่นภาษาไทยที่สมบูรณ์กว่านี้ได้ที่ https://discuzthai.com
 - เราไม่รับผิดชอบใด ๆ ในการใช้ซอฟต์แวร์ดีสคัซนี้ หากคุณใช้โปรแกรมนี้บนสภาพแวดล้อมโปรดักชั่น โปรดยอมรับเสี่ยงด้วยตัวเองและปฏิบัติตามข้อตกลงการอนุญาตอย่างเป็นทางการ
 
-*หมายเหตุ: เวอร์ชั่นของเราจะขอใช้ภาษาไทยว่า "ดิสคัซ" (ใช้ ซ.โซ่ แทน ส.เสือ)
+*หมายเหตุ: รุ่นของเราจะขอใช้ภาษาไทยว่า "ดิสคัซ" (ใช้ ซ.โซ่ แทน ส.เสือ)
 # สำหรับการติดตั้งใหม่
 
 - อัปโหลดไฟล์ทั้งหมดในไดเรกทอรี upload ไปยังโฮสติ้งโดยใช้โปรแกรม FTP（โฟลเดอร์ readme และ utility ไม่จำเป็นต้องอัปโหลด<br />
@@ -36,9 +36,9 @@ Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discu
 
 # คำอธิบายแพ็คเกจการติดตั้ง
 
-ประกอบด้วยไฟล์ติดตั้ง Discuz รหัสอักขระแบบ UTF8 จาก GIT อย่างเป็นทางการ ที่อยู่สำหรับโหลดเวอร์ชั่นอย่างเป็นทางการ [https://gitee.com/Discuz/DiscuzX](https://gitee.com/Discuz/DiscuzX)
+ประกอบด้วยไฟล์ติดตั้ง Discuz รหัสอักขระแบบ UTF8 จาก GIT อย่างเป็นทางการ ที่อยู่สำหรับโหลดรุ่นอย่างเป็นทางการ [https://gitee.com/Discuz/DiscuzX](https://gitee.com/Discuz/DiscuzX)
 
-มองหาเวอร์ชั่นอย่างเป็นทางการรุ่นล่าสุดได้ที่: [https://gitee.com/3dming/DiscuzL/attach_files](https://gitee.com/3dming/DiscuzL/attach_files)<br />
+มองหารุ่นอย่างเป็นทางการรุ่นล่าสุดได้ที่: [https://gitee.com/3dming/DiscuzL/attach_files](https://gitee.com/3dming/DiscuzL/attach_files)<br />
 QQกลุ่มแฟนคลับ：[181616145](https://qm.qq.com/cgi-bin/qm/qr?k=fP3Uzw3w7vKgOKDagTQF4KCFytenflXp&jump_from=webapi)(ภาษาจีน)<br />
 QQกลุ่มสำรอง(หากกลุ่มบนเต็ม)：15326940(ภาษาจีน)<br />
 กลุ่มผู้ใช้งานไทย [LINE Openchat](https://line.me/ti/g2/aQG_0-x6WcphQ4ChUDul9Q)(ภาษาไทย)
@@ -47,6 +47,6 @@ QQกลุ่มสำรอง(หากกลุ่มบนเต็ม)：1
 * [ชุมชนอย่างเป็นทางการของ Discuz!](https://www.discuz.net/)(ภาษาจีน)
 * [Discuz! แอปเซนเตอร์](https://addon.dismall.com/)(ภาษาจีน)
 * [บันทึกการเปลี่ยนแปลง](https://www.dismall.com/thread-77-1-1.html)(ภาษาจีน)
-* [ดาวน์โหลดเวอร์ชันล่าสุด Discuz! X3.5](https://gitee.com/3dming/DiscuzL/attach_files)(ภาษาจีน)
+* [ดาวน์โหลดรุ่นล่าสุด Discuz! X3.5](https://gitee.com/3dming/DiscuzL/attach_files)(ภาษาจีน)
 * [เรียกใช้บริการ Discuz!](https://addon.dismall.com/service.html)(ภาษาจีน)
 * [ชุมชนอย่างเป็นทางการ ดิสคัส!ไทย](https://www.discuzthai.com)

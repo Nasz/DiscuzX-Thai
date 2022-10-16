@@ -73,9 +73,9 @@ class ip_tiny {
 
 		@fseek($this->fp, $this->offset['len'] + $index_offset['len'] - 1024);
 		if($index_length['len']) {
-			return '- '.@fread($this->fp, $index_length['len']);
+			return @fread($this->fp, $index_length['len']);
 		} else {
-			return '- Unknown';
+			return 'ไม่ทราบ';
 		}
 	}
 

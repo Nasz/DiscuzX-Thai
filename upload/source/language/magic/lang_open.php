@@ -13,16 +13,16 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'open_name' => '喧嚣卡',
-	'open_desc' => '可以将主题开启，可以回复',
-	'open_forum' => 'อนุญาตให้本道具的版块',
-	'open_info' => '开放指定的主题，请输入主题的 ID',
-	'open_info_nonexistence' => '请指定要开放的主题',
-	'open_succeed' => '您操作的主题已开放回复',
-	'open_info_noperm' => '对不起，主题所在版块不อนุญาตให้本道具',
-	'open_info_user_noperm' => '对不起，您不能对此人使用本道具',
+	'open_name' => 'การ์ดเร่งรีบและคึกคัก',
+	'open_desc' => 'คุณสามารถเปิดกระทู้ได้คุณสามารถตอบกลับได้',
+	'open_forum' => 'อนุญาตให้ส่วนของรายการนี้',
+	'open_info' => 'เปิดกระทู้ที่กำหนดโปรดป้อน ID ของกระทู้',
+	'open_info_nonexistence' => 'โปรดระบุหัวข้อที่จะเปิด',
+	'open_succeed' => 'ชุดรูปแบบของการดำเนินการของคุณเปิดแล้วตอบกลับ',
+	'open_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
+	'open_info_user_noperm' => 'ขออภัยคุณไม่สามารถใช้เสานี้กับบุคคลนี้ได้',
 
-	'open_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">快去看看吧！</a>',
+	'open_notification' => 'กระทู้ของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
 );
 
 ?>

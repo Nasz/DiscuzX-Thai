@@ -71,9 +71,9 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 	modifypwd = modify || false;
 	firstObj.onblur = function () {
 		if(firstObj.value == '') {
-			var pwmsg = !modifypwd ? '请填写密码' : profileTips;
+			var pwmsg = !modifypwd ? 'กรุณากรอกรหัสผ่าน' : profileTips;
 			if(pwlength > 0) {
-				pwmsg += ', 最小长度为 '+pwlength+' ตัวอักษร';
+				pwmsg += ', ความยาวขั้นต่ำ '+pwlength+' ตัวอักษร';
 			}
 			errormessage(firstObj.id, pwmsg);
 		}else{
@@ -83,14 +83,14 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 	};
 	firstObj.onkeyup = function () {
 		if(pwlength == 0 || $(firstObj.id).value.length >= pwlength) {
-			var passlevels = new Array('','弱','กลาง','强');
+			var passlevels = new Array('','อ่อนแอ','กลาง','ทรงพลัง');
 			var passlevel = checkstrongpw(firstObj.id);
-			errormessage(firstObj.id, '<span class="passlevel passlevel'+passlevel+'">密码强度:'+passlevels[passlevel]+'</span>');
+			errormessage(firstObj.id, '<span class="passlevel passlevel'+passlevel+'">ความแข็งแรงของรหัสผ่าน:'+passlevels[passlevel]+'</span>');
 		}
 	};
 	secondObj.onblur = function () {
 		if(secondObj.value == '') {
-			errormessage(secondObj.id, !modifypwd ? '请再次输入密码' : profileTips);
+			errormessage(secondObj.id, !modifypwd ? 'กรุณากรอกรหัสผ่านอีกครั้ง' : profileTips);
 		}
 		checkpassword(firstObj.id, secondObj.id);
 	};
@@ -109,7 +109,7 @@ function addMailEvent(mailObj) {
 	};
 	mailObj.onblur = function () {
 		if(mailObj.value == '') {
-			errormessage(mailObj.id, '请输入邮箱地址');
+			errormessage(mailObj.id, 'กรุณาป้อนที่อยู่อีเมล');
 		}
 		emailMenuOp(3, null, mailObj.id);
 	};
@@ -273,12 +273,12 @@ function checkusername(id) {
 		lastusername = username;
 	}
 	if(username.match(/<|>|"|\(|\)|'/ig)) {
-		errormessage(id, '用户名包含敏感字符');
+		errormessage(id, 'ชื่อผู้ใช้มีคำที่ละเอียดอ่อน');
 		return;
 	}
 	var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
 	if(unlen < 3 || unlen > 15) {
-		errormessage(id, unlen < 3 ? '用户名不得小于 3 ตัวอักษร' : '用户名不得超过 15 ตัวอักษร');
+		errormessage(id, unlen < 3 ? 'ชื่อผู้ใช้จะต้องไม่น้อยกว่าน้อย 3 ตัวอักษร' : 'ชื่อผู้ใช้จะต้องไม่เกิน 15 ตัวอักษร');
 		return;
 	}
 	var x = new Ajax();
@@ -324,13 +324,13 @@ function checkpassword(id1, id2) {
 			}
 		}
 		if(strongpw_error) {
-			errormessage(id1, '密码太弱，密码中必须包含 '+strongpw_str.join('，'));
+			errormessage(id1, 'รหัสผ่านอ่อนแอเกินไปและต้องมี '+strongpw_str.join('，'));
 			return;
 		}
 	}
 	errormessage(id2);
 	if($(id1).value != $(id2).value) {
-		errormessage(id2, '两次输入的密码不一致');
+		errormessage(id2, 'รหัสผ่านที่ป้อนสองครั้งไม่เหมือนกัน');
 	} else {
 		errormessage(id2, !modifypwd ? 'succeed' : '');
 	}
@@ -345,7 +345,7 @@ function checkemail(id) {
 		lastemail = email;
 	}
 	if(email.match(/<|"/ig)) {
-		errormessage(id, 'Email 包含敏感字符');
+		errormessage(id, 'Email มีคำที่ละเอียดอ่อน');
 		return;
 	}
 	var x = new Ajax();
@@ -364,7 +364,7 @@ function checkinvite() {
 		lastinvitecode = invitecode;
 	}
 	if(invitecode.match(/<|"/ig)) {
-		errormessage('invitecode', '邀请码包含敏感字符');
+		errormessage('invitecode', 'รหัสเชิญมีคำที่ละเอียดอ่อน');
 		return;
 	}
 	var x = new Ajax();

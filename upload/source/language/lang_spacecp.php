@@ -289,7 +289,7 @@ $lang = array(
 	'medal' => 'เหรียญตรา',
 	'task' => 'ภารกิจ',
 	'magic' => 'แมจิก',
-	'favorite' => 'รายการโปรด',
+	'favorite' => 'ชื่นชอบ',
 	'select_the_navigation_position' => 'เลือกเพิ่ม {type} ไปยังเมนู',
 	'close_module' => 'การปิดการทำงานของ {type}',
 

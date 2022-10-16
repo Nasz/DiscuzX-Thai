@@ -1140,7 +1140,7 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 	}
 	locationtime = isUndefined(locationtime) ? '' : locationtime;
 	if(locationtime) {
-		leftmsg = locationtime + ' วินาทีจะเปลี่ยนหน้า';
+		leftmsg = 'รีเฟรชในอีก '+ locationtime + ' วินาที';
 		showDialogST = setTimeout(closefunc, locationtime * 1000);
 		showconfirm = 0;
 	}

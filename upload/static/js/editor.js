@@ -96,7 +96,7 @@ function initEditor() {
 	}
 	if($(editorid + '_fullswitcher') && BROWSER.ie && BROWSER.ie < 7) {
 		$(editorid + '_fullswitcher').onclick = function () {
-			showDialog('เบราว์เซอร์ของคุณไม่รองรับคุณสมบัตินี้，กรุณาอัปเกรดเวอร์ชันเบราว์เซอร์', 'notice', 'คำแนะนำ');
+			showDialog('เบราว์เซอร์ของคุณไม่รองรับคุณสมบัตินี้，กรุณาอัปเกรดรุ่นเบราว์เซอร์', 'notice', 'คำแนะนำ');
 		};
 		$(editorid + '_fullswitcher').className = 'xg1';
 	}
@@ -1032,8 +1032,8 @@ function showEditorMenu(tag, params) {
 	} else {
 		switch(tag) {
 			case 'url':
-				str = 'กรอกที่อยู่ลิงค์:<br /><input type="text" id="' + ctrlid + '_param_1" style="width: 98%" value="" class="px" />'+
-					(selection ? '' : '<br />ป้อนข้อความลิงค์:<br /><input type="text" id="' + ctrlid + '_param_2" style="width: 98%" value="" class="px" />');
+				str = 'กรอกที่อยู่ลิงก์:<br /><input type="text" id="' + ctrlid + '_param_1" style="width: 98%" value="" class="px" />'+
+					(selection ? '' : '<br />ข้อความลิงก์:<br /><input type="text" id="' + ctrlid + '_param_2" style="width: 98%" value="" class="px" />');
 				break;
 			case 'forecolor':
 				showColorBox(ctrlid, 1);
@@ -1065,48 +1065,48 @@ function showEditorMenu(tag, params) {
 				if(selection) {
 					return insertText((opentag + selection + closetag), strlen(opentag), strlen(closetag), true, sel);
 				}
-				var lang = {'quote' : 'กรอกคำอ้างอิงที่ต้องการแทรก', 'code' : '请输入要插入的代码', 'hide' : '请输入要隐藏的信息内容', 'free' : '如果您设置了帖子售价，请输入购买前免费可见的信息内容'};
+				var lang = { 'quote': 'กรอกคำอ้างอิงที่ต้องการแทรก', 'code': 'ป้อนโค๊ตที่ต้องการแทรก', 'hide': 'ป้อนเนื้อหาที่ต้องการซ่อน', 'free': 'เนื้อหาฟรีที่แสดงก่อนซื้อ หากคุณได้กำหนดราคาของโพสต์ไว้'};
 				str += lang[tag] + ':<br /><textarea id="' + ctrlid + '_param_1" style="width: 98%" cols="50" rows="5" class="txtarea"></textarea>' +
-					(tag == 'hide' ? '<br /><label><input type="radio" name="' + ctrlid + '_radio" id="' + ctrlid + '_radio_1" class="pc" checked="checked" />只有当浏览者回复本帖时才显示</label><br /><label><input type="radio" name="' + ctrlid + '_radio" id="' + ctrlid + '_radio_2" class="pc" />只有当浏览者积分高于</label> <input type="text" size="3" id="' + ctrlid + '_param_2" class="px pxs" /> 时才显示<br /><br /><label>有效天数:</label> <input type="text" size="3" id="' + ctrlid + '_param_3" class="px pxs" /> <br />距离发帖日期大于这个天数时标签自动失效' : '');
+					(tag == 'hide' ? '<br /><label><input type="radio" name="' + ctrlid + '_radio" id="' + ctrlid + '_radio_1" class="pc" checked="checked" />แสดงเฉพาะคนที่ตอบกลับโพสต์นี้แล้วเท่านั้น</label><br /><label><input type="radio" name="' + ctrlid + '_radio" id="' + ctrlid + '_radio_2" class="pc" />แสดงเฉพาะผู้ที่มีเครดิตสูงกว่า</label> <input type="text" size="3" id="' + ctrlid + '_param_2" class="px pxs" /> คะแนน<br /><br /><label>จำนวนวันที่ซ่อน:</label> <input type="text" size="3" id="' + ctrlid + '_param_3" class="px pxs" /> <br />เมื่อครบแล้วจะเลิกซ่อนโดยอัตโนมัติ' : '');
 				break;
 			case 'tbl':
-				str = '<p class="pbn">表格行数: <input type="text" id="' + ctrlid + '_param_1" size="2" value="2" class="px" /> &nbsp; 表格列数: <input type="text" id="' + ctrlid + '_param_2" size="2" value="2" class="px" /></p><p class="pbn">表格宽度: <input type="text" id="' + ctrlid + '_param_3" size="2" value="" class="px" /> &nbsp; 背景颜色: <input type="text" id="' + ctrlid + '_param_4" size="2" class="px" onclick="showColorBox(this.id, 2)" /></p><p class="xg2 pbn" style="cursor:pointer" onclick="showDialog($(\'tbltips_msg\').innerHTML, \'notice\', \'小提示\', null, 0)"><img id="tbltips" title="小提示" class="vm" src="' + IMGDIR + '/info_small.gif"> 快速书写表格提示</p>';
-				str += '<div id="tbltips_msg" style="display: none">“[tr=颜色]” 定义行背景<br />“[td=宽度]” 定义列宽<br />“[td=列跨度,行跨度,宽度]” 定义行列跨度<br /><br />快速书写表格范例：<div class=\'xs0\' style=\'margin:0 5px\'>[table]<br />Name:|Discuz!<br />Version:|X1<br />[/table]</div>用“|”分隔每一列，表格中如有“|”用“\\|”代替，换行用“\\n”代替。</div>';
+				str = '<p class="pbn">จำนวนแถวของตาราง: <input type="text" id="' + ctrlid + '_param_1" size="2" value="2" class="px" /> &nbsp; จำนวนคอลัมน์ตาราง: <input type="text" id="' + ctrlid + '_param_2" size="2" value="2" class="px" /></p><p class="pbn">ความกว้างของตาราง: <input type="text" id="' + ctrlid + '_param_3" size="2" value="" class="px" /> &nbsp; สีพื้นหลัง: <input type="text" id="' + ctrlid + '_param_4" size="2" class="px" onclick="showColorBox(this.id, 2)" /></p><p class="xg2 pbn" style="cursor:pointer" onclick="showDialog($(\'tbltips_msg\').innerHTML, \'notice\', \'เคล็ดลับ\', null, 0)"><img id="tbltips" title="เคล็ดลับการสร้างแบบเร่งด่วน" class="vm" src="' + IMGDIR + '/info_small.gif"> เคล็ดลับการสร้างแบบเร่งด่วน</p>';
+				str += '<div id="tbltips_msg" style="display: none">“[tr=สี]” กำหนดพื้นหลังของแถว<br />“[td=กว้าง]” กำหนดความกว้างของคอลัมน์<br />“[td=คอลัมน์, แถว, กว้าง]” กำหนดช่วงแถวและคอลัมน์<br /><br />ตัวอย่างแบบเร่งด่วน：<div class=\'xs0\' style=\'margin:0 5px\'>[table]<br />Name:|Discuz!<br />Version:|X1<br />[/table]</div>ใช้ “|” แยกแต่ละคอลัมน์，หากมีรูปอยู่ใช้ “\\|” แทน “|”，ขึ้นบรรทัดใหม่ใช้ “\\n”</div>';
 				break;
 			case 'aud':
-				str = '<p class="pbn">请输入音乐文件地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="xg2 pbn">支持 wma mp3 ra rm 等音乐格式<br />示例: http://server/audio.wma</p>';
+				str = '<p class="pbn">กรอกที่อยู่ไฟล์เพลง:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="xg2 pbn">รองรับไฟล์ wma mp3 ra rm เป็นต้น<br />ตัวอย่าง: https://server/audio.wma</p>';
 				break;
 			case 'vid':
-				str = '<p class="pbn">请输入视频地址:</p><p class="pbn"><input type="text" value="" id="' + ctrlid + '_param_1" style="width: 220px;" class="px" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="500" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="375" class="px" /></p><p class="xg2 pbn">支持优酷、土豆、56、酷6等视频站的视频网址<br />支持 wmv avi rmvb mov swf flv 等视频格式<br />示例: http://server/movie.wmv</p>';
+				str = '<p class="pbn">กรอกที่อยู่วีดีโอ:</p><p class="pbn"><input type="text" value="" id="' + ctrlid + '_param_1" style="width: 220px;" class="px" /></p><p class="pbn">กว้าง: <input id="' + ctrlid + '_param_2" size="5" value="500" class="px" /> &nbsp; สูง: <input id="' + ctrlid + '_param_3" size="5" value="375" class="px" /></p><p class="xg2 pbn">รองรับเว็บไซต์วีดีโอ Youtube, Youku, Dailymotion และสถานีวีดีโออื่น ๆ <br />รองรับไฟล์ wmv avi rmvb mov swf flv เป็นต้น<br />ตัวอย่าง: https://server/movie.wmv</p>';
 				break;
 			case 'fls':
-				str = '<p class="pbn">请输入 Flash 文件地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="pbn">宽: <input id="' + ctrlid + '_param_2" size="5" value="" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /></p><p class="xg2 pbn">支持 swf flv 等 Flash 网址<br />示例: http://server/flash.swf</p>';
+				str = '<p class="pbn">โปรดป้อนที่อยู่ไฟล์FLASH:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p><p class="pbn">กว้าง: <input id="' + ctrlid + '_param_2" size="5" value="" class="px" /> &nbsp; สูง: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /></p><p class="xg2 pbn">รองรับไฟล์ swf flv<br />ตัวอย่าง: https://server/flash.swf</p>';
 				break;
 			case 'beginning':
-				str = '<p class="pbn">请输入开头动画 Flash 或 图片 地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p>';
-				str += '<p class="pbn">点击链接地址:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_2" class="px" value="" style="width: 220px;" /></p>';
-				str += '<p class="pbn">宽: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /> &nbsp; 高: <input id="' + ctrlid + '_param_4" size="5" value="" class="px" /></p>';
-				str += '<p class="pbn">停留秒数: <input id="' + ctrlid + '_param_8" size="5" value="" class="px" /></p>';
-				str += '<p class="pbn">载入、消失的效果: </p><p class="pbn"><input id="' + ctrlid + '_param_7" type="radio" name="effect" checked />无 &nbsp; <input id="' + ctrlid + '_param_5" type="radio" name="effect" />淡入淡出 &nbsp; <input id="' + ctrlid + '_param_6" type="radio" name="effect" />展开闭合</p>';
-				str += '<p class="xg2 pbn">支持 swf flv jpg gif png 网址<br />宽高范围: 宽400~1024 高300~640<br />示例: http://server/flash.swf</p>';
+				str = '<p class="pbn">ป้อนที่อยู่ของแอนิเมชั่น FLASH หรือรูปภาพ:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p>';
+				str += '<p class="pbn">ลิ้งก์ที่อยู่สำหรับคลิ๊ก:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_2" class="px" value="" style="width: 220px;" /></p>';
+				str += '<p class="pbn">กว้าง: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /> &nbsp; สูง: <input id="' + ctrlid + '_param_4" size="5" value="" class="px" /></p>';
+				str += '<p class="pbn">หยุดหลังจาก: <input id="' + ctrlid + '_param_8" size="5" value="" class="px" /></p>';
+				str += '<p class="pbn">เอฟเฟกต์การโหลดและการหายไป: </p><p class="pbn"><input id="' + ctrlid + '_param_7" type="radio" name="effect" checked />ไม่มี &nbsp; <input id="' + ctrlid + '_param_5" type="radio" name="effect" />จางเข้าและจางออก &nbsp; <input id="' + ctrlid + '_param_6" type="radio" name="effect" />แกว่งแล้วปิด</p>';
+				str += '<p class="xg2 pbn">รองรับไฟล์ swf flv jpg gif png เป็นต้น<br />ขอบเขตความกว้างความสูง: กว้าง400~1024 ความสูง300~640<br />ตัวอย่าง: https://server/flash.swf</p>';
 				break;
 			case 'pasteword':
-				stitle = '从 Word 粘贴内容';
-				str = '<p class="px" style="height:300px"><iframe id="' + ctrlid + '_param_1" frameborder="0" style="width:100%;height:100%" onload="this.contentWindow.document.body.style.width=\'550px\';this.contentWindow.document.body.contentEditable=true;this.contentWindow.document.body.focus();this.onload=null"></iframe></p><p class="xg2 pbn">请通过快捷键(Ctrl+V)把 Word 文件中的内容粘贴到上方</p>';
+				stitle = 'วางเนื้อหาจาก Word';
+				str = '<p class="px" style="height:300px"><iframe id="' + ctrlid + '_param_1" frameborder="0" style="width:100%;height:100%" onload="this.contentWindow.document.body.style.width=\'550px\';this.contentWindow.document.body.contentEditable=true;this.contentWindow.document.body.focus();this.onload=null"></iframe></p><p class="xg2 pbn">กดคีย์ลัด(Ctrl+V) เพื่อวางเนื้อหาที่คัดลอกมาจาก Word</p>';
 				menuwidth = 600;
 				menupos = '00';
 				menutype = 'win';
 				break;
 			case 'index':
-				stitle = '创建帖子目录';
+				stitle = 'สร้างสารบัญ';
 				str = '<p class="pbn">[index]<br />\n\
-					[#<span class="xi1">页码</span>]<span class="xi1">ชื่อ</span> &nbsp;&nbsp;<span class="xg1">跳转到指定的页</span><br />\n\
-					<span class="xi1">*</span>[#<span class="xi1">tid,pid</span>]<span class="xi1">ชื่อ</span> &nbsp;&nbsp;<span class="xg1">跳转到指定的帖子</span><br />\n\
+					[#<span class="xi1">เลขหน้า</span>]<span class="xi1">ชื่อ</span> &nbsp;&nbsp;<span class="xg1">ข้ามไปที่หน้าระบุ</span><br />\n\
+					<span class="xi1">*</span>[#<span class="xi1">tid,pid</span>]<span class="xi1">ชื่อ</span> &nbsp;&nbsp;<span class="xg1">ข้ามไปที่โพสต์ที่ระบุ</span><br />\n\
 					[/index]<br />\n\
 					<br />\n\
-					<span class="xi1">页码</span> &nbsp;&nbsp;<span class="xg1">用 [page] 对当前帖子分页后的页码</span><br />\n\
-					<span class="xi1">tid,pid</span> &nbsp;&nbsp;<span class="xg1">帖子的 TID 和 PID</span><br />\n\
-					<span class="xi1">*</span> &nbsp;&nbsp;<span class="xg1">添加行首缩进</span></p>';
+					<span class="xi1">เลขหน้า</span> &nbsp;&nbsp;<span class="xg1">ใช้ [page] หมายเลขหน้าของโพสต์หลังจากเพจปัจจุบัน</span><br />\n\
+					<span class="xi1">tid,pid</span> &nbsp;&nbsp;<span class="xg1">TID และ PID ของโพสต์ </span><br />\n\
+					<span class="xi1">*</span> &nbsp;&nbsp;<span class="xg1">เพื่อเยื้องบรรทัดแรก</span></p>';
 				break;
 			default:
 				for(i in EXTRAFUNC['showEditorMenu']) {

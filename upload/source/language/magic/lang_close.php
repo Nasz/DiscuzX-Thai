@@ -13,18 +13,18 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'close_name' => '沉默卡',
-	'close_desc' => '可以将主题关闭，禁止回复',
-	'close_expiration' => '关闭有效期',
-	'close_expiration_comment' => '设置主题可以被关闭多长时间，默认 24 小时',
-	'close_forum' => 'อนุญาตให้本道具的版块',
-	'close_info' => '关闭指定的主题 {expiration} 小时，请输入主题的 ID',
-	'close_info_nonexistence' => '请指定要关闭的主题',
-	'close_succeed' => '您操作的主题已关闭',
-	'close_info_noperm' => '对不起，主题所在版块不อนุญาตให้本道具',
-	'close_info_user_noperm' => '对不起，您不能对此人使用本道具',
+	'close_name' => 'การ์ดเงียบ',
+	'close_desc' => 'คุณสามารถปิดกระทู้ห้ามการตอบกลับ',
+	'close_expiration' => 'ระยะเวลาปิดใช้งาน',
+	'close_expiration_comment' => 'สามารถตั้งค่ากระทู้ได้นานเท่าใดและ 24 ชั่วโมงโดยค่าเริ่มต้น',
+	'close_forum' => 'อนุญาตให้ส่วนของรายการนี้',
+	'close_info' => 'ปิดกระทู้ที่ระบุ {expiration} ชั่วโมงโปรดป้อน ID ของกระทู้',
+	'close_info_nonexistence' => 'โปรดระบุหัวข้อที่จะปิด',
+	'close_succeed' => 'ชุดรูปแบบการดำเนินการของคุณถูกปิด',
+	'close_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
+	'close_info_user_noperm' => 'ขออภัยคุณไม่สามารถใช้เสานี้กับบุคคลนี้ได้',
 
-	'close_notification' => '您的主题 {subject} 被 {actor} 使用了{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">快去看看吧！</a>',
+	'close_notification' => 'กระทู้ของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
 );
 
 ?>

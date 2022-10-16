@@ -963,7 +963,7 @@ spaceDiy.extend({
 
 	},
 	recover : function() {
-		if (confirm('คุณต้องการกลับไปใช้เวอร์ชันก่อนหน้านี้ใช่หรือไม่?')) {
+		if (confirm('คุณต้องการกลับไปใช้รุ่นก่อนหน้านี้ใช่หรือไม่?')) {
 			drag.clearClose();
 			document.diyform.recover.value = '1';
 			document.diyform.gobackurl.value = location.href.replace(/(\?diy=yes)|(\&diy=yes)/,'').replace(/[\?|\&]preview=yes/,'');

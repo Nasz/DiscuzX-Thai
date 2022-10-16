@@ -94,7 +94,7 @@ if($operation == 'verify') {
 			if($anchor != 'pass') {
 				$datehtml = "<tr><th>{$searchlang['members_verify_dateline']}</th><td colspan=\"3\">
 					<input type=\"text\" name=\"dateline1\" value=\"{$_GET['dateline1']}\" size=\"10\" onclick=\"showcalendar(event, this)\"> ~
-					<input type=\"text\" name=\"dateline2\" value=\"{$_GET['dateline2']}\" size=\"10\" onclick=\"showcalendar(event, this)\"> (YYYY-MM-DD)
+					<input type=\"text\" name=\"dateline2\" value=\"{$_GET['dateline2']}\" size=\"10\" onclick=\"showcalendar(event, this)\"> (DD-MM-YYYY)
 					</td></tr>";
 				$orderbyhtml = "<select name=\"orderby\"><option value=\"dateline\"{$orderby['dateline']}>{$searchlang['members_verify_dateline']}</option>	</select>";
 			} else {

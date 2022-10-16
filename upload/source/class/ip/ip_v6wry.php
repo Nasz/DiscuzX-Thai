@@ -108,7 +108,7 @@ class ip_v6wry {
 	public function getipaddr($ip) {
 		$ipbinary = inet_pton($ip);
 		if($ipbinary == false) {
-			return '- Unknown';
+			return 'ไม่ทราบ';
 		}
 		$iprev = strrev($ipbinary);
 		$i = $this->finder($iprev,0,$this->indexCount);

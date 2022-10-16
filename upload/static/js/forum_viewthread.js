@@ -74,10 +74,10 @@ function attachimglstshow(pid, islazy, fid, showexif) {
 					continue;
 				}
 				if(fid) {
-					imagelist += '<div id="pattimg_' + aimgcount[pid][i] + '_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c"><a href="forum.php?mod=ajax&action=setthreadcover&aid=' + aimgcount[pid][i] + '&fid=' + fid + '" class="xi2" onclick="showWindow(\'setcover' + aimgcount[pid][i] + '\', this.href)">设为封面</a></div></div>';
+					imagelist += '<div id="pattimg_' + aimgcount[pid][i] + '_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c"><a href="forum.php?mod=ajax&action=setthreadcover&aid=' + aimgcount[pid][i] + '&fid=' + fid + '" class="xi2" onclick="showWindow(\'setcover' + aimgcount[pid][i] + '\', this.href)">ตั้งเป็นปก</a></div></div>';
 				}
 				imagelist += '<div class="pattimg">' +
-					'<a id="pattimg_' + aimgcount[pid][i] + '" class="pattimg_zoom" href="javascript:;"' + s + ' onclick="zoom($(\'aimg_' + aimgcount[pid][i] + '\'), attachimggetsrc(\'aimg_' + aimgcount[pid][i] + '\'), 0, 0, ' + (parseInt(showexif) ? 1 : 0) + ')" title="点击放大">点击放大</a>' +
+					'<a id="pattimg_' + aimgcount[pid][i] + '" class="pattimg_zoom" href="javascript:;"' + s + ' onclick="zoom($(\'aimg_' + aimgcount[pid][i] + '\'), attachimggetsrc(\'aimg_' + aimgcount[pid][i] + '\'), 0, 0, ' + (parseInt(showexif) ? 1 : 0) + ')" title="คลิกเพื่อขยาย">คลิกเพื่อขยาย</a>' +
 					'<img ' + (islazy ? 'file' : 'src') + '="forum.php?mod=image&aid=' + aimgcount[pid][i] + '&size=100x100&key=' + imagelistkey + '&atid=' + tid + '" width="100" height="100" /></div>';
 			}
 			if($('imagelistthumb_' + pid)) {
@@ -173,7 +173,7 @@ function parsetag(pid) {
 }
 
 function setanswer(pid, from){
-	if(confirm('您确认要把该回复选为“最佳答案”吗？')){
+	if(confirm('ยืนยันว่าคุณต้องการเลือกการตอบกลับนี้เป็น "คำตอบที่ดีที่สุด"？')){
 		if(BROWSER.ie) {
 			doane(event);
 		}
@@ -244,7 +244,7 @@ function succeedhandle_fastpost(locationhref, message, param) {
 		$('fastpostreturn').className = '';
 	} else {
 		if(!message) {
-			message = '本版回帖需要审核，您的帖子将在通过审核后显示';
+			message = 'จำเป็นต้องมีการตรวจสอบคำตอบนี้ โพสต์ของคุณจะปรากฏขึ้นหลังจากผ่านการตรวจสอบแล้ว';
 		}
 		$('post_new').style.display = $('fastpostmessage').value = $('fastpostreturn').className = '';
 		$('fastpostreturn').innerHTML = message;
@@ -515,9 +515,9 @@ function show_threadpage(pid, current, maxpage, ispreview) {
 		s += '<a href="javascript:;" onclick="' + clickvalue(maxpage)+ '">... ' + maxpage + '</a>';
 	}
 	if(current < maxpage) {
-		s += '<a href="javascript:;" onclick="' + clickvalue(current + 1) + '" class="nxt">下一页</a>';
+		s += '<a href="javascript:;" onclick="' + clickvalue(current + 1) + '" class="nxt">หน้าต่อไป</a>';
 	}
-	s += '<a href="javascript:;" onclick="' + clickvalue('all') + '">查看所有</a>';
+	s += '<a href="javascript:;" onclick="' + clickvalue('all') + '">ดูทั้งหมด</a>';
 	s += '</div></div>';
 	$('threadpage').innerHTML = s;
 }
@@ -525,7 +525,7 @@ function show_threadpage(pid, current, maxpage, ispreview) {
 var show_threadindex_data = '';
 function show_threadindex(pid, ispreview) {
 	if(!show_threadindex_data) {
-		var s = '<div class="tindex"><h3>目录</h3><ul>';
+		var s = '<div class="tindex"><h3>สารบัญ</h3><ul>';
 		for(i in $('threadindex').childNodes) {
 			o = $('threadindex').childNodes[i];
 			if(o.tagName == 'A') {
@@ -734,7 +734,7 @@ function changecontentdivid(tid) {
 }
 
 function showmobilebbs(obj) {
-	var content = '<h3 class="flb" style="cursor:move;"><em>下载掌上论坛</em><span><a href="javascript:;" class="flbc" onclick="hideWindow(\'mobilebbs\')" title="{lang close}">{lang close}</a></span></h3><div class="c"><h4>Andriod版本，扫描二维码可以直接下载到手机</h4><p class="mtm mbm vm"><span class="code_bg"><img src="'+ STATICURL +'image/common/zslt_andriod.png" alt="" /></span><img src="'+ STATICURL +'image/common/andriod.png" alt="适用于装有安卓系统的三星/HTC/小米等手机" /></p><h4>iPhone版本，扫描二维码可以直接下载到手机</h4><p class="mtm mbm vm"><span class="code_bg"><img src="'+ STATICURL +'image/common/zslt_ios.png" alt="" /></span><img src="'+ STATICURL +'image/common/ios.png" alt="适用于苹果手机" /></p></div>';
+	var content = '<h3 class="flb" style="cursor:move;"><em>ดาวน์โหลดเว็บบอร์ดขนาดพกพา</em><span><a href="javascript:;" class="flbc" onclick="hideWindow(\'mobilebbs\')" title="{lang close}">{lang close}</a></span></h3><div class="c"><h4>มือถือ Android สามารถสแกน QR แล้วดาวน์โหลดได้โดยตรง</h4><p class="mtm mbm vm"><span class="code_bg"><img src="'+ STATICURL +'image/common/zslt_andriod.png" alt="" /></span><img src="'+ STATICURL +'image/common/andriod.png" alt="เหมาะสำหรับ Samsung/HTC/Xiaomi และโทรศัพท์มือถืออื่น ๆ ที่ใช้ระบบ Android" /></p><h4>มือถือ iPhone สามารถสแกน QR แล้วดาวน์โหลดได้โดยตรง</h4><p class="mtm mbm vm"><span class="code_bg"><img src="'+ STATICURL +'image/common/zslt_ios.png" alt="" /></span><img src="'+ STATICURL +'image/common/ios.png" alt="เหมาะสำหรับโทรศัพท์มือถือของ Apple" /></p></div>';
 	showWindow('mobilebbs', content, 'html');
 }
 

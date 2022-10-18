@@ -266,11 +266,11 @@ $lang = array(
 	'profile_verify_modify_error' => '{verify}已经认证通过不允许修改',
 	'profile_verify_verifying' => '您的{verify}信息已提交，请耐心等待核查。',
 
-	'district_level_0' => '-เลือกจังหวัด-',
-	'district_level_1' => '-เขต/อำเภอ-',
-	'district_level_2' => '-แขวง/ตำบล-',
-	'district_level_3' => '-รัฐและมณฑล-',
-	'district_level_4' => '-เขตการปกครอง-',
+	'district_level_0' => '-ประเทศ-',
+	'district_level_1' => '-รัฐ/เขตปกครอง-',
+	'district_level_2' => '-จังหวัด/มณฑล-',
+	'district_level_3' => '-เขต/อำเภอ-',
+	'district_level_4' => '-แขวง/ตำบล/เทศบาล-',
 	'invite_you_to_visit' => '{user} ได้เชิญคุณไปเยี่ยมชม {bbname}',
 
 	'portal' => 'พอร์ทัล',

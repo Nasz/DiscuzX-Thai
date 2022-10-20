@@ -928,7 +928,7 @@ if($_GET['step'] == 'start') {
 		}
 
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_checkpatch_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('', '1','system','รับแพทช์ความปลอดภัยทุกวัน','cron_checkpatch_daily.php','1269746639','1269792000','-1','-1','2','22')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('', '1','system','รับแพทช์ความปลอดภัยต่อวัน','cron_checkpatch_daily.php','1269746639','1269792000','-1','-1','2','22')");
 		}
 
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_publish_halfhourly.php'")) {
@@ -936,20 +936,20 @@ if($_GET['step'] == 'start') {
 		}
 
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_follow_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','อัปเดตผู้ฟังรายสัปดาห์','cron_follow_daily.php','1269746639','1269792000','-1','-1','02','0')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','อัปเดตผู้ฟังต่อสัปดาห์','cron_follow_daily.php','1269746639','1269792000','-1','-1','02','0')");
 		}
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_todayviews_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','อัปเดตจำนวนคนดูรายวัน','cron_todayviews_daily.php','1321500558','1321556400','-1','-1','3','0	5	10	15	20	25	30	35	40	45	50	55')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','อัปเดตจำนวนคนดูต่อวัน','cron_todayviews_daily.php','1321500558','1321556400','-1','-1','3','0	5	10	15	20	25	30	35	40	45	50	55')");
 		}
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_member_optimize_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','0','system','เพิ่มประสิทธิภาพตารางผู้ใช้รายวัน','cron_member_optimize_daily.php','1321500558','1321556400','-1','-1','2','0	5	10	15	20	25	30	35	40	45	50	55')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','0','system','เพิ่มประสิทธิภาพตารางผู้ใช้ต่อวัน','cron_member_optimize_daily.php','1321500558','1321556400','-1','-1','2','0	5	10	15	20	25	30	35	40	45	50	55')");
 		}
 		if(DB::result_first("SELECT COUNT(*) FROM ".DB::table('common_cron')." WHERE filename='cron_birthday_daily.php'")) {
 			DB::query("DELETE FROM ".DB::table('common_cron')." WHERE filename='cron_birthday_daily.php'");
 		}
 
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_todayheats_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','สถิติโพสต์ร้อนแรงรายวัน','cron_todayheats_daily.php','1269746623','1269792000','-1','-1','0','0')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','สถิติโพสต์ร้อนแรงต่อวัน','cron_todayheats_daily.php','1269746623','1269792000','-1','-1','0','0')");
 		}
 
 		show_msg("อัปเดต งานที่ตั้งเวลาไว้ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
@@ -1109,7 +1109,7 @@ if($_GET['step'] == 'start') {
 			DB::query("INSERT INTO ".DB::table('common_credit_rule')." (`rulename`, `action`, `cycletype`, `cycletime`, `rewardnum`, `norepeat`, `extcredits1`, `extcredits2`, `extcredits3`, `extcredits4`, `extcredits5`, `extcredits6`, `extcredits7`, `extcredits8`, `fids`) VALUES ('淘专辑被订阅','followedcollection','1','0','3','0','0','1','0','0','0','0','0','0','')");
 		}
 
-		show_msg("อัปเดต เงื่อนไขเครดิต เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("อัปเดต ตารางคะแนน เสร็จแล้ว", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'bbcode') {
 		$nextop = 'stamp';
 		$allowcusbbcodes = array();

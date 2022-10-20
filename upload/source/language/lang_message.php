@@ -134,7 +134,7 @@ $lang = array (
   'post_thread_closed' => 'ขออภัยชุดรูปแบบนี้ถูกปิดและไม่สามารถยอมรับเนื้อหาใหม่ได้อีกต่อไป',
   'reply_quotepost_error' => 'ห้ามมิให้อ้างถึงโพสต์นี้นอกกระทู้',
   'post_flood_ctrl' => 'ขออภัยช่วงเวลาที่เผยแพร่สองครั้งของคุณน้อยกว่า {floodctrl} ในไม่กี่วินาทีโปรดโพสต์อีกครั้ง',
-  'post_flood_ctrl_posts_per_hour' => 'ขออภัยกลุ่มผู้ใช้ของคุณ จำกัด โพสต์ทุกชั่วโมง {posts_per_hour} หนึ่งโปรดโพสต์ในภายหลัง',
+  'post_flood_ctrl_posts_per_hour' => 'ขออภัยกลุ่มผู้ใช้ของคุณ จำกัด โพสต์ต่อชั่วโมง {posts_per_hour} หนึ่งโปรดโพสต์ในภายหลัง',
   'trade_please_name' => 'ขออภัยชื่อผลิตภัณฑ์ไม่ว่างเปล่า',
   'trade_price_between' => 'ขออภัยราคาสินค้าต้องอยู่ในช่วง {mintradeprice} ถึง {maxtradeprice} บาท',
   'trade_credit_between' => 'ขออภัยราคาสินค้าต้องอยู่ในช่วง {mintradeprice} ถึง {maxtradeprice} เครดิต',
@@ -964,7 +964,7 @@ $lang = array (
   'sharing_does_not_exist' => 'ขออภัยการแบ่งปันความคิดเห็นไม่มีอยู่จริง',
   'note_wall_reply_success' => 'ตอบแล้ว{username}กระดานข้อความ',
 
-  'period_nopermission' => 'ขออภัยผู้ดูแลระบบตั้งค่าทุกวัน {banperiods} ไม่สามารถดำเนินการนี้หรือเยี่ยมชมหน้านี้ได้โปรดลองในเวลาอื่น',
+  'period_nopermission' => 'ขออภัยผู้ดูแลระบบตั้งค่าต่อวัน {banperiods} ไม่สามารถดำเนินการนี้หรือเยี่ยมชมหน้านี้ได้โปรดลองในเวลาอื่น',
 
   'credits_policy_lowerlimit' => 'รู้สึกเสียใจ,{ruletext} {rulecredit}หลังจากการดำเนินการนี้{title}ไม่เพียงพอ {lowerlimit} {unit}',
   'credits_policy_lowerlimit_fid' => 'ขออภัยส่วนนี้{ruletext} {rulecredit}หลังจากการดำเนินการนี้{title}ไม่เพียงพอ {lowerlimit} {unit}',

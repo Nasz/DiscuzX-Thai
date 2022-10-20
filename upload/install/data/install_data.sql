@@ -40,32 +40,32 @@ INSERT INTO pre_common_credit_rule VALUES ('31','กดติดตาม','foll
 
 
 
-INSERT INTO pre_common_cron VALUES ('1','1','system','ทุกวัน งานล้างจำนวนโพสต์','cron_todaypost_daily.php','1269746623','1269792000','-1','-1','0','0');
-INSERT INTO pre_common_cron VALUES ('2','1','system','ทุกเดือน งานล้างเวลาออนไลน์','cron_onlinetime_monthly.php','1269682366','1270051200','-1','1','0','0');
-INSERT INTO pre_common_cron VALUES ('3','1','system','ทุกวัน งานล้างข้อมูล','cron_cleanup_daily.php','1269746634','1269811800','-1','-1','5','30');
-INSERT INTO pre_common_cron VALUES ('5','1','system','ทุกวัน งานล้างประกาศ','cron_announcement_daily.php','1269746629','1269792000','-1','-1','0','0');
-INSERT INTO pre_common_cron VALUES ('6','1','system','ทุกชั่วโมง งานล้างกระทู้ที่หมดอายุ','cron_threadexpiry_hourly.php','1269746634','1269810000','-1','-1','-1','0');
-INSERT INTO pre_common_cron VALUES ('7','1','system','ทุกชั่วโมง งานล้างโปรโมชั่นที่หมดอายุ','cron_promotion_hourly.php','1269746629','1269792000','-1','-1','0','00');
-INSERT INTO pre_common_cron VALUES ('8','1','system','ทุกเดือน งานล้างกระทู้','cron_cleanup_monthly.php','1269682408','1270072800','-1','1','6','00');
-INSERT INTO pre_common_cron VALUES ('9','1','system','ทุกวัน งานอัปเดตไอเท็มอัตโนมัติรายวัน','cron_magic_daily.php','1269746629','1269792000','-1','-1','0','0');
-INSERT INTO pre_common_cron VALUES ('10','1','system','ทุกวัน งานอัปเดตคำถามและคำตอบสำหรับการตรวจรายวัน','cron_secqaa_daily.php','1269746634','1269813600','-1','-1','6','0');
-INSERT INTO pre_common_cron VALUES ('11','1','system','ทุกวัน งานอัปเดตแท็กรายวัน','cron_tag_daily.php','1269746633','1269792000','-1','-1','0','0');
-INSERT INTO pre_common_cron VALUES ('12','1','system','ทุกวัน งานอัปเดตเหรียญตรารายวัน','cron_medal_daily.php','1269746634','1269792000','-1','-1','0','0');
+INSERT INTO pre_common_cron VALUES ('1','1','system','ต่อวัน งานล้างจำนวนโพสต์','cron_todaypost_daily.php','1269746623','1269792000','-1','-1','0','0');
+INSERT INTO pre_common_cron VALUES ('2','1','system','ต่อเดือน งานล้างเวลาออนไลน์','cron_onlinetime_monthly.php','1269682366','1270051200','-1','1','0','0');
+INSERT INTO pre_common_cron VALUES ('3','1','system','ต่อวัน งานล้างข้อมูล','cron_cleanup_daily.php','1269746634','1269811800','-1','-1','5','30');
+INSERT INTO pre_common_cron VALUES ('5','1','system','ต่อวัน งานล้างประกาศ','cron_announcement_daily.php','1269746629','1269792000','-1','-1','0','0');
+INSERT INTO pre_common_cron VALUES ('6','1','system','ต่อชั่วโมง งานล้างกระทู้ที่หมดอายุ','cron_threadexpiry_hourly.php','1269746634','1269810000','-1','-1','-1','0');
+INSERT INTO pre_common_cron VALUES ('7','1','system','ต่อชั่วโมง งานล้างโปรโมชั่นที่หมดอายุ','cron_promotion_hourly.php','1269746629','1269792000','-1','-1','0','00');
+INSERT INTO pre_common_cron VALUES ('8','1','system','ต่อเดือน งานล้างกระทู้','cron_cleanup_monthly.php','1269682408','1270072800','-1','1','6','00');
+INSERT INTO pre_common_cron VALUES ('9','1','system','ต่อวัน งานอัปเดตไอเท็มอัตโนมัติ','cron_magic_daily.php','1269746629','1269792000','-1','-1','0','0');
+INSERT INTO pre_common_cron VALUES ('10','1','system','ต่อวัน งานอัปเดตคำถามและคำตอบสำหรับการตรวจ','cron_secqaa_daily.php','1269746634','1269813600','-1','-1','6','0');
+INSERT INTO pre_common_cron VALUES ('11','1','system','ต่อวัน งานอัปเดตแท็ก','cron_tag_daily.php','1269746633','1269792000','-1','-1','0','0');
+INSERT INTO pre_common_cron VALUES ('12','1','system','ต่อวัน งานอัปเดตเหรียญตรา','cron_medal_daily.php','1269746634','1269792000','-1','-1','0','0');
 INSERT INTO pre_common_cron VALUES ('13','1','system','งานล้างฟีดที่หมดอายุ','cron_cleanfeed.php','1269746634','1269792000','-1','-1','0','0');
-INSERT INTO pre_common_cron VALUES ('15','1','system','ทุกชั่วโมง งานอัปเดตการเผยแพร่เนื้อหา','cron_publish_halfhourly.php','1269746639','1269792000','-1','-1','-1','0	30');
-INSERT INTO pre_common_cron VALUES ('16','1','system','ทุกวัน งานอัปเดตจำนวนผู้ติดตามรายวัน','cron_follow_daily.php','1269746639','1269792000','-1','-1','02','0');
-INSERT INTO pre_common_cron VALUES ('17','1','system','ทุกวัน งานอัปเดตจำนวนผู้ชมรายวัน','cron_todayviews_daily.php','1321500558','1321556400','-1','-1','3','0	5	10	15	20	25	30	35	40	45	50	55');
-INSERT INTO pre_common_cron VALUES ('18','0','system','ทุกวัน งานเพิ่มประสิทธิภาพตารางผู้ใช้รายวัน','cron_member_optimize_daily.php','1321500558','1321556400','-1','-1','2','0	5	10	15	20	25	30	35	40	45	50	55');
-INSERT INTO pre_common_cron VALUES ('19','1','system','ทุกวัน งานอัปเดตกระทู้ยอดนิยมรายวัน','cron_todayheats_daily.php','1269746623','1269792000','-1','-1','0','0');
+INSERT INTO pre_common_cron VALUES ('15','1','system','ต่อชั่วโมง งานอัปเดตการเผยแพร่เนื้อหา','cron_publish_halfhourly.php','1269746639','1269792000','-1','-1','-1','0	30');
+INSERT INTO pre_common_cron VALUES ('16','1','system','ต่อวัน งานอัปเดตจำนวนผู้ติดตาม','cron_follow_daily.php','1269746639','1269792000','-1','-1','02','0');
+INSERT INTO pre_common_cron VALUES ('17','1','system','ต่อวัน งานอัปเดตจำนวนผู้ชม','cron_todayviews_daily.php','1321500558','1321556400','-1','-1','3','0	5	10	15	20	25	30	35	40	45	50	55');
+INSERT INTO pre_common_cron VALUES ('18','0','system','ต่อวัน งานเพิ่มประสิทธิภาพตารางผู้ใช้','cron_member_optimize_daily.php','1321500558','1321556400','-1','-1','2','0	5	10	15	20	25	30	35	40	45	50	55');
+INSERT INTO pre_common_cron VALUES ('19','1','system','ต่อวัน งานอัปเดตกระทู้ยอดนิยม','cron_todayheats_daily.php','1269746623','1269792000','-1','-1','0','0');
 INSERT INTO pre_common_cron VALUES ('20','1','system','งานอัปเดตลำดับของกระทู้ล่าสุด(ตามลำดับความสำคัญ)','cron_security_cleanup_lastpost.php','1269746623','1269792000','-1','-1','7','0');
-INSERT INTO pre_common_cron VALUES ('21','1','system','ทุกสัปดาห์ งานล้างบันทึกการส่ง SMS แจ้งเตือนการเข้าสู่ระบบ','cron_smslog_daily.php','1269746639','1269792000','-1','-1','03','0');
+INSERT INTO pre_common_cron VALUES ('21','1','system','ต่อสัปดาห์ งานล้างบันทึกการส่ง SMS แจ้งเตือนการเข้าสู่ระบบ','cron_smslog_daily.php','1269746639','1269792000','-1','-1','03','0');
 
 INSERT INTO pre_common_friendlink VALUES ('1','0','เว็บบอร์ดอย่างเป็นทางการ','https://www.discuz.net','Discuz! รุ่นล่าสุด ข่าวผลิตภัณฑ์ ดาวน์โหลดซอฟต์แวร์ และการแลกเปลี่ยนทางเทคนิค','static/image/common/logo_88_31.gif','2');
 INSERT INTO pre_common_friendlink VALUES ('2','4','แอปเซนเตอร์','https://addon.dismall.com/','','','2');
 INSERT INTO pre_common_friendlink VALUES ('3','4','ดิสคัซไซนซ์','https://github.com/Nasz/DiscuzX/releases','','','2');
 
 INSERT INTO pre_common_member_profile_setting VALUES('realname', 1, 0, 0, 'ชื่อจริง', '', 0, 0, 0, 0, 0, 0, 1, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('gender', 1, 0, 0, 'เพศสภาพ', '', 0, 0, 0, 0, 0, 0, 1, 'select', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('gender', 1, 0, 0, 'เพศ', '', 0, 0, 0, 0, 0, 0, 1, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthyear', 1, 0, 0, 'ปีเกิด', '', 0, 0, 0, 0, 0, 0, 1, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthmonth', 1, 0, 0, 'เดือนเกิด', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthday', 1, 0, 0, 'วันเกิด', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');

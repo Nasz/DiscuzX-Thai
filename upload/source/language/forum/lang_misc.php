@@ -39,7 +39,7 @@ $lang = array
 	'post_thread' => 'โพสต์',
 
 	'price' => 'ราคา',
-	'pay_view' => 'บันทึก',
+	'pay_view' => 'ประวัติ',
 	'attachment_buy' => 'ซื้อ',
 
 	'post_trade_yuan' => 'บาท',

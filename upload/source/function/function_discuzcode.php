@@ -502,6 +502,7 @@ function parsemedia($params, $url) {
 		$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
 	}
 
+	
 	$width = defined('IN_MOBILE') ? '100%' : $width;
 	$height = defined('IN_MOBILE') ? 'auto' : $height;
 
@@ -565,11 +566,11 @@ function highlightword($text, $words, $prepend) {
 function parseflv($url, $width = 0, $height = 0) {
 	global $_G;
 	$lowerurl = strtolower($url);
-	$flv = $iframe = $imgurl = '';
+	$flv = $iframe = $imgurl = '';		
 	if(empty($_G['setting']['parseflv']) || !is_array($_G['setting']['parseflv'])) {
 		return FALSE;
 	}
-
+	
 	foreach($_G['setting']['parseflv'] as $script => $checkurl) {
 		$check = FALSE;
 		foreach($checkurl as $row) {
@@ -585,7 +586,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 			break;
 		}
-	}
+	}	    	
 	if($flv || $iframe) {
 		if(!$width && !$height) {
 			return array('flv' => $flv, 'iframe' => $iframe, 'imgurl' => $imgurl);
@@ -595,6 +596,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			$flv = addslashes($flv);
 			$iframe = addslashes($iframe);
 			$randomid = 'flv_'.random(3);
+			
 			$player_iframe = $iframe ? "\"<iframe src='$iframe' border='0' scrolling='no' framespacing='0' allowfullscreen='true' style='max-width: 100%' width='$width' height='$height' frameborder='no'></iframe>\"" : '';
 			$player_flv = $flv ? "AC_FL_RunContent('width', '$width', 'height', '$height', 'allowNetworking', 'internal', 'allowScriptAccess', 'never', 'src', '$flv', 'quality', 'high', 'bgcolor', '#ffffff', 'wmode', 'transparent', 'allowfullscreen', 'true')" : '';
 			$player = (!empty($player_iframe) && !empty($player_flv)) ? "detectHtml5Support() ? $player_iframe : $player_flv" : (empty($player_iframe) ? $player_flv : $player_iframe);

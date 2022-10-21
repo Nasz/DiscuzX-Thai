@@ -55,8 +55,11 @@ class control extends adminbase {
 			$timeoffset = in_array($timeoffset, array('-12', '-11', '-10', '-9', '-8', '-7', '-6', '-5', '-4', '-3.5', '-3', '-2', '-1', '0', '1', '2', '3', '3.5', '4', '4.5', '5', '5.5', '5.75', '6', '6.5', '7', '8', '9', '9.5', '10', '11', '12')) ? $timeoffset : 8;
 
 			if(empty($passwordalgo) && !empty($passwordoptions)) {
+				
 				$passwordoptions = '';
 			} else if(!empty($passwordalgo)) {
+				
+				
 				$options = empty($passwordoptions) ? array() : json_decode($passwordoptions, true);
 				$tresult = password_hash($passwordalgo, constant($passwordalgo), $options);
 				if($tresult === false || $tresult === null || !password_verify($passwordalgo, $tresult)) {

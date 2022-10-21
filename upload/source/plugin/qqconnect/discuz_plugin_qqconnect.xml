@@ -258,7 +258,7 @@
 				<item id="connect_config_desc_content2"><![CDATA[每一个精彩内容绝不放过，简单快捷的将论坛主题分享给好友]]></item>
 				<item id="connect_config_newpassword"><![CDATA[为单独登录站点创建登录密码]]></item>
 				<item id="connect_config_new_password"><![CDATA[新密码]]></item>
-				<item id="connect_config_new_password_confirm"><![CDATA[ยืนยันรหัสผ่าน]]></item>
+				<item id="connect_config_new_password_confirm"><![CDATA[确认密码]]></item>
 				<item id="connect_config_unbind"><![CDATA[解除已绑定账号？]]></item>
 				<item id="connect_config_modify_authorization"><![CDATA[修改本站的授权？]]></item>
 				<item id="connect_config_modify_authorization_desc"><![CDATA[您可根据自己的需要随时增加、取消QQ账号对本站的授权，在确保隐私的前提下使用各项功能和服务。]]></item>

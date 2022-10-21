@@ -51,7 +51,7 @@ if($operation == 'delete') {
 		showmessage('attachment_nonexistence');
 	}
 
-	$readmod = 2;//read local file's function: 1=fread 2=readfile 3=fpassthru 4=fpassthru+multiple
+	$readmod = 2;
 	$range = 0;
 	if($readmod == 4 && !empty($_SERVER['HTTP_RANGE'])) {
 		list($range) = explode('-',(str_replace('bytes=', '', $_SERVER['HTTP_RANGE'])));
@@ -62,8 +62,11 @@ if($operation == 'delete') {
 	}
 
 	$filesize = $attach['filesize'];
+	
 	$filenameencode = strtolower(CHARSET) == 'utf-8' ? rawurlencode($attach['filename']) : rawurlencode(diconv($attach['filename'], CHARSET, 'UTF-8'));
 
+	
+	
 	$rfc6266blacklist = strexists($_SERVER['HTTP_USER_AGENT'], 'UCBrowser') || strexists($_SERVER['HTTP_USER_AGENT'], 'Quark') || strexists($_SERVER['HTTP_USER_AGENT'], 'SogouM') || strexists($_SERVER['HTTP_USER_AGENT'], 'baidu');
 
 	dheader('Date: '.gmdate('D, d M Y H:i:s', $attach['dateline']).' GMT');

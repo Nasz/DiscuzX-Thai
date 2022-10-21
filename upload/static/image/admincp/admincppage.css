@@ -1,4 +1,4 @@
-body { background: #f0f0f0; color: #000; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;min-width: 1000px; }
+body { background: #f0f0f0; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;min-width: 1000px; }
 a{ color:#2366A8; text-decoration:none; }
 	a:hover { text-decoration:underline; }
 	a img{ border:none; }
@@ -425,7 +425,7 @@ textarea {font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 	.flb span { float: right; color: #999; }
 		.flb span a, .flb strong { float: left; text-decoration: none; margin-left: 8px; font-weight: 400; color: #333; }
 			.flb span a:hover { color: #999; }
-		.flbc { float: left; width: 40px; height: 20px; overflow: hidden; background: #AAA; cursor: pointer; font-size: 16px; text-align: center; line-height: 20px; border-radius: 2px; }
+		.flbc { float: left; width: 20px; height: 20px; overflow: hidden; background: #AAA; cursor: pointer; font-size: 16px; text-align: center; line-height: 20px; border-radius: 2px; }
 			.flbc:hover { background: #15afdb; text-decoration: none; }
 			.flbc:before { content: "\d7"; color: #fff; font-weight: 700; }
 

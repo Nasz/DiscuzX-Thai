@@ -449,7 +449,7 @@ CSS 写作注意事项：
 		.pn:active { background: #dbdbdb; }
 		.pn:focus { box-shadow: 0 0 0 2px rgba(153, 153, 153, 0.25); outline: 0; }
 
-		.pn em, .pn span, .pn strong { padding: 0 5px; line-height: 21px; }
+		.pn em, .pn span, .pn strong { padding: 0 10px; line-height: 21px; }
 			.pn em, .pn strong  { font-weight: 700; }
 
 	a.pn { height: 21px; line-height: 21px; color: {TABLETEXT} !important; }

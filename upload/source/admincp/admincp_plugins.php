@@ -53,7 +53,7 @@ if(!$operation) {
 		$splitavailable = array();
 		foreach($plugins as $plugin) {
 			$addonid = $plugin['identifier'].'.plugin';
-			$updateinfo = '';
+			$updateinfo = $newver = $sysver = '';
 			if(is_array($checkresult) && isset($checkresult[$addonid])) {
 				list(, $newver, $sysver) = explode(':', $checkresult[$addonid]);
 			}
@@ -67,6 +67,7 @@ if(!$operation) {
 			$plugin['modules'] = dunserialize($plugin['modules']);
 			$submenuitem = array();
 			if(isset($_G['cache']['plugin'][$plugin['identifier']])) {
+				
 				$configexists = FALSE;
 				if(is_array($plugin['modules'])) {
 					foreach($plugin['modules'] as $k => $module) {

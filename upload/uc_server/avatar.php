@@ -19,6 +19,7 @@ $random = isset($_GET['random']) ? $_GET['random'] : '';
 $type = isset($_GET['type']) ? $_GET['type'] : '';
 $check = isset($_GET['check_file_exists']) ? $_GET['check_file_exists'] : '';
 
+
 $ts = isset($_GET['ts']) ? $_GET['ts'] : '';
 
 $avatar = './data/avatar/'.get_avatar($uid, $size, $type);
@@ -40,14 +41,14 @@ if(file_exists($avatar_file)) {
 }
 
 if(empty($random)) {
-	if (empty($ts)) {
+	if (empty($ts)) { 
 		header("HTTP/1.1 301 Moved Permanently");
 		header("Last-Modified:".date('r'));
-		header("Expires: ".date('r', time() + 86400));
-	} else {
+		header("Expires: ".date('r', time() + 86400));	
+	} else { 
 		$avatar_url .= '?ts='.filemtime($avatar_file);
 	}
-} else {
+} else { 
 	$avatar_url .= '?random='.rand(1000, 9999);
 }
 
@@ -85,18 +86,25 @@ function _get_script_url() {
 }
 
 function is_https() {
+	
 	if(isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') {
 		return true;
 	}
+	
 	if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') {
 		return true;
 	}
+	
+	
 	if(isset($_SERVER['HTTP_X_CLIENT_SCHEME']) && strtolower($_SERVER['HTTP_X_CLIENT_SCHEME']) == 'https') {
 		return true;
 	}
+	
+	
 	if(isset($_SERVER['HTTP_FROM_HTTPS']) && strtolower($_SERVER['HTTP_FROM_HTTPS']) != 'off') {
 		return true;
 	}
+	
 	if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
 		return true;
 	}

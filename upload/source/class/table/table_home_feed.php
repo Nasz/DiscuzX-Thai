@@ -26,6 +26,7 @@ class table_home_feed extends discuz_table
 	}
 
 	public function fetch($id, $force_from_db = false, $null1 = '', $null2 = '') {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch($id, $force_from_db);
@@ -68,6 +69,7 @@ class table_home_feed extends discuz_table
 	}
 
 	public function update($val, $data, $unbuffered = false, $low_priority = false, $null = '') {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::update($val, $data, $unbuffered, $low_priority);
@@ -156,7 +158,7 @@ class table_home_feed extends discuz_table
 			return $this->delete_feed($val, $unbuffered);
 		}
 	}
-
+	
 	public function delete_feed($feedid, $uid = '') {
 		$condition = array();
 

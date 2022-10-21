@@ -22,6 +22,7 @@ class table_forum_collectionfollow extends discuz_table
 	}
 
 	public function fetch_all($ids, $force_from_db = false, $null1 = 0, $null2 = 0) {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch_all($ids, $force_from_db);
@@ -82,6 +83,7 @@ class table_forum_collectionfollow extends discuz_table
 	}
 
 	public function update($val, $data, $unbuffered = false, $low_priority = false, $null = false) {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::update($val, $data, $unbuffered, $low_priority);

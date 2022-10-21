@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[กำหนดSEOMETA]]></item>
+			<item id="identifier"><![CDATA[sns_seoinfo]]></item>
+			<item id="description"><![CDATA[กำหนด Title, Keywords, Description และ Image ของเธรดด้วยตัวเอง สำหรับการแชร์ SNS และการทำ SEO ให้กับเธรด]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[sns_seoinfo]]></item>
+			<item id="copyright"><![CDATA[Northsync Inc.]]></item>
+			<item id="version"><![CDATA[v1.0]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[hook]]></item>
+					<item id="param"><![CDATA[]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[1]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2.5,X3,X3.1,X3.2,X3.5]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[เปิดใช้งาน]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[style]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[ตั้งค่ากลุ่มผู้ใช้ที่ใช้ได้]]></item>
+				<item id="description"><![CDATA[กำหนดกลุ่มของผู้ใช้ที่สามารถใช้งานฟังค์ชั่นนี้ได้]]></item>
+				<item id="variable"><![CDATA[groups]]></item>
+				<item id="type"><![CDATA[groups]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[แสดงกล่องตั้งค่าข้อมูล SEO]]></item>
+				<item id="description"><![CDATA[เลือก "ใช่" เพื่อแสดงกล่องตั้งค่าข้อมูลเมื่อเข้าสู่หน้าตั้งเธรด เลือก "ไม่" คือพับไว้ก่อนเมื่อคลิกที่ปุ่มถึงจะแสดง]]></item>
+				<item id="variable"><![CDATA[open]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="appname"><![CDATA[กำหนดข้อมูล SEO]]></item>
+				<item id="action"><![CDATA[กำหนด META]]></item>
+			</item>
+			<item id="templatelang">
+				<item id="appname"><![CDATA[กำหนดข้อมูล META]]></item>
+				<item id="post_title"><![CDATA[Title]]></item>
+				<item id="post_title_info"><![CDATA[กรอกชื่อเพื่อกำหนดชื่อให้หน้านี้]]></item>
+				<item id="post_keywords"><![CDATA[Keywords]]></item>
+				<item id="post_keywords_info"><![CDATA[กรอกคำเพื่อกำหนดคีย์เวิร์ดให้หน้านี้ ใช้เครื่องหมายจุลภาค [,] คั้นระหว่างคำ]]></item>
+				<item id="post_thumbnail"><![CDATA[Thumbnail]]></item>
+				<item id="post_thumbnail_info"><![CDATA[กรอก URL ของไฟล์เพื่อกำหนดภาพปกให้หน้านี้]]></item>
+				<item id="post_description"><![CDATA[Description]]></item>
+				<item id="post_description_info"><![CDATA[กรอกบทคัดย่อ หรือคำอธิบายสั้น ๆ ของให้หน้านี้]]></item>
+			</item>
+		</item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+	</item>
+</root>

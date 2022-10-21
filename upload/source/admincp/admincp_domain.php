@@ -31,7 +31,9 @@ if($operation == 'app') {
 			'mobile' => $lang['mobile'],
 			'default' => $lang['default']
 		);
+		
 		showtips('setting_domain_app_tips');
+		
 
 		showformheader('domain&operation=app');
 		showboxheader();
@@ -94,7 +96,9 @@ if($operation == 'app') {
 		'channel' => $lang['channel'],
 	);
 	if(!submitcheck('submit')) {
+		
 		showtips('setting_domain_root_tips');
+		
 		showformheader('domain&operation=root');
 		showboxheader();
 		showtableheader();
@@ -138,6 +142,7 @@ if($operation == 'app') {
 } else {
 	if(!submitcheck('domainsubmit')) {
 
+		
 		showtips('setting_domain_base_tips');
 		showformheader("domain");
 		showtableheader();
@@ -155,6 +160,7 @@ if($operation == 'app') {
 		showsubmit('domainsubmit');
 		showtablefooter();
 		showformfooter();
+		
 	} else {
 
 		$settings = $_GET['settingnew'];

@@ -1,12 +1,11 @@
 <?php
 
-define('UC_VERNAME', 'ภาษาไทย');
+define('UC_VERNAME', '中文版');
 
 $lang = array(
 
 	'SC_UTF8' => '简体中文 UTF8 版',
 	'TC_UTF8' => '繁体中文 UTF8 版',
-	'TH_UTF8' => 'ภาษาไทย UTF8',
 
 	'title_install' => SOFT_NAME.' 安装向导',
 	'agreement_yes' => '我同意',
@@ -88,7 +87,7 @@ $lang = array(
 	'ucpw' => 'UCenter 创始人密码',
 
 	'tips_siteinfo' => '请填写站点信息',
-	'sitename' => 'ชื่อเว็บไซต์',
+	'sitename' => '站点名称',
 	'siteurl' => '站点 URL',
 
 	'forceinstall' => '强制安装',
@@ -136,7 +135,7 @@ $lang = array(
 	'admin_invalid' => '您的信息管理员信息没有填写完整，请仔细填写每个项目',
 	'admin_exist_password_error' => '该用户已经存在，如果您要设置此用户为论坛的管理员，请正确输入该用户的密码，或者请更换论坛管理员的名字',
 
-	'tagtemplates_subject' => 'หัวข้อ',
+	'tagtemplates_subject' => '标题',
 	'tagtemplates_uid' => '用户 ID',
 	'tagtemplates_username' => '发帖者',
 	'tagtemplates_dateline' => '日期',
@@ -145,12 +144,12 @@ $lang = array(
 	'uc_version_incorrect' => '您的 UCenter 服务端版本过低，请升级 UCenter 服务端到最新版本，并且升级，下载地址：http://www.comsenz.com/ 。',
 	'config_unwriteable' => '安装向导无法写入配置文件, 请设置 config.inc.php 程序属性为可写状态(777)',
 
-	'install_in_processed' => 'กำลังติดตั้ง...',
-	'install_succeed' => 'การติดตั้งศูนย์ผู้ใช้ประสบความสำเร็จ คลิกเพื่อเข้าสู่ขั้นตอนต่อไป',
-	'copyright' => 'ลิขสิทธิ์ &copy; 2001-'.date('Y').' เทนเซ็นต์คลาวด์',
-	'license' => '<div class="license"><h1>ใบอนุญาตและข้อตกลงการใช้งาน</h1>
+	'install_in_processed' => '正在安装...',
+	'install_succeed' => '安装用户中心成功，点击进入下一步',
+	'copyright' => 'Copyright &copy; 2001-'.date('Y').' Tencent Cloud.',
+	'license' => '<div class="license"><h1>中文版授权协议 适用于中文用户</h1>
 
-<p>สงวนลิขสิทธิ์ (c) 2001-'.date('Y').'，บริษัท เทนเซนคลาวด์คอมพิวติ้ง (ปักกิ่ง) จำกัด (เดิมชื่อ บริษัท ปักกิ่ง คังเชิง ซินชวง เทคโนโลยี จำกัด) ผู้เป็นเจ้าของ</p>
+<p>版权所有 (c) 2001-'.date('Y').'，腾讯云计算（北京）有限责任公司(原北京康盛新创科技有限责任公司)保留所有权利。</p>
 
 <p>感谢您选择 UCenter 产品。希望我们的努力能为您提供一个高效快速和强大的站点解决方案。</p>
 
@@ -224,9 +223,9 @@ $lang = array(
 	'dbname' => '数据库名',
 	'tablepre' => '数据表前缀',
 
-	'ucfounderpw' => 'รหัสผ่านผู้ก่อตั้ง',
-	'ucfounderpw2' => 'ทวนรหัสผ่านซ้ำ',
+	'ucfounderpw' => '创始人密码',
+	'ucfounderpw2' => '重复创始人密码',
 
-	'create_table' => 'สร้างตารางข้อมูล',
-	'succeed' => 'สำเร็จ ',
+	'create_table' => '建立数据表',
+	'succeed' => '成功 ',
 );

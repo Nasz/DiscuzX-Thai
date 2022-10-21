@@ -220,6 +220,7 @@ function checkImage(url) {
 }
 
 function showFlash(host, flashvar, obj, shareid) {
+	
 	var re = new RegExp('.[A-Za-z0-9]+$', 'ig');
 	var ext = flashvar.match(re).pop().substr(1);
 	if (obj) {
@@ -667,7 +668,7 @@ function docomment_colse(doid, key) {
 	$(showid).style.display = 'none';
 	$(showid).style.className = '';
 
-	$(opid).innerHTML = 'ตอบ';
+	$(opid).innerHTML = '回复';
 	$(opid).onclick = function() {
 		docomment_get(doid, key);
 	}
@@ -696,7 +697,7 @@ function docomment_form_close(doid, id, key) {
 	if(!liObj.length) {
 		$(key+'_'+doid).style.display = 'none';
 		if($(opid)) {
-			$(opid).innerHTML = 'ตอบ';
+			$(opid).innerHTML = '回复';
 			$(opid).onclick = function () {
 				docomment_get(doid, key);
 			}
@@ -740,7 +741,7 @@ function feedcomment_close(feedid) {
 	$(showid).style.display = 'none';
 	$(showid).style.className = '';
 
-	$(opid).innerHTML = 'ความเห็น';
+	$(opid).innerHTML = '评论';
 	$(opid).onclick = function() {
 		feedcomment_get(feedid);
 	}
@@ -812,7 +813,7 @@ function showbirthday(){
 	var el = $('birthday');
 	var birthday = el.value;
 	el.length=0;
-	el.options.add(new Option('วัน', ''));
+	el.options.add(new Option('日', ''));
 	for(var i=0;i<28;i++){
 		el.options.add(new Option(i+1, i+1));
 	}
@@ -1029,6 +1030,7 @@ function spaceMusicPlayer(url, height) {
 	if (JSLOADED[STATICURL + 'js/player/aplayer.min.js']) {
 		var x = new Ajax('JSON');
 		x.getJSON(url, function(s) {
+			
 			var audio = new Array();
 			s.mp3list.forEach(function (s) {
 				var obj = new Object();
@@ -1038,9 +1040,11 @@ function spaceMusicPlayer(url, height) {
 				obj.cover = s.cdbj;
 				audio.push(obj);
 			});
+			
 			$('music_content').style.height = height + 'px';
 			$('music_content').style.padding = '0px';
 			$('music_content').style.margin = '0px';
+			
 			window['music_content'] = new APlayer({
 				container: $('music_content'),
 				autoplay: s.config.autorun == 'true',

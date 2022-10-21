@@ -42,7 +42,10 @@ if($op == 'basic') {
 	extract($statvars);
 	if($_GET['exportexcel']) {
 		$filename = 'stat_modworks_'.($username ? $username.'_' : '').$starttime.'_'.$endtime.'.csv';
+		
 		$filenameencode = strtolower(CHARSET) == 'utf-8' ? rawurlencode($filename) : rawurlencode(diconv($filename, CHARSET, 'UTF-8'));
+		
+		
 		$rfc6266blacklist = strexists($_SERVER['HTTP_USER_AGENT'], 'UCBrowser') || strexists($_SERVER['HTTP_USER_AGENT'], 'Quark') || strexists($_SERVER['HTTP_USER_AGENT'], 'SogouM') || strexists($_SERVER['HTTP_USER_AGENT'], 'baidu');
 		include template('forum/stat_misc_export');
 		$csvstr = ob_get_contents();
@@ -90,7 +93,7 @@ function getstatvars($type) {
 		case 'modworks':
 		case 'memberlist':
 		case 'forumstat':
-			$statvars = call_user_func('getstatvars_'.$type, ($type == 'forumstat' ? getgpc('fid') : ''));//getstatvars_forumstat($_GET['fid']);
+			$statvars = call_user_func('getstatvars_'.$type, ($type == 'forumstat' ? getgpc('fid') : ''));
 			break;
 	}
 	return $statvars;

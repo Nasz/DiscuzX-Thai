@@ -44,6 +44,7 @@ if($op == 'add') {
 		showmessage('space_does_not_exist');
 	}
 
+	
 	$fields = C::t('common_member_field_home')->fetch($uid);
 	if(!$fields['allowasfriend']) {
 		showmessage('is_blacklist');
@@ -364,7 +365,7 @@ if($op == 'add') {
 					$ols[$value['uid']] = 1;
 				}
 			}
-		}
+		}		
 	} else {
 
 		dsetcookie('promptstate_'.$space['uid'], $space['newprompt'], 31536000);

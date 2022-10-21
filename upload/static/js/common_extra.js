@@ -226,7 +226,7 @@ function _showselect(obj, inpid, t, rettype) {
 		$('append_parent').appendChild(div);
 		s = '';
 		if(!t) {
-			s += showselect_row(inpid, 'เมื่อวาน', 1, 0, rettype);
+			s += showselect_row(inpid, '一天', 1, 0, rettype);
 			s += showselect_row(inpid, '一周', 7, 0, rettype);
 			s += showselect_row(inpid, '一个月', 30, 0, rettype);
 			s += showselect_row(inpid, '三个月', 90, 0, rettype);
@@ -498,9 +498,9 @@ function _zoom(obj, zimg, nocover, pn, showexif) {
 			}
 			if(authorcurrent !== '') {
 				paid = authorcurrent > 0 ? authorimgs[authorcurrent - 1] : authorimgs[authorlength - 1];
-				picpage += ' <div id="zimg_prev" onmouseover="dragMenuDisabled=true;" onmouseout="dragMenuDisabled=false;" onclick="_zoom_page(\'' + paid + '\', ' + (showexif ? 1 : 0) + ')" class="zimg_prev"><strong>? 上一张</strong></div> ';
+				picpage += ' <div id="zimg_prev" onmouseover="dragMenuDisabled=true;" onmouseout="dragMenuDisabled=false;" onclick="_zoom_page(\'' + paid + '\', ' + (showexif ? 1 : 0) + ')" class="zimg_prev"><strong>‹ 上一张</strong></div> ';
 				paid = authorcurrent < authorlength - 1 ? authorimgs[authorcurrent + 1] : authorimgs[0];
-				picpage += ' <div id="zimg_next" onmouseover="dragMenuDisabled=true;" onmouseout="dragMenuDisabled=false;" onclick="_zoom_page(\'' + paid + '\', ' + (showexif ? 1 : 0) + ')" class="zimg_next"><strong>下一张 ?</strong></div> ';
+				picpage += ' <div id="zimg_next" onmouseover="dragMenuDisabled=true;" onmouseout="dragMenuDisabled=false;" onclick="_zoom_page(\'' + paid + '\', ' + (showexif ? 1 : 0) + ')" class="zimg_next"><strong>下一张 ›</strong></div> ';
 			}
 			if(picpage) {
 				$(menuid + '_picpage').innerHTML = picpage;

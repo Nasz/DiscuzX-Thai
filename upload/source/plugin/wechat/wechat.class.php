@@ -304,6 +304,7 @@ class WeChat {
 		$groupid = !$groupid ? ($_G['wechat']['setting']['wechat_newusergroupid'] ? $_G['wechat']['setting']['wechat_newusergroupid'] : $_G['setting']['newusergroupid']) : $groupid;
 
 		$password = md5(random(10));
+		
 		$email = 'wechat_'.strtolower(random(10)).'@m.invalid';
 
 		$usernamelen = dstrlen($username);

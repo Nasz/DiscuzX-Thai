@@ -272,6 +272,7 @@ if(submitcheck('profilesubmit')) {
 		$setarr['zodiac'] = get_zodiac($_POST['birthyear']);
 	}
 	if($setarr) {
+		
 		if($_G['setting']['profilehistory']) {
 			C::t('common_member_profile_history')->insert(array_merge(C::t('common_member_profile')->fetch($_G['uid']), array('dateline' => time())));
 		}
@@ -415,10 +416,14 @@ if(submitcheck('profilesubmit')) {
 			dsetcookie('newemail', "{$space['uid']}\t$emailnew\t{$_G['timestamp']}", 31536000);
 		}
 	}
+	
 	if($_G['setting']['smsstatus'] && (strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) && empty($secmobseccode)) {
 		$length = $_G['setting']['smsdefaultlength'] ? $_G['setting']['smsdefaultlength'] : 4;
+		
+		
 		sms::send($_G['uid'], 0, 1, $secmobiccnew, $secmobilenew, random($length, 1), 0);
 	}
+	
 	$setarr['secmobicc'] = $secmobiccnew;
 	$setarr['secmobile'] = $secmobilenew;
 	$setarr['secmobilestatus'] = sms::verify($_G['uid'], 1, $secmobiccnew, $secmobilenew, $secmobseccode);

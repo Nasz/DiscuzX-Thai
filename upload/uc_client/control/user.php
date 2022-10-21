@@ -131,6 +131,8 @@ class usercontrol extends base {
 		$ip = $this->input('ip');
 		$nolog = $this->input('nolog');
 
+		
+		
 		$check_times = $this->settings['login_failedtime'] > 0 ? $this->settings['login_failedtime'] : ($this->settings['login_failedtime'] < 0 ? 0 : 5);
 
 		if($ip && $check_times && !$loginperm = $_ENV['user']->can_do_login($username, $ip)) {
@@ -143,6 +145,7 @@ class usercontrol extends base {
 		} elseif($isuid == 2) {
 			$user = $_ENV['user']->get_user_by_email($username);
 		} elseif($isuid == 4) {
+			
 			list($secmobicc, $secmobile) = explode('-', $username);
 			$user = $_ENV['user']->get_user_by_secmobile($secmobicc, $secmobile);
 		} else {
@@ -156,6 +159,7 @@ class usercontrol extends base {
 		} elseif($checkques && $user['secques'] != $_ENV['user']->quescrypt($questionid, $answer)) {
 			$status = -3;
 		} else {
+			
 			$_ENV['user']->upgrade_password($username, $password, $user['password'], $user['salt']);
 			$status = $user['uid'];
 		}

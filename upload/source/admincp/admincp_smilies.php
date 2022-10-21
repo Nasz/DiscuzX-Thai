@@ -40,7 +40,9 @@ if(!$operation) {
 			array('smilies_type', 'smilies', 1),
 			array('smilies_import', 'smilies&operation=import', 0),
 		));
+		
 		showtips('smilies_tips_smileytypes');
+		
 		showformheader('smilies');
 		showboxheader();
 		showtableheader();
@@ -389,7 +391,9 @@ EOT;
 			array('smilies_type', 'smilies', 0),
 			array('smilies_import', 'smilies&operation=import', 1),
 		));
+		
 		showtips('smilies_tips');
+		
 		showformheader('smilies&operation=import', 'enctype');
 		showtableheader('smilies_import');
 		showimportdata();

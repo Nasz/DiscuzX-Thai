@@ -11,9 +11,9 @@ if(is_dir($datadir)) {
 	show_table_row(array(
 			'原始版本',
 			'目标版本',
-			array('width="50%"', 'อธิบายสั้น'),
+			array('width="50%"', '简介'),
 			array('width="5%"', '说明'),
-			array('width="5%"', 'ตั้งค่า'),
+			array('width="5%"', '设置'),
 			array('width="5%"', ''),
 		), 'header title');
 	while(($entry = $cdir->read()) !== false) {
@@ -21,7 +21,7 @@ if(is_dir($datadir)) {
 			$settingfile = $datadir.$entry.'/setting.ini';
 			$readmefile = $datadir.$entry.'/readme.txt';
 
-			$readme = file_exists($readmefile) ? '<a target="_blank" href="source/'.$entry.'/readme.txt">ตรวจสอบ</a>' : '';
+			$readme = file_exists($readmefile) ? '<a target="_blank" href="source/'.$entry.'/readme.txt">查看</a>' : '';
 
 			if(file_exists($settingfile) && $setting = loadsetting($entry)) {
 				$trclass = $trclass == 'bg1' ? 'bg2' : 'bg1';
@@ -31,8 +31,8 @@ if(is_dir($datadir)) {
 						$setting['program']['target'],
 						$setting['program']['introduction'],
 						array('align="center"', $readme),
-						array('align="center"', '<a href="index.php?a=setting&source='.rawurlencode($entry).'">ปรับค่า</a>'),
-						array('align="center"', '<a href="index.php?a=config&source='.rawurlencode($entry).'">เริ่มต้น</a>'),
+						array('align="center"', '<a href="index.php?a=setting&source='.rawurlencode($entry).'">修改</a>'),
+						array('align="center"', '<a href="index.php?a=config&source='.rawurlencode($entry).'">开始</a>'),
 					), $trclass
 				);
 			}

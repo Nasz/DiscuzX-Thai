@@ -82,6 +82,7 @@ if($('$showid')) {
 EOF;
 
 } elseif(getgpc('action') == 'update' && defined("IN_MOBILE") && constant("IN_MOBILE") == 2) {
+	
 	$message = '';
 	$showid = 'seccode_'.$idhash;
 	$rand = random(5, 1);
@@ -150,6 +151,10 @@ EOF;
 	$refererhost['host'] = (isset($refererhost['host']) ? $refererhost['host'] : '').(!empty($refererhost['port']) ? (':'.$refererhost['port']) : '');
 
 	if(($_G['setting']['seccodedata']['type'] < 2 && ($refererhost['host'] != $_SERVER['HTTP_HOST'])) || ((defined("IN_MOBILE") && in_array($_G['setting']['seccodedata']['type'], array(2, 3)) && ($refererhost['host'] != $_SERVER['HTTP_HOST'])) && ($_G['setting']['seccodedata']['type'] == 2 && !extension_loaded('ming') && $_POST['fromFlash'] != 1 || $_G['setting']['seccodedata']['type'] == 3 && $_GET['fromFlash'] != 1))) {
+		
+		
+		
+		
 		exit('Access Denied');
 	}
 

@@ -28,9 +28,9 @@ function attachimgshow(pid, onlyinpost) {
 			continue;
 		}
 		if(onlyinpost && !obj.getAttribute('inpost')) {
-			aimgcomplete++;
+			aimgcomplete++; 
 			continue;
-		}
+		}        
 		if(onlyinpost && obj.getAttribute('inpost') || !onlyinpost) {
 			if(!obj.status) {
 				obj.status = 1;
@@ -378,11 +378,11 @@ function toggleRatelogCollapse(tarId, ctrlObj) {
 	if($(tarId).className == 'rate') {
 		$(tarId).className = 'rate rate_collapse';
 		setcookie('ratecollapse', 1, 2592000);
-		ctrlObj.innerHTML = 'เปิด';
+		ctrlObj.innerHTML = '展开';
 	} else {
 		$(tarId).className = 'rate';
 		setcookie('ratecollapse', 0, -2592000);
-		ctrlObj.innerHTML = 'ปิด';
+		ctrlObj.innerHTML = '收起';
 	}
 }
 
@@ -745,7 +745,7 @@ function succeedhandle_vfastpost(url, message, param) {
 }
 
 function vmessage() {
-	var vf_tips = '#ตอบกลับด่วนที่นี่#';
+	var vf_tips = '#在这里快速回复#';
 	$('vmessage').value = vf_tips;
 	$('vmessage').style.color = '#CDCDCD';
 	$('vmessage').onclick = function() {

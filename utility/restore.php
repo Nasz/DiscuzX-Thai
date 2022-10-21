@@ -104,7 +104,7 @@ if($operation == 'import') {
 
 			foreach($sqlquery as $sql) {
 
-				$sql = syntablestruct(trim($sql), $db->version() > '4.1', DBCHARSET);
+				$sql = syntablestruct(trim($sql), true, DBCHARSET);
 
 				if($sql != '') {
 					$db->query($sql, 'SILENT');
@@ -506,7 +506,7 @@ function show_footer($quit = true) {
 
 	echo <<< EOT
 	</div>
-	<div id="footer">สงวนลิขสิทธิ์ &copy; 2001-$now เทนเซ็นคลาวด์</div>
+	<div id="footer">Copyright &copy; 2001-$now Tencent Cloud.</div>
 </div>
 </body>
 </html>
@@ -530,7 +530,7 @@ function show_msg($message, $url_forward = '', $type = 'message', $success = 0) 
 		echo "<script>setTimeout(\"redirect('$url_forward');\", 1250);</script>";
 	} elseif($type == 'confirm') {
 		echo "$message";
-		echo "<br /><br /><br /><button id=\"confirmbtn\" onclick=\"redirect('$url_forward')\">确定</button>&nbsp;<button id=\"cancelbtn\" onclick=\"redirect('{$siteurl}restore.php')\">ยกเลิก</button>";
+		echo "<br /><br /><br /><button id=\"confirmbtn\" onclick=\"redirect('$url_forward')\">确定</button>&nbsp;<button id=\"cancelbtn\" onclick=\"redirect('{$siteurl}restore.php')\">取消</button>";
 	}
 
 	show_footer();
@@ -592,25 +592,25 @@ function lang($lang_key, $force = true, $replace = array()) {
 		'db_volume' => '卷数',
 		'import' => '导入',
 		'different_dbcharset_tablepre' => '检测到导入的备份数据与配置文件的{diff} 不同，您还要继续运行此程序吗？',
-		'db_import_tips' => '本功能在恢复备份数据的同时，将全部覆盖原有数据，请确定恢复前已将论坛关闭，恢复全部完成后可以将论坛重新开放。<br />您可以通过数据备份管理功能查看站点的备份文件的详细信息，删除过期的备份,并导入需要的备份。<br /><span class="red">出于安全考虑，我们强烈建议您恢复数据库备份文件后删除数据库数据库备份文件或设置数据库备份文件不可通过 URL 访问，以保证网站安全。</span><br /><span class="red">恢复数据的整个过程会在一个新页面完成，您成功恢复数据后请务必及时删除restore.php文件。</span><br />',
+		'db_import_tips' => '本功能在恢复备份数据的同时，将全部覆盖原有数据，请确定恢复前已将站点关闭，恢复全部完成后可以将站点重新开放。<br />您可以通过数据备份管理功能查看站点的备份文件的详细信息，删除过期的备份,并导入需要的备份。<br /><span class="red">出于安全考虑，我们强烈建议您恢复数据库备份文件后删除文件或设置文件不可通过 URL 访问。</span><br /><span class="red">恢复数据的整个过程会在一个新页面完成，您成功恢复数据后请务必及时删除restore.php文件。</span><br />',
 		'db_export_discuz' => 'Discuz! 数据(不含UCenter)',
 		'db_export_discuz_uc' => 'Discuz! 和 UCenter 数据',
 		'db_multivol' => '多卷',
 		'db_import_unzip' => '解压缩',
-		'db_export_custom' => '自定义备份',
+		'db_export_custom' => '自定义备份',                
 		'db_export_zip' => '压缩备份',
 		'db_zip' => 'ZIP',
 		'db_shell' => 'Shell',
-		'unknown' => 'ไม่รู้จัก',
+		'unknown' => '未知',
 		'backup_file_unexist' => '备份文件不存在',
 		'connect_error' => '连接数据库失败，请您查看数据库配置文件config/config_global.php和config/config_ucenter.php是否存在以及配置是否正确',
 		'dbcharsetdiff' => ' 数据库字符集('.$_config['db']['1']['dbcharset'].')',
 		'tableprediff' => ' 表前缀('.$_config['db']['1']['tablepre'].')',
-		'database_import_multivol_succeed' => '分卷数据成功导入站点数据库<br />请在后台更新缓存<br /><span class="red">出于安全考虑，我们强烈建议您恢复数据库备份文件后删除数据库数据库备份文件或设置数据库备份文件不可通过 URL 访问，以保证网站安全。</span><br /><span class="red">请尽快删除restore.php文件，以免对数据造成影响</span>',
+		'database_import_multivol_succeed' => '分卷数据成功导入站点数据库<br />请在后台更新缓存<br /><span class="red">出于安全考虑，我们强烈建议您恢复数据库备份文件后删除文件或设置文件不可通过 URL 访问。</span><br /><span class="red">请尽快删除restore.php文件，以免对数据造成影响</span>',
 		'database_import_file_illegal' => '数据文件不存在：可能服务器不允许上传文件或文件大小超过限制',
 		'database_import_file_write_error' => '数据文件解压写入失败，请检查服务器是否有可写入权限',
 		'database_import_multivol_prompt' => '分卷数据第一卷成功导入数据库，您需要自动导入本次备份的其他分卷吗？',
-		'database_import_succeed' => '数据已成功导入站点数据库<br />请在后台更新缓存<br /><span class="red">出于安全考虑，我们强烈建议您恢复数据库备份文件后删除数据库数据库备份文件或设置数据库备份文件不可通过 URL 访问，以保证网站安全。</span><br /><span class="red">请尽快删除restore.php文件，以免对数据造成影响</span>',
+		'database_import_succeed' => '数据已成功导入站点数据库<br />请在后台更新缓存<br /><span class="red">出于安全考虑，我们强烈建议您恢复数据库备份文件后删除文件或设置文件不可通过 URL 访问。</span><br /><span class="red">请尽快删除restore.php文件，以免对数据造成影响</span>',
 		'database_import_format_illegal' => '数据文件非 Discuz! 格式，无法导入',
 		'database_import_unzip' => '{info}<br />备份文件解压缩完毕，您需要自动导入备份吗？导入后解压缩的文件将会被删除',
 		'database_import_multivol_unzip' => '{info}<br />备份文件解压缩完毕，您需要自动解压缩其他的分卷文件吗？',
@@ -675,18 +675,25 @@ function syntablestruct($sql, $version, $dbcharset) {
 }
 
 function is_https() {
+	
 	if(isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') {
 		return true;
 	}
+	
 	if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') {
 		return true;
 	}
+	
+	
 	if(isset($_SERVER['HTTP_X_CLIENT_SCHEME']) && strtolower($_SERVER['HTTP_X_CLIENT_SCHEME']) == 'https') {
 		return true;
 	}
+	
+	
 	if(isset($_SERVER['HTTP_FROM_HTTPS']) && strtolower($_SERVER['HTTP_FROM_HTTPS']) != 'off') {
 		return true;
 	}
+	
 	if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
 		return true;
 	}

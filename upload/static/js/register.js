@@ -83,7 +83,7 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 	};
 	firstObj.onkeyup = function () {
 		if(pwlength == 0 || $(firstObj.id).value.length >= pwlength) {
-			var passlevels = new Array('','弱','กลาง','强');
+			var passlevels = new Array('','弱','中','强');
 			var passlevel = checkstrongpw(firstObj.id);
 			errormessage(firstObj.id, '<span class="passlevel passlevel'+passlevel+'">密码强度:'+passlevels[passlevel]+'</span>');
 		}
@@ -144,7 +144,7 @@ function showbirthday(){
 	var el = $('birthday');
 	var birthday = el.value;
 	el.length=0;
-	el.options.add(new Option('วัน', ''));
+	el.options.add(new Option('日', ''));
 	for(var i=0;i<28;i++){
 		el.options.add(new Option(i+1, i+1));
 	}
@@ -304,22 +304,22 @@ function checkpassword(id1, id2) {
 		for(var i in strongpw) {
 			if(strongpw[i] === 1 && !$(id1).value.match(/\d+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = 'ตัวเลข';
+				strongpw_str[j] = '数字';
 				j++;
 			}
 			if(strongpw[i] === 2 && !$(id1).value.match(/[a-z]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = 'ตัวอักษรตัวพิมพ์เล็ก';
+				strongpw_str[j] = '小写字母';
 				j++;
 			}
 			if(strongpw[i] === 3 && !$(id1).value.match(/[A-Z]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = 'อักษรตัวพิมพ์ใหญ่';
+				strongpw_str[j] = '大写字母';
 				j++;
 			}
 			if(strongpw[i] === 4 && !$(id1).value.match(/[^A-Za-z0-9]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = 'เครื่องหมาย';
+				strongpw_str[j] = '特殊符号';
 				j++;
 			}
 		}

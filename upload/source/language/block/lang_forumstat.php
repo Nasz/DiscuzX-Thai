@@ -13,37 +13,37 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'forumstat_name' => 'สถิติฟอรัม',
-	'forumstat_desc' => 'การโทรข้อมูลทางสถิติฟอรัม',
-	'forumstat_forums_allow' => 'สถิติหมายเลขส่วนแสดง',
-	'forumstat_forums_order' => 'สถิติสารแสดงผล',
-	'forumstat_forums_text' => 'ข้อความเตือนความจำทางสถิติสีชมพู',
-	'forumstat_forums_default' => 'จำนวนส่วน:',
+	'forumstat_name' => '论坛统计',
+	'forumstat_desc' => '论坛统计数据调用',
+	'forumstat_forums_allow' => '显示版块数统计',
+	'forumstat_forums_order' => '版块数统计显示顺序',
+	'forumstat_forums_text' => '版块数统计提示文字',
+	'forumstat_forums_default' => '版块数:',
 
-	'forumstat_threads_allow' => 'แสดงสถิติหัวข้อ',
-	'forumstat_threads_order' => 'หมายเลขหัวข้อสถิติการแสดงผล',
-	'forumstat_threads_text' => 'หมายเลขหัวข้อข้อความแจ้งเตือนทางสถิติ',
-	'forumstat_threads_default' => 'หมายเลขกระทู้:',
+	'forumstat_threads_allow' => '显示主题数统计',
+	'forumstat_threads_order' => '主题数统计显示顺序',
+	'forumstat_threads_text' => '主题数统计提示文字',
+	'forumstat_threads_default' => '主题数:',
 
-	'forumstat_posts_allow' => 'แสดงสถิติหมายเลขโพสต์',
-	'forumstat_posts_order' => 'คำสั่งแสดงสถิติโพสต์',
-	'forumstat_posts_text' => 'ข้อความแจ้งเตือนทางสถิติหมายเลข',
-	'forumstat_posts_default' => 'จำนวนโพสต์:',
+	'forumstat_posts_allow' => '显示帖子数统计',
+	'forumstat_posts_order' => '帖子数统计显示顺序',
+	'forumstat_posts_text' => '帖子数统计提示文字',
+	'forumstat_posts_default' => '帖子数:',
 
-	'forumstat_members_allow' => 'แสดงสถิติหมายเลขผู้ใช้',
-	'forumstat_members_order' => 'ลำดับสถิติผู้ใช้แสดงลำดับ',
-	'forumstat_members_text' => 'หมายเลขผู้ใช้ข้อความแจ้งเตือนทางสถิติ',
-	'forumstat_members_default' => 'หมายเลขผู้ใช้:',
+	'forumstat_members_allow' => '显示用户数统计',
+	'forumstat_members_order' => '用户数统计显示顺序',
+	'forumstat_members_text' => '用户数统计提示文字',
+	'forumstat_members_default' => '用户数:',
 
-	'forumstat_online_allow' => 'แสดงสถิติหมายเลขออนไลน์',
-	'forumstat_online_order' => 'ลำดับการแสดงผลทางสถิติออนไลน์',
-	'forumstat_online_text' => 'ข้อความเตือนความจำทางสถิติออนไลน์',
-	'forumstat_online_default' => 'ผู้ใช้ออนไลน์:',
+	'forumstat_online_allow' => '显示在线人数统计',
+	'forumstat_online_order' => '在线人数统计显示顺序',
+	'forumstat_online_text' => '在线人数统计提示文字',
+	'forumstat_online_default' => '在线人数:',
 
-	'forumstat_onlinemember_allow' => 'แสดงสถิติการเป็นสมาชิกออนไลน์',
-	'forumstat_onlinemember_order' => 'สถิติการเป็นสมาชิกออนไลน์แสดงคำสั่งซื้อ',
-	'forumstat_onlinemember_text' => 'ข้อความเตือนความจำทางสถิติการเป็นสมาชิกออนไลน์',
-	'forumstat_onlinemember_default' => 'สมาชิกออนไลน์:',
+	'forumstat_onlinemember_allow' => '显示在线会员统计',
+	'forumstat_onlinemember_order' => '在线会员统计显示顺序',
+	'forumstat_onlinemember_text' => '在线会员统计提示文字',
+	'forumstat_onlinemember_default' => '在线会员:',
 );
 
 ?>

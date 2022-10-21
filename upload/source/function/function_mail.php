@@ -14,6 +14,7 @@ if(!defined('IN_DISCUZ')) {
 set_time_limit(0);
 function sendmail($toemail, $subject, $message = '', $from = '') {
 	global $_G;
+	
 	if(preg_match("/@m\.invalid$/i", $toemail)){
 		return false;
 	}
@@ -97,6 +98,7 @@ function sendmail($toemail, $subject, $message = '', $from = '') {
 			return false;
 		}
 		stream_set_blocking($fp, true);
+		
 		stream_set_timeout($fp, $_G['setting']['mail']['timeout']);
 
 		$lastmessage = fgets($fp, 512);
@@ -230,6 +232,7 @@ function sendmail($toemail, $subject, $message = '', $from = '') {
 
 function sendmail_cron($toemail, $subject, $message) {
 	global $_G;
+	
 	if(preg_match("/@m\.invalid$/i", $toemail)){
 		return false;
 	}

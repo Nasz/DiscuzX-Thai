@@ -91,8 +91,8 @@ echo '</div>';
 $now = date('Y');
 echo <<<EOT
 <div class="copyright">
-<p>ขับเคลื่อนโดย <a href="http://www.discuz.net/" target="_blank" class="lightlink2">Discuz!</a> {$_G['setting']['version']}</p>
-<p>ลิขสิทธิ์ &copy; 2001-$now เทนเซ็นต์คลาวด์</p>
+<p>Powered by <a href="http://www.discuz.net/" target="_blank" class="lightlink2">Discuz!</a> {$_G['setting']['version']}</p>
+<p>Copyright &copy; 2001-$now Tencent Cloud.</p>
 </div>
 EOT;
 
@@ -544,7 +544,7 @@ function show_forever_thanks() {
 	<a href="http://www.discuz.net/home.php?mod=space&uid=7155" class="lightlink2 smallfont" target="_blank">Gregry</a>'
 	));
 	showboxrow('', array('class="dcol d-1 lineheight"', 'class="dcol lineheight team tm"'), array(cplang('home_dev_links'), '<a href="https://gitee.com/Discuz/DiscuzX" class="lightlink2" target="_blank">Discuz! X Git</a>,&nbsp;
-	<a href="https://www.dismall.com/" class="lightlink2" target="_blank">'.cplang('app_discussion').'</a>,&nbsp;
+	<a href="https://www.dismall.com/" class="lightlink2" target="_blank">'.cplang('app_discussion').'</a>,&nbsp; 
 	<a href="https://www.discuz.net/" class="lightlink2" target="_blank">'.cplang('discussion_area').'</a>, &nbsp;
 	<a href="'.ADMINSCRIPT.'?action=cloudaddons" class="lightlink2" target="_blank">'.cplang('app_center').'</a>'));
 	showboxfooter();

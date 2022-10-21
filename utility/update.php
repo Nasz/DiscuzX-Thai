@@ -656,7 +656,7 @@ if($_GET['step'] == 'start') {
 		DB::query("REPLACE INTO ".DB::table('common_setting')." VALUES ('regname', 'register')");
 		$newsettings['regname'] = 'register';
 		if(empty($settings['reglinkname'])) {
-			$newsettings['reglinkname'] = 'ลงทะเบียน';
+			$newsettings['reglinkname'] = '注册';
 		}
 
 		if(empty($settings['domain'])) {
@@ -736,14 +736,14 @@ if($_GET['step'] == 'start') {
 			$newsettings['targetblank'] = $targetblanknew;
 		}
 		if(!isset($settings['article_tags'])) {
-			$article_tagsnew = array(1 => '原创', 2 => 'โดดเด่น', 3 => '组图', 4 => '爆料', 5 => '头条', 6 => '幻灯', 7 => '滚动', 8 => 'แนะนำ');
+			$article_tagsnew = array(1 => '原创', 2 => '热点', 3 => '组图', 4 => '爆料', 5 => '头条', 6 => '幻灯', 7 => '滚动', 8 => '推荐');
 			$newsettings['article_tags'] = $article_tagsnew;
 		}
 		if(empty($settings['anonymoustext'])) {
 			$newsettings['anonymoustext'] = '匿名';
 		}
 		if(!$word_type_count = DB::result_first("SELECT count(*) FROM ".DB::table('common_word_type')."")) {
-			DB::query("INSERT INTO ".DB::table('common_word_type')." VALUES('1', '政治'),('2', 'โฆษณา')");
+			DB::query("INSERT INTO ".DB::table('common_word_type')." VALUES('1', '政治'),('2', '广告')");
 		}
 		if(!isset($settings['userreasons'])) {
 			$newsettings['userreasons'] = '很给力!\r\n神马都是浮云\r\n赞一个!\r\n山寨\r\n淡定';
@@ -1770,7 +1770,7 @@ if($_GET['step'] == 'start') {
 		show_msg("数据升级结束", "$theurl?step=data&op=$nextop");
 	} else {
 
-		$deletevar = array('app', 'home');//config中需要删除的项目
+		$deletevar = array('app', 'home');
 		$default_config = $_config = array();
 		$default_configfile = DISCUZ_ROOT.'./config/config_global_default.php';
 		if(!file_exists($default_configfile)) {
@@ -2059,7 +2059,7 @@ function show_footer() {
 
 	print<<<END
 	</div>
-	<div id="footer">สงวนลิขสิทธิ์ &copy; 2001-$now เทนเซ็นคลาวด์</div>
+	<div id="footer">Copyright &copy; 2001-$now Tencent Cloud.</div>
 	</div>
 	<br>
 	</body>
@@ -2165,8 +2165,8 @@ function save_config_file($filename, $config, $default, $deletevar) {
 EOT;
 	$content .= getvars(array('_config' => $config));
 	$content .= "\r\n// ".str_pad('  THE END  ', 50, '-', STR_PAD_BOTH)." //\r\n\r\n?>";
-	if(!is_writable($filename) || !($len = file_put_contents($filename, $content, LOCK_EX))) {
-		file_put_contents(DISCUZ_ROOT.'./data/config_global.php', $content, LOCK_EX);
+	if(!is_writable($filename) || !($len = file_put_contents($filename, $content))) {
+		file_put_contents(DISCUZ_ROOT.'./data/config_global.php', $content);
 		return 0;
 	}
 	return 1;

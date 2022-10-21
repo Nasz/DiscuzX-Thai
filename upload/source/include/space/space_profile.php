@@ -110,6 +110,7 @@ if($_G['setting']['verify']['enabled']) {
 	space_merge($space, 'verify');
 }
 foreach($_G['cache']['profilesetting'] as $fieldid => $field) {
+	
 	if($_G['setting']['nsprofiles']) {
 		break;
 	}
@@ -191,7 +192,7 @@ if(!getglobal('privacy')) {
 		$_GET['do'] = 'card';
 		if(helper_access::check_module('follow')) {
 			$follow = C::t('home_follow')->fetch_by_uid_followuid($_G['uid'], $space['uid']);
-		}
+		}        
 		include_once template("home/space_card");
 	}
 }

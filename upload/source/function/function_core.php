@@ -144,26 +144,34 @@ function daddslashes($string, $force = 1) {
 }
 
 function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
+	
 	$ckey_length = 4;
 	$key = md5($key != '' ? $key : getglobal('authkey'));
+	
 	$keya = md5(substr($key, 0, 16));
 	$keyb = md5(substr($key, 16, 16));
 	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
 
+	
 	$cryptkey = $keya.md5($keya.$keyc);
 	$key_length = strlen($cryptkey);
 
+	
+	
 	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
 	$string_length = strlen($string);
 
 	$result = '';
 	$box = range(0, 255);
 
+	
 	$rndkey = array();
 	for($i = 0; $i <= 255; $i++) {
 		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 	}
 
+	
+	
 	for($j = $i = 0; $i < 256; $i++) {
 		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 		$tmp = $box[$i];
@@ -171,6 +179,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 		$box[$j] = $tmp;
 	}
 
+	
 	for($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 256;
 		$j = ($j + $box[$a]) % 256;
@@ -181,12 +190,16 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 	}
 
 	if($operation == 'DECODE') {
+		
+		
+		
 		if(((int)substr($result, 0, 10) == 0 || (int)substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) === substr(md5(substr($result, 26).$keyb), 0, 16)) {
 			return substr($result, 26);
 		} else {
 			return '';
 		}
 	} else {
+		
 		return $keyc.str_replace('=', '', base64_encode($result));
 	}
 
@@ -346,7 +359,7 @@ function checkmobile() {
 	}
 	if(($v = dstrpos($useragent, $wmlbrowser_list))) {
 		$_G['mobile'] = $v;
-		return '3'; //wml版
+		return '3'; 
 	}
 	$brower = array('mozilla', 'chrome', 'safari', 'opera', 'm3gate', 'winwap', 'openwave');
 	if(dstrpos($useragent, $brower)) return false;
@@ -395,6 +408,7 @@ function random($length, $numeric = 0) {
 }
 
 function secrandom($length, $numeric = 0, $strong = false) {
+	
 	$chars = $numeric ? array('A','B','+','/','=') : array('+','/','=');
 	$num_find = str_split('CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 	$num_repl = str_split('01234567890123456789012345678901234567890123456789');
@@ -405,6 +419,7 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			return random_bytes($length);
 		};
 	} elseif(extension_loaded('mcrypt') && function_exists('mcrypt_create_iv')) {
+		
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
@@ -415,6 +430,9 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			}
 		};
 	} elseif(extension_loaded('openssl') && function_exists('openssl_random_pseudo_bytes')) {
+		
+		
+		
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = openssl_random_pseudo_bytes($length, $secure);
@@ -431,7 +449,7 @@ function secrandom($length, $numeric = 0, $strong = false) {
 	$retry_times = 0;
 	$return = '';
 	while($retry_times < 128) {
-		$getlen = $length - strlen($return); // 33% extra bytes
+		$getlen = $length - strlen($return); 
 		$bytes = $random_bytes(max($getlen, 12));
 		if($bytes === false) {
 			return false;
@@ -617,7 +635,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 			$indiy = false;
 			$_G['style']['tpldirectory'] = $tpldir ? $tpldir : (defined('TPLDIR') ? TPLDIR : '');
 			$_G['style']['prefile'] = '';
-			$diypath = DISCUZ_ROOT.'./data/diy/'.$_G['style']['tpldirectory'].'/'; //DIY模板文件目录
+			$diypath = DISCUZ_ROOT.'./data/diy/'.$_G['style']['tpldirectory'].'/'; 
 			$preend = '_diy_preview';
 			$_GET['preview'] = !empty($_GET['preview']) ? $_GET['preview'] : '';
 			$curtplname = $oldfile;
@@ -635,7 +653,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 				$tpldir = 'data/diy/'.$_G['style']['tpldirectory'].'/';
 				!$gettplfile && $_G['style']['tplsavemod'] = $tplsavemod;
 				$curtplname = $file;
-				if(isset($_GET['diy']) && $_GET['diy'] == 'yes' || isset($_GET['diy']) && $_GET['preview'] == 'yes') { //DIY模式或预览模式下做以下判断
+				if(isset($_GET['diy']) && $_GET['diy'] == 'yes' || isset($_GET['diy']) && $_GET['preview'] == 'yes') { 
 					$flag = file_exists($diypath.$file.$preend.'.htm');
 					if($_GET['preview'] == 'yes') {
 						$file .= $flag ? $preend : '';
@@ -1142,6 +1160,7 @@ function output() {
 			$temp_md5 = md5(substr($_G['timestamp'], 0, -3).substr($_G['config']['security']['authkey'], 3, -3));
 			$temp_formhash = substr($temp_md5, 8, 8);
 			$content = preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)('.constant("FORMHASH").')/ismU', '${1}'.$temp_formhash, $content);
+			
 			$temp_siteurl = 'siteurl_'.substr($temp_md5, 16, 8);
 			$content = preg_replace('/("|\')('.preg_quote($_G['siteurl'], '/').')/ismU', '${1}'.$temp_siteurl, $content);
 			$content = empty($content) ? ob_get_contents() : $content;
@@ -1788,14 +1807,15 @@ function getposttable($tableid = 0, $prefix = false) {
 	return table_forum_post::getposttable($tableid, $prefix);
 }
 
+
 function memory($cmd, $key='', $value='', $ttl = 0, $prefix = '') {
 	static $supported_command = array(
 		'set', 'add', 'get', 'rm', 'inc', 'dec', 'exists',
-		'incex', /* 存在时才inc */
+		'incex', 
 		'sadd', 'srem', 'scard', 'smembers', 'sismember',
 		'hmset', 'hgetall', 'hexists', 'hget',
-		'eval',
-		'zadd', 'zcard', 'zrem', 'zscore', 'zrevrange', 'zincrby', 'zrevrangewithscore' /* 带score返回 */,
+		'eval', 
+		'zadd', 'zcard', 'zrem', 'zscore', 'zrevrange', 'zincrby', 'zrevrangewithscore' ,
 		'pipeline', 'commit', 'discard'
 	);
 
@@ -1820,29 +1840,29 @@ function memory($cmd, $key='', $value='', $ttl = 0, $prefix = '') {
 		switch ($cmd) {
 			case 'set': return C::memory()->set($key, $value, $ttl, $prefix); break;
 			case 'add': return C::memory()->add($key, $value, $ttl, $prefix); break;
-			case 'get': return C::memory()->get($key, $value/*prefix*/); break;
-			case 'rm': return C::memory()->rm($key, $value/*prefix*/); break;
-			case 'exists': return C::memory()->exists($key, $value/*prefix*/); break;
+			case 'get': return C::memory()->get($key, $value); break;
+			case 'rm': return C::memory()->rm($key, $value); break;
+			case 'exists': return C::memory()->exists($key, $value); break;
 			case 'inc': return C::memory()->inc($key, $value ? $value : 1, $prefix); break;
 			case 'incex': return C::memory()->incex($key, $value ? $value : 1, $prefix); break;
 			case 'dec': return C::memory()->dec($key, $value ? $value : 1, $prefix); break;
 			case 'sadd': return C::memory()->sadd($key, $value, $prefix); break;
 			case 'srem': return C::memory()->srem($key, $value, $prefix); break;
-			case 'scard': return C::memory()->scard($key, $value/*prefix*/); break;
-			case 'smembers': return C::memory()->smembers($key, $value/*prefix*/); break;
+			case 'scard': return C::memory()->scard($key, $value); break;
+			case 'smembers': return C::memory()->smembers($key, $value); break;
 			case 'sismember': return C::memory()->sismember($key, $value, $prefix); break;
 			case 'hmset': return C::memory()->hmset($key, $value, $prefix); break;
-			case 'hgetall': return C::memory()->hgetall($key, $value/*prefix*/); break;
-			case 'hexists': return C::memory()->hexists($key, $value/*field*/, $prefix); break;
-			case 'hget': return C::memory()->hget($key, $value/*field*/, $prefix); break;
-			case 'eval': return C::memory()->evalscript($key/*script*/, $value/*args*/, $ttl/*sha key*/, $prefix); break;
-			case 'zadd': return C::memory()->zadd($key, $value, $ttl/*score*/, $prefix); break;
+			case 'hgetall': return C::memory()->hgetall($key, $value); break;
+			case 'hexists': return C::memory()->hexists($key, $value, $prefix); break;
+			case 'hget': return C::memory()->hget($key, $value, $prefix); break;
+			case 'eval': return C::memory()->evalscript($key, $value, $ttl, $prefix); break;
+			case 'zadd': return C::memory()->zadd($key, $value, $ttl, $prefix); break;
 			case 'zrem': return C::memory()->zrem($key, $value, $prefix); break;
 			case 'zscore': return C::memory()->zscore($key, $value, $prefix); break;
-			case 'zcard': return C::memory()->zcard($key, $value/*prefix*/); break;
-			case 'zrevrange': return C::memory()->zrevrange($key, $value/*start*/, $ttl/*end*/, $prefix); break;
-			case 'zrevrangewithscore': return C::memory()->zrevrange($key, $value/*start*/, $ttl/*end*/, $prefix, true); break;
-			case 'zincrby': return C::memory()->zincrby($key, $value/*member*/, $ttl ? $ttl : 1/*to increase*/, $prefix); break;
+			case 'zcard': return C::memory()->zcard($key, $value); break;
+			case 'zrevrange': return C::memory()->zrevrange($key, $value, $ttl, $prefix); break;
+			case 'zrevrangewithscore': return C::memory()->zrevrange($key, $value, $ttl, $prefix, true); break;
+			case 'zincrby': return C::memory()->zincrby($key, $value, $ttl ? $ttl : 1, $prefix); break;
 			case 'pipeline': return C::memory()->pipeline(); break;
 			case 'commit': return C::memory()->commit(); break;
 			case 'discard': return C::memory()->discard(); break;
@@ -2162,6 +2182,8 @@ function strhash($string, $operation = 'DECODE', $key = '') {
 }
 
 function dunserialize($data) {
+	
+	
 	if(!is_array($data) && ($ret = unserialize($data)) === false) {
 		$ret = unserialize(stripslashes($data));
 	}

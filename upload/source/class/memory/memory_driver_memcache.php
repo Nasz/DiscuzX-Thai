@@ -45,7 +45,7 @@ class memory_driver_memcache {
 	}
 
 	public function set($key, $value, $ttl = 0) {
-		return $this->obj->set($key, $value, 0, $ttl);
+		return $this->obj->set($key, $value, 0, $ttl); 
 	}
 
 	public function add($key, $value, $ttl = 0) {

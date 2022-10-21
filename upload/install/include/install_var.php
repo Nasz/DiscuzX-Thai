@@ -13,7 +13,7 @@ if(!defined('IN_COMSENZ')) {
 
 define('SOFT_NAME', 'Discuz!');
 
-define('INSTALL_LANG', 'TH_UTF8');
+define('INSTALL_LANG', 'SC_UTF8');
 
 define('CONFIG', './config/config_global.php');
 define('CONFIG_UC', './config/config_ucenter.php');
@@ -157,7 +157,7 @@ $serialize_sql_setting = array (
     1 =>
     array (
       'img' => '',
-      'title' => 'ศักดิ์ศรี',
+      'title' => '威望',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -168,7 +168,7 @@ $serialize_sql_setting = array (
     2 =>
     array (
       'img' => '',
-      'title' => 'เงินรางวัล',
+      'title' => '金钱',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -179,7 +179,7 @@ $serialize_sql_setting = array (
     3 =>
     array (
       'img' => '',
-      'title' => 'สนับสนุน',
+      'title' => '贡献',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -245,16 +245,16 @@ $serialize_sql_setting = array (
   ),
   'postnocustom' =>
   array (
-    0 => 'เจ้าของกระทู้',
-    1 => 'เม้นแรก',
-    2 => 'เม้นสอง',
-    3 => 'เม้นสาม',
+    0 => '楼主',
+    1 => '沙发',
+    2 => '板凳',
+    3 => '地板',
   ),
   'recommendthread' =>
   array (
     'status' => '0',
-    'addtext' => 'สนับสนุน',
-    'subtracttext' => 'ต่อต้าน',
+    'addtext' => '支持',
+    'subtracttext' => '反对',
     'defaultshow' => '1',
     'daycount' => '0',
     'ownthread' => '0',
@@ -262,33 +262,33 @@ $serialize_sql_setting = array (
   ),
   'seotitle' =>
   array (
-    'portal' => 'พอร์ทัล',
-    'forum' => 'ฟอรัม',
-    'group' => 'กรุ๊ป',
-    'home' => 'โฮม',
+    'portal' => '门户',
+    'forum' => '论坛',
+    'group' => '群组',
+    'home' => '家园',
   ),
   'activityfield' =>
   array (
-    'realname' => 'ชื่อจริง',
-    'mobile' => 'โทรศัพท์มือถือ',
-    'qq' => 'หมายเลข QQ',
+    'realname' => '真实姓名',
+    'mobile' => '手机',
+    'qq' => 'QQ号',
   ),
   'article_tags' =>
   array (
-    1 => 'ต้นฉบับ',
-    2 => 'ร้อนแรง',
-    3 => 'รูปภาพ',
-    4 => 'เป็นกระแส',
-    5 => 'พาดหัว',
-    6 => 'สไลด์โชว์',
-    7 => 'ดำเนินการ',
-    8 => 'แนะนำ',
+    1 => '原创',
+    2 => '热点',
+    3 => '组图',
+    4 => '爆料',
+    5 => '头条',
+    6 => '幻灯',
+    7 => '滚动',
+    8 => '推荐',
   ),
   'verify' =>
   array (
     6 =>
     array (
-      'title' => 'ตรวจสอบแล้ว',
+      'title' => '实名认证',
       'available' => '0',
       'showicon' => '0',
       'viewrealname' => '0',
@@ -322,7 +322,7 @@ $serialize_sql_setting = array (
   ),
   'focus' =>
   array (
-    'title' => 'ผู้ดูแลเว็บแนะนำ',
+    'title' => '站长推荐',
     'data' =>
     array (
     ),
@@ -334,7 +334,7 @@ $serialize_sql_setting = array (
     array (
       'available' => 1,
       'displayorder' => 0,
-      'title' => 'ข้อมูลพื้นฐาน',
+      'title' => '基本资料',
       'field' =>
       array (
         'realname' => 'realname',
@@ -358,26 +358,25 @@ $serialize_sql_setting = array (
     ),
     'contact' =>
     array (
-      'title' => 'รายละเอียดการติดต่อ',
+      'title' => '联系方式',
       'available' => '1',
       'displayorder' => '1',
       'field' =>
       array (
         'telephone' => 'telephone',
         'mobile' => 'mobile',
-        'facebook' => 'facebook',
-        'line' => 'wechat',
-        'twitter' => 'twitter',
-        'instagram' => 'instagram',
-        'tiktok' => 'tiktok',
-        'wechat' => 'wechat',
+        'icq' => 'icq',
+        'qq' => 'qq',
+        'yahoo' => 'yahoo',
+        'msn' => 'msn',
+        'taobao' => 'taobao',
       ),
     ),
     'edu' =>
     array (
       'available' => 1,
       'displayorder' => 2,
-      'title' => 'สถานะการศึกษา',
+      'title' => '教育情况',
       'field' =>
       array (
         'graduateschool' => 'graduateschool',
@@ -388,7 +387,7 @@ $serialize_sql_setting = array (
     array (
       'available' => 1,
       'displayorder' => 3,
-      'title' => 'สภาพการงาน',
+      'title' => '工作情况',
       'field' =>
       array (
         'occupation' => 'occupation',
@@ -399,7 +398,7 @@ $serialize_sql_setting = array (
     ),
     'info' =>
     array (
-      'title' => 'ข้อมูลส่วนบุคคล',
+      'title' => '个人信息',
       'available' => '1',
       'displayorder' => '4',
       'field' =>

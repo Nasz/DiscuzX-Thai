@@ -63,11 +63,11 @@ function initEditor() {
 		if(buttons[i].id.indexOf(editorid + '_') != -1) {
 			buttons[i].href = 'javascript:;';
 			if(buttons[i].id.substr(buttons[i].id.indexOf('_') + 1) == 'fullswitcher') {
-				buttons[i].innerHTML = !editorisfull ? 'เต็มจอ' : 'กลับไป';
-				buttons[i].onmouseover = function(e) {setEditorTip(editorisfull ? 'คืนค่าขนาดตัวแก้ไข' : 'ตัวแก้ไขแบบเต็มจอ');};
+				buttons[i].innerHTML = !editorisfull ? '全屏' : '返回';
+				buttons[i].onmouseover = function(e) {setEditorTip(editorisfull ? '恢复编辑器大小' : '全屏方式编辑');};
 				buttons[i].onclick = function(e) {editorfull();doane();}
 			} else if(buttons[i].id.substr(buttons[i].id.indexOf('_') + 1) == 'simple') {
-				buttons[i].innerHTML = !simplodemode ? 'ปกติ' : 'ขั้นสูง';
+				buttons[i].innerHTML = !simplodemode ? '常用' : '高级';
 				buttons[i].onclick = function(e) {editorsimple();doane();}
 			} else {
 				_attachEvent(buttons[i], 'mouseover', function(e) {setEditorTip(BROWSER.ie ? window.event.srcElement.title : e.target.title);});
@@ -96,7 +96,7 @@ function initEditor() {
 	}
 	if($(editorid + '_fullswitcher') && BROWSER.ie && BROWSER.ie < 7) {
 		$(editorid + '_fullswitcher').onclick = function () {
-			showDialog('เบราว์เซอร์ของคุณไม่รองรับคุณสมบัตินี้，กรุณาอัปเกรดเวอร์ชันเบราว์เซอร์', 'notice', 'คำแนะนำ');
+			showDialog('您的浏览器不支持此功能，请升级浏览器版本', 'notice', '友情提示');
 		};
 		$(editorid + '_fullswitcher').className = 'xg1';
 	}
@@ -144,7 +144,7 @@ function initesbar() {
 
 function savedataTime() {
 	if(!autosave) {
-		$(editorid + '_svdsecond').innerHTML = '<a title="คลิกเพื่อเปิดการบันทึกอัตโนมัติ" href="javascript:;" onclick="setAutosave()">เปิดการบันทึกอัตโนมัติ</a> ';
+		$(editorid + '_svdsecond').innerHTML = '<a title="点击开启自动保存" href="javascript:;" onclick="setAutosave()">开启自动保存</a> ';
 		return;
 	}
 	if(!savedatac) {
@@ -155,15 +155,15 @@ function savedataTime() {
 		var m = d.getMinutes();
 		h = h < 10 ? '0' + h : h;
 		m = m < 10 ? '0' + m : m;
-		setEditorTip('บันทึกข้อมูลเมื่อ ' + h + ':' + m + '');
+		setEditorTip('数据已于 ' + h + ':' + m + ' 保存');
 	}
-	$(editorid + '_svdsecond').innerHTML = '<a title="คลิกเพื่อปิดการบันทึกอัตโนมัติ" href="javascript:;" onclick="setAutosave()">บันทึกอัตโนมัติในอีก ' + savedatac + ' วินาที</a> ';
+	$(editorid + '_svdsecond').innerHTML = '<a title="点击关闭自动保存" href="javascript:;" onclick="setAutosave()">' + savedatac + ' 秒后保存</a> ';
 	savedatac -= 10;
 }
 
 function setAutosave() {
 	autosave = !autosave;
-	setEditorTip(autosave ? 'เปิดบันทึกข้อมูลอัตโนมัติ' : 'ปิดบันทึกข้อมูลอัตโนมัติ');
+	setEditorTip(autosave ? '数据自动保存已开启' : '数据自动保存已关闭');
 	setcookie('editorautosave_' + editorid, autosave ? 1 : -1, 2592000);
 	savedataTime();
 }
@@ -319,14 +319,14 @@ function editorfull(op) {
 		editorisfull = 0;
 		editorcontrolpos();
 	}
-	$(editorid + '_fullswitcher').innerHTML = editorisfull ? '返回' : 'เต็มจอ';
+	$(editorid + '_fullswitcher').innerHTML = editorisfull ? '返回' : '全屏';
 	initesbar();
 }
 
 function editorsimple() {
 	if($(editorid + '_body').className == 'edt') {
 		v = 'none';
-		$(editorid + '_simple').innerHTML = 'ขั้นสูง';
+		$(editorid + '_simple').innerHTML = '高级';
 		$(editorid + '_body').className = 'edt simpleedt';
 		$(editorid + '_adv_s1').className = 'b2r';
 		$(editorid + '_adv_s2').className = 'b2r nbl';
@@ -337,7 +337,7 @@ function editorsimple() {
 		simplodemode = 1;
 	} else {
 		v = '';
-		$(editorid + '_simple').innerHTML = 'ปกติ';
+		$(editorid + '_simple').innerHTML = '常用';
 		$(editorid + '_body').className = 'edt';
 		$(editorid + '_adv_s1').className = 'b1r';
 		$(editorid + '_adv_s2').className = 'b2r nbr nbl';
@@ -487,7 +487,7 @@ function checkFocus() {
 
 function checklength(theform) {
 	var message = wysiwyg ? html2bbcode(getEditorContents()) : (!theform.parseurloff.checked ? parseurl(theform.message.value) : theform.message.value);
-	showDialog('ความยาวปัจจุบัน: ' + mb_strlen(message) + ' ตัวอักษร，' + (postmaxchars != 0 ? 'ขีดจำกัดของระบบ: ' + postminchars + ' ถึง ' + postmaxchars + ' ตัวอักษร' : ''), 'notice', 'คำแนะนำ');
+	showDialog('当前长度: ' + mb_strlen(message) + ' 字节，' + (postmaxchars != 0 ? '系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节。' : ''), 'notice', '字数检查');
 }
 
 function setUnselectable(obj) {
@@ -838,18 +838,18 @@ function discuzcode(cmd, arg) {
 		}
 	} else if(cmd == 'rst') {
 		loadData();
-		setEditorTip('กู้คืนข้อมูลแล้ว');
+		setEditorTip('数据已恢复');
 	} else if(cmd == 'svd') {
 		saveData();
-		setEditorTip('ข้อมูลจะถูกเก็บรักษาไว้');
+		setEditorTip('数据已保存');
 	} else if(cmd == 'chck') {
 		checklength(editorform);
 	} else if(cmd == 'tpr') {
-		if(confirm('คุณจะยืนยันว่าต้องการล้างทุกอย่างหรือไม่?')) {
+		if(confirm('您确认要清除所有内容吗？')) {
 			clearContent();
 		}
 	} else if(cmd == 'downremoteimg') {
-		showDialog('<div id="remotedowninfo"><p class="mbn">ดาวน์โหลดไฟล์แนบระยะไกลโปรดรอสักครู่……</p><p><img src="' + STATICURL + 'image/common/uploading.gif" alt="" /></p></div>', 'notice', '', null, 1);
+		showDialog('<div id="remotedowninfo"><p class="mbn">正在下载远程附件，请稍等……</p><p><img src="' + STATICURL + 'image/common/uploading.gif" alt="" /></p></div>', 'notice', '', null, 1);
 		var message = wysiwyg ? html2bbcode(getEditorContents()) : (!editorform.parseurloff.checked ? parseurl(editorform.message.value) : editorform.message.value);
 		var oldValidate = editorform.onsubmit;
 		var oldAction = editorform.action;
@@ -919,7 +919,7 @@ function setContext(cmd) {
 	} else if(fs == null) {
 		fs = '';
 	}
-	fs = fs && cmd != 'clear' ? fs : 'ฟอนท์';
+	fs = fs && cmd != 'clear' ? fs : '字体';
 	if(fs != $(editorid + '_font').fontstate) {
 		thingy = fs.indexOf(',') > 0 ? fs.substr(0, fs.indexOf(',')) : fs;
 		$(editorid + '_font').innerHTML = thingy;
@@ -936,7 +936,7 @@ function setContext(cmd) {
 			}
 		}
 	} catch(e) {
-		ss = 'ขนาด';
+		ss = '大小';
 	}
 
 	if(ss != $(editorid + '_size').sizestate) {
@@ -981,7 +981,7 @@ function formatFontsize(csssize) {
 		case '24pt': return 6;
 		case '48px':
 		case '36pt': return 7;
-		default: return 'ขนาด';
+		default: return '大小';
 	}
 }
 
@@ -1032,8 +1032,8 @@ function showEditorMenu(tag, params) {
 	} else {
 		switch(tag) {
 			case 'url':
-				str = 'กรอกที่อยู่ลิงค์:<br /><input type="text" id="' + ctrlid + '_param_1" style="width: 98%" value="" class="px" />'+
-					(selection ? '' : '<br />ป้อนข้อความลิงค์:<br /><input type="text" id="' + ctrlid + '_param_2" style="width: 98%" value="" class="px" />');
+				str = '请输入链接地址:<br /><input type="text" id="' + ctrlid + '_param_1" style="width: 98%" value="" class="px" />'+
+					(selection ? '' : '<br />请输入链接文字:<br /><input type="text" id="' + ctrlid + '_param_2" style="width: 98%" value="" class="px" />');
 				break;
 			case 'forecolor':
 				showColorBox(ctrlid, 1);
@@ -1048,7 +1048,7 @@ function showEditorMenu(tag, params) {
 				showHrBox(ctrlid, 'postbg');
 				break;
 			case 'password':
-				str = '<p class="pbn">กรุณากรอกรหัสผ่านโพสต์: <input type="text" id="' + ctrlid + '_param_1" size="10" value="" class="px" /></p>';
+				str = '<p class="pbn">请输入帖子密码: <input type="text" id="' + ctrlid + '_param_1" size="10" value="" class="px" /></p>';
 				break;
 			case 'code':
 				if(wysiwyg) {
@@ -1065,7 +1065,7 @@ function showEditorMenu(tag, params) {
 				if(selection) {
 					return insertText((opentag + selection + closetag), strlen(opentag), strlen(closetag), true, sel);
 				}
-				var lang = {'quote' : 'กรอกคำอ้างอิงที่ต้องการแทรก', 'code' : '请输入要插入的代码', 'hide' : '请输入要隐藏的信息内容', 'free' : '如果您设置了帖子售价，请输入购买前免费可见的信息内容'};
+				var lang = {'quote' : '请输入要插入的引用', 'code' : '请输入要插入的代码', 'hide' : '请输入要隐藏的信息内容', 'free' : '如果您设置了帖子售价，请输入购买前免费可见的信息内容'};
 				str += lang[tag] + ':<br /><textarea id="' + ctrlid + '_param_1" style="width: 98%" cols="50" rows="5" class="txtarea"></textarea>' +
 					(tag == 'hide' ? '<br /><label><input type="radio" name="' + ctrlid + '_radio" id="' + ctrlid + '_radio_1" class="pc" checked="checked" />只有当浏览者回复本帖时才显示</label><br /><label><input type="radio" name="' + ctrlid + '_radio" id="' + ctrlid + '_radio_2" class="pc" />只有当浏览者积分高于</label> <input type="text" size="3" id="' + ctrlid + '_param_2" class="px pxs" /> 时才显示<br /><br /><label>有效天数:</label> <input type="text" size="3" id="' + ctrlid + '_param_3" class="px pxs" /> <br />距离发帖日期大于这个天数时标签自动失效' : '');
 				break;

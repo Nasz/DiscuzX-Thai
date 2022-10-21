@@ -82,12 +82,14 @@ if(!$requestmode && $_G['setting']['attachrefcheck'] && $_SERVER['HTTP_REFERER']
 
 periodscheck('attachbanperiods');
 
+
 loadcache('threadtableids');
 $threadtableids = !empty($_G['cache']['threadtableids']) ? $_G['cache']['threadtableids'] : array();
 if(!in_array(0, $threadtableids)) {
 	$threadtableids = array_merge(array(0), $threadtableids);
 }
 $archiveid = in_array($_GET['archiveid'], $threadtableids) ? intval($_GET['archiveid']) : 0;
+
 
 $attachexists = FALSE;
 if(!empty($aid) && is_numeric($aid)) {
@@ -116,9 +118,11 @@ if(!$attachexists) {
 }
 
 if(!$requestmode) {
+	
 	$forum = C::t('forum_forumfield')->fetch_info_for_attach($thread['fid'], $_G['uid']);
 	$_GET['fid'] = $forum['fid'];
 
+	
 	if($attach['isimage']) {
 		$allowgetattach = ($_G['uid'] == $attach['uid']) ? true : ((!empty($forum['allowgetimage'])) ? ($forum['allowgetimage'] == 1 ? true : false) : ($forum['getattachperm'] ? forumperm($forum['getattachperm']) : $_G['group']['allowgetimage']));
 	} else {
@@ -131,6 +135,7 @@ if(!$requestmode) {
 
 	$ismoderator = in_array($_G['adminid'], array(1, 2)) ? 1 : ($_G['adminid'] == 3 ? C::t('forum_moderator')->fetch_uid_by_tid($attach['tid'], $_G['uid'], $archiveid) : 0);
 
+	
 	$ispaid = FALSE;
 	$exemptvalue = $ismoderator ? 128 : 16;
 	if(!$thread['special'] && $thread['price'] > 0 && (!$_G['uid'] || ($_G['uid'] != $attach['uid'] && !($_G['group']['exempt'] & $exemptvalue)))) {
@@ -139,12 +144,14 @@ if(!$requestmode) {
 		}
 	}
 
+	
 	$exemptvalue = $ismoderator ? 64 : 8;
 	if($attach['price'] && (!$_G['uid'] || ($_G['uid'] != $attach['uid'] && !($_G['group']['exempt'] & $exemptvalue)))) {
 		$payrequired = $_G['uid'] ? !C::t('common_credit_log')->count_by_uid_operation_relatedid($_G['uid'], 'BAC', $attach['aid']) : 1;
 		$payrequired && showmessage('attachement_payto_attach', 'forum.php?mod=misc&action=attachpay&aid='.$attach['aid'].'&tid='.$attach['tid']);
 	}
 
+	
 	if(!$ispaid && !$allowgetattach) {
 		if(($forum['getattachperm'] && !forumperm($forum['getattachperm'])) || ($forum['viewperm'] && !forumperm($forum['viewperm']))) {
 			showmessagenoperm('getattachperm', $forum['fid']);
@@ -156,6 +163,7 @@ if(!$requestmode) {
 
 $isimage = $attach['isimage'];
 $_G['setting']['ftp']['hideurl'] = $_G['setting']['ftp']['hideurl'] || ($isimage && !empty($_GET['noupdate']) && $_G['setting']['attachimgpost'] && strtolower(substr($_G['setting']['ftp']['attachurl'], 0, 3)) == 'ftp');
+
 
 if(empty($_GET['nothumb']) && $attach['isimage'] && $attach['thumb']) {
 	$db = DB::object();
@@ -172,7 +180,7 @@ if(empty($_GET['nothumb']) && $attach['isimage'] && $attach['thumb']) {
 }
 
 $filename = $_G['setting']['attachdir'].'/forum/'.$attach['attachment'];
-if(!$attach['remote'] && !is_readable($filename)) {
+if(!$attach['remote'] && !is_readable($filename)) {	
 	if(!$requestmode) {
 		showmessage('attachment_nonexistence');
 	} else {
@@ -181,6 +189,7 @@ if(!$attach['remote'] && !is_readable($filename)) {
 }
 
 if(!$requestmode) {
+	
 	$exemptvalue = $ismoderator ? 32 : 4;
 	if(!$isimage && !($_G['group']['exempt'] & $exemptvalue)) {
 		$creditlog = updatecreditbyaction('getattach', $_G['uid'], array(), '', 1, 0, $thread['fid']);
@@ -199,6 +208,9 @@ if(!$requestmode) {
 	}
 }
 
+
+
+
 $range_start = 0;
 $range_end = 0;
 $has_range_header = false;
@@ -206,6 +218,7 @@ if(($readmod == 4 || $readmod == 1) && !empty($_SERVER['HTTP_RANGE'])) {
 	$has_range_header = true;
 	list($range_start, $range_end) = explode('-',(str_replace('bytes=', '', $_SERVER['HTTP_RANGE'])));
 }
+
 
 if(!$requestmode && !$has_range_header && empty($_GET['noupdate'])) {
 	if($_G['setting']['delayviewcount']) {
@@ -225,6 +238,7 @@ if(!$requestmode && !$has_range_header && empty($_GET['noupdate'])) {
 	}
 }
 
+
 $db = DB::object();
 $db->close();
 !$_G['config']['output']['gzip'] && ob_end_clean();
@@ -234,10 +248,15 @@ if($attach['remote'] && !$_G['setting']['ftp']['hideurl'] && $isimage) {
 	dheader('location:'.$_G['setting']['ftp']['attachurl'].'forum/'.$attach['attachment']);
 }
 
+
 $mimetype = ext_to_mimetype($attach['filename']);
 $filesize = !$attach['remote'] ? filesize($filename) : $attach['filesize'];
+
 if ($has_range_header && !$range_end) $range_end = $filesize - 1;
+
 $filenameencode = strtolower(CHARSET) == 'utf-8' ? rawurlencode($attach['filename']) : rawurlencode(diconv($attach['filename'], CHARSET, 'UTF-8'));
+
+
 
 $rfc6266blacklist = strexists($_SERVER['HTTP_USER_AGENT'], 'UCBrowser') || strexists($_SERVER['HTTP_USER_AGENT'], 'Quark') || strexists($_SERVER['HTTP_USER_AGENT'], 'SogouM') || strexists($_SERVER['HTTP_USER_AGENT'], 'baidu');
 
@@ -277,6 +296,7 @@ if(!empty($xsendfile)) {
 		exit();
 	}
 }
+
 
 if (($readmod == 4) || ($readmod == 1)) {
 	dheader('Accept-Ranges: bytes');
@@ -329,7 +349,7 @@ function getlocalfile($filename, $readmod = 2, $range_start = 0, $range_end = 0)
 }
 
 function send_file_by_chunk($fp, $limit = PHP_INT_MAX) {
-	static $CHUNK_SIZE = 65536;
+	static $CHUNK_SIZE = 65536; 
 	$count = 0;
 	while (!feof($fp)) {
 		$size_to_read = $CHUNK_SIZE;
@@ -367,18 +387,18 @@ function ext_to_mimetype($path) {
 	$ext = pathinfo($path, PATHINFO_EXTENSION);
 	$map = array(
 		'aac' => 'audio/aac',
-		'flac' => 'audio/flac',
-		'mp3' => 'audio/mpeg',
-		'm4a' => 'audio/mp4',
-		'wav' => 'audio/wav',
+		'flac' => 'audio/flac', 
+		'mp3' => 'audio/mpeg', 
+		'm4a' => 'audio/mp4', 
+		'wav' => 'audio/wav', 
 		'ogg' => 'audio/ogg',
 		'weba' => 'audio/webm',
-		'flv' => 'video/x-flv',
-		'mp4' => 'video/mp4',
-		'm4v' => 'video/mp4',
+		'flv' => 'video/x-flv', 
+		'mp4' => 'video/mp4', 
+		'm4v' => 'video/mp4', 
 		'3gp' => 'video/3gpp',
 		'ogv' => 'video/ogg',
-		'webm' => 'video/webm'
+		'webm' => 'video/webm' 
 	);
 	$mime = $map[$ext];
 	if (!$mime) $mime = "application/octet-stream";

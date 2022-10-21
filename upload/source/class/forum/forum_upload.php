@@ -85,6 +85,7 @@ class forum_upload {
 			}
 		}
 
+		
 		$filename = censor($upload->attach['name'], NULL, TRUE);
 		if(is_array($filename)) {
 			return $this->uploadmsg(12);
@@ -100,6 +101,7 @@ class forum_upload {
 			$imageinfo = @getimagesize($upload->attach['tmp_name']);
 			list($width, $height, $type) = !empty($imageinfo) ? $imageinfo : array(0, 0, 0);
 			$size = $width * $height;
+			
 			if((!getglobal('setting/imagelib') && $size > (getglobal('setting/gdlimit') ? getglobal('setting/gdlimit') : 16777216)) || $size < 16 ) {
 				return $this->uploadmsg(13);
 			}

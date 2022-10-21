@@ -62,7 +62,7 @@ function checklength(theform) {
 	if(!theform.parseurloff.checked) {
 		message = parseurl(message);
 	}
-	showDialog('ความยาวปัจจุบัน: ' + mb_strlen(message) + ' 字节，' + (postmaxchars != 0 ? '系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节。' : ''), 'notice', 'คำแนะนำ');
+	showDialog('当前长度: ' + mb_strlen(message) + ' 字节，' + (postmaxchars != 0 ? '系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节。' : ''), 'notice', '字数检查');
 }
 
 if(!tradepost) {
@@ -82,7 +82,7 @@ function validate(theform) {
 		return false;
 	}
 	if(!disablepostctrl && theform.subject.value != "" && ((postminsubjectchars != 0 && dstrlen(theform.subject.value) < postminsubjectchars) || (postminsubjectchars != 0 && dstrlen(theform.subject.value) > postmaxsubjectchars))) {
-		showError('您的标题长度不符合要求。\n\nความยาวปัจจุบัน: ' + dstrlen(theform.subject.value) + ' 字\n系统限制: ' + postminsubjectchars + ' 到 ' + postmaxsubjectchars + ' 字');
+		showError('您的标题长度不符合要求。\n\n当前长度: ' + dstrlen(theform.subject.value) + ' 字\n系统限制: ' + postminsubjectchars + ' 到 ' + postmaxsubjectchars + ' 字');
 		return false;
 	}
 	if(in_array($('postsubmit').name, ['topicsubmit', 'editsubmit'])) {
@@ -105,7 +105,7 @@ function validate(theform) {
 	}
 
 	if(!disablepostctrl && !sortid && !special && ((postminchars != 0 && mb_strlen(message) < postminchars) || (postmaxchars != 0 && mb_strlen(message) > postmaxchars))) {
-		showError('您的帖子长度不符合要求。\n\nความยาวปัจจุบัน: ' + mb_strlen(message) + ' 字节\n系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节');
+		showError('您的帖子长度不符合要求。\n\n当前长度: ' + mb_strlen(message) + ' 字节\n系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节');
 		return false;
 	}
 	if(UPLOADSTATUS == 0) {
@@ -423,7 +423,7 @@ function updateAttach(aid) {
 	obj = $('attach' + aid);
 	if(!objupdate.innerHTML) {
 		obj.style.display = 'none';
-		objupdate.innerHTML = '<input type="file" name="attachupdate[paid' + aid + ']"><a href="javascript:;" onclick="updateAttach(' + aid + ')">ยกเลิก</a>';
+		objupdate.innerHTML = '<input type="file" name="attachupdate[paid' + aid + ']"><a href="javascript:;" onclick="updateAttach(' + aid + ')">取消</a>';
 	} else {
 		obj.style.display = '';
 		objupdate.innerHTML = '';
@@ -444,7 +444,7 @@ function updateattachnum(type) {
 		ATTACHORIMAGE = 1;
 	} else {
 		if($(editorid + '_' + type)) {
-			$(editorid + '_' + type).title = type == 'image' ? '图片' : 'แนบไฟล์';
+			$(editorid + '_' + type).title = type == 'image' ? '图片' : '附件';
 		}
 		if($(editorid + '_' + type + 'n')) {
 			$(editorid + '_' + type + 'n').style.display = 'none';
@@ -690,7 +690,7 @@ function attachoption(type, op) {
 	} else if(op == 2) {
 		showDialog('<div id="unusedwin" class="c altw" style="overflow:auto;height:100px;">' + $('unusedlist_' + type).innerHTML + '</div>' +
 			'<p class="o pns"><span class="z xg1"><label for="unusedwinchkall"><input id="unusedwinchkall" type="checkbox" onclick="attachoption(\'' + type + '\', 3)" checked="checked" />全选</label></span>' +
-			'<button onclick="attachoption(\'' + type + '\', 1);hideMenu(\'fwin_dialog\', \'dialog\')" class="pn pnc"><strong>使用</strong></button></p>', 'info', '未使用的' + (type == 'attach' ? 'แนบไฟล์' : '图片'));
+			'<button onclick="attachoption(\'' + type + '\', 1);hideMenu(\'fwin_dialog\', \'dialog\')" class="pn pnc"><strong>使用</strong></button></p>', 'info', '未使用的' + (type == 'attach' ? '附件' : '图片'));
 	} else if(op == 3) {
 		list = $('unusedwin').getElementsByTagName('INPUT');
 		for(i = 0;i < list.length;i++) {

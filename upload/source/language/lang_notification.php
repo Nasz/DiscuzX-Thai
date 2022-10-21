@@ -14,21 +14,21 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 
-	'type_wall' => 'ฝากข้อความ',
+	'type_wall' => '留言',
 	'type_piccomment' => '图片评论',
 	'type_blogcomment' => '日志评论',
 	'type_clickblog' => '日志表态',
 	'type_clickarticle' => '文章表态',
 	'type_clickpic' => '图片表态',
 	'type_sharecomment' => '分享评论',
-	'type_doing' => 'สมุดโน๊ต',
-	'type_friend' => 'เพื่อน',
-	'type_credit' => 'เครดิต',
-	'type_bbs' => 'ฟอรั่ม',
+	'type_doing' => '记录',
+	'type_friend' => '好友',
+	'type_credit' => '积分',
+	'type_bbs' => '论坛',
 	'type_system' => '系统',
-	'type_thread' => 'กระทู้',
-	'type_task' => 'ภารกิจ',
-	'type_group' => 'กรุ๊ป',
+	'type_thread' => '主题',
+	'type_task' => '任务',
+	'type_group' => '群组',
 
 	'mail_to_user' => '有新的通知',
 	'showcredit' => '{actor} 赠送给您 {credit} 个竞价积分，帮助提升您在 <a href="misc.php?mod=ranklist&type=member" target="_blank">竞价排行榜</a> 中的名次',
@@ -56,7 +56,7 @@ $lang = array
 	'show_out' => '{actor} 访问了您的主页后，您在竞价排名榜中的最后一个积分也被消费掉了',
 	'puse_article' => '恭喜您，您的<a href="{url}" target="_blank">{subject}</a>已被添加到文章列表， <a href="{newurl}" target="_blank">点击查看</a>',
 
-	'group_member_join' => '{actor} เข้าร่วมกับคุณ <a href="forum.php?mod=group&fid={fid}" target="_blank">{groupname}</a> กลุ่มจำเป็นต้องได้รับการตรวจสอบโปรดไปที่กลุ่ม<a href="{url}" target="_blank">ศูนย์กลางการควบคุม</a> ทบทวน',
+	'group_member_join' => '{actor} 加入您的 <a href="forum.php?mod=group&fid={fid}" target="_blank">{groupname}</a> 群组需要审核，请到群组<a href="{url}" target="_blank">管理中心</a> 进行审核',
 	'group_member_invite' => '{actor} 邀请您加入 <a href="forum.php?mod=group&fid={fid}" target="_blank">{groupname}</a> 群组，<a href="{url}" target="_blank">点此马上加入</a>',
 	'group_member_check' => '您已通过了 <a href="{url}" target="_blank">{groupname}</a> 群组的审核，请 <a href="{url}" target="_blank">点击这里访问</a>',
 	'group_member_check_failed' => '您没有通过 <a href="{url}" target="_blank">{groupname}</a> 群组的审核。',
@@ -216,8 +216,8 @@ $lang = array
 	'system_adv_expiration' => '您站点的以下广告将于 {day} 天后到期，请及时处理：<br />{advs}',
 	'report_change_credits' => '{actor} 处理了您的举报 {creditchange} {msg}',
 	'at_message' => '<a href="home.php?mod=space&uid={buyerid}" target="_blank">{buyer}</a> 在主题 <a href="forum.php?mod=redirect&goto=findpost&ptid={tid}&pid={pid}" target="_blank">{subject}</a> 中提到了您<div class="quote"><blockquote>{message}</blockquote></div><a href="forum.php?mod=redirect&goto=findpost&ptid={tid}&pid={pid}" target="_blank">现在去看看</a>。',
-	'new_report' => 'มีรายงานใหม่จาก {username} รายงานรอการจัดการ<a href="admin.php?action=report" target="_blank">คลิกที่นี่เพื่อเข้าสู่ศูนย์บริหารจัดการ</a>',
-	'new_post_report' => 'มีรายงานใหม่จาก {username} รายงานรอการจัดการ<a href="forum.php?mod=modcp&action=report&fid={fid}" target="_blank">คลิกที่นี่เพื่อเข้าสู่ศูนย์บริหารจัดการ</a>。',
+	'new_report' => '有新的来自 {username} 的举报等待处理，<a href="admin.php?action=report" target="_blank">点此进入管理中心处理</a>。',
+	'new_post_report' => '有新的来自 {username} 的举报等待处理，<a href="forum.php?mod=modcp&action=report&fid={fid}" target="_blank">点此进入管理面板</a>。',
 	'magics_receive' => '您收到 {actor} 送给您的道具 {magicname}
 <p class="summary">{actor} 说：<span>{msg}</span></p>
 <p class="mbn"><a href="home.php?mod=magic" target="_blank">回赠道具</a><span class="pipe">|</span><a href="home.php?mod=magic&action=mybox" target="_blank">查看我的道具箱</a></p>',

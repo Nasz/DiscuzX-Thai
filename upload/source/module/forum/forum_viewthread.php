@@ -429,7 +429,7 @@ if(empty($_GET['viewpid'])) {
 			}
 			$temp_reply = $_G['forum_thread']['replies'];
 			$_G['forum_thread']['replies'] = $countrushpost = max(0, count($rushids) - 1);
-			$countrushpost = max(0, count($rushids));
+			$countrushpost = max(0, count($rushids));            
 			$rushids = array_slice($rushids, ($page - 1) * $_G['ppp'], $_G['ppp']);
 			foreach(C::t('forum_post')->fetch_all_by_tid_position($posttableid, $_G['tid'], $rushids) as $post) {
 				$postarr[$post['position']] = $post;
@@ -509,7 +509,7 @@ if(empty($_GET['viewpid'])) {
 		(!empty($_GET['checkrush']) ? '&amp;checkrush='.$_GET['checkrush'] : '').
 		(!empty($_GET['modthreadkey']) ? '&amp;modthreadkey='.rawurlencode($_GET['modthreadkey']) : '').
 		$specialextra;
-	$multipage = multi($_G['forum_thread']['replies'] + 1, $_G['ppp'], $page, 'forum.php?mod=viewthread&tid='.$_G['tid'].$multipageparam);
+	$multipage = multi($_G['forum_thread']['replies'] + 1, $_G['ppp'], $page, 'forum.php?mod=viewthread&tid='.$_G['tid'].$multipageparam); 
 } else {
 	$_GET['viewpid'] = intval($_GET['viewpid']);
 	$pageadd = "AND p.pid='{$_GET['viewpid']}'";
@@ -1010,6 +1010,7 @@ if(empty($_GET['viewpid'])) {
 		$_G['widthauto'] = 0;
 		$sufix = '_album';
 		$post = &$postlist[$_G['forum_firstpid']];
+		
 		$post['message'] = cutstr(strip_tags(preg_replace('/(<ignore_js_op>.*<\/ignore_js_op>)/is', '', $post['message'])), 200);
 		require_once libfile('thread/album', 'include');
 	}
@@ -1298,14 +1299,14 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 
 function viewthread_loadcache() {
 	global $_G;
-	$_G['thread']['livedays'] = ceil((TIMESTAMP - $_G['thread']['dateline']) / 86400);
-	$_G['thread']['lastpostdays'] = ceil((TIMESTAMP - $_G['thread']['lastpost']) / 86400);
+	$_G['thread']['livedays'] = ceil((TIMESTAMP - $_G['thread']['dateline']) / 86400);	
+	$_G['thread']['lastpostdays'] = ceil((TIMESTAMP - $_G['thread']['lastpost']) / 86400);	
 
 	$threadcachemark = 100 - (
-		$_G['thread']['digest'] * 20 +
-		min($_G['thread']['views'] / max($_G['thread']['livedays'], 10) * 2, 50) +
-		max(-10, (15 - $_G['thread']['lastpostdays'])) +
-		min($_G['thread']['replies'] / $_G['setting']['postperpage'] * 1.5, 15));
+		$_G['thread']['digest'] * 20 +							
+		min($_G['thread']['views'] / max($_G['thread']['livedays'], 10) * 2, 50) +	
+		max(-10, (15 - $_G['thread']['lastpostdays'])) +				
+		min($_G['thread']['replies'] / $_G['setting']['postperpage'] * 1.5, 15));	
 	if($threadcachemark < $_G['forum']['threadcaches']) {
 
 		$threadcache = getcacheinfo($_G['tid']);
@@ -1325,7 +1326,7 @@ function viewthread_loadcache() {
 			$debuginfo = ", Updated at $updatetime";
 			if(getglobal('setting/debug')) {
 				$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
-				$debuginfo .= ', ใช้เวลาประมวลผล '.sprintf("%0.6f", microtime(TRUE) - $start_time).' วินาที'.$gzip;
+				$debuginfo .= ', Processed in '.sprintf("%0.6f", microtime(TRUE) - $start_time).' second(s)'.$gzip;
 			}
 			echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = "'.$debuginfo.'." : "";</script></body></html>';
 			ob_end_flush();

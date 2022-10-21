@@ -34,6 +34,7 @@ class table_common_seccheck extends discuz_table
 				memory('rm', $ssid . "_code", $this->_pre_cache_key);
 				memory('rm', $ssid . "_dateline", $this->_pre_cache_key);
 			}
+			
 		} else {
 			if($ssid) {
 				$ssid = dintval($ssid);
@@ -41,7 +42,7 @@ class table_common_seccheck extends discuz_table
 			}
 			DB::delete($this->_table, TIMESTAMP."-dateline>600");
 			DB::delete($this->_table, "verified>4");
-			DB::delete($this->_table, "succeed>1");
+			DB::delete($this->_table, "succeed>1");	
 		}
 	}
 
@@ -59,16 +60,18 @@ class table_common_seccheck extends discuz_table
 		}
 		memory('inc', $ssid . "_verified", 1, 0, $this->_pre_cache_key);
 		memory('inc', $ssid . "_succeed", 1, 0, $this->_pre_cache_key);
-		return 1; // simulate 1 row changed
+		return 1; 
 	}
 
 	public function truncate() {
 		if ($this->_allowmem) {
+			
 		} else {
 			DB::query("TRUNCATE %t", array($this->_table));
 		}
 	}
 
+	
 	public function insert($data, $return_insert_id = false, $replace = false, $silent = false) {
 		if (!$this->_allowmem) {
 			return parent::insert($data, $return_insert_id, $replace, $silent);

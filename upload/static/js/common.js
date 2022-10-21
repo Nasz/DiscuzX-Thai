@@ -249,7 +249,7 @@ function getcookie(name, nounescape) {
 
 function Ajax(recvType, waitId) {
 	var aj = new Object();
-	aj.loading = 'โปรดรอ...';
+	aj.loading = '请稍候...';
 	aj.recvType = recvType ? recvType : 'XML';
 	aj.waitId = waitId ? $(waitId) : null;
 	aj.resultHandle = null;
@@ -578,7 +578,7 @@ function showPreview(val, id) {
 
 function showloading(display, waiting) {
 	var display = display ? display : 'block';
-	var waiting = waiting ? waiting : 'รอสักครู่...';
+	var waiting = waiting ? waiting : '请稍候...';
 	$('ajaxwaitid').innerHTML = waiting;
 	$('ajaxwaitid').style.display = display;
 }
@@ -1127,7 +1127,7 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 	var menuid = 'fwin_dialog';
 	var menuObj = $(menuid);
 	var showconfirm = 1;
-	confirmtxtdefault = 'ยืนยัน';
+	confirmtxtdefault = '确定';
 	closetime = isUndefined(closetime) ? '' : closetime;
 	closefunc = function () {
 		if(typeof func == 'function') func();
@@ -1140,12 +1140,12 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 	}
 	locationtime = isUndefined(locationtime) ? '' : locationtime;
 	if(locationtime) {
-		leftmsg = locationtime + ' วินาทีจะเปลี่ยนหน้า';
+		leftmsg = locationtime + ' 秒后页面跳转';
 		showDialogST = setTimeout(closefunc, locationtime * 1000);
 		showconfirm = 0;
 	}
 	confirmtxt = confirmtxt ? confirmtxt : confirmtxtdefault;
-	canceltxt = canceltxt ? canceltxt : 'ยกเลิก';
+	canceltxt = canceltxt ? canceltxt : '取消';
 
 	if(menuObj) hideMenu('fwin_dialog', 'dialog');
 	menuObj = document.createElement('div');
@@ -1158,8 +1158,8 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 		hidedom = '<style type="text/css">object{visibility:hidden;}</style>';
 	}
 	var s = hidedom + '<table cellpadding="0" cellspacing="0" class="fwin"><tr><td class="t_l"></td><td class="t_c"></td><td class="t_r"></td></tr><tr><td class="m_l">&nbsp;&nbsp;</td><td class="m_c"><h3 class="flb"><em>';
-	s += t ? t : 'แจ้งข้อมูล';
-	s += '</em><span><a href="javascript:;" id="fwin_dialog_close" class="flbc" onclick="hideMenu(\'' + menuid + '\', \'dialog\')" title="ปิด">ปิด</a></span></h3>';
+	s += t ? t : '提示信息';
+	s += '</em><span><a href="javascript:;" id="fwin_dialog_close" class="flbc" onclick="hideMenu(\'' + menuid + '\', \'dialog\')" title="关闭">关闭</a></span></h3>';
 	if(mode == 'info') {
 		s += msg ? msg : '';
 	} else {
@@ -1666,7 +1666,7 @@ function setCopy(text, msg) {
 			showDialog('<div class="c"><div style="width: 200px; text-align: center;">复制失败，请选择“允许访问”</div></div>', 'alert');
 		}
 	} else {
-		var msg = '<div class="c"><div style="width: 200px; text-align: center; text-decoration:underline;">คลิกที่นี่เพื่อคัดลอกไปยังคลิปบอร์ด</div>' +
+		var msg = '<div class="c"><div style="width: 200px; text-align: center; text-decoration:underline;">点此复制到剪贴板</div>' +
 		AC_FL_RunContent('id', 'clipboardswf', 'name', 'clipboardswf', 'devicefont', 'false', 'width', '200', 'height', '40', 'src', STATICURL + 'image/common/clipboard.swf', 'menu', 'false',  'allowScriptAccess', 'sameDomain', 'swLiveConnect', 'true', 'wmode', 'transparent', 'style' , 'margin-top:-20px') + '</div>';
 		showDialog(msg, 'info');
 		CLIPBOARDSWFDATA = text;
@@ -1699,20 +1699,20 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 	var tclass = searchtxt.className;
 	searchtxt.className = tclass + ' xg1';
 	if (!!("placeholder" in document.createElement("input"))) {
-		if(searchtxt.value == 'ป้อนคำที่ต้องการค้นหา') {
+		if(searchtxt.value == '请输入搜索内容') {
 			searchtxt.value = '';
 		}
-		searchtxt.placeholder = 'ป้อนคำที่ต้องการค้นหา';
+		searchtxt.placeholder = '请输入搜索内容';
 	} else {
 		searchtxt.onfocus = function () {
-			if (searchtxt.value == 'ป้อนคำที่ต้องการค้นหา') {
+			if(searchtxt.value == '请输入搜索内容') {
 				searchtxt.value = '';
 				searchtxt.className = tclass;
 			}
 		};
 		searchtxt.onblur = function () {
 			if(searchtxt.value == '' ) {
-				searchtxt.value = 'ป้อนคำที่ต้องการค้นหา';
+				searchtxt.value = '请输入搜索内容';
 				searchtxt.className = tclass + ' xg1';
 			}
 		};
@@ -1754,7 +1754,7 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 }
 
 function searchFocus(obj) {
-	if (obj.value == 'ป้อนคำที่ต้องการค้นหา') {
+	if(obj.value == '请输入搜索内容') {
 		obj.value = '';
 	}
 	if($('cloudsearchquery') != null) {
@@ -1890,7 +1890,7 @@ function noticeTitle() {
 
 function noticeTitleFlash() {
 	if(NOTICETITLE.flashNumber < 5 || NOTICETITLE.flashNumber > 4 && !NOTICETITLE['State']) {
-		document.title = (NOTICETITLE['State'] ? '【　　　】' : '【มีแจ้งเตือนใหม่】') + NOTICETITLE['oldTitle'];
+		document.title = (NOTICETITLE['State'] ? '【　　　】' : '【新提醒】') + NOTICETITLE['oldTitle'];
 		NOTICETITLE['State'] = !NOTICETITLE['State'];
 	}
 	NOTICETITLE.flashNumber = NOTICETITLE.flashNumber < NOTICETITLE.sleep ? ++NOTICETITLE.flashNumber : 0;
@@ -1947,7 +1947,7 @@ function addFavorite(url, title) {
 		try {
 			window.sidebar.addPanel(title, url, '');
         	} catch (e) {
-			showDialog("กด Ctrl+D บนคีย์บอร์ดเพื่อบุ๊คมาร์คเว็บไซต์เรา", 'notice');
+			showDialog("请按 Ctrl+D 键添加到收藏夹", 'notice');
 		}
 	}
 }
@@ -1957,7 +1957,7 @@ function setHomepage(sURL) {
 		document.body.style.behavior = 'url(#default#homepage)';
 		document.body.setHomePage(sURL);
 	} else {
-		showDialog("หากไม่ได้ใช้ IE โปรดตั้งเว็บไซต์นี้เป็นหน้าแรกด้วยตนเอง", 'notice');
+		showDialog("非 IE 浏览器请手动将本站设为首页", 'notice');
 		doane();
 	}
 }
@@ -2013,10 +2013,10 @@ function toggleBlind(dom) {
 	if(dom) {
 		if(loadUserdata('is_blindman')) {
 			saveUserdata('is_blindman', '');
-			dom.title = 'เปิดการเข้าถึง';
+			dom.title = '开启辅助访问';
 		} else {
 			saveUserdata('is_blindman', '1');
-			dom.title = 'ปิดการเข้าถึง';
+			dom.title = '关闭辅助访问';
 		}
 	}
 }
@@ -2025,9 +2025,9 @@ function checkBlind() {
 	var dom = $('switchblind');
 	if(dom) {
 		if(loadUserdata('is_blindman')) {
-			dom.title = 'ปิดการเข้าถึง';
+			dom.title = '关闭辅助访问';
 		} else {
-			dom.title = 'เปิดการเข้าถึง';
+			dom.title = '开启辅助访问';
 		}
 	}
 }

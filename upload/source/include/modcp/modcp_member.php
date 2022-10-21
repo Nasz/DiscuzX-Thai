@@ -45,6 +45,7 @@ if($op == 'edit') {
 
 			!empty($_GET['locationnew']) && $locationnew = dhtmlspecialchars($_GET['locationnew']);
 
+			
 			if($_G['setting']['profilehistory']) {
 				C::t('common_member_profile_history')->insert(array_merge(C::t('common_member_profile')->fetch(intval($member['uid'])), array('dateline' => time())));
 			}

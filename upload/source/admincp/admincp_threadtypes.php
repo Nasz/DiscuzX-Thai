@@ -483,7 +483,7 @@ EOT;
 				C::t('forum_optionvalue')->alter($typevar['sortid'], "change ".$option['identifier']." ".$_GET['identifiernew']." ".$type_tableoption_sql);
 			}
 		}
-
+		
 		updatecache('threadsorts');
 		cpmsg('threadtype_infotypes_option_succeed', 'action=threadtypes&operation=typeoption&classid='.$option['classid'], 'succeed');
 	}

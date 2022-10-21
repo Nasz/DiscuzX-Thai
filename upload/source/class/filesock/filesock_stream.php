@@ -75,7 +75,7 @@ class filesock_stream extends filesock_base {
 		if(isset($data) && $data) {
 			$out .= $data;
 		}
-
+	
 		$fpflag = 0;
 		$context = array();
 		if($this->scheme == 'https') {
@@ -120,7 +120,7 @@ class filesock_stream extends filesock_base {
 		} else {
 			$fp = @fsocketopen(($this->scheme == 'https' ? 'ssl://' : '').($this->scheme == 'https' ? $this->host : ($this->ip ? $this->ip : $this->host)), $this->port, $errno, $errstr, $this->conntimeout);
 		}
-
+	
 		if(!$fp) {
 			$this->errno = $errno;
 			$this->errstr = $errstr;
@@ -151,13 +151,13 @@ class filesock_stream extends filesock_base {
 					}
 				}
 				$GLOBALS['filesockheader'] = $this->filesockheader = $headers;
-
+	
 				if($this->position) {
 					for($i=0; $i<$this->position; $i++) {
 						fgetc($fp);
 					}
 				}
-
+	
 				if($this->limit) {
 					$return = stream_get_contents($fp, $this->limit);
 				} else {

@@ -151,27 +151,35 @@ class base {
 
 	function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 
+		
 		$ckey_length = 4;
 
 		$key = md5($key ? $key : UC_KEY);
+		
 		$keya = md5(substr($key, 0, 16));
 		$keyb = md5(substr($key, 16, 16));
 		$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
 
+		
 		$cryptkey = $keya.md5($keya.$keyc);
 		$key_length = strlen($cryptkey);
 
+		
+		
 		$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
 		$string_length = strlen($string);
 
 		$result = '';
 		$box = range(0, 255);
 
+		
 		$rndkey = array();
 		for($i = 0; $i <= 255; $i++) {
 			$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 		}
 
+		
+		
 		for($j = $i = 0; $i < 256; $i++) {
 			$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 			$tmp = $box[$i];
@@ -179,6 +187,7 @@ class base {
 			$box[$j] = $tmp;
 		}
 
+		
 		for($a = $j = $i = 0; $i < $string_length; $i++) {
 			$a = ($a + 1) % 256;
 			$j = ($j + $box[$a]) % 256;
@@ -189,12 +198,16 @@ class base {
 		}
 
 		if($operation == 'DECODE') {
+			
+			
+			
 			if(((int)substr($result, 0, 10) == 0 || (int)substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) === substr(md5(substr($result, 26).$keyb), 0, 16)) {
 				return substr($result, 26);
 			} else {
 				return '';
 			}
 		} else {
+			
 			return $keyc.str_replace('=', '', base64_encode($result));
 		}
 
@@ -375,7 +388,7 @@ class base {
 		    } elseif(!preg_match("/^[0-9]+$/", $this->input[$k])) {
 		        return NULL;
 		    }
-		}
+		}		
 		return isset($this->input[$k]) ? (is_array($this->input[$k]) ? $this->input[$k] : trim($this->input[$k])) : NULL;
 	}
 
@@ -500,12 +513,17 @@ class base {
 	}
 
 	function detectescape($basepath, $relativepath) {
+		
+		
 		if(!file_exists($basepath)) {
 			return FALSE;
 		}
 
+		
 		if(!file_exists($basepath . $relativepath)) {
 			$relativepath = dirname($relativepath);
+			
+			
 			if(!file_exists($basepath . $relativepath)) {
 				return FALSE;
 			}
@@ -514,6 +532,9 @@ class base {
 		$real_base = realpath($basepath);
 		$real_target = realpath($basepath . $relativepath);
 
+		
+		
+		
 		if(strcmp($real_target, $real_base) !== 0 && strpos($real_target, $real_base . DIRECTORY_SEPARATOR) !== 0) {
 			return FALSE;
 		}
@@ -538,6 +559,7 @@ class base {
 	}
 
 	function secrandom($length, $numeric = 0, $strong = false) {
+		
 		$chars = $numeric ? array('A','B','+','/','=') : array('+','/','=');
 		$num_find = str_split('CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 		$num_repl = str_split('01234567890123456789012345678901234567890123456789');
@@ -548,6 +570,7 @@ class base {
 				return random_bytes($length);
 			};
 		} elseif(extension_loaded('mcrypt') && function_exists('mcrypt_create_iv')) {
+			
 			$isstrong = true;
 			$random_bytes = function($length) {
 				$rand = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
@@ -558,6 +581,9 @@ class base {
 				}
 			};
 		} elseif(extension_loaded('openssl') && function_exists('openssl_random_pseudo_bytes')) {
+			
+			
+			
 			$isstrong = true;
 			$random_bytes = function($length) {
 				$rand = openssl_random_pseudo_bytes($length, $secure);
@@ -574,7 +600,7 @@ class base {
 		$retry_times = 0;
 		$return = '';
 		while($retry_times < 128) {
-			$getlen = $length - strlen($return); // 33% extra bytes
+			$getlen = $length - strlen($return); 
 			$bytes = $random_bytes(max($getlen, 12));
 			if($bytes === false) {
 				return false;

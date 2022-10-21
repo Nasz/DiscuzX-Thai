@@ -5,7 +5,7 @@
 		<item id="plugin">
 			<item id="available"><![CDATA[1]]></item>
 			<item id="adminid"><![CDATA[1]]></item>
-			<item id="name"><![CDATA[ปลั๊กอินของฉัน]]></item>
+			<item id="name"><![CDATA[我的马甲]]></item>
 			<item id="identifier"><![CDATA[myrepeats]]></item>
 			<item id="description"><![CDATA[]]></item>
 			<item id="datatables"><![CDATA[]]></item>
@@ -15,7 +15,7 @@
 			<item id="__modules">
 				<item id="0">
 					<item id="name"><![CDATA[memcp]]></item>
-					<item id="menu"><![CDATA[ปลั๊กอินของฉัน]]></item>
+					<item id="menu"><![CDATA[我的马甲]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[7]]></item>
 					<item id="adminid"><![CDATA[0]]></item>
@@ -31,7 +31,7 @@
 				</item>
 				<item id="2">
 					<item id="name"><![CDATA[admincp]]></item>
-					<item id="menu"><![CDATA[จัดการ]]></item>
+					<item id="menu"><![CDATA[管理]]></item>
 					<item id="url"><![CDATA[]]></item>
 					<item id="type"><![CDATA[3]]></item>
 					<item id="adminid"><![CDATA[1]]></item>
@@ -103,7 +103,7 @@
 				<item id="security_question_6"><![CDATA[您最喜欢的餐馆名称]]></item>
 				<item id="security_question_7"><![CDATA[驾驶执照的最后四位数字]]></item>
 				<item id="security_answer"><![CDATA[回答]]></item>
-				<item id="delete_check"><![CDATA[ต้องการลบ?]]></item>
+				<item id="delete_check"><![CDATA[删?]]></item>
 				<item id="switch_title"><![CDATA[请输入密码]]></item>
 				<item id="switch_tips"><![CDATA[你是首次切换到此账号，请输入密码]]></item>
 				<item id="confirm"><![CDATA[确定]]></item>

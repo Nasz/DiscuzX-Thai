@@ -1,10 +1,6 @@
 <?php
 
-/**
- * DiscuzX Convert
- *
- * $Id: do_setting.inc.php 10469 2010-05-11 09:12:14Z monkey $
- */
+
 
 showtips('setting_tips');
 $sfile = DISCUZ_ROOT.'./source/'.$source.'/setting.ini';
@@ -53,12 +49,11 @@ if(!submitcheck('submit')) {
 				}
 			}
 		}
-		$fp = fopen($sfile, 'c');
-		if($fp && flock($fp, LOCK_EX) && ftruncate($fp, 0) && fwrite($fp, implode("\n", $lines)) && fflush($fp) && flock($fp, LOCK_UN) && fclose($fp)) {
+		if($fp = @fopen($sfile, 'w')) {
+			fwrite($fp, implode("\n", $lines));
+			fclose($fp);
 			showmessage('设置已经更新完毕并成功保存', 'index.php', '', 1000);
 		} else {
-			flock($fp, LOCK_UN);
-			fclose($fp);
 			showmessage('该设置文件为只读文件，无法保存，请返回');
 		}
 	}

@@ -50,6 +50,7 @@ class table_common_stat extends discuz_table
 	}
 
 	public function fetch_all($ids, $force_from_db = false, $null = '*') {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch_all($ids, $force_from_db);

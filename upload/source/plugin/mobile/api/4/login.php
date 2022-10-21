@@ -19,7 +19,7 @@ class mobile_api {
 
 	public static function common() {
 		if(!empty($_GET['mlogout'])) {
-			if($_GET['hash'] == formhash()) {
+			if($_GET['hash'] == formhash()) {			
 				clearcookies();
 			}
 			mobile_core::result(array());

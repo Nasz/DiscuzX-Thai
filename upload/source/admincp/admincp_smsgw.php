@@ -13,6 +13,7 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 
 $root = '<a href="'.ADMINSCRIPT.'?action=smsgw">'.cplang('smsgw_admin').'</a>';
 
+
 $operation = $operation ? $operation : 'setting';
 
 cpheader();
@@ -76,6 +77,7 @@ if($operation == 'list') {
 				"<a href=\"".ADMINSCRIPT."?action=smsgw&operation=edit&smsgwid={$smsgw['smsgwid']}\" class=\"act\">{$lang['edit']}</a>"
 			));
 		}
+		
 		if(count($avaliablesmsgw) > 0) {
 			foreach($avaliablesmsgw as $smsgw) {
 				$arr = array('type' => $smsgw['type'], 'class' => $smsgw['class'], 'order' => 0, 'name' => $smsgw['name'], 'sendrule' => $smsgw['sendrule']);
@@ -218,19 +220,27 @@ if($operation == 'list') {
 } elseif($operation == 'setting') {
 
 	if(submitcheck('smsgwsubmit')) {
+		
 		$smsstatus = (int)$_GET['smsstatusnew'];
+		
 		$smsdefaultcc = (int)$_GET['smsdefaultccnew'];
 		$smsdefaultcc = $smsdefaultcc > 0 ? $smsdefaultcc : 86;
+		
 		$smsdefaultlength = (int)$_GET['smsdefaultlengthnew'];
 		$smsdefaultlength = $smsdefaultlength > 0 ? $smsdefaultlength : 4;
+		
 		$smstimelimit = (int)$_GET['smstimelimitnew'];
 		$smstimelimit = $smstimelimit > 0 ? $smstimelimit : 86400;
+		
 		$smsnumlimit = (int)$_GET['smsnumlimitnew'];
 		$smsnumlimit = $smsnumlimit > 0 ? $smsnumlimit : 5;
+		
 		$smsinterval = (int)$_GET['smsintervalnew'];
 		$smsinterval = $smsinterval > 0 ? $smsinterval : 300;
+		
 		$smsmillimit = (int)$_GET['smsmillimitnew'];
 		$smsmillimit = $smsmillimit > 0 ? $smsmillimit : 20;
+		
 		$smsglblimit = (int)$_GET['smsglblimitnew'];
 		$smsglblimit = $smsglblimit > 0 ? $smsglblimit : 1000;
 
@@ -252,13 +262,21 @@ if($operation == 'list') {
 			array('smsgw_admin_setting', 'smsgw&operation=setting', 1),
 			array('smsgw_admin_list', 'smsgw&operation=list', 0)
 		));
+		
 		$smsstatus = C::t('common_setting')->fetch_setting('smsstatus');
+		
 		$smsdefaultcc = C::t('common_setting')->fetch_setting('smsdefaultcc');
+		
 		$smsdefaultlength = C::t('common_setting')->fetch_setting('smsdefaultlength');
+		
 		$smstimelimit = C::t('common_setting')->fetch_setting('smstimelimit');
+		
 		$smsnumlimit = C::t('common_setting')->fetch_setting('smsnumlimit');
+		
 		$smsinterval = C::t('common_setting')->fetch_setting('smsinterval');
+		
 		$smsmillimit = C::t('common_setting')->fetch_setting('smsmillimit');
+		
 		$smsglblimit = C::t('common_setting')->fetch_setting('smsglblimit');
 
 		showformheader("smsgw&operation=$operation");

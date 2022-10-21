@@ -16,7 +16,7 @@ $lang = array
 (
 	'hello' => '您好',
 	'moderate_member_invalidate' => '否决',
-	'moderate_member_delete' => 'ลบทิ้ง',
+	'moderate_member_delete' => '删除',
 	'moderate_member_validate' => '通过',
 
 	'comma' => '，',

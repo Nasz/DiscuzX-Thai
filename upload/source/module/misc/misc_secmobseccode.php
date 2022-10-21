@@ -29,8 +29,12 @@ if($_GET['action'] == 'send') {
 		$length = $_G['setting']['smsdefaultlength'] ? $_G['setting']['smsdefaultlength'] : 4;
 		$secmobseccode = random($length, 1);
 
+		
+		
 		$result = sms::send($_G['uid'], 0, $svctype, $secmobicc, $secmobile, $secmobseccode, 0);
 
+		
+		
 		if($result >= 0) {
 			showmessage('secmobseccode_send_success', '', array(), array('alert' => 'right'));
 		} else {

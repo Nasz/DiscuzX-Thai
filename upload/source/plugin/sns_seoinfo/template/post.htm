@@ -1,0 +1,39 @@
+<!--{block return}-->
+<div id="extra_seoinfo_c" class="exfm cl" style="<!--{if $open}-->display: block<!--{else}-->display: none<!--{/if}-->">
+<table cellspacing="0" cellpadding="0">
+<tbody>
+	<tr>
+		<td class="xw1">{lang sns_seoinfo:post_title}</td>
+		<td><input type="text" class="px vm" size="80" id="seoinfo_title" name="seoinfo_title" value="{$log['title']}"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><p class="xg1">{lang sns_seoinfo:post_title_info}</p></td>
+	</tr>
+	<tr>
+		<td class="xw1">{lang sns_seoinfo:post_keywords}</td>
+		<td><input type="text" class="px vm" size="80" id="seoinfo_keywords" name="seoinfo_keywords" value="{$log['keywords']}"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><p class="xg1">{lang sns_seoinfo:post_keywords_info}</p></td>
+	</tr>	<tr>
+		<td class="xw1">{lang sns_seoinfo:post_thumbnail}</td>
+		<td><input type="text" class="px vm" size="80" id="seoinfo_thumbnail" name="seoinfo_thumbnail" value="{$log['thumbnail']}"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><p class="xg1">{lang sns_seoinfo:post_thumbnail_info}</p></td>
+	</tr>
+	<tr>
+		<td class="xw1">{lang sns_seoinfo:post_description}</td>
+		<td><textarea rows="4" name="seoinfo_description" id="seoinfo_description" cols="80" class="tarea">{$log['description']}</textarea></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><p class="xg1">{lang sns_seoinfo:post_description_info}</p></td>
+	</tr>	
+</tbody>
+</table>
+</div>
+<!--{/block}-->

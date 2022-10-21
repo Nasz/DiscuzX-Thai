@@ -29,6 +29,8 @@ if(in_array('mobile', $_G['setting']['plugins']['available'])) {
 			$posts += $forum['posts'];
 		}
 		loadcache('userstats');
+		
+		
 		$array = array(
 			'discuzversion' => 'X3.2',
 			'truediscuzversion' => DISCUZ_VERSION,

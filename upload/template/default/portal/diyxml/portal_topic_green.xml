@@ -970,7 +970,7 @@
 				<item id="dateuformat"><![CDATA[0]]></item>
 				<item id="punctualupdate"><![CDATA[0]]></item>
 				<item id="blockstyle">
-					<item id="name"><![CDATA[กระทู้_โมดูลกระทู้_ชื่อผู้เขียน]]></item>
+					<item id="name"><![CDATA[专题_帖子模块_作者加标题]]></item>
 					<item id="blockclass"><![CDATA[forum_thread]]></item>
 					<item id="makethumb"><![CDATA[0]]></item>
 					<item id="getpic"><![CDATA[0]]></item>
@@ -1052,7 +1052,7 @@
 				<item id="dateuformat"><![CDATA[1]]></item>
 				<item id="punctualupdate"><![CDATA[0]]></item>
 				<item id="blockstyle">
-					<item id="name"><![CDATA[กระทู้_โมดูลกระทู้_ชื่อผู้เขียน加头像]]></item>
+					<item id="name"><![CDATA[专题_帖子模块_作者加标题加头像]]></item>
 					<item id="blockclass"><![CDATA[forum_thread]]></item>
 					<item id="makethumb"><![CDATA[0]]></item>
 					<item id="getpic"><![CDATA[0]]></item>

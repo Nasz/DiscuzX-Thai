@@ -16,14 +16,14 @@ class discuz_process
 	public static function islocked($process, $ttl = 0, $autounlock = 0) {
 		$ttl = $ttl < 1 ? 600 : intval($ttl);
 		$status = discuz_process::_status('get', $process) || discuz_process::_find($process, $ttl);
-
+		
 		if($autounlock && !$status) {
 			register_shutdown_function('discuz_process::unlock', $process);
 		}
 
 		return $status;
 	}
-
+	
 	public static function unlock($process) {
 		discuz_process::_status('rm', $process);
 		discuz_process::_cmd('rm', $process);

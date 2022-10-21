@@ -2,7 +2,7 @@
 
 $lang = array(
 	'user_search' => '搜索用户',
-	'user_name' => 'ชื่อผู้ใช้',
+	'user_name' => '用户名',
 	'user_regdate' => '注册日期',
 	'user_regip' => '注册IP',
 	'user_before' => '之前',
@@ -11,7 +11,7 @@ $lang = array(
 	'user_add' => '添加用户',
 	'user_password' => '密码',
 	'user_addsubmit' => '添 加',
-	'delete' => 'ลบทิ้ง',
+	'delete' => '删除',
 	'email' => 'Email',
 	'user_list' => '用户列表',
 );

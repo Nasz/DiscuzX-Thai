@@ -65,7 +65,7 @@ function html_login_header($form = true) {
 <script src="{$staticurl}js/admincp_base.js"></script>
 </head>
 <body>
-<div class="darkmode" title="โหมดสีสดใส">
+<div class="darkmode" title="亮色模式">
 <div>
 <div class="dk-light">
 <svg width="24" height="24">
@@ -78,7 +78,7 @@ function html_login_header($form = true) {
 </svg>
 </div>
 </div>
-<ul id="dkm_menu" style="display: none;"><li class="current">ติดตามระบบ</li><li>โหมดปกติ</li><li>โหมดกลางคืน</li></ul>
+<ul id="dkm_menu" style="display: none;"><li class="current">跟随系统</li><li>正常模式</li><li>夜间模式</li></ul>
 </div>
 EOT;
 
@@ -99,7 +99,7 @@ function html_login_footer($halt = true) {
 	$copy = lang('admincp_login', 'copyright');
 	echo <<<EOT
 </div>
-<footer><span>ขับเคลื่อนโดย <a href="http://www.discuz.net/" target="_blank">Discuz!</a> $version </span><span>$copy</span></footer>
+<footer><span>Powered by <a href="http://www.discuz.net/" target="_blank">Discuz!</a> $version </span><span>$copy</span></footer>
 <script>
 	var cookiepre = '{$cookiepre}';
 	if(self.parent.frames.length != 0) {

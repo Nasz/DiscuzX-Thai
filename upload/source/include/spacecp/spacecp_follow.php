@@ -27,13 +27,14 @@ if($op == 'add') {
 		showmessage('follow_not_follow_self');
 	}
 	if(!$_G['group']['allowfollow']) {
-		showmessage('follow_not_follow_others');
+		showmessage('follow_not_follow_others'); 
 	}
 	$special = intval($_GET['special']) ? intval($_GET['special']) : 0;
 	$followuser = getuserbyuid($followuid);
 	if(empty($followuser)) {
 		showmessage('space_does_not_exist');
 	}
+	
 	$fields = C::t('common_member_field_home')->fetch($followuid);
 	if(!$fields['allowasfollow']) {
 		showmessage('follow_other_unfollow');

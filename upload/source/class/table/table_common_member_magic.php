@@ -22,6 +22,7 @@ class table_common_member_magic extends discuz_table
 	}
 
 	public function delete($val = null, $unbuffered = false) {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::delete($val, $unbuffered);
@@ -32,6 +33,7 @@ class table_common_member_magic extends discuz_table
 	}
 
 	public function delete_magic($uid = null, $magicid = null) {
+		
 		$para = array();
 		if($uid) {
 			$para[] = DB::field('uid', $uid);
@@ -46,6 +48,7 @@ class table_common_member_magic extends discuz_table
 	}
 
 	public function fetch_all($ids, $force_from_db = false, $null1 = 0, $null2 = 0) {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch_all($ids, $force_from_db);

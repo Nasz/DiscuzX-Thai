@@ -9,7 +9,7 @@ var drag = new Drag();
 drag.extend({
 
 	setDefalutMenu : function () {
-		this.addMenu('default', 'ลบทิ้ง', 'drag.removeBlock(event)');
+		this.addMenu('default', '删除', 'drag.removeBlock(event)');
 		this.addMenu('block', '属性', 'drag.openBlockEdit(event)');
 	},
 	removeBlock : function (e) {
@@ -19,7 +19,7 @@ drag.extend({
 		} else {
 			id = e;
 		}
-		if (!confirm('คุณต้องการลบมันจริงใช่ไหม ลบไปแล้วมันจะกู้คืนไม่ได้นะ')) return false;
+		if (!confirm('您确实要删除吗,删除以后将不可恢复')) return false;
 		$(id).parentNode.removeChild($(id));
 		var el = $('chk'+id);
 		if (el != null) el.className = '';

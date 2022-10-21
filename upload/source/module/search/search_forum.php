@@ -37,8 +37,8 @@ if(!empty($_G['cache']['posttable_info']) && is_array($_G['cache']['posttable_in
 
 $srchmod = 2;
 
-$cachelife_time = 300;		// Life span for cache of searching in specified range of time
-$cachelife_text = 3600;		// Life span for cache of text searching
+$cachelife_time = 300;		
+$cachelife_text = 3600;		
 
 $srchtype = empty($_GET['srchtype']) ? '' : trim($_GET['srchtype']);
 $searchid = isset($_GET['searchid']) ? intval($_GET['searchid']) : 0;
@@ -75,7 +75,7 @@ if(!submitcheck('searchsubmit', 1)) {
 	$orderby = in_array(getgpc('orderby'), array('dateline', 'replies', 'views')) ? $_GET['orderby'] : 'lastpost';
 	$ascdesc = isset($_GET['ascdesc']) && $_GET['ascdesc'] == 'asc' ? 'asc' : 'desc';
 	$orderbyselected = array($orderby => 'selected="selected"');
-	$ascchecked = array($ascdesc => 'checked="checked""');
+	$ascchecked = array($ascdesc => 'checked="checked""');	
 
 	if(!empty($searchid)) {
 
@@ -94,7 +94,7 @@ if(!submitcheck('searchsubmit', 1)) {
 
 		$index['keywords'] = rawurlencode($index['keywords']);
 		$searchstring = explode('|', $index['searchstring']);
-		$index['searchtype'] = $searchstring[0];//preg_replace("/^([a-z]+)\|.*/", "\\1", $index['searchstring']);
+		$index['searchtype'] = $searchstring[0];
 		$searchstring[2] = base64_decode($searchstring[2]);
 		$srchuname = $searchstring[4];
 		$modfid = 0;
@@ -105,7 +105,7 @@ if(!submitcheck('searchsubmit', 1)) {
 				if(!empty($srchfid) ) {
 					$forumselect = str_replace('<option value="'.$srchfid.'">', '<option value="'.$srchfid.'" selected="selected">', $forumselect);
 				}
-			}
+			}			
 			if(count($fids) == 1 && in_array($_G['adminid'], array(1,2,3))) {
 				$modfid = $fids[0];
 				if($_G['adminid'] == 3 && !C::t('forum_moderator')->fetch_uid_by_fid_uid($modfid, $_G['uid'])) {
@@ -351,9 +351,7 @@ if(!submitcheck('searchsubmit', 1)) {
 						if(!$srchuid) {
 							$sqlsrch .= ' AND 0';
 						}
-					}/* elseif($srchuid) {
-						$srchuid = "'$srchuid'";
-					}*/
+					}
 
 					if($srchtxt) {
 						$srcharr = $srchtype == 'fulltext' ? searchkey($keyword, "(p.message LIKE '%{text}%' OR p.subject LIKE '%{text}%')", true) : searchkey($keyword,"t.subject LIKE '%{text}%'", true);

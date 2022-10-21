@@ -9,22 +9,22 @@ var drag = new Drag();
 drag.extend({
 	'getBlocksTimer' : '',
 	'blocks' : [],
-	'blockDefaultClass' : [{'key':'เลือกรูปแบบ','value':''},{'key':'ไร้กรอบและพรหมแดน','value':'cl_block_bm'},{'key':'สไตล์ 1','value':'xbs_1'},{'key':'สไตล์ 2','value':'xbs xbs_2'},{'key':'สไตล์ 3','value':'xbs xbs_3'},{'key':'สไตล์ 4','value':'xbs xbs_4'},{'key':'สไตล์ 5','value':'xbs xbs_5'},{'key':'สไตล์ 6','value':'xbs xbs_6'},{'key':'สไตล์ 7','value':'xbs xbs_7'}],
-	'frameDefaultClass' : [{'key':'เลือกรูปแบบ','value':''},{'key':'ไร้กรอบและพรหมแดน','value':'cl_frame_bm'},{'key':'กรอบไร้ขอบ','value':'xfs xfs_nbd'},{'key':'สไตล์ 1','value':'xfs xfs_1'},{'key':'สไตล์ 2','value':'xfs xfs_2'},{'key':'สไตล์ 3','value':'xfs xfs_3'},{'key':'สไตล์ 4','value':'xfs xfs_4'},{'key':'สไตล์ 5','value':'xfs xfs_5'}],
+	'blockDefaultClass' : [{'key':'选择样式','value':''},{'key':'无边框且无边距','value':'cl_block_bm'},{'key':'样式1','value':'xbs_1'},{'key':'样式2','value':'xbs xbs_2'},{'key':'样式3','value':'xbs xbs_3'},{'key':'样式4','value':'xbs xbs_4'},{'key':'样式5','value':'xbs xbs_5'},{'key':'样式6','value':'xbs xbs_6'},{'key':'样式7','value':'xbs xbs_7'}],
+	'frameDefaultClass' : [{'key':'选择样式','value':''},{'key':'无边框且无边距','value':'cl_frame_bm'},{'key':'无边框框架','value':'xfs xfs_nbd'},{'key':'样式1','value':'xfs xfs_1'},{'key':'样式2','value':'xfs xfs_2'},{'key':'样式3','value':'xfs xfs_3'},{'key':'样式4','value':'xfs xfs_4'},{'key':'样式5','value':'xfs xfs_5'}],
 	setDefalutMenu : function () {
-		this.addMenu('default','หัวข้อ','drag.openTitleEdit(event)');
-		this.addMenu('default','สไตล์','drag.openStyleEdit(event)');
-		this.addMenu('default', 'ลบทิ้ง', 'drag.removeBlock(event)');
-		this.addMenu('block', 'ลักษณะ', 'drag.openBlockEdit(event)');
-		this.addMenu('block', 'ข้อมูล', 'drag.openBlockEdit(event,"data")');
-		this.addMenu('block', 'อัปเดต', 'drag.blockForceUpdate(event)');
-		this.addMenu('frame', 'ส่งออก', 'drag.frameExport(event)');
-		this.addMenu('tab', 'ส่งออก', 'drag.frameExport(event)');
+		this.addMenu('default','标题','drag.openTitleEdit(event)');
+		this.addMenu('default','样式','drag.openStyleEdit(event)');
+		this.addMenu('default', '删除', 'drag.removeBlock(event)');
+		this.addMenu('block', '属性', 'drag.openBlockEdit(event)');
+		this.addMenu('block', '数据', 'drag.openBlockEdit(event,"data")');
+		this.addMenu('block', '更新', 'drag.blockForceUpdate(event)');
+		this.addMenu('frame', '导出', 'drag.frameExport(event)');
+		this.addMenu('tab', '导出', 'drag.frameExport(event)');
 	},
 	setSampleMenu : function () {
-		this.addMenu('block', 'ลักษณะ', 'drag.openBlockEdit(event)');
-		this.addMenu('block', 'ข้อมูล', 'drag.openBlockEdit(event,"data")');
-		this.addMenu('block', 'อัปเดต', 'drag.blockForceUpdate(event)');
+		this.addMenu('block', '属性', 'drag.openBlockEdit(event)');
+		this.addMenu('block', '数据', 'drag.openBlockEdit(event,"data")');
+		this.addMenu('block', '更新', 'drag.blockForceUpdate(event)');
 	},
 	openBlockEdit : function (e,op) {
 		e = Util.event(e);
@@ -138,8 +138,8 @@ drag.extend({
 			key = k+'px';
 			bigarr.push({'key':key,'value':key});
 		}
-		var repeatarr = [{'key':'ทำซ้ำ','value':'repeat'},{'key':'ไม่ทำซ้ำ','value':'no-repeat'},{'key':'ทำซ้ำแนบนอน','value':'repeat-x'},{'key':'ทำซ้ำแนวตั้ง','value':'repeat-y'}];
-		var stylearr = [{'key':'ไม่มีสไตล์','value':'none'},{'key':'เส้นทึบ','value':'solid'},{'key':'จุดไข่ปลา','value':'dotted'},{'key':'ยัติภาค','value':'dashed'}];
+		var repeatarr = [{'key':'平铺','value':'repeat'},{'key':'不平铺','value':'no-repeat'},{'key':'横向平铺','value':'repeat-x'},{'key':'纵向平铺','value':'repeat-y'}];
+		var stylearr = [{'key':'无样式','value':'none'},{'key':'实线','value':'solid'},{'key':'点线','value':'dotted'},{'key':'虚线','value':'dashed'}];
 		var table = '<table class="tfm">';
 		table += '<tr><th>字体</th><td><input type="text" id="fontsize" class="px p_fre vm" value="'+fontsize+'" size="2" />px <input type="text" id="fontcolor" class="px p_fre vm" value="'+fontcolor+'" size="2" />';
 		table += getColorPalette(id+'_fontPalette', 'fontcolor' ,fontcolor)+'</td></tr>';
@@ -213,12 +213,12 @@ drag.extend({
 		table += '<tr><th>指定class</th><td><input type="text" id="diyClassName" class="px p_fre" value="'+diyClassName+'" size="8" /> <select class="ps vm" id="bgrepeat" onchange="$(\'diyClassName\').value=this.value;" >'+this.getOption(classarr, diyClassName)+'</select></td></tr>';
 		table += '</table>';
 
-		var wname = objType ? 'โมดูล' : 'กรอบ';
+		var wname = objType ? '模块' : '框架';
 		html = '<div class="c diywin" style="width:450px;position:relative;">'+table+'</div>';
 		var h = '<h3 class="flb"><em>编辑'+wname+'样式</em><span><a href="javascript:;" class="flbc" onclick="drag.closeStyleEdit(\''+id+'\');return false;" title="关闭">\n\
 			关闭</a></span></h3>';
 		var f = '<p class="o pns"><button onclick="drag.saveStyle(\''+id+'\');drag.closeStyleEdit(\''+id+'\');" class="pn pnc" value="true">\n\
-			<strong>确定</strong></button><button onclick="drag.closeStyleEdit(\''+id+'\')" class="pn" value="true"><strong>ยกเลิก</strong></button></p>';
+			<strong>确定</strong></button><button onclick="drag.closeStyleEdit(\''+id+'\')" class="pn" value="true"><strong>取消</strong></button></p>';
 		this.removeMenu(e);
 		showWindow('eleStyle',h + html + f, 'html', 0);
 	},
@@ -334,8 +334,8 @@ drag.extend({
 			fid = e;
 		}
 		var obj = this.getObjByName(fid);
-		var titlename = obj instanceof Block ? 'โมดูล' : 'กรอบ';
-		var repeatarr = [{'key':'ทำซ้ำ','value':'repeat'},{'key':'ไม่ทำซ้ำ','value':'no-repeat'},{'key':'ทำซ้ำแนวนอน','value':'repeat-x'},{'key':'ทำซ้ำแนวตั้ง','value':'repeat-y'}];
+		var titlename = obj instanceof Block ? '模块' : '框架';
+		var repeatarr = [{'key':'平铺','value':'repeat'},{'key':'不平铺','value':'no-repeat'},{'key':'横向平铺','value':'repeat-x'},{'key':'纵向平铺','value':'repeat-y'}];
 
 		var len = obj.titles.length;
 		var bgimage = obj.titles.style && obj.titles.style['background-image'] ? obj.titles.style['background-image'] : '';
@@ -345,11 +345,11 @@ drag.extend({
 		var bgrepeat = obj.titles.style && obj.titles.style['background-repeat'] ? obj.titles.style['background-repeat'] : '';
 
 		var common = '<table class="tfm">';
-		common += '<tr><th>ภาพพื้นหลัง:</th><td><input type="text" id="titleBgImage" class="px p_fre" value="'+bgimage+'" /> <select class="ps vm" id="titleBgRepeat" >'+this.getOption(repeatarr,bgrepeat)+'</select></td></tr>';
-		common += '<tr><th>สีพื้นหลัง:</th><td><input type="text" id="titleBgColor" class="px p_fre" value="'+bgcolor+'" size="7" />';
+		common += '<tr><th>背景图片:</th><td><input type="text" id="titleBgImage" class="px p_fre" value="'+bgimage+'" /> <select class="ps vm" id="titleBgRepeat" >'+this.getOption(repeatarr,bgrepeat)+'</select></td></tr>';
+		common += '<tr><th>背景颜色:</th><td><input type="text" id="titleBgColor" class="px p_fre" value="'+bgcolor+'" size="7" />';
 		common += getColorPalette(fid+'bgPalette_0', 'titleBgColor' ,bgcolor)+'</td></tr>';
 		if (obj instanceof Tab) {
-			var switchArr = [{'key':'ถูกคลิก','value':'click'},{'key':'เหนือเมาส์','value':'mouseover'}];
+			var switchArr = [{'key':'点击','value':'click'},{'key':'滑过','value':'mouseover'}];
 			var switchType = obj.titles['switchType'] ? obj.titles['switchType'][0] : 'click';
 			common += '<tr><th>切换类型:</th><td><select class="ps" id="switchType" >'+this.getOption(switchArr,switchType)+'</select></td></tr>';
 		}
@@ -386,7 +386,7 @@ drag.extend({
 		var h = '<h3 class="flb"><em>编辑'+titlename+'标题</em><span><a href="javascript:;" class="flbc" onclick="drag.closeTitleEdit(\''+fid+'\');return false;" title="关闭">\n\
 			关闭</a></span></h3>';
 		var f = '<p class="o pns"><button onclick="drag.saveTitleEdit(\''+fid+'\');drag.closeTitleEdit(\''+fid+'\');" class="pn pnc" value="true">\n\
-			<strong>确定</strong></button><button onclick="drag.closeTitleEdit(\''+fid+'\')" class="pn" value="true"><strong>ยกเลิก</strong></button></p>';
+			<strong>确定</strong></button><button onclick="drag.closeTitleEdit(\''+fid+'\')" class="pn" value="true"><strong>取消</strong></button></p>';
 		this.removeMenu(e);
 		showWindow('frameTitle',h + html + f, 'html', 0);
 	},
@@ -562,7 +562,7 @@ drag.extend({
 		if ($(id) == null) return false;
 		var obj = this.getObjByName(id);
 		if (!flag) {
-			if (!confirm('คุณต้องการลบมันจริงใช่ไหม ลบไปแล้วมันจะกู้คืนไม่ได้นะ')) return false;
+			if (!confirm('您确实要删除吗,删除以后将不可恢复')) return false;
 		}
 		if (obj instanceof Block) {
 			this.delBlock(id);
@@ -735,7 +735,7 @@ drag.extend({
 			this.blocks = this.allBlocks;
 		}
 		this.blocksLen = this.blocks.length;
-		showDialog('<div id="allupdate" style="width:350px;line-height:28px;">เริ่มปรับปรุง...</div>','confirm','更新模块数据', '', true, 'drag.endBlockForceUpdateBatch()');
+		showDialog('<div id="allupdate" style="width:350px;line-height:28px;">开始更新...</div>','confirm','更新模块数据', '', true, 'drag.endBlockForceUpdateBatch()');
 		var wait = function() {
 			if($('fwin_dialog_submit')) {
 				$('fwin_dialog_submit').style.display = 'none';
@@ -809,7 +809,7 @@ drag.extend({
 		var className = [this.frameClass,this.moveableObject].join(' ');
 		className = className + ' cl frame-' + type;
 		var str = '<div id="'+id+'" class="'+className+'">';
-		str += '<div id="'+id+'_title" class="'+this.titleClass+' '+this.frameTitleClass+'"><span class="'+this.titleTextClass+'">กรอบ'+type+'</span></div>';
+		str += '<div id="'+id+'_title" class="'+this.titleClass+' '+this.frameTitleClass+'"><span class="'+this.titleTextClass+'">'+type+'框架</span></div>';
 		var cols = type.split('-');
 		var clsl='',clsc='',clsr='';
 		clsl = ' frame-'+type+'-l';
@@ -835,7 +835,7 @@ drag.extend({
 		className = className + ' cl';
 		var titleClassName = [this.tabTitleClass, this.titleClass, this.moveableColumn, 'cl'].join(' ');
 		var str = '<div id="'+id+'" class="'+className+'">';
-		str += '<div id="'+id+'_title" class="'+titleClassName+'"><span class="'+this.titleTextClass+'">กรอบแท็บ</span></div>';
+		str += '<div id="'+id+'_title" class="'+titleClassName+'"><span class="'+this.titleTextClass+'">tab标签</span></div>';
 		str += '<div id="'+id+'_content" class="'+this.tabContentClass+'"></div>';
 		str += '</div>';
 		return str;
@@ -852,7 +852,7 @@ drag.extend({
 		} else {
 			if (!this.isChange) {
 				window.onbeforeunload = function() {
-					return 'ข้อมูลของคุณมีการแก้ไข การปิดจะทำให้การดัดแปลงของคุณไม่ได้รับการบันทึก';
+					return '您的数据已经修改,退出将无法保存您的修改。';
 				};
 			}
 			this.isChange = true;
@@ -866,7 +866,7 @@ drag.extend({
 	},
 	goonDIY : function () {
 		if ($('prefile').value == '1') {
-			showDialog('<div style="line-height:28px;">按继续按钮将打开暂存数据并DIY，<br />按删除按钮将删除暂存数据。</div>','confirm','是否继续暂存数据的DIY？', function(){location.replace(location.href+'&preview=yes');}, true, 'spaceDiy.cancelDIY()', '', '继续', 'ลบทิ้ง');
+			showDialog('<div style="line-height:28px;">按继续按钮将打开暂存数据并DIY，<br />按删除按钮将删除暂存数据。</div>','confirm','是否继续暂存数据的DIY？', function(){location.replace(location.href+'&preview=yes');}, true, 'spaceDiy.cancelDIY()', '', '继续', '删除');
 		} else if (location.search.indexOf('preview=yes') > -1) {
 			spaceDiy.enablePreviewButton();
 		} else {

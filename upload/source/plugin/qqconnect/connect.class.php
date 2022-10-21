@@ -1,11 +1,6 @@
 <?php
 
-/**
- *		[Discuz! X] (C)2001-2099 Comsenz Inc.
- *		This is NOT a freeware, use is subject to license terms
- *
- *		$Id: connect.class.php 34497 2014-05-09 09:05:09Z nemohou $
- */
+
 
 if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
@@ -162,7 +157,7 @@ class plugin_qqconnect extends plugin_qqconnect_base {
 			}
 			$_G['connect']['share_images'] = implode('|', $share_images);
 		}
-		return tpl_viewthread_share_method($jsurl);
+		return tpl_viewthread_share_method($jsurl);		
 	}
 
 }

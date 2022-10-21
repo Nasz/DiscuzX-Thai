@@ -1,6 +1,7 @@
 discuzX.code-workspace
 *.bak
 *.lock
+.gitignore
 upload/.htaccess
 upload/config/*
 upload/data/cache/*
@@ -14,3 +15,17 @@ upload/uc_server/data/cache/*
 upload/uc_server/data/config.inc.php
 upload/uc_server/data/logs/*
 upload/uc_server/data/view/*
+node_modules/*
+.vscode/*
+upload/data/attachment/album/*
+upload/data/attachment/album/cover/*
+upload/data/attachment/forum/*
+upload/data/attachment/image/index.htm
+upload/data/ipdata/iplocation-lite-en.csv
+upload/data/ipdata/iplocation-lite.csv
+upload/data/ipdata/newtinyipdata.dat
+upload/data/ipdata/pack.php
+upload/data/ipdata/phpUnpack.php
+upload/data/ipdata/readpack.php
+package-lock.json
+package.json

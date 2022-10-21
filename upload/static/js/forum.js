@@ -175,7 +175,7 @@ function announcement() {
                 ann.announcementScrollnext(targetTop);
             }, 10);
         } else {
-            this.annrowcount++;
+            this.annrowcount++; 
             this.annst = setTimeout(function() {
                 ann.announcementScroll();
             }, this.anndelay);
@@ -186,7 +186,7 @@ function announcement() {
 }
 
 function removeindexheats() {
-	return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบหัวข้อนี้ออกจากกระทู้ร้อนแรง?');
+	return confirm('您确认要把此主题从热点主题中移除么？');
 }
 
 function showTypes(id, mod) {
@@ -196,7 +196,7 @@ function showTypes(id, mod) {
 	mod = isUndefined(mod) ? 1 : mod;
 	var baseh = o.getElementsByTagName('li')[0].offsetHeight * 2;
 	var tmph = o.offsetHeight;
-	var lang = ['เปิด', 'ปิด'];
+	var lang = ['展开', '收起'];
 	var cls = ['unfold', 'fold'];
 	if(tmph > baseh) {
 		var octrl = document.createElement('li');
@@ -237,18 +237,18 @@ function fastpostvalidate(theform, noajaxpost) {
 		}
 	}
 	if(theform.message.value == '' || theform.subject.value == '') {
-		s = 'ขออภัยคุณยังไม่ได้ป้อนหัวข้อหรือเนื้อหา';
+		s = '抱歉，您尚未输入标题或内容';
 		theform.message.focus();
 	} else if(dstrlen(theform.subject.value) > 255) {
-		s = 'หัวข้อของคุณเกินขีดิจำกัด (มากกว่า 255 ตัวอักษร)';
+		s = '您的标题超过 255 个字符的限制';
 		theform.subject.focus();
 	}
 	if(!disablepostctrl && dstrlen(trim(theform.subject.value)) && ((postminsubjectchars != 0 && dstrlen(theform.subject.value) < postminsubjectchars) || (postminsubjectchars != 0 && dstrlen(theform.subject.value) > postmaxsubjectchars))) {
-		showError('ความยาวหัวข้อของคุณไม่เป็นไปตามข้อกำหนด\n\nความยาวปัจจุบัน: ' + dstrlen(theform.subject.value) + ' 字\n系统限制: ' + postminsubjectchars + ' 到 ' + postmaxsubjectchars + ' 字');
+		showError('您的标题长度不符合要求。\n\n当前长度: ' + dstrlen(theform.subject.value) + ' 字\n系统限制: ' + postminsubjectchars + ' 到 ' + postmaxsubjectchars + ' 字');
 		return false;
 	}
 	if(!disablepostctrl && ((postminchars != 0 && mb_strlen(theform.message.value) < postminchars) || (postmaxchars != 0 && mb_strlen(theform.message.value) > postmaxchars))) {
-		s = '您的帖子长度不符合要求。\n\nความยาวปัจจุบัน: ' + mb_strlen(theform.message.value) + ' ' + '字节\n系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节';
+		s = '您的帖子长度不符合要求。\n\n当前长度: ' + mb_strlen(theform.message.value) + ' ' + '字节\n系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节';
 	}
 	if(s) {
 		showError(s);
@@ -315,12 +315,12 @@ function loadData(quiet, formobj) {
 
 	if(in_array((data = trim(data)), ['', 'null', 'false', null, false])) {
 		if(!quiet) {
-			showDialog('ไม่มีข้อมูลที่สามารถกู้คืนได้!', 'notice');
+			showDialog('没有可以恢复的数据！', 'notice');
 		}
 		return;
 	}
 
-	if(!quiet && !confirm('การดำเนินการนี้จะยกเลิกเนื้อหาของโพสต์ในปัจจุบัน ยังต้องการกู้คืนข้อมูลหรือไม่?')) {
+	if(!quiet && !confirm('此操作将覆盖当前帖子内容，确定要恢复数据吗？')) {
 		return;
 	}
 
@@ -536,7 +536,7 @@ function showtime() {
 				timestr += timer_day + '天';
 			}
 			if(timer_hour > 0) {
-				timestr += timer_hour + 'ชั่วโมง'
+				timestr += timer_hour + '小时'
 			}
 			if(timer_minute > 0) {
 				timestr += timer_minute + '分'

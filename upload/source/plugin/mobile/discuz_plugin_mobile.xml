@@ -61,12 +61,12 @@
 				<item id="mobile_tips"><![CDATA[推荐使用二维码收藏并访问论坛<br />使用二维码收藏论坛的方法：<br />1，装掌上论坛应用后，点击使用二维码收藏论坛。<br />2，将二维码置于相机焦点中即可收藏成功。]]></item>
 				<item id="username"><![CDATA[用户名]]></item>
 				<item id="password"><![CDATA[密码]]></item>
-				<item id="password_confirm"><![CDATA[ยืนยันรหัสผ่าน]]></item>
+				<item id="password_confirm"><![CDATA[确认密码]]></item>
 				<item id="email"><![CDATA[Email]]></item>
 				<item id="invite_code"><![CDATA[邀请码]]></item>
 				<item id="register_message"><![CDATA[注册原因]]></item>
 				<item id="seccode"><![CDATA[验证码]]></item>
-				<item id="change_seccode"><![CDATA[เปลี่ยน]]></item>
+				<item id="change_seccode"><![CDATA[换一个]]></item>
 				<item id="secqaa"><![CDATA[验证问答]]></item>
 				<item id="close"><![CDATA[关闭]]></item>
 				<item id="admin_tips"><![CDATA[尊敬的站长，您可以在Discuz!程序根目录上传"mobile.png"图片(尺寸178x178)，以确保论坛客户端能成功获得到论坛的logo]]></item>

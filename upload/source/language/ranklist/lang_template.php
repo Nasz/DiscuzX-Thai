@@ -26,7 +26,7 @@ $lang = array (
   'ranklist_activity_end' => 'ตัดออก',
   'ranklist_activity_start' => 'เวลาทำกิจกรรม:',
   'ranklist_favorite' => 'อันดับรายการโปรด',
-  'ranklist_hot' => 'อันดับกระทู้ร้อนแรง',
+  'ranklist_hot' => 'อันดับเธรดร้อนแรง',
   'ranklist_month' => 'เดือนนี้',
   'ranklist_share' => 'อันดับการแบ่งปัน',
   'ranklist_thread_favorite' => 'ชื่นชอบ',
@@ -99,7 +99,7 @@ $lang = array (
   'add_friend' => 'ขอเป็นเพื่อน',
   'blogs_num' => 'ไดอารี่',
   'day_post_num' => 'จำนวนโพสต์ใน 24 ชั่วโมงที่ผ่านมา',
-  'digest_num' => 'กระทู้สำคัญ',
+  'digest_num' => 'บทคัดย่อ',
   'friends_num' => 'อันดับจำนวนเพื่อน',
   'invite_num' => 'เชิญชวน',
   'last_activity' => 'ใช้งานขั้นสุดท้าย',
@@ -125,7 +125,7 @@ $lang = array (
   'bidding_rank' => 'อันดับประมูล',
   'i_want_rank' => 'อยากอยู่ในรายชื่อ',
   'more' => 'เพิ่มเติม',
-  'ranklist_thread' => 'อันดับกระทู้',
+  'ranklist_thread' => 'อันดับเธรด',
   'activity' => 'กิจกรรม',
   'blogs' => 'ไดอารี',
   'pics' => 'ภาพ',
@@ -135,7 +135,7 @@ $lang = array (
   'author' => 'ผู้เขียน',
   'ranklist_thread_heat' => 'ความฮ๊อต',
   'ranklist_thread_reply' => 'ตอบ',
-  'thread' => 'กระทู้',
+  'thread' => 'เธรด',
 );
 
 ?>

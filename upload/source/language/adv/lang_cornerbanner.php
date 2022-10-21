@@ -24,8 +24,8 @@ $lang = array
 	'cornerbanner_animator_comment' => 'ไม่ว่ายังไงก็แสดงภาพเคลื่อนไหว',
 	'cornerbanner_category' => 'หมวดเป้าหมาย',
 	'cornerbanner_category_comment' => 'การตั้งค่าสำหรับแสดงโฆษณาในหมวดซึ่งมีผลบังคับใช้เมื่อ scope ของโฆษณามี "หมวด"',
-	'cornerbanner_disableclose' => 'ปิดลิงค์ของโฆษณา',
-	'cornerbanner_disableclose_comment' => 'หากโค๊ดโฆษณาคุณมีลิงค์ในตัวอยู่แล้ว คุณสามารถปิดลิงค์ที่ระบบตั้งไว้ล่วงหน้าได้',
+	'cornerbanner_disableclose' => 'ปิดลิงก์ของโฆษณา',
+	'cornerbanner_disableclose_comment' => 'หากโค๊ดโฆษณาคุณมีลิงก์ในตัวอยู่แล้ว คุณสามารถปิดลิงก์ที่ระบบตั้งไว้ล่วงหน้าได้',
 	'cornerbanner_show' => 'แสดง',
 	'cornerbanner_hidden' => 'ซ่อน',
 );

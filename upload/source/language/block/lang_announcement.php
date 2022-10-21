@@ -15,7 +15,7 @@ $lang = array
 (
 	'announcement_type' => 'ประเภทประกาศ',
 	'announcement_type_text' => 'ข้อความประกาศ',
-	'announcement_type_link' => 'ลิงค์เว็บไซต์',
+	'announcement_type_link' => 'ลิงก์เว็บไซต์',
 	'announcement_titlelength' => 'ความยาวชื่อ',
 	'announcement_summarylength' => 'ความยาวเนื้อหา',
 	'announcement_startrow' => 'แถวข้อมูลเริ่มต้น',

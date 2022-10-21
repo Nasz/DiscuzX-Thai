@@ -25,12 +25,12 @@ $lang = array (
   'no_content' => 'ไม่มีเนื้อหาที่เกี่ยวข้อง',
   'personal_category' => 'การจำแนกประเภทส่วนตัว',
   'related_blog' => 'บันทึกที่เกี่ยวข้อง',
-  'related_thread' => 'กระทู้ที่เกี่ยวข้อง',
+  'related_thread' => 'เธรดที่เกี่ยวข้อง',
   'replies' => 'ตอบ',
   'price' => 'ราคา',
   'attach_img' => 'แนบภาพ',
   'attachment' => 'ไฟล์แนบ',
-  'thread_digest' => 'สารสำคัญ',
+  'thread_digest' => 'บทคัดย่อ',
 );
 
 ?>

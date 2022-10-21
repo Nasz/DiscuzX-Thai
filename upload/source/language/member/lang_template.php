@@ -43,7 +43,7 @@ $lang = array (
   'index_activation' => 'บัญชีของคุณจะต้องเปิดใช้งาน',
   'invite_code' => 'รหัสการเชิญ',
   'login_inactive' => 'เลิกเปิดใช้งานตอนนี้<a href="member.php?mod={$_G[\'setting\'][\'regname\']}">{$_G[\'setting\'][\'reglinkname\']}</a>',
-  'login_now' => 'มีบัญชีอยู่แล้วเข้าสู่ระบบคลิ๊ก',
+  'login_now' => 'มีบัญชีอยู่แล้วเข้าสู่ระบบคลิก',
   'password_confirm' => 'ยืนยันรหัสผ่าน',
   'register_buyinvitecode' => 'ยังไม่มีรหัสเชิญ?คลิกที่นี่เพื่อรับ',
   'register_email_tips' => 'กรุณาป้อนที่อยู่อีเมลที่ถูกต้อง',

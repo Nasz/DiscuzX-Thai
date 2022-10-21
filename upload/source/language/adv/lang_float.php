@@ -26,8 +26,8 @@ $lang = array
 	'float_position_right' => 'ขวา',
 	'float_category' => 'หมวดเป้าหมาย',
 	'float_category_comment' => 'การตั้งค่าสำหรับแสดงโฆษณาในหมวดซึ่งมีผลบังคับใช้เมื่อ scope ของโฆษณามี "หมวด"',
-	'float_disableclose' => 'ปิดลิงค์ของโฆษณา',
-	'float_disableclose_comment' => 'หากโค๊ดโฆษณาคุณมีลิงค์ในตัวอยู่แล้ว คุณสามารถปิดลิงค์ที่ระบบตั้งไว้ล่วงหน้าได้',
+	'float_disableclose' => 'ปิดลิงก์ของโฆษณา',
+	'float_disableclose_comment' => 'หากโค๊ดโฆษณาคุณมีลิงก์ในตัวอยู่แล้ว คุณสามารถปิดลิงก์ที่ระบบตั้งไว้ล่วงหน้าได้',
 	'float_show' => 'แสดง',
 	'float_hidden' => 'ซ่อน',
 );

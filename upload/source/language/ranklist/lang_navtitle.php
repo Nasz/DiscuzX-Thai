@@ -57,14 +57,14 @@ $lang = array(
   'ranklist_title_picture_4' => 'จัดอันดับรูปภาพดอกไม้',
   'ranklist_title_picture_5' => 'จัดอันดับรูปภาพไข่ดาว',
 
-  'ranklist_title_forum_thread' => 'จัดอันดับบอร์ดที่มีกระทู้มากสุด',
+  'ranklist_title_forum_thread' => 'จัดอันดับบอร์ดที่มีเธรดมากสุด',
   'ranklist_title_forum_post' => 'จัดอันดับบอร์ดที่มีโพสต์มากสุด',
   'ranklist_title_forum_post_30' => 'จัดอันดับบอร์ดที่มีโพสต์มากสุดในช่วง 30 ที่ผ่านมา',
   'ranklist_title_forum_post_24' => 'จัดอันดับบอร์ดที่มีโพสต์มากสุดในช่วง 24 ชม.ผ่านมา',
 
   'ranklist_title_group_credit' => 'จัดอันดับคลับที่มีคะแนนมากสุด',
-  'ranklist_title_group_member' => 'จัดอันดับคลับที่มีเม็มเบอร์มากสุด',
-  'ranklist_title_group_thread' => 'จัดอันดับคลับที่มีกระทู้มากสุด',
+  'ranklist_title_group_member' => 'จัดอันดับคลับที่มีเมมเบอร์มากสุด',
+  'ranklist_title_group_thread' => 'จัดอันดับคลับที่มีเธรดมากสุด',
   'ranklist_title_group_post' => 'จัดอันดับคลับที่มีโพสต์มากสุด',
   'ranklist_title_group_post_30' => 'จัดอันดับคลับที่มีโพสต์มากสุดในช่วง 30 ที่ผ่านมา',
   'ranklist_title_group_post_24' => 'จัดอันดับคลับที่มีโพสต์มากสุดในช่วง 24 ชม.ผ่านมา',

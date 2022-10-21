@@ -706,7 +706,7 @@ if($_GET['step'] == 'start') {
 			$newsettings['allowviewuserthread'] = $allowviewuserthread;
 		}
 		if(!isset($settings['focus'])) {
-			$focusnew = array('title' => 'แนะนำโดยทีมงาน', 'cookie' => 1);
+			$focusnew = array('title' => 'แนะนำโดยเว็บมาสเตอร์', 'cookie' => 1);
 			$newsettings['focus'] = $focusnew;
 		} else {
 			$focus = dunserialize($settings['focus']);

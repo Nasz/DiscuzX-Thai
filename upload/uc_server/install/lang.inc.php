@@ -140,7 +140,7 @@ $lang = array(
 	'tagtemplates_uid' => 'ผู้ใช้ ID',
 	'tagtemplates_username' => 'โปสเตอร์',
 	'tagtemplates_dateline' => 'วันที่',
-	'tagtemplates_url' => 'ที่อยู่กระทู้',
+	'tagtemplates_url' => 'ที่อยู่เธรด',
 
 	'uc_version_incorrect' => ' UCenter ของคุณรุ่นเก่าเกินไป กรุณาอัพเกรด UCenter รุ่นล่าสุด อัพเกรด ลิ้งค์ดาวน์โหลด：http://www.comsenz.com/',
 	'config_unwriteable' => 'ตัวช่วยสร้างการติดตั้งไม่สามารถเขียนลงในไฟล์การกำหนดค่าได้, กรุณาตั้งค่า config.inc.php แอตทริบิวต์โปรแกรมคือการเขียน -สถานะที่สามารถใช้งานได้(777)',

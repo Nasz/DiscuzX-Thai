@@ -16,12 +16,12 @@ $lang = array
 	'bump_name' => 'การ์ดที่ได้รับการปรับปรุง',
 	'bump_forum' => 'อนุญาตให้ส่วนของรายการนี้',
 	'bump_desc' => 'สามารถปรับปรุงชุดรูปแบบที่แน่นอน',
-	'bump_info' => 'ปรับปรุงกระทู้ที่ระบุโปรดป้อน ID ของกระทู้',
+	'bump_info' => 'ปรับปรุงเธรดที่ระบุโปรดป้อน ID ของเธรด',
 	'bump_info_nonexistence' => 'โปรดระบุหัวข้อที่จะปรับปรุง',
 	'bump_succeed' => 'ชุดรูปแบบการดำเนินการของคุณดีขึ้น',
 	'bump_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
 
-	'bump_notification' => 'กระทู้ของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
+	'bump_notification' => 'เธรดของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
 );
 
 ?>

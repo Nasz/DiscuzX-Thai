@@ -14,17 +14,17 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'close_name' => 'การ์ดเงียบ',
-	'close_desc' => 'คุณสามารถปิดกระทู้ห้ามการตอบกลับ',
+	'close_desc' => 'คุณสามารถปิดเธรดห้ามการตอบกลับ',
 	'close_expiration' => 'ระยะเวลาปิดใช้งาน',
-	'close_expiration_comment' => 'สามารถตั้งค่ากระทู้ได้นานเท่าใดและ 24 ชั่วโมงโดยค่าเริ่มต้น',
+	'close_expiration_comment' => 'สามารถตั้งค่าเธรดได้นานเท่าใดและ 24 ชั่วโมงโดยค่าเริ่มต้น',
 	'close_forum' => 'อนุญาตให้ส่วนของรายการนี้',
-	'close_info' => 'ปิดกระทู้ที่ระบุ {expiration} ชั่วโมงโปรดป้อน ID ของกระทู้',
+	'close_info' => 'ปิดเธรดที่ระบุ {expiration} ชั่วโมงโปรดป้อน ID ของเธรด',
 	'close_info_nonexistence' => 'โปรดระบุหัวข้อที่จะปิด',
 	'close_succeed' => 'ชุดรูปแบบการดำเนินการของคุณถูกปิด',
 	'close_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
 	'close_info_user_noperm' => 'ขออภัยคุณไม่สามารถใช้เสานี้กับบุคคลนี้ได้',
 
-	'close_notification' => 'กระทู้ของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
+	'close_notification' => 'เธรดของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
 );
 
 ?>

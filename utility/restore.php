@@ -526,7 +526,7 @@ function show_msg($message, $url_forward = '', $type = 'message', $success = 0) 
 		echo '<span'.($success ? '' : ' class="red"').'>'.$message.'</span>';
 	} elseif($type == 'redirect') {
 		echo "$message ...";
-		echo "<br /><br /><br /><a href=\"$url_forward\">เบราว์เซอร์จะเปลี่ยนหน้าโดยอัตโนมัติโดยคุณไม่จำเป็นต้องคลิ๊กด้วยตนเองเว้นแต่ว่าเมื่อเบราว์เซอร์ของคุณไม่ตอบสนองโดยอัตโนมัติเป็นเวลานานโปรดคลิกที่นี่</a>";
+		echo "<br /><br /><br /><a href=\"$url_forward\">เบราว์เซอร์จะเปลี่ยนหน้าโดยอัตโนมัติโดยคุณไม่จำเป็นต้องคลิกด้วยตนเองเว้นแต่ว่าเมื่อเบราว์เซอร์ของคุณไม่ตอบสนองโดยอัตโนมัติเป็นเวลานานโปรดคลิกที่นี่</a>";
 		echo "<script>setTimeout(\"redirect('$url_forward');\", 1250);</script>";
 	} elseif($type == 'confirm') {
 		echo "$message";

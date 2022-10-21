@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'grouplist_gtids' => 'เลือกคลับ',
-	'grouplist_gtids_comment' => 'เลือกกระทู้คลับ',
+	'grouplist_gtids_comment' => 'เลือกเธรดคลับ',
 	'grouplist_fids' => 'เลือกบอร์ด',
 	'grouplist_fids_comment' => 'ป้อน ID บอร์ด หลาย ID ให้แยกด้วยเครื่องหมายจุลภาค',
 	'grouplist_startrow' => 'แถวข้อมูลเริ่มต้น',

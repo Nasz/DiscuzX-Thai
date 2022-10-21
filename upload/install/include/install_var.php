@@ -245,7 +245,7 @@ $serialize_sql_setting = array (
   ),
   'postnocustom' =>
   array (
-    0 => 'เจ้าของกระทู้',
+    0 => 'เจ้าของเธรด',
     1 => 'โซฟา',
     2 => 'เก้าอี้',
     3 => 'ยืน',
@@ -322,7 +322,7 @@ $serialize_sql_setting = array (
   ),
   'focus' =>
   array (
-    'title' => 'แนะนำโดยทีมงาน',
+    'title' => 'แนะนำโดยเว็บมาสเตอร์',
     'data' =>
     array (
     ),

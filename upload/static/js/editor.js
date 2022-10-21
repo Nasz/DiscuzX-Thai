@@ -1084,7 +1084,7 @@ function showEditorMenu(tag, params) {
 				break;
 			case 'beginning':
 				str = '<p class="pbn">ป้อนที่อยู่ของแอนิเมชั่น FLASH หรือรูปภาพ:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_1" class="px" value="" style="width: 220px;" /></p>';
-				str += '<p class="pbn">ลิ้งก์ที่อยู่สำหรับคลิ๊ก:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_2" class="px" value="" style="width: 220px;" /></p>';
+				str += '<p class="pbn">ลิ้งก์ที่อยู่สำหรับคลิก:</p><p class="pbn"><input type="text" id="' + ctrlid + '_param_2" class="px" value="" style="width: 220px;" /></p>';
 				str += '<p class="pbn">กว้าง: <input id="' + ctrlid + '_param_3" size="5" value="" class="px" /> &nbsp; สูง: <input id="' + ctrlid + '_param_4" size="5" value="" class="px" /></p>';
 				str += '<p class="pbn">หยุดหลังจาก: <input id="' + ctrlid + '_param_8" size="5" value="" class="px" /></p>';
 				str += '<p class="pbn">เอฟเฟกต์การโหลดและการหายไป: </p><p class="pbn"><input id="' + ctrlid + '_param_7" type="radio" name="effect" checked />ไม่มี &nbsp; <input id="' + ctrlid + '_param_5" type="radio" name="effect" />จางเข้าและจางออก &nbsp; <input id="' + ctrlid + '_param_6" type="radio" name="effect" />แกว่งแล้วปิด</p>';

@@ -165,7 +165,7 @@ $lang = array(
 	'do_stat_poll' => 'โพล',
 	'do_stat_event' => '活动',
 	'do_stat_share' => 'แบ่งปัน',
-	'do_stat_thread' => 'กระทู้',
+	'do_stat_thread' => 'เธรด',
 	'do_stat_docomment' => '记录回复',
 	'do_stat_blogcomment' => '日志评论',
 	'do_stat_piccomment' => 'เมนท์รูปภาพ',
@@ -278,7 +278,7 @@ $lang = array(
 	'friend' => 'เพื่อน',
 	'group' => 'คลับ',
 	'follow' => 'กระจายเสียง',
-	'collection' => 'คอลเลคชั่น',
+	'collection' => 'คลัง',
 	'guide' => 'สำรวจ',
 	'feed' => 'ฟีด RSS',
 	'blog' => 'ไดอารี',
@@ -288,7 +288,7 @@ $lang = array(
 	'ranklist' => 'ชาร์ตอันดับ',
 	'medal' => 'เหรียญตรา',
 	'task' => 'ภารกิจ',
-	'magic' => 'แมจิก',
+	'magic' => 'การ์ด',
 	'favorite' => 'ชื่นชอบ',
 	'select_the_navigation_position' => 'เลือกเพิ่ม {type} ไปยังเมนู',
 	'close_module' => 'การปิดการทำงานของ {type}',
@@ -303,7 +303,7 @@ $lang = array(
 	'spacecp_message_prompt' => '(รองรับ {msg} ตัวอักษร สูงสุด 1000 ตัวอักษร)',
 	'card_update_doing' => ' <a class="xi2" href="###">[อัปเดตสมุดโน๊ต]</a>',
 	'email_acitve_message' => '<i class="fico-email vm fc-i" title="ไม่ผ่านการตรวจสอบ"></i><span class="xi1 vm">อีเมล ({newemail}) กำลังรอการยืนยัน...</span><br />
-								การตรวจสอบ ระบบได้ส่งจดหมายสำหรับเปิดใช้งานบัญชีไปยังอีเมล โปรดตรวจสอบอีเมลแล้วคลิ๊กลิงค์เปิดใช้งาน<br>
+								การตรวจสอบ ระบบได้ส่งจดหมายสำหรับเปิดใช้งานบัญชีไปยังอีเมล โปรดตรวจสอบอีเมลแล้วคลิกลิงก์เปิดใช้งาน<br>
 								หากไม่ได้รับอีเมลยืนยัน คุณสามารถเปลี่ยนอีเมลใหม่ หรือ<a href="home.php?mod=spacecp&ac=profile&op=password&resend=1&formhash={formhash}" class="xi2">คลิกที่นี่เพื่อขอรับอีเมลยืนยันอีกครั้ง</a>',
 	'qq_set_status' => 'แสดงสถานะออนไลน์ QQ',
 	'qq_dialog' => 'เปิดแชทด้วย QQ',

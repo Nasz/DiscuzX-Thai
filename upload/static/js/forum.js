@@ -186,7 +186,7 @@ function announcement() {
 }
 
 function removeindexheats() {
-	return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบหัวข้อนี้ออกจากกระทู้ร้อนแรง?');
+	return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบหัวข้อนี้ออกจากเธรดร้อนแรง?');
 }
 
 function showTypes(id, mod) {

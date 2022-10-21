@@ -1036,7 +1036,7 @@ function _showColorBox(ctrlid, layer, k, bgcolor) {
 		menu.unselectable = true;
 		menu.style.display = 'none';
 		var coloroptions = ['Black', 'Sienna', 'DarkOliveGreen', 'DarkGreen', 'DarkSlateBlue', 'Navy', 'Indigo', 'DarkSlateGray', 'DarkRed', 'DarkOrange', 'Olive', 'Green', 'Teal', 'Blue', 'SlateGray', 'DimGray', 'Red', 'SandyBrown', 'YellowGreen', 'SeaGreen', 'MediumTurquoise', 'RoyalBlue', 'Purple', 'Gray', 'Magenta', 'Orange', 'Yellow', 'Lime', 'Cyan', 'DeepSkyBlue', 'DarkOrchid', 'Silver', 'Pink', 'Wheat', 'LemonChiffon', 'PaleGreen', 'PaleTurquoise', 'LightBlue', 'Plum', 'White'];
-		var colortexts = ['黑色', '赭色', '暗橄榄绿色', '暗绿色', '暗灰蓝色', '海军色', '靛青色', '墨绿色', '暗红色', '暗桔黄色', '橄榄色', '绿色', '水鸭色', '蓝色', '灰石色', '暗灰色', '红色', '沙褐色', '黄绿色', '海绿色', '间绿宝石', '皇家蓝', '紫色', '灰色', '红紫色', '橙色', '黄色', '酸橙色', '青色', '深天蓝色', '暗紫色', '银色', '粉色', '浅黄色', '柠檬绸色', '苍绿色', '苍宝石绿', '亮蓝色', '洋李色', '白色'];
+		var colortexts = ['ดำ', 'น้ำตาล', 'เขียวมะกอกเข้ม', 'เขียวเข้ม', 'กระดานชนวนน้ำเงินเข้ม', 'กรมท่า', 'คราม', 'กระดานชนวนเทาเข้ม', 'แดงเข้ม', 'ส้มเข้ม', 'มะกอก', 'เขียว', 'น้ำเงินอมเขียว', 'น้ำเงิน', 'กระดานชนวนเทา', 'ดิมเกรย์', 'แดง', 'แซนดี้บราวน์', 'โศก', 'เขียวทะเล', 'เทอร์ควอยซ์', 'รอยัลบลู', 'ม่วง', 'เทา', 'ม่วงแดง', 'ส้ม', 'เหลือง', 'มะนาว', 'ไซอัน', 'ฟ้าเข้ม', 'กล้วยไม้เข้ม', 'เงิน', 'ชมพู', 'ข้าวสาลี', 'มะนาวชิฟฟ่อน', 'เขียวซีด', 'เทอร์ควอยซ์ซีด', 'ฟ้าอ่อน', 'พลัม', 'ขาว'];
 		var str = '';
 		for(var i = 0; i < 40; i++) {
 			str += '<input type="button" style="background-color: ' + coloroptions[i] + '"' + (typeof setEditorTip == 'function' ? ' onmouseover="setEditorTip(\'' + colortexts[i] + '\')" onmouseout="setEditorTip(\'\')"' : '') + ' onclick="'
@@ -1225,12 +1225,12 @@ function _createPalette(colorid, id, func) {
 
 function _setShortcut() {
 	$('shortcuttip').onclick = function() {
-		var msg = '1、点击"' + '<a href="javascript:;" class="xi2 xw1" ';
+		var msg = '1、คลิก"' + '<a href="javascript:;" class="xi2 xw1" ';
 		msg += 'onclick="this.href = \'forum.php?mod=misc&action=shortcut\';this.click();saveUserdata(\'setshortcut\', 1);"';
-		msg += '>下载桌面快捷</a>' + '"，下载完成后，可移动文件到系统桌面<br />';
-		msg += '2、点击"' + '<a href="forum.php?mod=misc&action=shortcut&type=ico" class="xi2 xw1">';
-		msg += '下载ICO图标</a>' + '"，下载完成后，右击桌面快捷文件->属性->更改图标，选择已下载的ICO图标即可';
-		showDialog(msg, 'notice', '添加桌面快捷');
+		msg += '>ดาวน์โหลดชอร์ทคัทไปยังเดสก์ท็อป</a>' + '"，หลังจากโหลดเสร็จแล้ว，คุณสามารถย้ายไฟล์ไปยังเดสก์ท็อปของระบบได้<br />';
+		msg += '2、คลิก"' + '<a href="forum.php?mod=misc&action=shortcut&type=ico" class="xi2 xw1">';
+		msg += 'ดาวน์โหลดไอคอน ICO</a>' + '"，หลังจากโหลดเสร็จแล้ว，ให้คลิกขวาที่ไฟล์ชอร์ทคัทบนเดสก์ท็อป -> Properties -> Change Icon แล้วเลือกไอคอน ICO ที่ดาวน์โหลด';
+		showDialog(msg, 'notice', 'เพิ่มชอร์ทคัทบนเดสก์ท็อป');
 	};
 
 	$('shortcutcloseid').onclick = function() {

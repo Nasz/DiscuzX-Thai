@@ -1,13 +1,13 @@
 ![โลโก้เว็บบอร์ด](https://github.com/Nasz/DiscuzX/blob/master/upload/static/image/common/logo.svg)<br />
 รุ่นภาษาไทยของโปรแกรมเว็บบอร์ดสำเร็จรูป "ดิสคัซ!สิบ"
 
-## จากต้นฉบับ Discuz! X3.5 Development UTF-8 อัปเดตล่าสุดถึง 2022-10-18
+## จากต้นฉบับ Discuz! X3.5 Development UTF-8 อัปเดตล่าสุดถึง 2022-12-27
 
 Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discuz/DiscuzX](https://gitee.com/Discuz/DiscuzX)) รุ่นภาษาจีนตัวย่อ UTF8<br />
 
 # คำอธิบาย
 
-ลำดับเครื่องมือที่ใช้ในการแปล Google Translate->Baidu翻译->Longdo Dict->WordyGURU->Wiktionary->bab.la และบางส่วนจาก Discuz! Thai รุ่นเก่า
+ลำดับเครื่องมือที่ใช้ในการแปล Google Translate -> Apple Translate -> Baidu翻译 -> Longdo Dict -> WordyGURU -> Wiktionary -> bab.la และ บางส่วนจาก Discuz! Thai 7.1 
 
 เพื่อให้เป็นไปตามเงื่อนไขและข้อตกลงการใช้งานของเทนเซนคลาวด์เราจึงขอชี้แจงว่า ผู้แปลไม่มีความเกี่ยวข้องได ๆ กับบริษัทเทนเซนคลาวด์ 
 แม้ว่ายูชเชอร์อินเตอร์เฟซนี้จะถูกดัดแปลงอย่างระมัดระวังโดยการเลือกแปลเฉพาะส่วนที่เป็นภาษาจีนเท่านั้น 

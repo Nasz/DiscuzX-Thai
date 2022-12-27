@@ -144,26 +144,34 @@ function daddslashes($string, $force = 1) {
 }
 
 function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
+	// 动态密钥长度, 通过动态密钥可以让相同的 string 和 key 生成不同的密文, 提高安全性
 	$ckey_length = 4;
 	$key = md5($key != '' ? $key : getglobal('authkey'));
+	// a参与加解密, b参与数据验证, c进行密文随机变换
 	$keya = md5(substr($key, 0, 16));
 	$keyb = md5(substr($key, 16, 16));
 	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
 
+	// 参与运算的密钥组
 	$cryptkey = $keya.md5($keya.$keyc);
 	$key_length = strlen($cryptkey);
 
+	// 前 10 位用于保存时间戳验证数据有效性, 10 - 26位保存 $keyb , 解密时通过其验证数据完整性
+	// 如果是解码的话会从第 $ckey_length 位开始, 因为密文前 $ckey_length 位保存动态密匙以保证解密正确 
 	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
 	$string_length = strlen($string);
 
 	$result = '';
 	$box = range(0, 255);
 
+	// 产生密钥簿
 	$rndkey = array();
 	for($i = 0; $i <= 255; $i++) {
 		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 	}
 
+	// 打乱密钥簿, 增加随机性
+	// 类似 AES 算法中的 SubBytes 步骤
 	for($j = $i = 0; $i < 256; $i++) {
 		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 		$tmp = $box[$i];
@@ -171,6 +179,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 		$box[$j] = $tmp;
 	}
 
+	// 从密钥簿得出密钥进行异或，再转成字符 
 	for($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 256;
 		$j = ($j + $box[$a]) % 256;
@@ -181,12 +190,16 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 	}
 
 	if($operation == 'DECODE') {
+		// 这里按照算法对数据进行验证, 保证数据有效性和完整性
+		// $result 01 - 10 位是时间, 如果小于当前时间或为 0 则通过
+		// $result 10 - 26 位是加密时的 $keyb , 需要和入参的 $keyb 做比对
 		if(((int)substr($result, 0, 10) == 0 || (int)substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) === substr(md5(substr($result, 26).$keyb), 0, 16)) {
 			return substr($result, 26);
 		} else {
 			return '';
 		}
 	} else {
+		// 把动态密钥保存在密文里, 并用 base64 编码保证传输时不被破坏
 		return $keyc.str_replace('=', '', base64_encode($result));
 	}
 
@@ -395,6 +408,7 @@ function random($length, $numeric = 0) {
 }
 
 function secrandom($length, $numeric = 0, $strong = false) {
+	// Thank you @popcorner for your strong support for the enhanced security of the function.
 	$chars = $numeric ? array('A','B','+','/','=') : array('+','/','=');
 	$num_find = str_split('CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 	$num_repl = str_split('01234567890123456789012345678901234567890123456789');
@@ -405,6 +419,7 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			return random_bytes($length);
 		};
 	} elseif(extension_loaded('mcrypt') && function_exists('mcrypt_create_iv')) {
+		// for lower than PHP 7.0, Please Upgrade ASAP.
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
@@ -415,6 +430,9 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			}
 		};
 	} elseif(extension_loaded('openssl') && function_exists('openssl_random_pseudo_bytes')) {
+		// for lower than PHP 7.0, Please Upgrade ASAP.
+		// openssl_random_pseudo_bytes() does not appear to cryptographically secure
+		// https://github.com/paragonie/random_compat/issues/5
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = openssl_random_pseudo_bytes($length, $secure);
@@ -449,9 +467,9 @@ function strexists($string, $find) {
 	return !(strpos($string, $find) === FALSE);
 }
 
-function avatar($uid, $size = 'middle', $returnsrc = FALSE, $real = FALSE, $static = FALSE, $ucenterurl = '') {
+function avatar($uid, $size = 'middle', $returnsrc = 0, $real = FALSE, $static = FALSE, $ucenterurl = '', $class = '', $extra = '', $random = 0) {
 	global $_G;
-	if(!empty($_G['setting']['plugins']['func'][HOOKTYPE]['avatar'])) {
+	if(!empty($_G['setting']['plugins']['func'][HOOKTYPE]['avatar']) && !defined('IN_ADMINCP')) {
 		$_G['hookavatar'] = '';
 		$param = func_get_args();
 		hookscript('avatar', 'global', 'funcs', array('param' => $param), 'avatar');
@@ -459,25 +477,77 @@ function avatar($uid, $size = 'middle', $returnsrc = FALSE, $real = FALSE, $stat
 			return $_G['hookavatar'];
 		}
 	}
+	if(is_array($returnsrc)) {
+		isset($returnsrc['random']) && $random = $returnsrc['random'];
+		isset($returnsrc['extra']) && $extra = $returnsrc['extra'];
+		isset($returnsrc['class']) && $class = $returnsrc['class'];
+		isset($returnsrc['ucenterurl']) && $ucenterurl = $returnsrc['ucenterurl'];
+		isset($returnsrc['static']) && $static = $returnsrc['static'];
+		isset($returnsrc['real']) && $real = $returnsrc['real'];
+		$returnsrc = isset($returnsrc['returnsrc']) ? $returnsrc['returnsrc'] : 0;
+	}
 	static $staticavatar;
 	if($staticavatar === null) {
 		$staticavatar = $_G['setting']['avatarmethod'];
 	}
+	static $avtstatus;
+	if($avtstatus === null) {
+		$avtstatus = array();
+	}
+	$dynavt = intval($_G['setting']['dynavt']);
 
 	$ucenterurl = empty($ucenterurl) ? $_G['setting']['ucenterurl'] : $ucenterurl;
 	$avatarurl = empty($_G['setting']['avatarurl']) ? $ucenterurl.'/data/avatar' : $_G['setting']['avatarurl'];
 	$size = in_array($size, array('big', 'middle', 'small')) ? $size : 'middle';
 	$uid = abs(intval($uid));
+	$rawuid = $uid;
 	if(!$staticavatar && !$static && $ucenterurl != '.') {
-		$timestamp = $uid == $_G['uid'] ? "&ts=1" : "";
-		return $returnsrc ? $ucenterurl.'/avatar.php?uid='.$uid.'&size='.$size.($real ? '&type=real' : '').$timestamp : '<img src="'.$ucenterurl.'/avatar.php?uid='.$uid.'&size='.$size.($real ? '&type=real' : '').$timestamp.'" />';
+		if($avatarurl != $ucenterurl.'/data/avatar') {
+			$ucenterurl = $avatarurl;
+		}
+		$trandom = '';
+		if($random == 1) {
+			$trandom = '&random=1';
+		} elseif($dynavt == 2 || ($dynavt == 1 && $uid == $_G['uid']) || $random == 2) {
+			$trandom = '&ts=1';
+		}
+		return $returnsrc ? $ucenterurl.'/avatar.php?uid='.$uid.'&size='.$size.($real ? '&type=real' : '').$trandom : '<img src="'.$ucenterurl.'/avatar.php?uid='.$uid.'&size='.$size.($real ? '&type=real' : '').$trandom.'"'.($class ? ' class="'.$class.'"' : '').($extra ? ' '.$extra : '').'>';
 	} else {
 		$uid = sprintf("%09d", $uid);
 		$dir1 = substr($uid, 0, 3);
 		$dir2 = substr($uid, 3, 2);
 		$dir3 = substr($uid, 5, 2);
-		$file = $avatarurl.'/'.$dir1.'/'.$dir2.'/'.$dir3.'/'.substr($uid, -2).($real ? '_real' : '').'_avatar_'.$size.'.jpg';
-		return $returnsrc ? $file : '<img src="'.$file.'" onerror="this.onerror=null;this.src=\''.$avatarurl.'/noavatar.svg\'" />';
+		$filepath = $dir1.'/'.$dir2.'/'.$dir3.'/'.substr($uid, -2).($real ? '_real' : '').'_avatar_'.$size.'.jpg';
+		$file = $avatarurl.'/'.$filepath;
+		$noavt = $avatarurl.'/noavatar.svg';
+		$trandom = '';
+		$avtexist = -1;
+		if(!$staticavatar && !$static) {
+			$avatar_file = DISCUZ_ROOT.$_G['setting']['avatarpath'].$filepath;
+			if(isset($avtstatus[$rawuid])) {
+				$avtexist = $avtstatus[$rawuid][0];
+			} else {
+				$avtexist = file_exists($avatar_file) ? 1 : 0;
+				$avtstatus[$rawuid][0] = $avtexist;
+			}
+			if($avtexist) {
+				if($dynavt == 2 || ($dynavt == 1 && $rawuid && $rawuid == $_G['uid']) || $random == 2) {
+					if(empty($avtstatus[$rawuid][1])) {
+						$avtstatus[$rawuid][1] = filemtime($avatar_file);
+					}
+					$trandom = '?ts='.$avtstatus[$rawuid][1];
+				}
+			} else {
+				$file = $noavt;
+			}
+		}
+		if($random == 1 && $avtexist != 0) {
+			$trandom = '?random='.rand(1000, 9999);
+		}
+		if($trandom) {
+			$file = $file.$trandom;
+		}
+		return $returnsrc ? $file : '<img src="'.$file.'"'.(($avtexist == -1) ? ' onerror="this.onerror=null;this.src=\''.$noavt.'\'"' : '').($class ? ' class="'.$class.'"' : '').($extra ? ' '.$extra : '').'>';
 	}
 }
 
@@ -1142,6 +1212,7 @@ function output() {
 			$temp_md5 = md5(substr($_G['timestamp'], 0, -3).substr($_G['config']['security']['authkey'], 3, -3));
 			$temp_formhash = substr($temp_md5, 8, 8);
 			$content = preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)('.constant("FORMHASH").')/ismU', '${1}'.$temp_formhash, $content);
+			//避免siteurl伪造被缓存
 			$temp_siteurl = 'siteurl_'.substr($temp_md5, 16, 8);
 			$content = preg_replace('/("|\')('.preg_quote($_G['siteurl'], '/').')/ismU', '${1}'.$temp_siteurl, $content);
 			$content = empty($content) ? ob_get_contents() : $content;
@@ -1366,28 +1437,96 @@ function checkusergroup($uid = 0) {
 	$credit->checkusergroup($uid);
 }
 
-function checkformulasyntax($formula, $operators, $tokens) {
+function checkformulasyntax($formula, $operators, $tokens, $values = '', $funcs = array()) {
 	$var = implode('|', $tokens);
-	$operator = implode('', $operators);
-
-	$operator = str_replace(
-		array('+', '-', '*', '/', '(', ')', '{', '}', '\''),
-		array('\+', '\-', '\*', '\/', '\(', '\)', '\{', '\}', '\\\''),
-		$operator
-	);
 
 	if(!empty($formula)) {
-		if(!preg_match("/^([$operator\.\d\(\)]|(($var)([$operator\(\)]|$)+))+$/", $formula) || !is_null(eval(preg_replace("/($var)/", "\$\\1", $formula).';'))){
-			return false;
-		}
+		$formula = preg_replace("/($var)/", "\$\\1", $formula);
+		return formula_tokenize($formula, $operators, $tokens, $values, $funcs);
 	}
 	return true;
+}
+
+function formula_tokenize($formula, $operators, $tokens, $values, $funcs) {
+	$fexp = token_get_all('<?php '.$formula);
+	$prevseg = 1; // 1左括号2右括号3变量4运算符5函数
+	$isclose = 0;
+	$tks = implode('|', $tokens);
+	$op1 = $op2 = array();
+	foreach($operators as $orts) {
+		if(strlen($orts) === 1) {
+			$op1[] = $orts;
+		} else {
+			$op2[] = $orts;
+		}
+	}
+	foreach($fexp as $k => $val) {
+		if(is_array($val)) {
+			if(in_array($val[0], array(T_VARIABLE, T_CONSTANT_ENCAPSED_STRING, T_LNUMBER, T_DNUMBER))) {
+				// 是变量
+				if(!in_array($prevseg, array(1, 4))) {
+					return false;
+				}
+				$prevseg = 3;
+				if($val[0] == T_VARIABLE && !preg_match('/^\$('.$tks.')$/', $val[1])) {
+					return false;
+				}
+				if($val[0] == T_CONSTANT_ENCAPSED_STRING && !($values && preg_match('/^'.$values.'$/', $val[1]))) {
+					return false;
+				}
+			} elseif($val[0] == T_STRING && in_array($val[1], $funcs)) {
+				// 是函数
+				if(!in_array($prevseg, array(1, 4))) {
+					return false;
+				}
+				$prevseg = 5;
+			} elseif($val[0] == T_WHITESPACE || ($k == 0 && $val[0] == T_OPEN_TAG)) {
+				// 空格或文件头，忽略
+			} elseif(in_array($val[1], $op2)) {
+				// 是运算符
+				if(!in_array($prevseg, array(2, 3))) {
+					return false;
+				}
+				$prevseg = 4;
+			} else {
+				return false;
+			}
+		} else {
+			if($val === '(') {
+				// 是左括号
+				if(!in_array($prevseg, array(1, 4, 5))) {
+					return false;
+				}
+				$prevseg = 1;
+				$isclose++;
+			} elseif($val === ')') {
+				// 是右括号
+				if(!in_array($prevseg, array(2, 3))) {
+					return false;
+				}
+				$prevseg = 2;
+				$isclose--;
+				if($isclose < 0) {
+					return false;
+				}
+			} elseif(in_array($val, $op1)) {
+				// 是运算符
+				if(!in_array($prevseg, array(2, 3)) && $val !== '-') {
+					return false;
+				}
+				$prevseg = 4;
+			} else {
+				return false;
+			}
+		}
+	}
+	return (in_array($prevseg, array(2, 3)) && $isclose === 0);
 }
 
 function checkformulacredits($formula) {
 	return checkformulasyntax(
 		$formula,
-		array('+', '-', '*', '/', ' '),
+		array('+', '-', '*', '/'),
 		array('extcredits[1-8]', 'digestposts', 'posts', 'threads', 'oltime', 'friends', 'doings', 'polls', 'blogs', 'albums', 'sharings')
 	);
 }
@@ -1644,6 +1783,17 @@ function ftpcmd($cmd, $arg1 = '') {
 
 }
 
+function ftpperm($fileext, $filesize) {
+	global $_G;
+	$return = false;
+	if($_G['setting']['ftp']['on']) {
+		if(((!$_G['setting']['ftp']['allowedexts'] && !$_G['setting']['ftp']['disallowedexts']) || ($_G['setting']['ftp']['allowedexts'] && in_array($fileext, $_G['setting']['ftp']['allowedexts'])) || ($_G['setting']['ftp']['disallowedexts'] && !in_array($fileext, $_G['setting']['ftp']['disallowedexts']) && (!$_G['setting']['ftp']['allowedexts'] || $_G['setting']['ftp']['allowedexts'] && in_array($fileext, $_G['setting']['ftp']['allowedexts'])))) && (!$_G['setting']['ftp']['minsize'] || $filesize >= $_G['setting']['ftp']['minsize'] * 1024)) {
+			$return = true;
+		}
+	}
+	return $return;
+}
+
 function diconv($str, $in_charset, $out_charset = CHARSET, $ForceTable = FALSE) {
 	global $_G;
 
@@ -1788,13 +1938,27 @@ function getposttable($tableid = 0, $prefix = false) {
 	return table_forum_post::getposttable($tableid, $prefix);
 }
 
+/*
+ * 以下命令，$value传入的是prefix，其它命令prefix都是最后一个参数
+ * 		get, rm, scard, smembers, hgetall, zcard, exists
+ * eval 时，传入参数如下：
+ * 		$cmd = 'eval', $key = script, $value = argv, 
+ * 		$ttl = 用于存储script hash的key, $prefix 会自动成为脚本的第一个参数，其余参数序号顺延
+ * zadd 时，参数如下：
+ * 		$cmd = 'zadd', $key = key, $value = member, $ttl = score
+ * zincrby 时，参数如下：
+ * 		$cmd = 'zincrby', $key = key, $value = member, $ttl = value to increase
+ * zrevrange 和 zrevrangewithscore 时，参数如下；
+ * 		$cmd = 'zrevrange', $key = key, $value = start, $ttl = end
+ * inc, dec, incex 的 $ttl 无效
+ */
 function memory($cmd, $key='', $value='', $ttl = 0, $prefix = '') {
 	static $supported_command = array(
 		'set', 'add', 'get', 'rm', 'inc', 'dec', 'exists',
 		'incex', /* 存在时才inc */
 		'sadd', 'srem', 'scard', 'smembers', 'sismember',
 		'hmset', 'hgetall', 'hexists', 'hget',
-		'eval',
+		'eval', 
 		'zadd', 'zcard', 'zrem', 'zscore', 'zrevrange', 'zincrby', 'zrevrangewithscore' /* 带score返回 */,
 		'pipeline', 'commit', 'discard'
 	);
@@ -2162,7 +2326,11 @@ function strhash($string, $operation = 'DECODE', $key = '') {
 }
 
 function dunserialize($data) {
-	if(!is_array($data) && ($ret = unserialize($data)) === false) {
+	// 由于 Redis 驱动侧以序列化保存 array, 取出数据时会自动反序列化（导致反序列化了非Redis驱动序列化的数据），因此存在参数入参为 array 的情况.
+	// 考虑到 PHP 8 增强了类型体系, 此类数据直接送 unserialize 会导致 Fatal Error, 需要通过代码层面对此情况进行规避.
+	if(is_array($data)) {
+		$ret = $data;
+	} elseif(($ret = unserialize($data)) === false) {
 		$ret = unserialize(stripslashes($data));
 	}
 	return $ret;

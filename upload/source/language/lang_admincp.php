@@ -1484,7 +1484,7 @@ $lang = array
 	'setting_seo_code_viewthread_subject' => 'หัวข้อ',
 	'setting_seo_code_viewthread_summary' => 'สรุปเธรด',
 	'setting_seo_code_viewthread_tags' => 'แฮชแท็ก',
-	'setting_seo_code_viewthread_page' => '帖子分页数',
+	'setting_seo_code_viewthread_page' => 'จำนวนโพสต์ต่อเพจ',
 	'setting_seo_code_blog_subject' => 'ชื่อไดอารี่',
 	'setting_seo_code_blog_summary' => 'สรุปไดอารี่',
 	'setting_seo_code_blog_tags' => 'แท็กไดอารี่',
@@ -1705,8 +1705,7 @@ $lang = array
 	'setting_functions_mod_maxmodworksmonths' => '<span class="spectitle">ระยะเวลาเก็บบันทึก(เดือน)</span>',
 	'setting_functions_mod_maxmodworksmonths_comment' => 'เวลาสำหรับเก็บบันทึกการจัดการในระบบ ค่าเริ่มต้นคือ 3 เดือน ขอแนะนำให้ใช้ค่าภายในช่วง 3 ～ 6 เดือน',
 	'setting_functions_mod_losslessdel' => 'เวลาลบโพสต์โดยไม่โดนหักเครดิต(วัน)',
-	'setting_functions_mod_losslessdel_comment' => 'กำหนดจำนวนวันที่ผู้ดูแลบอร์ดหรือผู้ดูแลระบบลบโพสต์ออกจากเว็บบอร์ดแล้วจะไม่มีการอัปเดตเครดิตรางวัลของผู้ใช้
-สามารถล้างโพสต์เก่าโดยผู้เขียนไม่สูญเสียเครดิต 0 หมายถึงไม่ใช้ฟังก์ชันนี้และอัปเดตคะแนนผู้ใช้เสมอ',
+	'setting_functions_mod_losslessdel_comment' => 'กำหนดจำนวนวันที่ผู้ดูแลบอร์ดหรือผู้ดูแลระบบลบโพสต์ออกจากเว็บบอร์ดแล้วจะไม่มีการอัปเดตเครดิตรางวัลของผู้ใช้สามารถล้างโพสต์เก่าโดยผู้เขียนไม่สูญเสียเครดิต 0 หมายถึงไม่ใช้ฟังก์ชันนี้และอัปเดตคะแนนผู้ใช้เสมอ',
 	'setting_functions_mod_warninglimit' => 'จำนวนครั้งที่ถูกเตือนแล้วจะเป็นไบ้โดยอัตโมมัติ',
 	'setting_functions_mod_warninglimit_comment' => 'นับเฉพาะคำเตือนที่มีอายุ เมื่อคำเตือนหมดอายุ การแบนก็จะถูกยกเลิกโดยอัตโนมัติด้วยเช่นกัน',
 	'setting_functions_mod_warningexpiration' => 'อายุของคำเตือน(วัน)',
@@ -2740,6 +2739,11 @@ $lang = array
 	'setting_uc_avatarmethod_comment' => 'ตั้งค่าวิธีการโทรของผู้ใช้ Avatar',
 	'setting_uc_avatarmethod_0' => 'ใช้ที่อยู่ไดนามิกเพื่อเรียกอวตาร',
 	'setting_uc_avatarmethod_1' => 'ใช้ที่อยู่คงที่เพื่อเรียกอวตาร',
+	'setting_uc_dynavt' => 'กลไกการแคช Avatar',
+	'setting_uc_dynavt_comment' => 'ตั้งค่ากลไกแคชของอวตารของผู้ใช้，เอฟเฟกต์เฉพาะในโหมดการโทรแบบไดนามิก，หลีกเลี่ยงปัญหาที่ไม่สามารถมองเห็นได้ทันเวลาหลังจากเปลี่ยนอวตาร，แต่มันจะเพิ่มความดันเซิร์ฟเวอร์บางอย่าง',
+	'setting_uc_dynavt_0' => 'อัตโนมัติ（จัดการโดยเบราว์เซอร์ผู้ใช้อย่างสมบูรณ์，ประสิทธิภาพที่ดีที่สุด）',
+	'setting_uc_dynavt_1' => 'อวตารของผู้ใช้พร้อมการอัปเดตการประทับเวลา，อวตารอื่น ๆ อัตโนมัติ',
+	'setting_uc_dynavt_2' => 'แสตมป์เวลาอัปเดตทั้งหมด（อาจเพิ่มความดันเซิร์ฟเวอร์）',
 
 	'setting_ec' => 'การตั้งค่า e -commerce ขั้นพื้นฐาน',
 	'setting_ec_credittrade' => 'การตั้งค่าการแลกเปลี่ยนอินทิกรัล',
@@ -7338,3 +7342,5 @@ if(file_exists($adminextendfile = DISCUZ_ROOT.'./data/sysdata/cache_adminextend.
 		$lang = array_merge($lang, $extend_lang);
 	}
 }
+
+?>

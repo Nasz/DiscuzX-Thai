@@ -94,6 +94,7 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 		}
 	}
 
+	$message = preg_replace('/\[\tDISCUZ_CODE_\d+\t\]/', '', $message);
 	if($parsetype != 1 && !$bbcodeoff && $allowbbcode && (strpos($message, '[/code]') || strpos($message, '[/CODE]')) !== FALSE) {
 		$message = preg_replace_callback("/\s?\[code\](.+?)\[\/code\]\s?/is", 'discuzcode_callback_codedisp_1', $message);
 	}
@@ -124,7 +125,7 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 
 	if($allowbbcode) {
 		if(strpos($msglower, 'ed2k://') !== FALSE) {
-			$message = preg_replace_callback("/ed2k:\/\/(.+?)\//", 'discuzcode_callback_parseed2k_1', $message);
+			$message = preg_replace_callback("/ed2k:\/\/([^\/\s'\"]+)\//", 'discuzcode_callback_parseed2k_1', $message);
 		}
 	}
 
@@ -411,6 +412,13 @@ function parseed2k($url) {
 function parseattachurl($aid, $ext, $ignoretid = 0) {
 	global $_G;
 	$_G['forum_skipaidlist'][] = $aid;
+	if(!empty($ext)) {
+		$attach = C::t('forum_attachment_n')->fetch('aid:'.$aid, $aid);
+		// 如果不是音视频类附件则不允许生成无条件限制的地址, 此处不支持附件收费以及阅读权限判定
+		if(!in_array(attachtype(fileext($attach['filename'])), array(9, 10))) {
+			$ext = 0;
+		}
+	}
 	return $_G['siteurl'].'forum.php?mod=attachment&aid='.aidencode($aid, $ext, $ignoretid ? '' : $_G['tid']).($ext ? '&request=yes&_f=.'.$ext : '');
 }
 
@@ -502,6 +510,7 @@ function parsemedia($params, $url) {
 		$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
 	}
 
+	// 兼容手机版（待测试）
 	$width = defined('IN_MOBILE') ? '100%' : $width;
 	$height = defined('IN_MOBILE') ? 'auto' : $height;
 
@@ -565,11 +574,11 @@ function highlightword($text, $words, $prepend) {
 function parseflv($url, $width = 0, $height = 0) {
 	global $_G;
 	$lowerurl = strtolower($url);
-	$flv = $iframe = $imgurl = '';
+	$flv = $iframe = $imgurl = '';		
 	if(empty($_G['setting']['parseflv']) || !is_array($_G['setting']['parseflv'])) {
 		return FALSE;
 	}
-
+	
 	foreach($_G['setting']['parseflv'] as $script => $checkurl) {
 		$check = FALSE;
 		foreach($checkurl as $row) {
@@ -585,7 +594,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 			break;
 		}
-	}
+	}	    	
 	if($flv || $iframe) {
 		if(!$width && !$height) {
 			return array('flv' => $flv, 'iframe' => $iframe, 'imgurl' => $imgurl);
@@ -595,6 +604,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			$flv = addslashes($flv);
 			$iframe = addslashes($iframe);
 			$randomid = 'flv_'.random(3);
+			// 允许media扩展只返回其中一种播放方式，如两种都返回，则根据浏览器是否支持HTML5进行自动选择
 			$player_iframe = $iframe ? "\"<iframe src='$iframe' border='0' scrolling='no' framespacing='0' allowfullscreen='true' style='max-width: 100%' width='$width' height='$height' frameborder='no'></iframe>\"" : '';
 			$player_flv = $flv ? "AC_FL_RunContent('width', '$width', 'height', '$height', 'allowNetworking', 'internal', 'allowScriptAccess', 'never', 'src', '$flv', 'quality', 'high', 'bgcolor', '#ffffff', 'wmode', 'transparent', 'allowfullscreen', 'true')" : '';
 			$player = (!empty($player_iframe) && !empty($player_flv)) ? "detectHtml5Support() ? $player_iframe : $player_flv" : (empty($player_iframe) ? $player_flv : $player_iframe);

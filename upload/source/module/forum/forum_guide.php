@@ -104,7 +104,7 @@ if($view != 'index') {
 			$searchbody = 1;
 		}
 		require_once libfile('function/forumlist');
-		$orderactives[$viewtype] = 'class="a"';
+		$orderactives[$viewtype] = 'class="a"';		
 		$forumlist = forumselect(FALSE, 0, intval($_GET['fid']));
 		$data['my'] = get_my_threads($viewtype, $_GET['fid'], $filter, $searchkey, $start, $perpage, $theurl);
 		$tids = $data['my']['tids'];
@@ -133,7 +133,7 @@ include template('forum/guide');
 
 function get_guide_list($view, $start = 0, $num = 50, $again = 0) {
 	global $_G;
-	$setting_guide = unserialize($_G['setting']['guide']);
+	$setting_guide = dunserialize($_G['setting']['guide']);
 	if(!in_array($view, array('hot', 'digest', 'new', 'newthread', 'sofa'))) {
 		return array();
 	}
@@ -173,6 +173,7 @@ function get_guide_list($view, $start = 0, $num = 50, $again = 0) {
 			return array();
 		}
 		if($view == 'sofa') {
+			// 只从没有设置权限的板块获取数据，不在接收前端发来的板块 fid
  			$sofa = C::t('forum_sofa')->fetch_all_by_fid($fids, $start, $num);
 			$tids = array_keys($sofa);
 		}
@@ -187,6 +188,7 @@ function get_guide_list($view, $start = 0, $num = 50, $again = 0) {
 		if($thread['displayorder'] < 0) {
 			continue;
 		}
+		// 可能由于插件直接插入 post 等原因导致缓存表不符合实际情况, 这里对于不符合实际情况的数据做清理
 		if($view == 'sofa' && $thread['replies'] > 0) {
 			$notsofatids[] = $thread['tid'];
 			continue;
@@ -332,12 +334,12 @@ function get_my_threads($viewtype, $fid = 0, $filter = '', $searchkey = '', $sta
 			$closed = 0;
 		}
 		require_once libfile('function/post');
-		$followfid = getglobal('setting/followforumid');
+		$followfid = getglobal('setting/followforumid');		
 		$posts = C::t('forum_post')->fetch_all_by_authorid(0, $_G['uid'], true, 'DESC', $start, $perpage, null, $invisible, $fid, $followfid);
 		$listcount = count($posts);
 		foreach($posts as $pid => $post) {
 			$tids[$post['tid']][] = $pid;
-			$post['message'] = !getstatus($post['status'], 2) || $post['authorid'] == $_G['uid'] ? messagecutstr($post['message'], 100) : '';
+			$post['message'] = $post['status'] & 1 && $_G['adminid'] != 1 ? '' : (!getstatus($post['status'], 2) || $post['authorid'] == $_G['uid'] ? messagecutstr($post['message'], 100) : '');
 			$posts[$pid] = $post;
 		}
 		if(!empty($tids)) {
@@ -413,7 +415,7 @@ function guide_procthread($thread) {
 	$thread['moved'] = $thread['heatlevel'] = $thread['new'] = 0;
 	$thread['icontid'] = $thread['forumstick'] || !$thread['moved'] && $thread['isgroup'] != 1 ? $thread['tid'] : $thread['closed'];
 	$thread['folder'] = 'common';
-	$thread['dbdateline'] = $thread['dateline'];
+	$thread['dbdateline'] = $thread['dateline'];	
 	$thread['weeknew'] = TIMESTAMP - 604800 <= $thread['dbdateline'];
 	if($thread['replies'] > $thread['views']) {
 		$thread['views'] = $thread['replies'];

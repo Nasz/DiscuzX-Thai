@@ -69,8 +69,8 @@ INSERT INTO pre_common_member_profile_setting VALUES('gender', 1, 0, 0, 'เพ�
 INSERT INTO pre_common_member_profile_setting VALUES('birthyear', 1, 0, 0, 'ปีเกิด', '', 0, 0, 0, 0, 0, 0, 1, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthmonth', 1, 0, 0, 'เดือนเกิด', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('birthday', 1, 0, 0, 'วันเกิด', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('constellation', 1, 1, 0, 'ราศี', 'ราศี(กรอกอัตโนมัติตามวันเกิด)', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('zodiac', 1, 1, 0, 'จักรราศี', 'จักรราศี(กรอกอัตโนมัติตามวันเกิด)', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('constellation', 1, 1, 0, 'ราศี', '(กรอกอัตโนมัติตามวันเกิด)', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
+INSERT INTO pre_common_member_profile_setting VALUES('zodiac', 1, 1, 0, 'ปีนักษัตร', '(กรอกอัตโนมัติตามวันเกิด)', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('telephone', 1, 1, 0, 'เบอร์โทร', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('mobile', 1, 1, 0, 'เบอร์มือถือ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('idcardtype', 1, 1, 0, 'ประเภทใบอนุญาต', 'บัตรประจำตัวประชาชน หนังสือเดินทาง ใบขับขี่ ฯลฯ', 0, 0, 0, 0, 0, 0, 0, 'select', 0, 'บัตรประจำตัวประชาชน\nหนังสือเดินทาง\nใบขับขี่', '');
@@ -313,6 +313,7 @@ INSERT INTO pre_common_setting VALUES ('domainroot','');
 INSERT INTO pre_common_setting VALUES ('domainwhitelist','');
 INSERT INTO pre_common_setting VALUES ('doublee','1');
 INSERT INTO pre_common_setting VALUES ('dupkarmarate','0');
+INSERT INTO pre_common_setting VALUES ('dynavt','1');
 INSERT INTO pre_common_setting VALUES ('ec_account','');
 INSERT INTO pre_common_setting VALUES ('ec_contract','');
 INSERT INTO pre_common_setting VALUES ('ec_credit','a:2:{s:18:\"maxcreditspermonth\";i:6;s:4:\"rank\";a:15:{i:1;i:4;i:2;i:11;i:3;i:41;i:4;i:91;i:5;i:151;i:6;i:251;i:7;i:501;i:8;i:1001;i:9;i:2001;i:10;i:5001;i:11;i:10001;i:12;i:20001;i:13;i:50001;i:14;i:100001;i:15;i:200001;}}');

@@ -43,7 +43,7 @@ class forum_upload {
 			return $this->uploadmsg(2);
 		}
 
-		$allowupload = !$_G['group']['maxattachnum'] || $_G['group']['maxattachnum'] && $_G['group']['maxattachnum'] > getuserprofile('todayattachs');;
+		$allowupload = ($_G['group']['allowpostattach'] || $_G['group']['allowpostimage']) ? (!$_G['group']['maxattachnum'] || $_G['group']['maxattachnum'] && $_G['group']['maxattachnum'] > getuserprofile('todayattachs')) : false;
 		if(!$allowupload) {
 			return $this->uploadmsg(6);
 		}
@@ -85,11 +85,10 @@ class forum_upload {
 			}
 		}
 
+		// 修复敏感词拦截无明确提示的问题
 		$filename = censor($upload->attach['name'], NULL, TRUE);
 		if(is_array($filename)) {
 			return $this->uploadmsg(12);
-		} else {
-			$filename = dhtmlspecialchars($filename);
 		}
 
 		if(isset($_GET['type']) && $_GET['type'] == 'image' && !$upload->attach['isimage']) {
@@ -100,6 +99,7 @@ class forum_upload {
 			$imageinfo = @getimagesize($upload->attach['tmp_name']);
 			list($width, $height, $type) = !empty($imageinfo) ? $imageinfo : array(0, 0, 0);
 			$size = $width * $height;
+			// 新增 GD 图片像素点上限服务器侧拦截
 			if((!getglobal('setting/imagelib') && $size > (getglobal('setting/gdlimit') ? getglobal('setting/gdlimit') : 16777216)) || $size < 16 ) {
 				return $this->uploadmsg(13);
 			}

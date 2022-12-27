@@ -209,10 +209,10 @@ if($_GET['action'] == 'paysucceed') {
 	$_G['group']['attachextensions'] = $_G['forum']['attachextensions'] ? $_G['forum']['attachextensions'] : $_G['group']['attachextensions'];
 	if($_G['group']['attachextensions']) {
 		$imgexts = explode(',', str_replace(' ', '', $_G['group']['attachextensions']));
-		$imgexts = array_intersect(array('jpg','jpeg','gif','png','bmp'), $imgexts);
+		$imgexts = array_intersect(array('jpg','jpeg','gif','png','bmp','webp'), $imgexts);
 		$imgexts = implode(', ', $imgexts);
 	} else {
-		$imgexts = 'jpg, jpeg, gif, png, bmp';
+		$imgexts = 'jpg, jpeg, gif, png, bmp, webp';
 	}
 	if($type == 'image' && (!$_G['group']['allowpostimage'] || !$imgexts)) {
 		showmessage('no_privilege_postimage');
@@ -348,7 +348,7 @@ if($_GET['action'] == 'paysucceed') {
 
 	$message = '&nbsp;';
 	$savepost = C::t('forum_post')->fetch_post(0, $_GET['pid']);
-	if($savepost) {
+	if($savepost && $_G['uid'] == $savepost['authorid']) {
 		$message = $savepost['message'];
 		if($_GET['type']) {
 			require_once libfile('function/discuzcode');
@@ -416,7 +416,7 @@ if($_GET['action'] == 'paysucceed') {
 			}
 		}
 		if(getgpc('ajaxdata') === 'json') {
-			showmessage(array('dataexist' => $dataexist, 'cid' => $cid), '', $crimelist);
+			showmessage($dataexist.'|'.$cid, '', $crimelist);
 		} else {
 			include_once template("forum/darkroom");
 		}
@@ -437,7 +437,10 @@ IconIndex=1
 		$filename = $_G['setting']['bbname'].'.url';
 	}
 
+	// 遵循RFC 6266国际标准，按照RFC 5987中的规则对文件名进行编码
 	$filenameencode = strtolower(CHARSET) == 'utf-8' ? rawurlencode($filename) : rawurlencode(diconv($filename, CHARSET, 'UTF-8'));
+	// 连2011年发布的国际标准都没能正确支持的浏览器厂商的黑名单列表
+	// 目前包括：UC，夸克，搜狗，百度
 	$rfc6266blacklist = strexists($_SERVER['HTTP_USER_AGENT'], 'UCBrowser') || strexists($_SERVER['HTTP_USER_AGENT'], 'Quark') || strexists($_SERVER['HTTP_USER_AGENT'], 'SogouM') || strexists($_SERVER['HTTP_USER_AGENT'], 'baidu');
 	dheader('Content-type: application/octet-stream');
 	dheader('Content-Disposition: attachment; filename="'.$filenameencode.'"'.(($filename == $filenameencode || $rfc6266blacklist) ? '' : '; filename*=utf-8\'\''.$filenameencode));

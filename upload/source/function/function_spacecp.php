@@ -78,7 +78,7 @@ function album_update_pic($albumid, $picid=0) {
 	if($image->Thumb($picsource, 'album/'.$picdir.$albumid.'.jpg', 300, 300, 2)) {
 		$setarr['pic'] = $picdir.$albumid.'.jpg';
 		$setarr['picflag'] = 1;
-		if(getglobal('setting/ftp/on')) {
+		if(ftpperm('jpg', filesize($_G['setting']['attachdir'].'album/'.$picdir.$albumid.'.jpg'))) {
 			if(ftpcmd('upload', 'album/'.$picdir.$albumid.'.jpg')) {
 				$setarr['picflag'] = 2;
 				@unlink($_G['setting']['attachdir'].'album/'.$picdir.$albumid.'.jpg');
@@ -206,7 +206,7 @@ function pic_save($FILE, $albumid, $title, $iswatermark = true, $catid = 0) {
 	$pic_remote = 0;
 	$album_picflag = 1;
 
-	if(getglobal('setting/ftp/on')) {
+	if(ftpperm($upload->attach['ext'], $upload->attach['size'])) {
 		$ftpresult_thumb = 0;
 		$ftpresult = ftpcmd('upload', 'album/'.$upload->attach['attachment']);
 		if($ftpresult) {
@@ -323,7 +323,7 @@ function stream_save($strdata, $albumid = 0, $fileext = 'jpg', $name='', $title=
 			$pic_remote = 0;
 			$album_picflag = 1;
 
-			if(getglobal('setting/ftp/on')) {
+			if(ftpperm($fileext, filesize($_G['setting']['attachdir'].'album/'.$filepath))) {
 				$ftpresult_thumb = 0;
 				$ftpresult = ftpcmd('upload', 'album/'.$filepath);
 				if($ftpresult) {
@@ -564,6 +564,7 @@ function emailcheck_send($uid, $email) {
 	global $_G;
 
 	if($uid && $email) {
+		// 读取用户论坛表内的时间，限制重发间隔
 		$memberauthstr = C::t('common_member_field_forum')->fetch($uid);
 		if(!empty($memberauthstr['authstr'])) {
 			list($dateline) = explode("\t", $memberauthstr['authstr']);
@@ -572,6 +573,7 @@ function emailcheck_send($uid, $email) {
 				return false;
 			}
 		}
+		// 用户论坛字段表内authstr字段保存token和时间戳，实现邮件链接不可重复使用
 		$timestamp = $_G['timestamp'];
 		$idstring = substr(md5($email), 0, 6);
 		C::t('common_member_field_forum')->update($uid, array('authstr' => "$timestamp\t3\t$idstring"));
@@ -579,7 +581,7 @@ function emailcheck_send($uid, $email) {
 		$hash = authcode("$uid\t$email\t$timestamp", 'ENCODE', md5(substr(md5($_G['config']['security']['authkey']), 0, 16)));
 		$verifyurl = $_G['setting']['securesiteurl'].'home.php?mod=misc&amp;ac=emailcheck&amp;hash='.urlencode($hash);
 		$mailmessage = array(
-			'tpl' => 'email_verify',
+			'tpl' => 'email_verify', 
 			'var' => array(
 				'username' => $_G['member']['username'],
 				'bbname' => $_G['setting']['bbname'],

@@ -384,6 +384,9 @@ function show_next_step($step, $error_code) {
 		echo $GLOBALS['hidden'];
 	}
 	echo "<input type=\"hidden\" name=\"uchidden\" value=\"$uchidden\" />";
+	if($uchidden) {
+		echo "<input type=\"hidden\" name=\"install_ucenter\" value=\"no\" />";
+	}
 	if($error_code == 0) {
 		$nextstep = "<input type=\"button\" class=\"btn oldbtn\" onclick=\"history.back();\" value=\"".lang('old_step')."\"><input type=\"submit\" class=\"btn\" value=\"".lang('new_step')."\">\n";
 	} else {
@@ -404,12 +407,14 @@ function show_form(&$form_items, $error_msg) {
 	show_header();
 	show_setting('start');
 	show_setting('hidden', 'step', $step);
-	show_setting('hidden', 'install_ucenter', getgpc('install_ucenter'));
 	if($step == 2) {
 		echo '<div class="box">';
+		show_tips('install_dzstandalone');
 		show_tips('install_dzfull');
 		show_tips('install_dzonly');
 		echo '</div>';
+	} else {
+		show_setting('hidden', 'install_ucenter', getgpc('install_ucenter'));
 	}
 	$is_first = 1;
 	if(!empty($uchidden)) {
@@ -540,11 +545,11 @@ function show_license() {
 <div class="main">
 	<div class="licenseblock">$license</div>
 	<div class="btnbox">
-		<form method="get" autocomplete="off" action="index.php">
+		<form method="get" autocomplete="off" action="index.php" class="inputbox">
 		<input type="hidden" name="step" value="$next">
 		<input type="hidden" name="uchidden" value="$uchidden">
-		<input type="submit" class="btn oldbtn" name="submit" value="{$lang_agreement_yes}" onclick="return checker();">
-		<input type="button" class="btn oldbtn" name="exit" value="{$lang_agreement_no}"  onclick="javascript: window.close(); return false;">
+		<input type="button" class="btn oldbtn" name="exit" value="{$lang_agreement_no}"  onclick="window.close(); return false;">
+		<input type="submit" class="btn" name="submit" value="{$lang_agreement_yes}" onclick="return checker();">
 		</form>
 	</div>
 	<script type="text/javascript">
@@ -591,7 +596,7 @@ function transfer_ucinfo(&$post) {
 function createtable($sql, $dbver) {
 	$type = strtoupper(preg_replace("/^\s*CREATE TABLE\s+.+\s+\(.+?\).*(ENGINE|TYPE)\s*=\s*([a-z]+?).*$/isU", "\\2", $sql));
 	$type = in_array($type, array('INNODB', 'MYISAM', 'HEAP', 'MEMORY')) ? $type : 'INNODB';
-	return
+	return 
 		preg_replace("/^\s*(CREATE TABLE\s+.+\s+\(.+?\)).*$/isU", "\\1", $sql) .
 		" ENGINE=$type DEFAULT CHARSET=" . DBCHARSET .
 		(DBCHARSET === 'utf8mb4' ? " COLLATE=utf8mb4_unicode_ci" : "");
@@ -713,6 +718,7 @@ function random($length, $numeric = 0) {
 }
 
 function secrandom($length, $numeric = 0, $strong = false) {
+	// Thank you @popcorner for your strong support for the enhanced security of the function.
 	$chars = $numeric ? array('A','B','+','/','=') : array('+','/','=');
 	$num_find = str_split('CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 	$num_repl = str_split('01234567890123456789012345678901234567890123456789');
@@ -723,6 +729,7 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			return random_bytes($length);
 		};
 	} elseif(extension_loaded('mcrypt') && function_exists('mcrypt_create_iv')) {
+		// for lower than PHP 7.0, Please Upgrade ASAP.
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
@@ -733,6 +740,9 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			}
 		};
 	} elseif(extension_loaded('openssl') && function_exists('openssl_random_pseudo_bytes')) {
+		// for lower than PHP 7.0, Please Upgrade ASAP.
+		// openssl_random_pseudo_bytes() does not appear to cryptographically secure
+		// https://github.com/paragonie/random_compat/issues/5
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = openssl_random_pseudo_bytes($length, $secure);
@@ -792,7 +802,7 @@ function get_onlineip() {
 	return $onlineip;
 }
 
-function timezone_set($timeoffset = 7) {
+function timezone_set($timeoffset = 8) {
 	if(function_exists('date_default_timezone_set')) {
 		@date_default_timezone_set('Etc/GMT'.($timeoffset > 0 ? '-' : '+').(abs($timeoffset)));
 	}
@@ -826,27 +836,35 @@ function setdefault($var, $default) {
 
 function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 
+	// 动态密钥长度, 通过动态密钥可以让相同的 string 和 key 生成不同的密文, 提高安全性
 	$ckey_length = 4;
 
 	$key = md5($key ? $key : UC_KEY);
+	// a参与加解密, b参与数据验证, c进行密文随机变换
 	$keya = md5(substr($key, 0, 16));
 	$keyb = md5(substr($key, 16, 16));
 	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
 
+	// 参与运算的密钥组
 	$cryptkey = $keya.md5($keya.$keyc);
 	$key_length = strlen($cryptkey);
 
+	// 前 10 位用于保存时间戳验证数据有效性, 10 - 26位保存 $keyb , 解密时通过其验证数据完整性
+	// 如果是解码的话会从第 $ckey_length 位开始, 因为密文前 $ckey_length 位保存动态密匙以保证解密正确
 	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
 	$string_length = strlen($string);
 
 	$result = '';
 	$box = range(0, 255);
 
+	// 产生密钥簿
 	$rndkey = array();
 	for($i = 0; $i <= 255; $i++) {
 		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 	}
 
+	// 打乱密钥簿, 增加随机性
+	// 类似 AES 算法中的 SubBytes 步骤
 	for($j = $i = 0; $i < 256; $i++) {
 		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 		$tmp = $box[$i];
@@ -854,6 +872,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 		$box[$j] = $tmp;
 	}
 
+	// 从密钥簿得出密钥进行异或，再转成字符 
 	for($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 256;
 		$j = ($j + $box[$a]) % 256;
@@ -864,12 +883,16 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 	}
 
 	if($operation == 'DECODE') {
+		// 这里按照算法对数据进行验证, 保证数据有效性和完整性
+		// $result 01 - 10 位是时间, 如果小于当前时间或为 0 则通过
+		// $result 10 - 26 位是加密时的 $keyb , 需要和入参的 $keyb 做比对
 		if(((int)substr($result, 0, 10) == 0 || (int)substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) === substr(md5(substr($result, 26).$keyb), 0, 16)) {
 			return substr($result, 26);
 		} else {
 			return '';
 		}
 	} else {
+		// 把动态密钥保存在密文里, 并用 base64 编码保证传输时不被破坏
 		return $keyc.str_replace('=', '', base64_encode($result));
 	}
 
@@ -879,7 +902,8 @@ function show_db_install() {
 	if(VIEW_OFF) return;
 	global $dbhost, $dbuser, $dbpw, $dbname, $tablepre, $username, $password, $email, $uid;
 	$dzucfull = DZUCFULL;
-	$allinfo = base64_encode(serialize(compact('dbhost', 'dbuser', 'dbpw', 'dbname', 'tablepre', 'username', 'password', 'email', 'dzucfull', 'uid')));
+	$dzucstl = DZUCSTL ? 1 : 0;
+	$allinfo = base64_encode(serialize(compact('dbhost', 'dbuser', 'dbpw', 'dbname', 'tablepre', 'username', 'password', 'email', 'dzucfull', 'dzucstl', 'uid')));
 	init_install_log_file();
 ?>
 		<script type="text/javascript">
@@ -941,6 +965,7 @@ function show_db_install() {
 			}
 
 			function refresh_progress() {
+				// 进度条的总数，需要跟进实际安装情况修改
 				var total = 333;
 				var percent = document.querySelectorAll('#notice>p').length * 95 / total;
 				percent = (percent > 95) ? 95 : percent;
@@ -963,7 +988,18 @@ function show_db_install() {
 			var stuck_times = 0;
 
 			function request_do_db_init() {
-				ajax.get('index.php?<?= http_build_query(array('method' => 'do_db_init', 'allinfo' => $allinfo)) ?>', function() {
+				// 发起数据库初始化请求
+				ajax.get('index.php?<?= http_build_query(array('method' => 'do_db_init', 'allinfo' => $allinfo)) ?>', function(data) {
+					if(data.indexOf('Discuz! Database Error') !== -1 || data.indexOf('Discuz! System Error') !== -1 || data.indexOf('Fatal error') !== -1) {
+						var p = document.createElement('p');
+						p.innerText = '<?= lang('failed') ?> ' + data;
+						p.className = 'red';
+						append_notice(p.outerHTML);
+						append_notice('<p class="red"><?= lang('error_quit_msg') ?></p>');
+						add_instfail();
+						return;
+					}
+					// 数据库初始化请求完成拉起初始化
 					request_do_initsys();
 				});
 			}
@@ -971,6 +1007,7 @@ function show_db_install() {
 			function request_log() {
 				var timest = new Date().getTime().toString().substring(5);
 				ajax.get('index.php?method=check_db_init_progress&timestamp=' + timest + '&offset=' + log_offset, function (data, status) {
+					// 新增对于 >= 400 状态的判断, 避免被服务器自带安全软件或者 CDN 拉黑地址之后不报错
 					if(status >= 400) {
 						append_notice('<p class="red">HTTP '+status+' <?= lang('failed') ?></p>');
 						append_notice('<p class="red"><?= lang('error_quit_msg') ?></p>');
@@ -980,6 +1017,7 @@ function show_db_install() {
 					log_offset = parseInt(data.substring(0,5));
 					data = data.substring(5);
 					if(stuck_times >= 120) {
+						// 如果安装程序两分钟没有响应, 则提示安装可能卡死
 						stuck_times = 0;
 						append_notice('<p class="red"><?= lang('error_stuck_msg') ?></p>');
 						setTimeout(request_log, 1000);
@@ -1018,20 +1056,25 @@ function show_db_install() {
 
 			function request_do_initsys() {
 				var resultDiv = document.getElementById('notice');
+				// 数据库初始化失败不进行系统初始化
 				if(resultDiv.innerHTML.indexOf('<?= lang('failed') ?>') !== -1) {
 					document.getElementById('laststep').value = '<?= lang('error_quit_msg') ?>';
 					return;
 				}
 				if(resultDiv.innerHTML.indexOf('<?= lang('initdbresult_succ') ?>') !== -1) {
+					// 数据库初始化成功就进行系统初始化
 					append_notice("<p><?= lang('initsys') ?> ... </p>");
 					refresh_lastmsg();
 					ajax.get('../misc.php?mod=initsys', function(callback, status) {
-						if(status >= 400 || callback.indexOf('Access Denied') !== -1 || callback.indexOf('Discuz! Database Error') !== -1 || callback.indexOf('Discuz! System Error') !== -1) {
+						if(status >= 400 || callback.indexOf('Access Denied') !== -1 || callback.indexOf('Discuz! Database Error') !== -1 || callback.indexOf('Discuz! System Error') !== -1 || callback.indexOf('Fatal error') !== -1) {
+							var p = document.createElement('p');
+							p.className = 'red';
 							if(status >= 400) {
-								append_notice('<p class="red">HTTP '+status+' <?= lang('failed') ?></p>');
+								p.innerText = 'HTTP '+status+' <?= lang('failed') ?> ' + callback;
 							} else {
-								append_notice('<p class="red"><?= lang('failed') ?></p>');
+								p.innerText = '<?= lang('failed') ?> ' + callback;
 							}
+							append_notice(p.outerHTML);
 							append_notice('<p class="red"><?= lang('error_quit_msg') ?></p>');
 							document.getElementById('laststep').value = '<?= lang('error_quit_msg') ?>';
 							add_instfail();
@@ -1048,6 +1091,7 @@ function show_db_install() {
 						}, 1000);
 					});
 				} else {
+					// 数据库初始化状态未知时不做初始化, 一秒钟后重新判断数据库初始化状态
 					setTimeout(request_do_initsys, 1000);
 				}
 			}
@@ -1143,8 +1187,12 @@ function runucquery($sql, $tablepre) {
 
 			if(substr($query, 0, 12) == 'CREATE TABLE') {
 				$name = preg_replace("/CREATE TABLE ([a-z0-9_]+) .*/is", "\\1", $query);
-				$db->query(createtable($query, $db->version()));
-				showjsmessage(lang('create_table').' '.$name.' ... '.lang('succeed') . "\n");
+				if($db->query(createtable($query, $db->version()))) {
+					showjsmessage(lang('create_table').' '.$name.' ... '.lang('succeed') . "\n");
+				} else {
+					showjsmessage(lang('create_table').' '.$name.' ... '.lang('failed') . "\n");
+					return false;
+				}
 			} else {
 				$db->query($query);
 			}
@@ -1208,6 +1256,8 @@ function dfopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $
 		$ch = curl_init();
 		$ip && curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: ".$host));
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+		// 在提供 IP 地址的同时, 当请求主机名并非一个合法 IP 地址, 且 PHP 版本 >= 5.5.0 时, 使用 CURLOPT_RESOLVE 设置固定的 IP 地址与域名关系
+		// 在不支持的 PHP 版本下, 继续采用原有不支持 SNI 的流程
 		if(!empty($ip) && filter_var($ip, FILTER_VALIDATE_IP) && !filter_var($host, FILTER_VALIDATE_IP) && version_compare(PHP_VERSION, '5.5.0', 'ge')) {
 			curl_setopt($ch, CURLOPT_RESOLVE, array("$host:$port:$ip"));
 			curl_setopt($ch, CURLOPT_URL, $scheme.'://'.$host.':'.$port.$path);
@@ -1549,8 +1599,7 @@ function check_adminuser($username, $password, $email) {
 
 function save_uc_config($config, $file) {
 
-	list($appauthkey, $appid, $ucdbhost, $ucdbname, $ucdbuser, $ucdbpw, $ucdbcharset, $uctablepre, $uccharset, $ucapi, $ucip) = $config;
-
+	list($appauthkey, $appid, $ucdbhost, $ucdbname, $ucdbuser, $ucdbpw, $ucdbcharset, $uctablepre, $uccharset, $ucapi, $ucip, $dzucstl) = $config;
 	mysqli_report(MYSQLI_REPORT_OFF);
 
 	$link = new mysqli($ucdbhost, $ucdbuser, $ucdbpw, $ucdbname);
@@ -1563,7 +1612,7 @@ function save_uc_config($config, $file) {
 
 
 define('UC_CONNECT', '$uc_connnect');
-define('UC_STANDALONE', 0);
+define('UC_STANDALONE', $dzucstl);
 
 define('UC_DBHOST', '$ucdbhost');
 define('UC_DBUSER', '$ucdbuser');
@@ -1603,7 +1652,7 @@ function _generate_key($length = 32) {
 }
 
 function uc_write_config($config, $file, $password) {
-	list($appauthkey, $appid, $ucdbhost, $ucdbname, $ucdbuser, $ucdbpw, $ucdbcharset, $uctablepre, $uccharset, $ucapi, $ucip) = $config;
+	list($appauthkey, $appid, $ucdbhost, $ucdbname, $ucdbuser, $ucdbpw, $ucdbcharset, $uctablepre, $uccharset, $ucapi, $ucip, $dzucstl) = $config;
 	$ucauthkey = _generate_key();
 	$ucsiteid = _generate_key();
 	$ucmykey = _generate_key();
@@ -1621,6 +1670,7 @@ function uc_write_config($config, $file, $password) {
 	$config .= "define('UC_CHARSET', '".$uccharset."');\r\n";
 	$config .= "define('UC_FOUNDERPW', '$pw');\r\n";
 	$config .= "define('UC_FOUNDERSALT', '$salt');\r\n";
+	$config .= $dzucstl ? '// ' : '';
 	$config .= "define('UC_KEY', '$ucauthkey');\r\n";
 	$config .= "define('UC_SITEID', '$ucsiteid');\r\n";
 	$config .= "define('UC_MYKEY', '$ucmykey');\r\n";
@@ -1631,7 +1681,7 @@ function uc_write_config($config, $file, $password) {
 }
 
 function install_uc_server() {
-	global $db, $dbhost, $dbuser, $dbpw, $dbname, $tablepre, $username, $password, $email;
+	global $db, $dbhost, $dbuser, $dbpw, $dbname, $tablepre, $username, $password, $email, $dzucstl;
 
 	$ucsql = file_get_contents(ROOT_PATH.'./uc_server/install/uc.sql');
 	$uctablepre = $tablepre.'ucenter_';
@@ -1657,7 +1707,7 @@ function install_uc_server() {
 	$appid = $db->insert_id();
 	$db->query("ALTER TABLE {$uctablepre}notelist ADD COLUMN app$appid tinyint NOT NULL");
 
-	$config = array($appauthkey,$appid,$ucdbhost,$ucdbname,$ucdbuser,$ucdbpw,$ucdbcharset,$uctablepre,$uccharset,$ucapi,$ucip);
+	$config = array($appauthkey,$appid,$ucdbhost,$ucdbname,$ucdbuser,$ucdbpw,$ucdbcharset,$uctablepre,$uccharset,$ucapi,$ucip,$dzucstl);
 	save_uc_config($config, ROOT_PATH.'./config/config_ucenter.php');
 
 	$salt = '';
@@ -2150,7 +2200,7 @@ function append_to_install_log_file($message, $close = false) {
 	static $fh = false;
 	if (!$fh) {
 		$fh = fopen(INST_LOG_PATH, "a+");
-	}
+	} 
 	if ($fh) {
 		fwrite($fh, $message);
 		fflush($fh);
@@ -2181,18 +2231,25 @@ function send_mime_type_header($type = 'application/xml') {
 }
 
 function is_https() {
+	// PHP 标准服务器变量
 	if(isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') {
 		return true;
 	}
+	// X-Forwarded-Proto 事实标准头部, 用于反代透传 HTTPS 状态
 	if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') {
 		return true;
 	}
+	// 阿里云全站加速私有 HTTPS 状态头部
+	// Git 意见反馈 https://gitee.com/Discuz/DiscuzX/issues/I3W5GP
 	if(isset($_SERVER['HTTP_X_CLIENT_SCHEME']) && strtolower($_SERVER['HTTP_X_CLIENT_SCHEME']) == 'https') {
 		return true;
 	}
+	// 西部数码建站助手私有 HTTPS 状态头部
+	// 官网意见反馈 https://www.discuz.net/thread-3849819-1-1.html
 	if(isset($_SERVER['HTTP_FROM_HTTPS']) && strtolower($_SERVER['HTTP_FROM_HTTPS']) != 'off') {
 		return true;
 	}
+	// 服务器端口号兜底判断
 	if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
 		return true;
 	}

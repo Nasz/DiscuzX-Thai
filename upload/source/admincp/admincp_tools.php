@@ -23,7 +23,9 @@ if($operation == 'updatecache') {
 		array('nav_updatecache_completed', $step == 3)
 	));
 
+	
 	showtips('tools_updatecache_tips');
+	
 
 	if($step == 1) {
 		cpmsg("<input type=\"checkbox\" name=\"type[]\" value=\"data\" id=\"datacache\" class=\"checkbox\" checked /><label for=\"datacache\">".$lang['tools_updatecache_data']."</label><input type=\"checkbox\" name=\"type[]\" value=\"tpl\" id=\"tplcache\" class=\"checkbox\" checked /><label for=\"tplcache\">".$lang['tools_updatecache_tpl']."</label><input type=\"checkbox\" name=\"type[]\" value=\"blockclass\" id=\"blockclasscache\" class=\"checkbox\" /><label for=\"blockclasscache\">".$lang['tools_updatecache_blockclass']."</label><input type=\"checkbox\" name=\"type[]\" value=\"csscache\" id=\"csscache\" class=\"checkbox\" /><label for=\"csscache\">".$lang['styles_csscache_update']."</label><input type=\"checkbox\" name=\"type[]\" value=\"searchindex\" id=\"searchindex\" class=\"checkbox\" /><label for=\"searchindex\">".$lang['tools_updatecache_searchindex'].'</label>', 'action=tools&operation=updatecache&step=2', 'form', '', FALSE);

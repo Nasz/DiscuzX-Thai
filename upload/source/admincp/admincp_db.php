@@ -23,7 +23,7 @@ cpheader();
 if(!isfounder()) cpmsg('noaccess_isfounder', '', 'error');
 
 
-$excepttables = array($tablepre.'common_admincp_session', $tablepre.'common_syscache', $tablepre.'common_failedlogin', $tablepre.'forum_rsscache', $tablepre.'common_searchindex', $tablepre.'forum_spacecache', $tablepre.'common_session');
+$excepttables = array($tablepre.'common_admincp_session', $tablepre.'common_failedlogin', $tablepre.'forum_rsscache', $tablepre.'common_searchindex', $tablepre.'forum_spacecache', $tablepre.'common_session');
 
 $backupdir = C::t('common_setting')->fetch_setting('backupdir');
 
@@ -88,7 +88,7 @@ if($operation == 'export') {
 			array('nav_db_optimize', 'db&operation=optimize', 0),
 			array('nav_db_dbcheck', 'db&operation=dbcheck', 0)
 		));
-		/*search={"nav_db":"action=db&operation=export","nav_db_export":"action=db&operation=export"}*/
+		
 		showtips($db_export_tips);
 		showformheader('db&operation=export&setup=1');
 		showtableheader();
@@ -130,7 +130,7 @@ if($operation == 'export') {
 		showsubmit('exportsubmit', 'submit', '', 'more_options');
 		showtablefooter();
 		showformfooter();
-		/*search*/
+		
 
 	} else {
 
@@ -460,11 +460,11 @@ if($operation == 'export') {
 			array('nav_db_optimize', 'db&operation=optimize', 0),
 			array('nav_db_dbcheck', 'db&operation=dbcheck', 0)
 		));
-		/*search={"nav_db":"action=db&operation=export","nav_db_import":"action=db&operation=import"}*/
+		
 		showtips('db_import_tips');
 		showtableheader('db_import');
 		showtablerow('', array('colspan="9" class="tipsblock"'), array(cplang('do_import_option', array('restore_url' => $restore_url))));
-		/*search*/
+		
 
 		showformheader('db&operation=import');
 		showtitle('db_export_file');
@@ -510,7 +510,7 @@ if($operation == 'export') {
 		}
 
 		foreach($exportziplog as $key => $val) {
-			sort($val);//修改 确保-1.zip排前面,才会自动解压-2.zip
+			sort($val);
 			$info = $val[0];
 			$info['volume'] = count($val);
 			$info['dateline'] = is_int($info['dateline']) ? dgmdate($info['dateline']) : $lang['unknown'];
@@ -616,7 +616,7 @@ if($operation == 'export') {
 			array('nav_db_optimize', 'db&operation=optimize', 0),
 			array('nav_db_dbcheck', 'db&operation=dbcheck', 0)
 		));
-		/*search={"nav_db":"action=db&operation=export","nav_db_runquery":"action=db&operation=runquery"}*/
+		
 		showtips('db_runquery_tips');
 		showtableheader();
 		showformheader('db&operation=runquery&option=simple');
@@ -634,7 +634,7 @@ if($operation == 'export') {
 		}
 
 		showtablefooter();
-		/*search*/
+		
 
 	} else {
 		$queries = $_GET['queries'];
@@ -678,9 +678,9 @@ if($operation == 'export') {
 		array('nav_db_optimize', 'db&operation=optimize', 1),
 		array('nav_db_dbcheck', 'db&operation=dbcheck', 0)
 	));
-	/*search={"nav_db":"action=db&operation=export","nav_db_optimize":"action=db&operation=optimize"}*/
+	
 	showtips('db_optimize_tips');
-	/*search*/
+	
 	showformheader('db&operation=optimize');
 	showtableheader('db_optimize_tables');
 	showsubtitle(array('', 'db_optimize_table_name', 'type', 'db_optimize_rows', 'db_optimize_data', 'db_optimize_index', 'db_optimize_frag'));
@@ -937,7 +937,7 @@ if($operation == 'export') {
 						$tempvalue = str_replace('mediumtext', 'text', $value);
 						$discuzdbnew[$dbtable][$key] = str_replace('mediumtext', 'text', $discuzdbnew[$dbtable][$key]);
 						if($tempvalue != $discuzdbnew[$dbtable][$key]) {
-							// MySQL 8.0.17 开始不再支持除tinyint(1)以外的任何int类数据类型的显示宽度，检测到此行为则移除数值。
+							
 							if((strpos($tempvalue['Type'], 'int(') !== false) && !empty($discuzdbnew[$dbtable][$key]['Type']) && (strpos($discuzdbnew[$dbtable][$key]['Type'], '(') === false)) {
 								$tempvalue['Type'] = preg_replace('/\(\d+\)/', '', $tempvalue['Type']);
 								if($tempvalue != $discuzdbnew[$dbtable][$key]) {
@@ -1314,3 +1314,5 @@ function slowcheck($type1, $type2) {
 	}
 	return FALSE;
 }
+
+?>

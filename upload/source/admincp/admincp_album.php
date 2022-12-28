@@ -67,9 +67,11 @@ if(!submitcheck('albumsubmit')) {
 		array('album_search', !$searchsubmit),
 		array('nav_album', $searchsubmit)
 	));
+	
 	if($muticondition) {
 		showtips('album_tips');
 	}
+	
 	$staticurl = STATICURL;
 	echo <<<EOT
 <script type="text/javascript" src="{$staticurl}js/calendar.js"></script>
@@ -81,6 +83,7 @@ function page(number) {
 </script>
 EOT;
 	showtagheader('div', 'searchposts', !$searchsubmit && empty($newlist));
+	
 	showformheader("album".(!empty($_GET['search']) ? '&search=true' : ''), '', 'albumforum');
 	showhiddenfields(array('page' => $page, 'pp' => $_GET['pp'] ? $_GET['pp'] : $_GET['perpage']));
 	showtableheader();
@@ -99,6 +102,7 @@ EOT;
 	showtablefooter();
 	showformfooter();
 	showtagfooter('div');
+	
 
 } else {
 	if($_GET['albumids']) {

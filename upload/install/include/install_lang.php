@@ -145,7 +145,8 @@ $lang = array(
 	'admininfo_password_invalid' => 'รหัสผ่านของผู้ดูแลระบบว่างเปล่าโปรดกรอกข้อมูล',
 	'admininfo_password2_invalid' => 'รหัสผ่านทั้งสองอันไม่เหมือนกันโปรดตรวจสอบ',
 
-	'install_dzfull' => '<div class="selradio"><input type="radio" id="install_ucenter_yes"' . (getgpc('install_ucenter') != 'no' ? ' checked="checked"' : '') . ' name="install_ucenter" value="yes" onclick="if(this.checked)$(\'form_items_2\').style.display=\'none\';" /><label for="install_ucenter_yes">ติดตั้ง Discuz! X ใหม่หมด (พร้อมด้วย UCenter Server)</label></div>',
+	'install_dzstandalone' => '<div class="selradio"><input type="radio" id="install_ucenter_standalone" name="install_ucenter" value="standalone" onclick="if(this.checked)$(\'form_items_2\').style.display=\'none\';" /><label for="install_ucenter_standalone">ติดตั้ง Discuz! X ใหม่ (การติดตั้งโหมดอิสระ)</label></div>',
+	'install_dzfull' => '<div class="selradio"><input type="radio" id="install_ucenter_yes"' . (getgpc('install_ucenter') != 'no' ? ' checked="checked"' : '') . ' name="install_ucenter" value="yes" onclick="if(this.checked)$(\'form_items_2\').style.display=\'none\';" /><label for="install_ucenter_yes">ติดตั้ง Discuz! X ใหม่ พร้อมด้วย UCenter Server</label></div>',
 	'install_dzonly' => '<div class="selradio"><input type="radio" id="install_ucenter_no"' . (getgpc('install_ucenter') == 'no' ? ' checked="checked"' : '') . ' name="install_ucenter" value="no" onclick="if(this.checked)$(\'form_items_2\').style.display=\'\';" /><label for="install_ucenter_no">ติดตั้งเฉพาะ Discuz! X เท่านั้น (มี UCenter Server อยู่ก่อนแล้ว)</label></div>',
 
 	'username' => 'บัญชีผู้ดูแลระบบ',

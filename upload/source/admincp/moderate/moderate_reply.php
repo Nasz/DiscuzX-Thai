@@ -290,7 +290,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 			$postlist[] = $post;
 		}
 		$threadlist = C::t('forum_thread')->fetch_all($tids);
-		$firsttime_validatepost = array();//首次审核通过帖子
+		$firsttime_validatepost = array();
 		$uids = array();
 		foreach($postlist as $post) {
 			$post['lastpost'] = $threadlist[$post['tid']]['lastpost'];
@@ -327,14 +327,14 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 			}
 		}
 		unset($postlist, $tids, $threadlist);
-		if($firsttime_validatepost) {//首次审核通过,发布动态
+		if($firsttime_validatepost) {
 			require_once libfile('function/post');
 			require_once libfile('function/feed');
-			$forumsinfo = C::t('forum_forum')->fetch_all_info_by_fids($forums);//需要allowfeed信息, 允许推送动态,默认推送广播
+			$forumsinfo = C::t('forum_forum')->fetch_all_info_by_fids($forums);
 			$users = array();
 			foreach ($uids as $uid) {
 				$space = array('uid'=>$uid);
-				space_merge($space, 'field_home');//需要['privacy']['feed']['newreply']信息
+				space_merge($space, 'field_home');
 				$users[$uid] = $space;
 			}
 			foreach ($firsttime_validatepost as $post) {

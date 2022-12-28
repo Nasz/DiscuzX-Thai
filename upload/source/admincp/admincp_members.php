@@ -324,6 +324,7 @@ EOF;
 	exit();
 
 } elseif($operation == 'exphistory') {
+	
 	if(!isset($_GET['uid'])) {
 		cpmsg('members_no_find_user', '', 'error');
 	}
@@ -376,6 +377,7 @@ EOF;
 
 	if(empty($_GET['uid']) && empty($_GET['username']) && empty($_GET['ip'])) {
 
+		
 		shownav('user', 'nav_members');
 		showsubmenu('nav_members', array(
 			array('search', 'members&operation=search', 0),
@@ -391,6 +393,7 @@ EOF;
 		showsubmit('submit', 'submit');
 		showtablefooter();
 		showformfooter();
+		
 
 	} else {
 
@@ -514,7 +517,7 @@ EOF;
 		if(!empty($_GET['uidarray'])) {
 			$uids = array();
 			$allmember = C::t('common_member')->fetch_all($_GET['uidarray']);
-
+			
 			$membernum = 0;
 			foreach($allmember as $uid => $member) {
 				if($member['adminid'] !== 1 && $member['groupid'] !== 1) {
@@ -530,7 +533,7 @@ EOF;
 			$uids = searchmembers($search_condition, $delmemberlimit, 0);
 		}
 		$allnum = intval($_GET['allnum']);
-
+		
 
 		if((empty($membernum) || empty($uids))) {
 			if($deletestart) {
@@ -566,8 +569,8 @@ EOF;
 
 			} else {
 
-
-
+				
+				
 				$pertask = 1000;
 				$current = $_GET['current'] ? intval($_GET['current']) : 0;
 				$deleteitem = $_GET['deleteitem'] ? trim($_GET['deleteitem']) : 'post';
@@ -1095,6 +1098,7 @@ EOF;
 			($groupselect['special'] ? '<optgroup label="'.$lang['usergroups_special'].'">'.$groupselect['special'].'</optgroup>' : '').
 			($groupselect['specialadmin'] ? '<optgroup label="'.$lang['usergroups_specialadmin'].'">'.$groupselect['specialadmin'].'</optgroup>' : '').
 			'<optgroup label="'.$lang['usergroups_system'].'">'.$groupselect['system'].'</optgroup>';
+		
 		shownav('user', 'nav_members_add');
 		showsubmenu('members_add');
 		showformheader('members&operation=add');
@@ -1107,6 +1111,7 @@ EOF;
 		showsubmit('addsubmit');
 		showtablefooter();
 		showformfooter();
+		
 
 	} else {
 
@@ -1246,6 +1251,7 @@ EOF;
 			$groups['member'] = '<option value="'.$group['groupid'].'" gtype="member">'.$group['grouptitle'].'</option>';
 		}
 
+		
 		shownav('user', 'members_group');
 		showsubmenu('members_group_member', array(), '', array('username' => $member['username']));
 		echo '<script src="'.STATICURL.'/js/calendar.js" type="text/javascript"></script>';
@@ -1273,6 +1279,7 @@ EOF;
 		showtablefooter();
 
 		showformfooter();
+		
 
 	} else {
 
@@ -1371,7 +1378,7 @@ EOF;
 		}
 
 		if($_GET['groupidnew'] != $member['groupid'] && (in_array($_GET['groupidnew'], array(4, 5)) || in_array($member['groupid'], array(4, 5)))) {
-			$my_opt = in_array($_GET['groupidnew'], array(4, 5)) ? 'banuser' : 'unbanuser';
+			$my_opt = in_array($_GET['groupidnew'], array(4, 5)) ? 'banuser' : 'unbanuser';			
 			banlog($member['username'], $member['groupid'], $_GET['groupidnew'], $groupexpirynew, $_GET['reason']);
 		}
 
@@ -1437,6 +1444,7 @@ EOF;
 EOT;
 		shownav('user', 'members_credit');
 		showsubmenu('members_credit');
+		
 		showtips('members_credit_tips');
 		showformheader("members&operation=credit&uid={$_GET['uid']}");
 		showboxheader('<em class="right"><a href="'.ADMINSCRIPT.'?action=logs&operation=credit&srch_uid='.$_GET['uid'].'&frame=yes" target="_blank">'.cplang('members_credit_logs').'</a></em>'.cplang('members_credit').' - '.$member['username'].'('.$member['grouptitle'].')', 'nobottom');
@@ -1452,6 +1460,7 @@ EOT;
 		showsubmit('creditsubmit');
 		showtablefooter();
 		showformfooter();
+		
 
 	} else {
 
@@ -1967,7 +1976,7 @@ EOF;
 					C::t('forum_postcache')->delete($postcomment_cache_pid);
 				}
 			}
-
+            
 			if(in_array('profile', $_GET['clear'])) {
 				C::t('common_member_profile'.$tableext)->delete($member['uid']);
 				C::t('common_member_profile'.$tableext)->insert(array('uid' => $member['uid']));
@@ -1976,16 +1985,23 @@ EOF;
 			}
 
 			if(in_array('others', $_GET['clear'])) {
+				
 				C::t('home_clickuser')->delete_by_uid($member['uid']);
 				C::t('home_visitor')->delete_by_uid_or_vuid($member['uid']);
+				
 				C::t('home_follow')->delete_by_uid($member['uid']);
 				C::t('home_follow')->delete_by_followuid($member['uid']);
+				
 				C::t('home_friend')->delete_by_uid_fuid($member['uid']);
 				C::t('home_friend_request')->delete_by_uid_or_fuid($member['uid']);
+				
 				C::t('home_feed')->delete_by_uid($member['uid']);
+				
 				C::t('home_notification')->delete_by_uid($member['uid']);
+				
 				C::t('home_poke')->delete_by_uid_or_fromuid($member['uid']);
 				C::t('home_pokearchive')->delete_by_uid_or_fromuid($member['uid']);
+				
 				C::t('forum_promotion')->delete_by_uid($member['uid']);
 			}
 
@@ -2010,6 +2026,7 @@ EOF;
 
 		shownav('user', 'members_access_edit');
 		showsubmenu('members_access_edit');
+		
 		showtips('members_access_tips');
 		showtableheader(cplang('members_access_now').' - '.$member['username'], 'nobottom fixpadding');
 		showsubtitle(array('forum', 'members_access_view', 'members_access_post', 'members_access_reply', 'members_access_getattach', 'members_access_getimage', 'members_access_postattach', 'members_access_postimage', 'members_access_adminuser', 'members_access_dateline'));
@@ -2063,6 +2080,7 @@ EOF;
 		showsubmit('accesssubmit', 'submit');
 		showtablefooter();
 		showformfooter();
+		
 
 	} else {
 
@@ -2182,6 +2200,7 @@ EOF;
 		$member['signature'] = html2bbcode($member['sightml']);
 
 		shownav('user', 'members_edit');
+		
 		showsubmenu("{$lang['members_edit']} - {$member['username']}", array(
 			array('connect_member_info', 'members&operation=edit&uid='.$uid,  1),
 			!empty($_G['setting']['connect']['allow']) ? array('connect_member_bindlog', 'members&operation=edit&do=bindlog&uid='.$uid,  0) : array(),
@@ -2191,7 +2210,7 @@ EOF;
 		$status = array($member['status'] => ' checked');
 		$freeze = array($member['freeze'] => ' checked');
 		showsetting('members_edit_username', '', '', ($_G['setting']['connect']['allow'] && $member['conisbind'] ? ' <img class="vmiddle" src="'.STATICURL.'image/common/connect_qq.gif" />' : '').' '.$member['username']);
-		showsetting('members_edit_avatar', '', '', ' <img src="'.avatar($uid, 'middle', true, false, true).'?random='.random(2).'" onerror="this.onerror=null;this.src=\''.$_G['setting']['ucenterurl'].'/images/noavatar.svg\'" /><br /><br /><input name="clearavatar" class="checkbox" type="checkbox" value="1" /> '.$lang['members_edit_avatar_clear']);
+		showsetting('members_edit_avatar', '', '', avatar($uid, 'middle', array('random' => 1)).'<br /><br /><input name="clearavatar" class="checkbox" type="checkbox" value="1" /> '.$lang['members_edit_avatar_clear']);
 		$hrefext = "&detail=1&users={$member['username']}&searchsubmit=1&perpage=50&fromumanage=1";
 		showsetting('members_edit_statistics', '', '', "<a href=\"".ADMINSCRIPT."?action=prune$hrefext\" class=\"act\">{$lang['posts']}({$member['posts']})</a>".
 				"<a href=\"".ADMINSCRIPT."?action=doing$hrefext\" class=\"act\">{$lang['doings']}({$member['doings']})</a>".
@@ -2246,11 +2265,14 @@ EOF;
 			}
 		}
 
+		
 		showsetting('members_edit_exphistory', '', '', "<a href=\"".ADMINSCRIPT."?action=members&operation=exphistory&uid={$member['uid']}\" class=\"act\">{$lang['members_edit_exphistory']}</a>");
+		
 
 		showsubmit('editsubmit');
 		showtablefooter();
 		showformfooter();
+		
 
 	} else {
 
@@ -2258,8 +2280,21 @@ EOF;
 		require_once libfile('function/discuzcode');
 
 		$questionid = $_GET['clearquestion'] ? 0 : '';
-		$secmobicc = intval($_GET['secmobiccnew']);
-		$secmobile = intval($_GET['secmobilenew']);
+		$secmobicc = $_GET['secmobiccnew'];
+		$secmobile = $_GET['secmobilenew'];
+		
+		if($secmobicc === '') {
+			$secmobicc == 0;
+		}elseif(!preg_match('#^(\d){1,3}$#', $secmobicc)) {
+			cpmsg('members_mobicc_illegal', '', 'error');
+		}
+
+		if($secmobile === '') {
+			$secmobile == 0;
+		}elseif($secmobile !== '' && !preg_match('#^(\d){1,12}$#', $secmobile)) {
+			cpmsg('members_mobile_illegal', '', 'error');
+		}
+
 		$ucresult = uc_user_edit(addslashes($member['username']), $_GET['passwordnew'], $_GET['passwordnew'], addslashes(strtolower(trim($_GET['emailnew']))), 1, $questionid, '', $secmobicc, $secmobile);
 		if($ucresult < 0) {
 			if($ucresult == -4) {
@@ -2268,7 +2303,7 @@ EOF;
 				cpmsg('members_email_domain_illegal', '', 'error');
 			} elseif($ucresult == -6) {
 				cpmsg('members_email_duplicate', '', 'error');
-			} elseif($ucresult == -8) {
+			} elseif($ucresult == -9) {
 				cpmsg('members_mobile_duplicate', '', 'error');
 			}
 		}
@@ -2334,8 +2369,8 @@ EOF;
 		$memberupdate = array();
 		if($ucresult >= 0) {
 			$memberupdate['email'] = strtolower(trim($_GET['emailnew']));
-			$memberupdate['secmobicc'] = $secmobicc;
-			$memberupdate['secmobile'] = $secmobile;
+			$memberupdate['secmobicc'] = $secmobicc == 0 ? '' : $secmobicc;
+			$memberupdate['secmobile'] = $secmobile == 0 ? '' : $secmobile;
 		}
 		if($ucresult >= 0 && !empty($_GET['passwordnew'])) {
 			$memberupdate['password'] = md5(random(10));
@@ -2463,7 +2498,7 @@ EOF;
 					'dateline' => $_G['timestamp'],
 					'expiration' => $expiration,
 				);
-				C::t('common_banned')->insert($data);
+				C::t('common_banned')->insert($data);				
 			}
 
 			if(is_array($_GET['expirationnew'])) {
@@ -2507,35 +2542,45 @@ EOF;
 					continue;
 				}
 				if(strpos($banipaddr, '/') !== false) {
+					
 					if($_G['adminid'] != 1 || !ip::validate_cidr($banipaddr, $banipaddr)) {
 						continue;
 					}
 				} else if(strpos($banipaddr, '*') !== false) {
+					
+					
 					if($_G['adminid'] != 1) {
 						continue;
 					}
+					
 					$mask = 0;
 					$ipnew = explode('.', $banipaddr);
 					if(!is_array($ipnew) || count($ipnew) != 4) {
 						continue;
 					}
+					
 					for($i = 0; $i < 4; $i++) {
 						if(strcmp($ipnew[$i], '*') === 0) {
 							if($i == 0) {
+								
 								break;
 							} else if($mask) {
+								
 								$ipnew[$i] = 0;
 							} else {
+								
 								$ipnew[$i] = 0;
 								$mask = $i * 8;
 							}
 						} else {
+							
 							if($mask || !is_numeric($ipnew[$i]) || $ipnew[$i] < 0 || $ipnew[$i] > 255) {
 								$mask = 0;
 								break;
 							}
 						}
 					}
+					
 					if($mask) {
 						$banipaddr = implode('.', $ipnew);
 						$banipaddr = $banipaddr . '/' . $mask;
@@ -2546,6 +2591,7 @@ EOF;
 						continue;
 					}
 				} else if(!ip::validate_ip($banipaddr)) {
+					
 					continue;
 				}
 
@@ -3060,6 +3106,7 @@ function showsearchform($operation = '') {
 		$usertagselect .= "<option value=\"{$row['tagid']}\" ".(in_array($row['tagid'], $tagid) ? 'selected' : '').">{$row['tagname']}</option>\n";
 	}
 
+	
 	showtagheader('div', 'searchmembers', !$_GET['submit']);
 	echo '<script src="'.STATICURL.'js/calendar.js" type="text/javascript"></script>';
 	echo '<style type="text/css">#residedistrictbox select, #birthdistrictbox select{width: auto;}</style>';
@@ -3216,6 +3263,7 @@ function showsearchform($operation = '') {
 	showtablefooter();
 	showformfooter();
 	showtagfooter('div');
+	
 }
 
 function searchcondition($condition) {
@@ -3527,6 +3575,8 @@ function notifymembers($operation, $variable) {
 					runlog('sendmail', "{$member['email']} sendmail failed.");
 				}
 			} elseif($_GET['notifymembers'] == 'sms') {
+				
+				
 				sms::send($member['uid'], 1, 2, $member['secmobicc'], $member['secmobile'], "[$subject]$message$addmsg", 1);
 			}
 
@@ -3598,7 +3648,7 @@ function notifymembers($operation, $variable) {
 
 function banlog($username, $origgroupid, $newgroupid, $expiration, $reason, $status = 0) {
 	global $_G, $_POST;
-	$cloud_apps = dunserialize($_G['setting']['cloud_apps']);
+	$cloud_apps = dunserialize($_G['setting']['cloud_apps']);	
 	writelog('banlog', dhtmlspecialchars("{$_G['timestamp']}\t{$_G['member']['username']}\t{$_G['groupid']}\t{$_G['clientip']}\t$username\t$origgroupid\t$newgroupid\t$expiration\t$reason\t$status"));
 }
 

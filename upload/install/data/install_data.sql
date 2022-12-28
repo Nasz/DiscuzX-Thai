@@ -7,7 +7,6 @@ INSERT INTO pre_common_admingroup SET `admingid`='18',`alloweditpost`='0',`allow
 INSERT INTO pre_common_admingroup SET `admingid`='19',`alloweditpost`='0',`alloweditpoll`='0',`allowstickthread`='0',`allowmodpost`='1',`allowdelpost`='0',`allowmassprune`='0',`allowrefund`='0',`allowcensorword`='0',`allowviewip`='1',`allowbanip`='1',`allowedituser`='0',`allowmoduser`='1',`allowbanuser`='1',`allowbanvisituser`='0',`allowpostannounce`='0',`allowviewlog`='0',`allowbanpost`='0',`supe_allowpushthread`='0',`allowhighlightthread`='0',`allowlivethread`='0',`allowdigestthread`='0',`allowrecommendthread`='0',`allowbumpthread`='0',`allowclosethread`='0',`allowmovethread`='0',`allowedittypethread`='0',`allowstampthread`='0',`allowcopythread`='0',`allowmergethread`='0',`allowsplitthread`='0',`allowrepairthread`='0',`allowwarnpost`='0',`allowviewreport`='0',`alloweditforum`='0',`allowremovereward`='0',`allowedittrade`='0',`alloweditactivity`='0',`allowstickreply`='0',`allowmanagearticle`='0',`allowaddtopic`='0',`allowmanagetopic`='0',`allowdiy`='0',`allowclearrecycle`='0',`allowmanagetag`='0',`managefeed`='0',`managedoing`='0',`manageshare`='0',`manageblog`='0',`managealbum`='0',`managecomment`='0',`managemagiclog`='0',`managereport`='0',`managehotuser`='0',`managedefaultuser`='0',`managemagic`='0',`manageclick`='0',`allowstamplist`='0',`allowmanagecollection`='0',`allowmakehtml`='0';
 
 INSERT INTO pre_common_adminnote VALUES ('1','Discuz','0','0','0','0','ขอบคุณสำหรับการติดตั้งและการใช้งาน Discuz! X，ที่นี่คือ ศูนย์บริหารจัดการของคุณ คุณสามารถปรับการตั้งค่าต่างๆของเว็บไซต์ได้ที่นี่');
-INSERT INTO pre_common_adminnote VALUES ('2','ดิสคัซไซนช์','0','0','0','0','ภาษาไทยในแอปพลิเคชั่นนี้อาจยังไม่สมบูรณ์คุณสามารถมองหารุ่นที่สมบูรณ์กว่าได้ที่ https://discuzthai.com/');
 
 INSERT INTO pre_common_credit_rule VALUES ('1','โพสต์','post','4','0','0','0','0','2','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('2','ตอบกลับ','reply','4','0','0','0','0','1','0','0','0','0','0','0','');
@@ -62,7 +61,6 @@ INSERT INTO pre_common_cron VALUES ('21','1','system','ต่อสัปดา�
 
 INSERT INTO pre_common_friendlink VALUES ('1','0','เว็บบอร์ดอย่างเป็นทางการ','https://www.discuz.net','Discuz! รุ่นล่าสุด ข่าวผลิตภัณฑ์ ดาวน์โหลดซอฟต์แวร์ และการแลกเปลี่ยนทางเทคนิค','static/image/common/logo_88_31.gif','2');
 INSERT INTO pre_common_friendlink VALUES ('2','4','แอปเซนเตอร์','https://addon.dismall.com/','','','2');
-INSERT INTO pre_common_friendlink VALUES ('3','4','ดิสคัซไซนซ์','https://github.com/Nasz/DiscuzX/releases','','','2');
 
 INSERT INTO pre_common_member_profile_setting VALUES('realname', 1, 0, 0, 'ชื่อจริง', '', 0, 0, 0, 0, 0, 0, 1, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('gender', 1, 0, 0, 'เพศ', '', 0, 0, 0, 0, 0, 0, 1, 'select', 0, '', '');
@@ -106,12 +104,6 @@ INSERT INTO pre_common_member_profile_setting VALUES('icq', 0, 1, 0, 'ICQ', '', 
 INSERT INTO pre_common_member_profile_setting VALUES('qq', 1, 1, 0, 'QQ', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('yahoo', 0, 1, 0, 'YAHOO', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('msn', 1, 1, 0, 'MSN', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('facebook', 1, 1, 0, 'Facebook', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('twitter', 1, 1, 0, 'Twitter', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('line', 1, 1, 0, 'LINE', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('instagram', 1, 1, 0, 'Instagram', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('tiktok', 1, 1, 0, 'Tiktok', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
-INSERT INTO pre_common_member_profile_setting VALUES('wechat', 1, 1, 0, 'WeChat', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('taobao', 1, 1, 0, 'Taobao', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('site', 1, 0, 0, 'เว็บไซต์', '', 0, 0, 0, 0, 0, 0, 0, 'text', 0, '', '');
 INSERT INTO pre_common_member_profile_setting VALUES('bio', 1, 1, 0, 'แนะนำตัว', '', 0, 0, 0, 0, 0, 0, 0, 'textarea', 0, '', '');

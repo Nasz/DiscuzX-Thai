@@ -49,7 +49,7 @@ if(!in_array($operation, array('aids', 'catids', 'topicids'))) {
 	showsubmenu('html', $_nav, '');
 }
 if($operation == 'all') {
-	/*search={"nav_makehtml":"action=makehtml&operation=all"}*/
+	
 	showtips('makehtml_tips_all');
 
 	showformheader('makehtml&operation=all');
@@ -137,7 +137,7 @@ function make_html_article(starttime) {
 EOT;
 	showtablefooter();
 	showformfooter();
-	/*search*/
+	
 } elseif($operation == 'index') {
 
 	showtips('makehtml_tips_index');
@@ -418,7 +418,7 @@ EOT;
 } elseif ($operation == 'makehtmlsetting') {
 
 	if(!submitcheck('makehtmlsetting')) {
-		/*search={"nav_makehtml":"action=makehtml","setting_functions_makehtml":"action=makehtml&operation=makehtmlsetting"}*/
+		
 		$setting = $_G['setting'];
 		showformheader("makehtml&operation=makehtmlsetting");
 		showtableheader('', 'nobottom', 'id="makehtml"'.($_GET['operation'] != 'makehtmlsetting' ? ' style="display: none"' : ''));
@@ -438,7 +438,7 @@ EOT;
 		showtablefooter();
 		showsubmit('makehtmlsetting', 'submit');
 		showformfooter();
-		/*search*/
+		
 	} else {
 		$settingnew = $_GET['settingnew'];
 		if(isset($settingnew['makehtml'])) {
@@ -496,7 +496,7 @@ EOT;
 		cpmsg('admincp_makehtml_cleanhtml_error', 'action=makehtml&operation=makehtmlsetting', 'error');
 	} else {
 		if(!submitcheck('cleanhtml')) {
-			/*search={"nav_makehtml":"action=makehtml","makehtml_clear":"action=makehtml&operation=cleanhtml"}*/
+			
 
 			showformheader("makehtml&operation=cleanhtml");
 			showtableheader();
@@ -505,7 +505,7 @@ EOT;
 			showtablefooter();
 			showsubmit('cleanhtml', 'submit');
 			showformfooter();
-			/*search*/
+			
 		} else {
 			if(isset($_GET['cleandata'])) {
 				$cleandata = $_GET['cleandata'];

@@ -24,7 +24,9 @@ if(empty($operation)) {
 			array('click_edit_picid', 'click&idtype=picid', $idtype == 'picid' ? 1 : 0),
 			array('click_edit_aid', 'click&idtype=aid', $idtype == 'aid' ? 1 : 0),
 		));
+		
 		showtips('click_edit_tips');
+		
 		showformheader('click&idtype='.$idtype);
 		showboxheader();
 		showtableheader();

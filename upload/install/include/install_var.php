@@ -365,12 +365,11 @@ $serialize_sql_setting = array (
       array (
         'telephone' => 'telephone',
         'mobile' => 'mobile',
-        'facebook' => 'facebook',
-        'line' => 'wechat',
-        'twitter' => 'twitter',
-        'instagram' => 'instagram',
-        'tiktok' => 'tiktok',
-        'wechat' => 'wechat',
+        'icq' => 'icq',
+        'qq' => 'qq',
+        'yahoo' => 'yahoo',
+        'msn' => 'msn',
+        'taobao' => 'taobao',
       ),
     ),
     'edu' =>

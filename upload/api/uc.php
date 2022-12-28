@@ -46,17 +46,18 @@ if(!defined('IN_UC')) {
 	$code = @$_GET['code'];
 	parse_str(authcode($code, 'DECODE', UC_KEY), $get);
 
+	if(empty($get) || UC_STANDALONE) {
+		exit('Invalid Request');
+	}
 	if(time() - $get['time'] > 3600) {
 		exit('Authorization has expired');
-	}
-	if(empty($get)) {
-		exit('Invalid Request');
 	}
 
 	include_once DISCUZ_ROOT.'./uc_client/lib/xml.class.php';
 	$phpinput = file_get_contents('php://input');
 	$post = xml_unserialize($phpinput);
 
+	
 	require DISCUZ_ROOT.'./uc_client/extend_client.php';
 
 	if(in_array($get['action'], array('test', 'deleteuser', 'renameuser', 'gettag', 'synlogin', 'synlogout', 'updatepw', 'updatebadwords', 'updatehosts', 'updateapps', 'updateclient', 'updatecredit', 'getcredit', 'getcreditsettings', 'updatecreditsettings', 'addfeed'))) {

@@ -86,8 +86,8 @@ if(!$operation) {
 	$keywords = $_GET['keywords'];
 	$pstarttime = $_GET['pstarttime'];
 	$pendtime = $_GET['pendtime'];
-
-	$secStatus = false;
+	
+	$secStatus = false;	
 
 	$searchsubmit = $_GET['searchsubmit'];
 
@@ -106,6 +106,7 @@ if(!$operation) {
 		array('search', 'recyclebinpost&operation=search', 1),
 		array('clean', 'recyclebinpost&operation=clean', 0)
 	));
+	
 	$staticurl = STATICURL;
 	echo <<<EOT
 <script type="text/javascript" src="{$staticurl}js/calendar.js"></script>
@@ -132,6 +133,7 @@ EOT;
 	showtablefooter();
 	showformfooter();
 	showtagfooter('div');
+	
 
 	if(submitcheck('searchsubmit')) {
 
@@ -169,12 +171,14 @@ EOT;
 			array('search', 'recyclebinpost&operation=search', 0),
 			array('clean', 'recyclebinpost&operation=clean', 1)
 		));
+		
 		showformheader('recyclebinpost&operation=clean');
 		showtableheader('recyclebinpost_clean');
 		showsetting('recyclebinpost_clean_days', 'days', '30', 'text');
 		showsubmit('cleanrbsubmit');
 		showtablefooter();
 		showformfooter();
+		
 
 	} else {
 

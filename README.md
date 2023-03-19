@@ -41,7 +41,7 @@ Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discu
 มองหารุ่นอย่างเป็นทางการรุ่นล่าสุดได้ที่: [https://gitee.com/3dming/DiscuzL/attach_files](https://gitee.com/3dming/DiscuzL/attach_files)<br />
 QQกลุ่มแฟนคลับ：[181616145](https://qm.qq.com/cgi-bin/qm/qr?k=fP3Uzw3w7vKgOKDagTQF4KCFytenflXp&jump_from=webapi)(ภาษาจีน)<br />
 QQกลุ่มสำรอง(หากกลุ่มบนเต็ม)：15326940(ภาษาจีน)<br />
-กลุ่มผู้ใช้งานไทย [LINE Openchat](https://line.me/ti/g2/aQG_0-x6WcphQ4ChUDul9Q)(ภาษาไทย)
+กลุ่มผู้ใช้งานชาวไทย [Discord](https://discord.com/invite/faSzs3geux)(ภาษาไทย)
 
 ## เว็บไซต์ที่เกี่ยวข้อง 
 * [ชุมชนอย่างเป็นทางการของ Discuz!](https://www.discuz.net/)(ภาษาจีน)

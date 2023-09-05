@@ -14,16 +14,16 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'anonymouspost_name' => 'การ์ดนิรนาม',
-	'anonymouspost_desc' => 'ในสถานที่ที่กำหนดให้ชื่อของคุณไม่ระบุชื่อ',
-	'anonymouspost_num' => 'เป็นเจ้าของตัวเลข: {magicnum}',
-	'anonymouspost_forum' => 'อนุญาตให้ส่วนของรายการนี้',
-	'anonymouspost_info' => 'ตั้งค่าโพสต์ของคุณเป็นตัวตนที่ไม่ระบุชื่อโปรดป้อน ID ของโพสต์',
-	'anonymouspost_info_nonexistence' => 'โปรดระบุโพสต์ที่ไม่ระบุชื่อ',
-	'anonymouspost_succeed' => 'ตั้งค่าให้ไม่เปิดเผยตัวตน',
-	'anonymouspost_use_error' => 'พารามิเตอร์ผิดและรายการนี้ไม่สามารถใช้ที่นี่',
-	'anonymouspost_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
-	'anonymouspost_info_user_noperm' => 'ขออภัยคุณไม่สามารถใช้เสานี้กับบุคคลนี้ได้',
-	'anonymouspost_once_limit' => 'มันไม่ระบุชื่ออยู่แล้วและรายการนี้ไม่สามารถนำกลับมาใช้ใหม่ได้',
+	'anonymouspost_desc' => 'เปลี่ยนชื่อของคุณให้กลายเป็นนิรนามตามจุดที่คุณระบุ',
+	'anonymouspost_num' => 'จำนวนการ์ด: {magicnum}',
+	'anonymouspost_forum' => 'บอร์ดที่เปิดใช้งาน',
+	'anonymouspost_info' => 'หากต้องการให้โพสต์ของคุณเองแสดงชือผู้โพสต์เป็นนิรนาม โปรดกรอก ID ของโพสต์',
+	'anonymouspost_info_nonexistence' => 'โปรดระบุโพสต์ที่ต้องการเปลี่ยน',
+	'anonymouspost_succeed' => 'เปลี่ยนผู้โพสต์เป็นนิรนามแล้ว',
+	'anonymouspost_use_error' => 'พารามิเตอร์เกิดข้อผิดพลาด ไม่สามารถใช้การ์ดได้',
+	'anonymouspost_info_noperm' => 'ขออภัยไม่อนุญาตให้ใช้การ์ดดังกล่าวกับบอร์ดนี้',
+	'anonymouspost_info_user_noperm' => 'ขออภัยคุณไม่สามารถใช้การ์ดดังกล่าวกับบุคคลนี้',
+	'anonymouspost_once_limit' => 'ชื่อถูกแสดงเป็นนิรนามอยู่แล้ว และรายการนี้ไม่สามารถทำซ้ำได้',
 );
 
 ?>

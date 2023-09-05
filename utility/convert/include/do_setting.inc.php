@@ -12,7 +12,7 @@ $sfile = DISCUZ_ROOT.'./source/'.$source.'/setting.ini';
 if(!submitcheck('submit')) {
 	show_form_header();
 	show_table_header();
-	show_table_row(array(array('colspan="3"', '编辑配置文件 source/'.$source.'/setting.ini')), 'title');
+	show_table_row(array(array('colspan="3"', 'แก้ไขไฟล์การกำหนดค่า source/'.$source.'/setting.ini')), 'title');
 
 	foreach ($setting as $key => $value) {
 		if(is_array($value) && !empty($value)) {
@@ -21,7 +21,7 @@ if(!submitcheck('submit')) {
 			foreach ($value as $k => $v) {
 				show_table_row(	array(
 				lang($k),
-				array('class="bg2" width="70%"', '<input type="text" size="40" name="newsetting['.$key.']['.$k.']" value="'.htmlspecialchars($v).'"'.$disabled.'>'.($disabled ? ' 只读' : ''))
+				array('class="bg2" width="70%"', '<input type="text" size="40" name="newsetting['.$key.']['.$k.']" value="'.htmlspecialchars($v).'"'.$disabled.'>'.($disabled ? ' อย่างอย่างเดียว' : ''))
 				), 'bg2'
 				);
 			}
@@ -53,14 +53,13 @@ if(!submitcheck('submit')) {
 				}
 			}
 		}
-		$fp = fopen($sfile, 'c');
-		if($fp && flock($fp, LOCK_EX) && ftruncate($fp, 0) && fwrite($fp, implode("\n", $lines)) && fflush($fp) && flock($fp, LOCK_UN) && fclose($fp)) {
-			showmessage('设置已经更新完毕并成功保存', 'index.php', '', 1000);
-		} else {
-			flock($fp, LOCK_UN);
+		if($fp = @fopen($sfile, 'w')) {
+			fwrite($fp, implode("\n", $lines));
 			fclose($fp);
-			showmessage('该设置文件为只读文件，无法保存，请返回');
+			showmessage('อัปเดทและบันทึกการตั้งค่าเรียบร้อยแล้ว', 'index.php', '', 1000);
+		} else {
+			showmessage('ไฟล์การตั้งค่าเป็นแบบอ่านอย่างเดียวไม่สามารถบันทึกได้ โปรดย้อนกลับไป');
 		}
 	}
-	showmessage('您没有改变任何设置', 'index.php', '', 1000);
+	showmessage('ไม่มีการเปลี่ยนการตั้งค่าใด ๆ', 'index.php', '', 1000);
 }

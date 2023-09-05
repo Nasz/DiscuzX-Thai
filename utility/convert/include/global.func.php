@@ -158,9 +158,9 @@ function timetounix($time) {
 	if($time > 100000000) {
 		return $time;
 	}
-	$time = str_replace(array(' มกราคม ',' กุมภาพันธ์ ',' มีนาคม ',' เมษายน ',' พฤษภาคม ',' มิถุนายน ',' กรกฎาคม ',' สิงหาคม ',' กันยายน ',' ตุลาคม ',' พฤศจิกายน ',' ธันวาคม ', ' ตอนเช้า '), array('-1-','-2-','-3-','-4-','-5-','-6-','-7-','-8-','-9-','-10-','-11-','-12-', ' '), $time);
-	if(strrchr($time, 'ตอนบ่าย') !== false) {
-		return strtotime(str_replace(' ตอนบ่าย ', ' ', $time)) + 43200;
+	$time = str_replace(array(' มกราคม ',' กุมภาพันธ์ ',' มีนาคม ',' เมษายน ',' พฤษภาคม ',' มิถุนายน ',' กรกฎาคม ',' สิงหาคม ',' กันยายน ',' ตุลาคม ',' พฤศจิกายน ',' ธันวาคม ', ' ช่วงเช้า '), array('-1-','-2-','-3-','-4-','-5-','-6-','-7-','-8-','-9-','-10-','-11-','-12-', ' '), $time);
+	if(strrchr($time, 'ช่วงบ่าย') !== false) {
+		return strtotime(str_replace(' ช่วงบ่าย ', ' ', $time)) + 43200;
 	} else {
 		return strtotime($time);
 	}
@@ -227,7 +227,7 @@ function showmessage($message, $url_forward = '', $vars = array(), $timeout = 1)
 
 	echo <<<EOT
 <table class="showtable">
-	<tbody><tr class="title"><td style="color: white">คำเตือนระบบ</td></tr>
+	<tbody><tr class="title"><td style="color: white">แจ้งเตือน</td></tr>
 		<tr><td style="padding: 10px; background-color: #fefefe;font-size: 14px "><br>$message<br><br></td></tr>
 		<tr><td>$messageadd</td></tr>
 	</tbody>
@@ -249,7 +249,7 @@ echo <<<EOT
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>การคอนเวิร์ทเพื่อการอัพเกรดผลิตภัณฑ์ Discuz! X</title>
+<title>การแปลงข้อมูลเพื่อการอัปเกรดผลิตภัณฑ์ Discuz! X</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 body,td { font-family: Tahoma; font-size: 12px; line-height: 150%;}
@@ -327,15 +327,15 @@ function checkAll(type, form, value, checkall, changestyle) {
 </head>
 <body style="table-layout:fixed; word-break:break-all; margin-top: 4px;">
 <div class="main">
-<h1>ชุดตัวช่วยสร้างการอัพเกรด/แปลงฐานข้อมูลผลิตภัณฑ์ Discuz! X $titleadd</h1>
+<h1>โปรแกรมช่วยอัปเกรด/แปลงฐานข้อมูล Discuz! X $titleadd</h1>
 <div class="content">
 <table id="menu">
 	<tr>
-	<td $class[source]>1.เลือกโปรแกรมแปลงผลิตภัณฑ์ </td>
-	<td $class[config]>2.ตั้งค่าข้อมูลเซิร์ฟเวอร์ </td>
-	<td $class[select]>3.กำหนดค่ากระบวนคอนเวิร์ท </td>
+	<td $class[source]>1.เลือกโปรแกรมแปลง </td>
+	<td $class[config]>2.กำหนดค่าข้อมูลเซิร์ฟเวอร์ </td>
+	<td $class[select]>3.กำหนดค่ากระบวนการแปลงข้อมูล </td>
 	<td $class[convert]>4.ทำการแปลงข้อมูล </td>
-	<td $class[finish]>5.รูปแบบข้อมูลที่ทันสมัย </td>
+	<td $class[finish]>5.รูปแบบฐานข้อมูลที่ทันสมัย </td>
 	</tr>
 </table>
 

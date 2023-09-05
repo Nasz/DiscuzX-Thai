@@ -2,18 +2,18 @@
 
 $datadir = DISCUZ_ROOT.'./source/';
 
-showtips('<li><strong>在开始转换之前，请确保本程序目录下的 data 目录为可写权限，否则无法存储转换设置</strong></li><li><strong>如果有Discuz!和UChome同时需要升级，请务必先升级Discuz!论坛</strong></li><li>请正确选择转换程序，否则可能造成无法转换成功</li><li>本转换程序不会破坏原始数据，所以转换需要2倍于原始数据空间</li>');
+showtips('<li><strong>ก่อนเริ่มการแปลง โปรดตรวจสอบให้แน่ใจว่าไดเร็กทอรี่ data นั้นสามารถเขียนข้อมูลได้ มิฉะนั้นการตั้งค่าจะไม่ถูกบันทึก</strong></li><li><strong>ถ้าใช้ Discuz! ร่วมกับ UChome จำเป๋นต้องอัปเกรด Discuz! ก่อน</strong></li><li>โปรดเลือกโปรแกรมแปลงให้ถูกต้อง มิฉะนั้นการแปลงอาจไม่ประสบความสำเร็จ</li><li>โปรแกรมแปลงนี้จะไม่ทำลายข้อมูลต้นฉบับ ดังนั้นเมื่อแปลงข้อมูลเสร็จจะพบว่าขนาดพื้นที่ฐานข้อมูลมีขนาดเพิ่มขึ้นเป็นสองเท่า</li>');
 
 if(is_dir($datadir)) {
 
 	$cdir = dir($datadir);
 	show_table_header();
 	show_table_row(array(
-			'原始版本',
-			'目标版本',
-			array('width="50%"', 'อธิบายสั้น'),
-			array('width="5%"', '说明'),
-			array('width="5%"', 'ตั้งค่า'),
+			'เวอร์ชั่นดั้งเดิม',
+			'เวอร์ชั่นเป้าหมาย',
+			array('width="50%"', 'แนะนำ'),
+			array('width="5%"', 'อธิบาย'),
+			array('width="5%"', 'ติดตั้ง'),
 			array('width="5%"', ''),
 		), 'header title');
 	while(($entry = $cdir->read()) !== false) {
@@ -31,7 +31,7 @@ if(is_dir($datadir)) {
 						$setting['program']['target'],
 						$setting['program']['introduction'],
 						array('align="center"', $readme),
-						array('align="center"', '<a href="index.php?a=setting&source='.rawurlencode($entry).'">ปรับค่า</a>'),
+						array('align="center"', '<a href="index.php?a=setting&source='.rawurlencode($entry).'">เปลี่ยนแปลง</a>'),
 						array('align="center"', '<a href="index.php?a=config&source='.rawurlencode($entry).'">เริ่มต้น</a>'),
 					), $trclass
 				);

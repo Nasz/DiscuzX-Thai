@@ -20,9 +20,9 @@ list($rday, $rhour, $rmin, $rsec) = remaintime(time() - $process['timestart']);
 $stime = gmdate('Y-m-d H:i:s', $process['timestart'] + 3600* 8);
 $etime = gmdate('Y-m-d H:i:s',time() + 3600* 8);
 $timetodo = "การแปลงข้อมูลของคุณเสร็จสิ้นแล้ว!";
-$timetodo .= "<br><br>เริ่มต้นอัพเกรดเมื่อ: <strong>$stime</strong><br>สิ้นสุดการอัพเกรดเมื่อ: <strong>$etime</strong>";
-$timetodo .= "<br>ใช้เวลาดำเนินการทั้งสิ้น: <strong>$rday</strong>วัน <strong>$rhour</strong>ชั่วโมง <strong>$rmin</strong>นาที <strong>$rsec</strong>วินาที";
-$timetodo .= "<br><br>โดยปกติ，คุณอาจต้องอัพเกรดต่อไปตามพรอมต่อไปนี้，เพื่อให้โปรแกรมใหม่ของคุณทำงานตามปกติ";
+$timetodo .= "<br><br>เริ่มต้นอัปเกรดเมื่อ: <strong>$stime</strong><br>สิ้นสุดการอัปเกรดเมื่อ: <strong>$etime</strong>";
+$timetodo .= "<br>กระบวนการทั้งสิ้นกินเวลา: <strong>$rday</strong>วัน <strong>$rhour</strong>ชั่วโมง <strong>$rmin</strong>นาที <strong>$rsec</strong>วินาที";
+$timetodo .= "<br><br>หลังจากอัปเกรดแล้ว เพื่อให้โปรแกรมทำงานได้อย่างถูกต้อง โปรดทำตามคำแนะนำด้านล่าง";
 
 showtips($timetodo);
 

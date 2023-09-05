@@ -13,15 +13,15 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'bump_name' => 'การ์ดที่ได้รับการปรับปรุง',
-	'bump_forum' => 'อนุญาตให้ส่วนของรายการนี้',
-	'bump_desc' => 'สามารถปรับปรุงชุดรูปแบบที่แน่นอน',
-	'bump_info' => 'ปรับปรุงเธรดที่ระบุโปรดป้อน ID ของเธรด',
-	'bump_info_nonexistence' => 'โปรดระบุหัวข้อที่จะปรับปรุง',
-	'bump_succeed' => 'ชุดรูปแบบการดำเนินการของคุณดีขึ้น',
-	'bump_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
+	'bump_name' => 'การ์ดไรเซอร์',
+	'bump_forum' => 'บอร์ดที่อนุญาตให้ใช้การ์ดนี้',
+	'bump_desc' => 'สามารถยกตำแหน่งกระทู้ในหน้ารายการได้',
+	'bump_info' => 'เลือกกระทู้ที่ต้องการโปรโมตโดยการป้อน ID ของกระทู้',
+	'bump_info_nonexistence' => 'โปรดระบุกระทู้ที่ต้องการดัน',
+	'bump_succeed' => 'กระทู้ได้รับการยกระดับตำแหน่งแล้ว',
+	'bump_info_noperm' => 'ขออภัยกระทู้ในบอร์ดนี้ไม่ได้รับอนุญาตให้ปรับตำแหน่ง',
 
-	'bump_notification' => 'เธรดของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
+	'bump_notification' => 'กระทู้ {subject} ของคุณ {actor} ได้รับ {magicname} แล้ว，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
 );
 
 ?>

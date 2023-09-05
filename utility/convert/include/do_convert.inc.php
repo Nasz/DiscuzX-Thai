@@ -14,7 +14,7 @@ if($setting['config']['ucenter']) {
 
 $process = load_process('main');
 if(empty($process)) {
-	showmessage("โปรดเลือกโปรแกรมคอนเวิร์ทก่อน", "index.php?action=select&source=$source");
+	showmessage("โปรดเลือกโปรแกรมแปลงก่อน", "index.php?action=select&source=$source");
 }
 
 $prg = getgpc('prg');
@@ -44,9 +44,9 @@ foreach (array('start', 'tables', 'steps') as $program) {
 
 			list($rday, $rhour, $rmin, $rsec) = remaintime(time() - $process['timestart']);
 			$stime = gmdate('Y-m-d H:i:s', $process['timestart'] + 3600* 8);
-			$timetodo = "อัพเกรดเริ่มต้นเวลา：<strong>$stime</strong> โปรแกรมอัพเกรดดำเนินการไปแล้ว <strong>$rday</strong>วัน <strong>$rhour</strong>ชั่วโมง <strong>$rmin</strong>นาที <strong>$rsec</strong>วินาที";
-			$timetodo .= "<br><br>โปรแกรมคอนเวิร์ทกำลังดำเนินการอยู่ในขณะนี้ ( $prg_done / $prg_total ) <strong>$prg</strong> จะมีรีไดเรคเกิดขึ้นหลายครั้งในระหว่างนั้นโปรดอย่าปิดเบราว์เซอร์ของคุณ";
-			$timetodo .= "<br><br>หากโปรแกรมถูกขัดจังหวะหรือจำเป็นต้องเริ่มโปรแกรมปัจจุบัน，กรุณาคลิก (<a href=\"index.php?a=convert&source=$source&prg=$prg\">เริ่มต้นใหม่</a>)";
+			$timetodo = "เริ่มอัปเกรดเวลา：<strong>$stime</strong> ดำเนินการไปแล้ว <strong>$rday</strong>วัน <strong>$rhour</strong>ชั่วโมง <strong>$rmin</strong>นาที <strong>$rsec</strong>วินาที";
+			$timetodo .= "<br><br>โปรแกรมแปลงกำลังดำเนินการอยู่ในขณะนี้ ( $prg_done / $prg_total ) <strong>$prg</strong> จะมีรีไดเรคเกิดขึ้นหลายครั้งในระหว่างกระบวนการโปรดอย่าปิดเบราว์เซอร์ของคุณ";
+			$timetodo .= "<br><br>หากโปรแกรมถูกขัดจังหวะหรือคุณต้องการรีสตาร์ทโปรแกรม ให้คลิก (<a href=\"index.php?a=convert&source=$source&prg=$prg\">เริ่มต้นใหม่</a>)";
 
 			showtips($timetodo);
 			if(file_exists($prg_dir[$program].$prg)) {
@@ -66,7 +66,7 @@ foreach (array('start', 'tables', 'steps') as $program) {
 	}
 }
 
-showmessage('หลังจากโปรแกรมคอนเวิร์ททำงานทั้งหมดทำงาน', "index.php?action=finish&source=$source");
+showmessage('เสร็จสิ้นกระบวนการแปลง', "index.php?action=finish&source=$source");
 
 function save_process_main($prg = '') {
 	global $process;

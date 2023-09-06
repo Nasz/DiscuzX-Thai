@@ -22,12 +22,12 @@ class discuz_memory extends discuz_base
 	public $enable = false;
 	public $debug = array();
 
-	public $gotset = false;
-	public $gothash = false;
-	public $goteval = false;
-	public $gotsortedset = false;
-	public $gotcluster = false;
-	public $gotpipeline = false;
+	public $gotset = false; 
+	public $gothash = false; 
+	public $goteval = false; 
+	public $gotsortedset = false; 
+	public $gotcluster = false; 
+	public $gotpipeline = false; 
 
 	public function __construct() {
 	}
@@ -259,6 +259,7 @@ class discuz_memory extends discuz_base
 		return $this->memory->hget($this->_key($key), $field);
 	}
 
+	
 	public function evalscript($script, $argv, $sha_key, $prefix = '') {
 		if (!$this->enable || !$this->goteval) {
 			return false;
@@ -275,7 +276,7 @@ class discuz_memory extends discuz_base
 				if (!$script) return false;
 				$should_load = true;
 			} else {
-				if (!$this->memory->scriptexists($sha)) {
+				if (!$this->memory->scriptexists($sha)) { 
 					$should_load = true;
 				}
 			}

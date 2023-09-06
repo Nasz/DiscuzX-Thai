@@ -170,21 +170,18 @@ function textareakey(obj, event) {
 
 function textareasize(obj, op) {
 	if(!op) {
-		if(obj.scrollHeight > 70) {
-			obj.style.height = (obj.scrollHeight < 300 ? obj.scrollHeight - heightag: 300) + 'px';
-			if(obj.style.position == 'absolute') {
-				obj.parentNode.style.height = (parseInt(obj.style.height) + 20) + 'px';
-			}
-		}
+
 	} else {
 		if(obj.style.position == 'absolute') {
 			obj.style.position = '';
 			obj.style.width = '';
 			obj.parentNode.style.height = '';
+			obj.style.resize = 'none';
 		} else {
 			obj.parentNode.style.height = obj.parentNode.offsetHeight + 'px';
 			obj.style.width = BROWSER.ie > 6 || !BROWSER.ie ? '90%' : '600px';
 			obj.style.position = 'absolute';
+			obj.style.resize = 'vertical';
 		}
 	}
 }
@@ -237,15 +234,12 @@ function parsetag(tag) {
 	var parse = function (tds) {
 		for(var i = 0; i < tds.length; i++) {
 			if(tds[i].getAttribute('s') == '1') {
-				var str = tds[i].innerHTML.replace(/(^|>)([^<]+)(?=<|$)/ig, function($1, $2, $3) {
-					if(tag && $3.indexOf(tag) != -1) {
-						re = new RegExp(tag, "g");
-						$3 = $3.replace(re, '<h_>');
+				tds[i].innerHTML = tds[i].innerHTML.replace(/(^|>)([^<]+)(?=<|$)/ig, function($1, $2, $3) {
+					if(tag && $3.toLowerCase().indexOf(tag.toLowerCase()) != -1) {
+						re = new RegExp(tag, "ig");
+						$3 = $3.replace(re, '<font class="highlight">$&</font>');
 					}
 					return $2 + $3;
-					});
-				tds[i].innerHTML = str.replace(/<h_>/ig, function($1, $2) {
-					return '<font class="highlight">' + tag + '</font>';
 					});
 			}
 		}

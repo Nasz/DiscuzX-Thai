@@ -1,17 +1,17 @@
 ===============================
-SS7 转换到 Discuz！ X1 注意事项
+ข้อควรระวังในการแปลง SS7 เป็น Discuz! X1 
 ===============================
 
-问题：转换后的图片及附件地址不对？
-方案： 步骤如下：
-1. 在原 SS7 源码下找到图标 images/base/attachment.gif，放在 Disucuz！ X1 的目录 static/image/filetype/ 下；
-2. 找到 source/module/portal/portal_view.php 文件，在代码“$content['content'] = blog_bbcode($content['content']);”后换行添加以下代码：
+คำถาม：ทำไมหลังจากแปลงแล้วถึงไม่เห็นไฟล์แนบที่เคยมี?
+วิธีแก้ไข： ขั้นตอนมีดังนี้：
+1. ค้นหาไอคอนในซอร์สโค้ตดั้งเดิมของ SS7 images/base/attachment.gif，ใส่มันลงไปในไดเร็กทอรี่ static/image/filetype/ ของ Disucuz！ X1；
+2. ค้นหาไฟล์ source/module/portal/portal_view.php แล้วเพิ่มโค้ตต่อไปนี้ในบรรทัดใหม่หลังโค้ต “$content['content'] = blog_bbcode($content['content']);”：
 
-$ss_url = 'http://your_ss_site_url/'; // 请将此链接地址改为您的 SS 站点地址！！！
+$ss_url = 'http://your_ss_site_url/'; // เปลี่ยนที่อยู่นี้เป็นที่อยู่เว็บไซต์ SS ของคุณ！！！
 $findarr = array(
-	$ss_url.'batch.download.php?aid=', // 附件下载地址
-	$ss_url.'attachments/',  // 附件图片目录
-	$ss_url.'images/base/attachment.gif'  // 附件下载图标
+	$ss_url.'batch.download.php?aid=', // ที่อยู่ดาวน์โหลดไฟล์แนบ
+	$ss_url.'attachments/',  // แค็ตตาล็อกรูปภาพที่แนบมา
+	$ss_url.'images/base/attachment.gif'  // ไอคอนดาวน์โหลดไฟล์แนบ
 );
 $replacearr = array(
 	'porta.php?mod=attachment&id=',

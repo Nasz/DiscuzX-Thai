@@ -21,7 +21,7 @@ if(!submitcheck('submit')) {
 			foreach ($value as $k => $v) {
 				show_table_row(	array(
 				lang($k),
-				array('class="bg2" width="70%"', '<input type="text" size="40" name="newsetting['.$key.']['.$k.']" value="'.htmlspecialchars($v).'"'.$disabled.'>'.($disabled ? ' อย่างอย่างเดียว' : ''))
+				array('class="bg2" width="70%"', '<input type="text" size="40" name="newsetting['.$key.']['.$k.']" value="'.htmlspecialchars($v).'"'.$disabled.'>'.($disabled ? ' อ่านอย่างเดียว' : ''))
 				), 'bg2'
 				);
 			}

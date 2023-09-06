@@ -773,6 +773,7 @@ $lang = array (
   'post_poll_expiration' => 'เปิดให้ร่วมโหวต',
   'post_poll_options' => 'ตัวเลือก',
   'post_poll_overt' => 'ร่วมลงคะแนนได้แบบสาธารณะ',
+  'post_poll_exceed' => '已达到最大投票数',
   'post_single_frame_mode' => 'โหมดเฟรมเดี่ยว',
   'post_reward_error_message' => 'เสียใจ，โปรดป้อนราคารางวัล',
   'post_reward_message' => 'หากคุณยังไม่ได้ตั้งค่าคำตอบที่ดีที่สุด，Moderator มีสิทธิ์ที่จะเลือกให้คุณ',

@@ -22,6 +22,7 @@ class table_common_session extends discuz_table
 	}
 
 	public function fetch($id, $force_from_db = false, $null = false) {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch($id, $force_from_db);
@@ -78,9 +79,13 @@ class table_common_session extends discuz_table
 		$guestspan = time() - $guestspan;
 
 		$session = daddslashes($session);
+		
 		$condition = " sid='{$session['sid']}' ";
+		
 		$condition .= " OR lastactivity<$onlinehold ";
+		
 		$condition .= " OR (uid='0' AND ".DB::field('ip', $session['ip'])." AND lastactivity>$guestspan) ";
+		
 		$condition .= $session['uid'] ? " OR (uid='{$session['uid']}') " : '';
 		DB::delete('common_session', $condition);
 	}

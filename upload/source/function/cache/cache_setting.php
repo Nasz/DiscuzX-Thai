@@ -23,7 +23,7 @@ function build_cache_setting() {
 		'infosidestatus', 'uc', 'indexhot', 'relatedtag', 'sitemessage', 'uchome', 'heatthread', 'recommendthread',
 		'disallowfloat', 'allowviewuserthread', 'advtype', 'click', 'card', 'rewritestatus', 'rewriterule', 'privacy', 'focus',
 		'forumkeys', 'article_tags', 'verify', 'seotitle', 'seodescription', 'seokeywords', 'domain', 'ranklist', 'my_search_data',
-		'seccodedata', 'inviteconfig', 'advexpiration', 'allowpostcomment', /*(IN_MOBILE)*/ 'mobile', 'connect', 'upgrade', 'patch', 'strongpw',
+		'seccodedata', 'inviteconfig', 'advexpiration', 'allowpostcomment',  'mobile', 'connect', 'upgrade', 'patch', 'strongpw',
 		'posttable_info', 'threadtable_info', 'profilegroup', 'antitheft', 'makehtml', 'guestviewthumb', 'grid', 'guesttipsinthread', 'accountguard',
 		'security_usergroups_white_list', 'security_forums_white_list',
 		);
@@ -75,14 +75,16 @@ function build_cache_setting() {
 				$profile_settings = C::t('common_member_profile_setting')->fetch_all_by_available(1);
 				foreach($setting['svalue'] as $key => $val) {
 					$temp = array();
-					foreach($profile_settings as $pval) {
-						if(in_array($pval['fieldid'], $val['field'])) {
-							$temp[$pval['fieldid']] = $pval['fieldid'];
+					if (!empty($val['field']) && is_array($val['field'])) {
+						foreach($profile_settings as $pval) {
+							if(in_array($pval['fieldid'], $val['field'])) {
+								$temp[$pval['fieldid']] = $pval['fieldid'];
+							}
 						}
-					}
-					foreach($val['field'] as $fieldid) {
-						if(!in_array($fieldid, $temp)) {
-							$temp[$fieldid] = $fieldid;
+						foreach($val['field'] as $fieldid) {
+							if(!in_array($fieldid, $temp)) {
+								$temp[$fieldid] = $fieldid;
+							}
 						}
 					}
 					$setting['svalue'][$key]['field'] = $temp;
@@ -303,7 +305,7 @@ function build_cache_setting() {
 	$data['creditstrans'] = $creditstranssi[0];
 	unset($creditstranssi[0]);
 	$data['creditstransextra'] = $creditstranssi;
-	for($i = 1;$i < 11;$i++) {
+	for($i = 1; $i < 13; $i++) {
 		$data['creditstransextra'][$i] = $data['creditstrans'] ? (!$data['creditstransextra'][$i] ? $data['creditstrans'] : $data['creditstransextra'][$i]) : 0;
 	}
 	$data['exchangestatus'] = $allowexchangein && $allowexchangeout;
@@ -314,7 +316,8 @@ function build_cache_setting() {
 
 	require_once DISCUZ_ROOT.'./config/config_ucenter.php';
 	$data['ucenterurl'] = UC_STANDALONE ? '.' : UC_API;
-	$data['avatarurl'] = UC_AVTURL;
+	$data['avatarurl'] = empty(UC_AVTURL) ? $data['ucenterurl'].'/data/avatar' : UC_AVTURL;
+	$data['avatarpath'] = UC_STANDALONE ? (UC_AVTPATH ? substr(realpath(DISCUZ_ROOT.str_replace('..', '', UC_AVTPATH)), strlen(DISCUZ_ROOT)).'/' : 'data/avatar/') : '';
 
 	foreach(C::t('common_magic')->fetch_all_data(1) as $magic) {
 		$magic['identifier'] = str_replace(':', '_', $magic['identifier']);
@@ -337,7 +340,7 @@ function build_cache_setting() {
 
 	list($data['plugins'], $data['pluginlinks'], $data['hookscript'], $data['hookscriptmobile'], $data['threadplugins'], $data['specialicon']) = get_cachedata_setting_plugin();
 
-	if(empty($data['defaultindex'])) $data['defaultindex'] = array();
+	if(empty($data['defaultindex'])) $data['defaultindex'] = '';
 	list($data['navs'], $data['subnavs'], $data['menunavs'], $data['navmns'], $data['navmn'], $data['navdms'], $data['navlogos']) = get_cachedata_mainnav();
 
 	$data['footernavs'] = get_cachedata_footernav();
@@ -417,7 +420,7 @@ function build_cache_setting() {
 	}
 
 	$defaultcurhost = empty($_G['setting']['domain']['app']['default']) ? '{CURHOST}' : $_G['setting']['domain']['app']['default'];
-	$output = array('str'=>array(), 'preg' => array()); //str为二级域名的查找和替换，preg为rewrite和默认域名的查找和替换
+	$output = array('str'=>array(), 'preg' => array()); 
 	$_G['domain'] = array();
 	if(is_array($_G['setting']['domain']['app'])) {
 		$apps = $_G['setting']['domain']['app'];
@@ -518,6 +521,8 @@ function build_cache_setting() {
 
 	$data['minsubjectsize'] = empty($data['minsubjectsize']) ? 1 : $data['minsubjectsize'];
 
+	
+	
 	if($data['membersplit']) {
 		C::t('common_member_archive')->check_table();
 	}
@@ -658,6 +663,7 @@ function get_cachedata_setting_plugin($method = '') {
 									if($hscript == 'home' && in_array($curscript, array('space', 'spacecp'))) {
 										$curscript .= '_'.$v[1];
 									}
+									
 									if(strpos($funcname, '__') !== false) {
 										$curscript = current(explode('__', $funcname));
 									}
@@ -787,7 +793,7 @@ function get_cachedata_mainnav() {
 				continue;
 			}
 		}
-		if($nav['identifier'] == 8 && $nav['type'] == 0 && !$_G['setting']['ranklist']['status']) {
+		if($nav['identifier'] == 8 && $nav['type'] == 0 && !helper_access::check_module('ranklist')) {
 			$nav['available'] = 0;
 		}
 		$nav['style'] = parsehighlight($nav['highlight']);
@@ -1119,10 +1125,10 @@ function writetojscache() {
 		'',
 	));
 	while(($entry = readdir($dh)) !== false) {
-		if(fileext($entry) == 'js') {
+		if(fileext($entry) == 'js' && filesize($dir.$entry)) {
 			$jsfile = $dir.$entry;
 			$fp = fopen($jsfile, 'r');
-			$jsdata = @fread($fp, filesize($jsfile));
+			$jsdata = fread($fp, filesize($jsfile));
 			fclose($fp);
 			$jsdata = preg_replace($remove[0], $remove[1], $jsdata);
 			if(file_put_contents(DISCUZ_ROOT.'./data/cache/'.$entry, $jsdata, LOCK_EX) === false) {

@@ -15,7 +15,7 @@
 				<li class="swiper-slide{if $_GET[view] == 'hot'} mon{/if}"><a href="misc.php?mod=ranklist&type=picture&view=hot&orderby=$orderby">{lang hot_pic_ranklist}</a></li>
 				<!--{if $clicks}-->
 				<!--{loop $clicks $key $value}-->
-				<li class="swiper-slide{if $_GET[view] == $key} mon{/if}"><a href="misc.php?mod=ranklist&type=picture&view=$key&orderby=$orderby">{lang ranklist}$value[name]</a></li>
+				<li class="swiper-slide{if $_GET[view] == $key} mon{/if}"><a href="misc.php?mod=ranklist&type=picture&view=$key&orderby=$orderby">$value[name]{lang ranklist}</a></li>
 				<!--{/loop}-->
 				<!--{/if}-->
 				<li class="swiper-slide{if $_GET[view] == 'sharetimes'} mon{/if}"><a href="misc.php?mod=ranklist&type=picture&view=sharetimes&orderby=$orderby">{lang ranklist_share}</a></li>

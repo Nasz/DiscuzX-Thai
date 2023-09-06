@@ -46,7 +46,9 @@ function getattach($pid, $posttime = 0, $aids = '') {
 	if($pid > 0) {
 		$attachmentns = C::t('forum_attachment_n')->fetch_all_by_id('tid:'.$_G['tid'], 'pid', $pid);
 		foreach(C::t('forum_attachment')->fetch_all_by_id('pid', $pid, 'aid') as $attach) {
-			$attach = array_merge($attach, $attachmentns[$attach['aid']]);
+			if(!empty($attachmentns[$attach['aid']])) {
+				$attach = array_merge($attach, $attachmentns[$attach['aid']]);
+			}
 			$attach['filenametitle'] = $attach['filename'];
 			$attach['ext'] = fileext($attach['filename']);
 			if($allowext && !in_array($attach['ext'], $allowext)) {
@@ -187,6 +189,13 @@ function updateattach($modnewthreads, $tid, $pid, $attachnew, $attachupdate = ar
 			foreach($_GET['albumaid'] as $aid) {
 				if(isset($newattach[$aid])) {
 					$albumattach[$aid] = $newattach[$aid];
+				}
+			}
+			if(!empty($_GET['uploadalbum'])) {
+				$_GET['uploadalbum'] = intval($_GET['uploadalbum']);
+				$albuminfo = C::t('home_album')->fetch_album($_GET['uploadalbum'], $uid);
+				if(empty($albuminfo)) {
+					$_GET['uploadalbum'] = 0;
 				}
 			}
 		}
@@ -480,7 +489,9 @@ function updatethreadcount($tid, $updateattach = 0) {
 
 function updatemodlog($tids, $action, $expiration = 0, $iscron = 0, $reason = '', $stamp = 0) {
 	global $_G;
-
+	if(is_array($tids)){
+		$tids = implode(',',$tids);
+	}
 	$uid = empty($iscron) ? $_G['uid'] : 0;
 	$username = empty($iscron) ? $_G['member']['username'] : 0;
 	$expiration = empty($expiration) ? 0 : intval($expiration);
@@ -578,9 +589,9 @@ function messagesafeclear($message) {
 	return $message;
 }
 
-function messagecutstr($str, $length = 0, $dot = ' ...') {
+function messagecutstr($message, $length = 0, $dot = ' ...') {
 	global $_G;
-	$str = messagesafeclear($str);
+	$str = messagesafeclear($message);
 	$sppos = strpos($str, chr(0).chr(0).chr(0));
 	if($sppos !== false) {
 		$str = substr($str, 0, $sppos);
@@ -594,32 +605,52 @@ function messagecutstr($str, $length = 0, $dot = ' ...') {
 			"/\[quote](.*?)\[\/quote]/si",
 			$language['post_edit_regexp'],
 			"/\[url=?.*?\](.+?)\[\/url\]/si",
-			"/\[($bbcodesclear)=?.*?\].+?\[\/\\1\]/si",
-			"/\[($bbcodes)=?.*?\]/i",
+			"/\[($bbcodesclear)(=.*?)?\].+?\[\/\\1\]/si",
+			"/\[($bbcodes)(=.*?)?\]/i",
 			"/\[\/($bbcodes)\]/i",
 			"/\\\\u/i"
 		), array(
-			"[b]{$language['post_hidden']}[/b]",
+			$language['post_hidden'],
 			'',
 			'',
 			'\\1',
 			'',
 			'',
 			'',
-		        '%u'
+			'%u'
 		), $str));
-	if($length) {
-		$str = cutstr($str, $length, $dot);
-	}
 	$str = preg_replace($_G['cache']['smilies']['searcharray'], '', $str);
 	if($_G['setting']['plugins']['func'][HOOKTYPE]['discuzcode']) {
 		$_G['discuzcodemessage'] = & $str;
 		$param = func_get_args();
 		hookscript('discuzcode', 'global', 'funcs', array('param' => $param, 'caller' => 'messagecutstr'), 'discuzcode');
 	}
+	if($length) {
+		$str = cutstr($str, $length, $dot);
+	}
 	return trim($str);
 }
 
+function threadmessagecutstr($thread, $str, $length = 0, $dot = ' ...') {
+	global $_G;
+	if(!empty($thread)) {
+		if(!empty($thread['readperm']) && $thread['readperm'] > 0) {
+			$str = '';
+		}elseif(!empty($thread['price']) && $thread['price'] > 0) {
+			preg_match_all("/\[free\](.+?)\[\/free\]/is", $str, $matches);
+			$str = '';
+			if(!empty($matches[1])) {
+				foreach($matches[1] as $match) {
+					$str .= $match.' ';
+				}
+			} else {
+				$language = lang('forum/misc');
+				$str = $language['post_sold'];
+			}
+		}
+	}
+	return messagecutstr($str, $length, $dot);
+}
 
 function setthreadcover($pid, $tid = 0, $aid = 0, $countimg = 0, $imgurl = '') {
 	global $_G;

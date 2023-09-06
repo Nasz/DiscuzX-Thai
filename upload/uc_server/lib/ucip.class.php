@@ -12,10 +12,12 @@ class ucip {
 	function __construct() {
 	}
 
+	
 	public static function validate_ip($ip) {
 		return filter_var($ip, FILTER_VALIDATE_IP) !== false;
 	}
 
+	
 
 	public static function check_ip($requestIp, $ips)
 	{

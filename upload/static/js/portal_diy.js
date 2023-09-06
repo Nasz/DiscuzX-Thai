@@ -9,8 +9,8 @@ var drag = new Drag();
 drag.extend({
 	'getBlocksTimer' : '',
 	'blocks' : [],
-	'blockDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไร้กรอบและพรหมแดน','value':'cl_block_bm'},{'key':'สไตล์ 1','value':'xbs_1'},{'key':'สไตล์ 2','value':'xbs xbs_2'},{'key':'สไตล์ 3','value':'xbs xbs_3'},{'key':'สไตล์ 4','value':'xbs xbs_4'},{'key':'สไตล์ 5','value':'xbs xbs_5'},{'key':'สไตล์ 6','value':'xbs xbs_6'},{'key':'สไตล์ 7','value':'xbs xbs_7'}],
-	'frameDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไร้กรอบและพรหมแดน','value':'cl_frame_bm'},{'key':'กรอบไร้ขอบ','value':'xfs xfs_nbd'},{'key':'สไตล์ 1','value':'xfs xfs_1'},{'key':'สไตล์ 2','value':'xfs xfs_2'},{'key':'สไตล์ 3','value':'xfs xfs_3'},{'key':'สไตล์ 4','value':'xfs xfs_4'},{'key':'สไตล์ 5','value':'xfs xfs_5'}],
+	'blockDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไม่มีขอบเขตและไม่มีระยะขอบ','value':'cl_block_bm'},{'key':'สไตล์ 1','value':'xbs_1'},{'key':'สไตล์ 2','value':'xbs xbs_2'},{'key':'สไตล์ 3','value':'xbs xbs_3'},{'key':'สไตล์ 4','value':'xbs xbs_4'},{'key':'สไตล์ 5','value':'xbs xbs_5'},{'key':'สไตล์ 6','value':'xbs xbs_6'},{'key':'สไตล์ 7','value':'xbs xbs_7'}],
+	'frameDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไม่มีขอบเขตและไม่มีระยะขอบ','value':'cl_frame_bm'},{'key':'กรอบไร้ขอบ','value':'xfs xfs_nbd'},{'key':'สไตล์ 1','value':'xfs xfs_1'},{'key':'สไตล์ 2','value':'xfs xfs_2'},{'key':'สไตล์ 3','value':'xfs xfs_3'},{'key':'สไตล์ 4','value':'xfs xfs_4'},{'key':'สไตล์ 5','value':'xfs xfs_5'}],
 	setDefalutMenu : function () {
 		this.addMenu('default','หัวข้อ','drag.openTitleEdit(event)');
 		this.addMenu('default','สไตล์','drag.openStyleEdit(event)');
@@ -661,7 +661,7 @@ drag.extend({
 			if(s.indexOf('errorhandle_') != -1) {
 				bcontent.innerHTML = boldcontent;
 				runslideshow();
-				showDialog('เสียใจ，您没有权限添加或编辑模块', 'alert');
+				showDialog('ขออภัย คุณไม่ได้รับอนุญาตให้เพิ่มหรือแก้ไขโมดูล', 'alert');
 				doane();
 			} else {
 				var obj = document.createElement('div');
@@ -678,7 +678,7 @@ drag.extend({
 	frameExport : function (e) {
 		var flag = true;
 		if (drag.isChange) {
-			flag = confirm('您已经做过修改，请保存后再做导出，否则导出的数据将不包括您这次所做的修改。');
+			flag = confirm('คุณได้ทำการแก้ไขแล้ว โปรดบันทึกไว้ก่อนส่งออก มิฉะนั้นข้อมูลที่ส่งออกจะไม่รวมการแก้ไขที่คุณทำในครั้งนี้');
 		}
 		if (flag) {
 			if ( typeof e == 'object') {
@@ -708,7 +708,7 @@ drag.extend({
 	},
 	endBlockForceUpdateBatch : function () {
 		if($('allupdate')) {
-			$('allupdate').innerHTML = '已操作完成。';
+			$('allupdate').innerHTML = 'การดำเนินการเสร็จสิ้นแล้ว';
 			$('fwin_dialog_submit').style.display = '';
 			$('fwin_dialog_cancel').style.display = 'none';
 		}
@@ -721,7 +721,7 @@ drag.extend({
 		if (this.blocks.length > 0) {
 			var cur = this.blocksLen - this.blocks.length;
 			if($('allupdate')) {
-				$('allupdate').innerHTML = '共<span style="color:blue">'+this.blocksLen+'</span>个模块,正在更新第<span style="color:red">'+cur+'</span>个,已完成<span style="color:red">'+(parseInt(cur / this.blocksLen * 100)) + '%</span>';
+				$('allupdate').innerHTML = 'การอัพเดตโมดูลทั่วไป<span style="color:blue">'+this.blocksLen+'</span><span style="color:red">'+cur+'</span> เสร็จ<span style="color:red">'+(parseInt(cur / this.blocksLen * 100)) + '%</span>';
 				var bid = 'portal_block_'+this.blocks.pop();
 				this.blockForceUpdate(bid,true);
 			}

@@ -28,10 +28,11 @@ class template {
 		$this->file = $file;
 
 		if($fp = @fopen(DISCUZ_ROOT.$tplfile, 'r')) {
-			$template = @fread($fp, filesize(DISCUZ_ROOT.$tplfile));
+			$template = filesize(DISCUZ_ROOT.$tplfile) ? fread($fp, filesize(DISCUZ_ROOT.$tplfile)) : '';
 			fclose($fp);
 		} elseif($fp = @fopen($filename = substr(DISCUZ_ROOT.$tplfile, 0, -(strlen($this->filetype) + 1)).'.php', 'r')) {
-			$template = $this->getphptemplate(@fread($fp, filesize($filename)));
+			$template = filesize($filename) ? fread($fp, filesize($filename)) : '';
+			$template = $this->getphptemplate($template);
 			fclose($fp);
 		} else {
 			$tpl = $tpldir.'/'.$file.'.'.$this->filetype;
@@ -379,7 +380,7 @@ class template {
 		foreach($scripts as $css) {
 			$scriptcss .= '<link rel="stylesheet" type="text/css" href="{$_G[\'setting\'][\'csspath\']}'.$css.'.css?{VERHASH}" />';
 		}
-		$scriptcss .= '{if $_G[\'uid\'] && isset($_G[\'cookie\'][\'extstyle\']) && strpos($_G[\'cookie\'][\'extstyle\'], TPLDIR) !== false}<link rel="stylesheet" id="css_extstyle" type="text/css" href="{$_G[\'cookie\'][\'extstyle\']}/style.css" />{elseif $_G[\'style\'][\'defaultextstyle\']}<link rel="stylesheet" id="css_extstyle" type="text/css" href="{$_G[\'style\'][\'defaultextstyle\']}/style.css" />{/if}';
+		$scriptcss .= '{if $_G[\'uid\'] && isset($_G[\'cookie\'][\'extstyle\']) && strpos($_G[\'cookie\'][\'extstyle\'], TPLDIR) !== false}<link rel="stylesheet" id="css_extstyle" type="text/css" href="{$_G[\'cookie\'][\'extstyle\']}/style.css?{VERHASH}" />{elseif $_G[\'style\'][\'defaultextstyle\']}<link rel="stylesheet" id="css_extstyle" type="text/css" href="{$_G[\'style\'][\'defaultextstyle\']}/style.css?{VERHASH}" />{/if}';
 		if(isset($_G['config']['output']['css4legacyie']) && $_G['config']['output']['css4legacyie']) {
 			$scriptcss .= '<!--[if IE]><link rel="stylesheet" type="text/css" href="'.$_G['setting']['csspath'].STYLEID.'_iefix'.'.css?{VERHASH}" /><![endif]-->';
 		}
@@ -394,7 +395,7 @@ class template {
 		global $_G;
 		$modules = explode(',', $param);
 		foreach($modules as $module) {
-			$module .= '::'; //fix notice
+			$module .= '::'; 
 			list($b, $m) = explode('::', $module);
 			if($b && $b == $_G['basescript'] && (!$m || $m == CURMODULE)) {
 				$this->csscurmodules .= $content;

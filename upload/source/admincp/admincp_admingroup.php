@@ -167,6 +167,8 @@ if(!$operation) {
 				$grouplist .= "<option value=\"{$group['groupid']}\">{$group['grouptitle']}</option>\n";
 			}
 			$grouplist .= '</select>';
+			$highlight = getgpc('highlight');
+			$highlight = !empty($highlight) ? dhtmlspecialchars($highlight, ENT_QUOTES) : '';
 			cpmsg('admingroups_edit_nonexistence', 'action=admingroup&operation=edit'.(!empty($highlight) ? "&highlight=$highlight" : ''), 'form', array(), $grouplist);
 		}
 
@@ -226,7 +228,7 @@ if(!$operation) {
 
 			
 			showmultititle();
-			showtableheader();
+			showtableheader('', 'nobottom');
 			showtagheader('tbody', 'threadperm', $_GET['anchor'] == 'threadperm');
 			showtitle('admingroup_edit_threadperm');
 			showsetting('admingroup_edit_stick_thread', array('allowstickthreadnew', array(
@@ -322,7 +324,7 @@ if(!$operation) {
 
 			
 			showtagheader('div', 'portalperm', $_GET['anchor'] == 'portalperm');
-			showtableheader();
+			showtableheader('', 'nobottom');
 			showtagheader('tbody', '', true);
 			showtitle('admingroup_edit_portalperm');
 			showsetting('admingroup_edit_manage_article', 'allowmanagearticlenew', $group['allowmanagearticle'], 'radio');
@@ -335,9 +337,9 @@ if(!$operation) {
 			showtablefooter();
 			showtagfooter('div');
 			
-
+			showtableheader();
 			showsubmit('groupsubmit');
-
+			showtablefooter();
 			$_G['showsetting_multi']++;
 		}
 

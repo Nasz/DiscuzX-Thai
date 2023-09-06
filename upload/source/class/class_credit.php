@@ -225,7 +225,7 @@ class credit {
 			if(isset($_G['setting']['extcredits'][$i])) {
 				$creditarr['extcredits'.$i] = intval($rule['extcredits'.$i]) * $this->coef;
 				if(defined('IN_MOBILE') && $creditarr['extcredits'.$i] > 0) {
-					$creditarr['extcredits'.$i] += $_G['setting']['creditspolicymobile'];
+					$creditarr['extcredits'.$i] += (int)$_G['setting']['creditspolicymobile'];
 				}
 				$updatecredit = true;
 			}
@@ -239,7 +239,7 @@ class credit {
 		global $_G;
 		if(empty($_G['config']['security']['creditsafe']['second']) || empty($_G['config']['security']['creditsafe']['times'])) {
 			return true;
-		}		
+		}
 		foreach($uids as $uid) {
 			$key = 'credit_fc'.$uid;
 			$v = intval(memory('get', $key));
@@ -292,7 +292,7 @@ class credit {
 			}
 			if($sql) {
 				C::t('common_member_count')->increase($uids, $sql);
-			}			
+			}
 			if($checkgroup && count($uids) == 1) $this->checkusergroup($uids[0]);
 			$this->extrasql = array();
 		}

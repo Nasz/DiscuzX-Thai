@@ -54,7 +54,7 @@ $lang = array
 	'click_pic' => '{actor} 对您的 <a href="{url}" target="_blank">图片</a> 做了表态',
 	'click_article' => '{actor} 对您的文章 <a href="{url}" target="_blank">{subject}</a> 做了表态',
 	'show_out' => '{actor} 访问了您的主页后，您在竞价排名榜中的最后一个积分也被消费掉了',
-	'puse_article' => '恭喜您，您的<a href="{url}" target="_blank">{subject}</a>已被添加到文章列表， <a href="{newurl}" target="_blank">点击查看</a>',
+	'puse_article' => '恭喜您，您的<a href="{url}" target="_blank">{subject}</a>已被添加到文章列表， <a href="{newurl}" target="_blank">คลิกเพื่อดู</a>',
 
 	'group_member_join' => '{actor} เข้าร่วมกับคุณ <a href="forum.php?mod=group&fid={fid}" target="_blank">{groupname}</a> กลุ่มจำเป็นต้องได้รับการตรวจสอบโปรดไปที่กลุ่ม<a href="{url}" target="_blank">ศูนย์กลางการควบคุม</a> ทบทวน',
 	'group_member_invite' => '{actor} 邀请您加入 <a href="forum.php?mod=group&fid={fid}" target="_blank">{groupname}</a> 群组，<a href="{url}" target="_blank">点此马上加入</a>',
@@ -102,18 +102,18 @@ $lang = array
 	'modthreads_delete' => '您发表的主题 {threadsubject} 已由管理团队 {modusername} 审核拒绝，现已被删除！',
 
 	'modthreads_delete_reason' => '您发表的主题 {threadsubject} 已由管理团队 {modusername} 审核拒绝，现已被删除！<div class="quote"><blockquote>{reason}</blockquote></div>',
-	'modthreads_validate' => '您发表的主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{threadsubject}</a> 已由管理团队 {modusername} 审核通过！ &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'modthreads_validate' => '您发表的主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{threadsubject}</a> 已由管理团队 {modusername} 审核通过！ &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
 	'modreplies_delete' => '您发表的回复已由管理团队 {modusername} 审核拒绝，现已被删除！ <p class="summary">回复内容：<span>{post}</span></p>',
 
 	'modreplies_delete_reason' => '您发表的回复已由管理团队 {modusername} 审核拒绝，现已被删除！ <p class="summary">回复内容：<span>{post}</span></p><div class="quote"><blockquote>{reason}</blockquote></div>',
 
-	'modreplies_validate' => '您发表的回复已由管理团队 {modusername} 审核通过！ &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">查看 &rsaquo;</a> <p class="summary">回复内容：<span>{post}</span></p>',
+	'modreplies_validate' => '您发表的回复已由管理团队 {modusername} 审核通过！ &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a> <p class="summary">回复内容：<span>{post}</span></p>',
 
-	'transfer' => '您收到一笔来自 {actor} 的积分转账 {credit} &nbsp; <a href="home.php?mod=spacecp&ac=credit&op=log&suboperation=creditslog" target="_blank" class="lit">查看 &rsaquo;</a>
+	'transfer' => '您收到一笔来自 {actor} 的积分转账 {credit} &nbsp; <a href="home.php?mod=spacecp&ac=credit&op=log&suboperation=creditslog" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>
 <p class="summary">{actor} 说：<span>{transfermessage}</span></p>',
 
-	'addfunds' => '您提交的积分充值请求已完成，相应数额的积分已存入您的积分账户 &nbsp; <a href="home.php?mod=spacecp&ac=credit&op=base" target="_blank" class="lit">查看 &rsaquo;</a>
+	'addfunds' => '您提交的积分充值请求已完成，相应数额的积分已存入您的积分账户 &nbsp; <a href="home.php?mod=spacecp&ac=credit&op=base" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>
 <p class="summary">订单号：<span>{orderid}</span></p><p class="summary">支出：<span>人民币 {price} 元</span></p><p class="summary">收入：<span>{value}</span></p>',
 
 	'rate_reason' => '您在主题 <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank">{subject}</a> 的帖子被 {actor} 评分 {ratescore} <div class="quote"><blockquote>{reason}</blockquote></div>',
@@ -122,43 +122,43 @@ $lang = array
 
 	'rate_removereason' => '您在主题 <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank">{subject}</a> 中帖子的评分 {ratescore} <div class="quote"><blockquote>{reason}</blockquote></div> 被 {actor} 撤销',
 
-	'trade_seller_send' => '<a href="home.php?mod=space&uid={buyerid}" target="_blank">{buyer}</a> 购买您的商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a>，对方已付款，等待您发货 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'trade_seller_send' => '<a href="home.php?mod=space&uid={buyerid}" target="_blank">{buyer}</a> 购买您的商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a>，对方已付款，等待您发货 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
-	'trade_buyer_confirm' => '您购买的商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a>，<a href="home.php?mod=space&uid={sellerid}" target="_blank">{seller}</a> 已发货，等待您确认 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'trade_buyer_confirm' => '您购买的商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a>，<a href="home.php?mod=space&uid={sellerid}" target="_blank">{seller}</a> 已发货，等待您确认 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
 	'trade_fefund_success' => '商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a> 已退款成功 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">评价 &rsaquo;</a>',
 
 	'trade_success' => '商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a> 已交易成功 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">评价 &rsaquo;</a>',
 
-	'trade_order_update_sellerid' => '卖家 <a href="home.php?mod=space&uid={sellerid}" target="_blank">{seller}</a> 修改了商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a> 的交易单，请确认 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'trade_order_update_sellerid' => '卖家 <a href="home.php?mod=space&uid={sellerid}" target="_blank">{seller}</a> 修改了商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a> 的交易单，请确认 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
-	'trade_order_update_buyerid' => '买家 <a href="home.php?mod=space&uid={buyerid}" target="_blank">{buyer}</a> 修改了商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a> 的交易单，请确认 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'trade_order_update_buyerid' => '买家 <a href="home.php?mod=space&uid={buyerid}" target="_blank">{buyer}</a> 修改了商品 <a href="forum.php?mod=trade&orderid={orderid}" target="_blank">{subject}</a> 的交易单，请确认 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
 	'eccredit' => '与您交易的 {actor} 已对您作了评价 &nbsp; <a href="forum.php?mod=trade&orderid={orderid}" target="_blank" class="lit">回评 &rsaquo;</a>',
 
-	'activity_notice' => '{actor} 申请加入您举办的活动 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a>，请审核 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'activity_notice' => '{actor} 申请加入您举办的活动 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a>，请审核 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
-	'activity_apply' => '活动 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 的发起人 {actor} 已批准您参加此活动 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a> <div class="quote"><blockquote>{reason}</blockquote></div>',
+	'activity_apply' => 'ผู้สนับสนุน {actor} ได้อนุมัติให้เข้าร่วมกิจกรรม <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a> <div class="quote"><blockquote>{reason}</blockquote></div>',
 
-	'activity_replenish' => '活动 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 的发起人 {actor} 通知您需要完善活动报名信息 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a> <div class="quote"><blockquote>{reason}</blockquote></div>',
+	'activity_replenish' => 'ผู้สนับสนุน {actor} แจ้งให้คุณทราบว่า คุณจำเป็นต้องกรอกข้อมูลการลงทะเบียนกิจกรรม <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> ให้ครบถ้วน &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a> <div class="quote"><blockquote>{reason}</blockquote></div>',
 
-	'activity_delete' => '活动 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 的发起人 {actor} 拒绝您参加此活动 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}"  target="_blank" class="lit">查看 &rsaquo;</a> <div class="quote"><blockquote>{reason}</blockquote></div>',
+	'activity_delete' => 'ผู้สนับสนุน {actor} แจ้งให้คุณทราบว่า คุณถูกปฏิเสธไม่ให้เข้าร่วมกิจกรรม <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=viewthread&tid={tid}"  target="_blank" class="lit">ตรวจสอบ &rsaquo;</a> <div class="quote"><blockquote>{reason}</blockquote></div>',
 
-	'activity_cancel' => '{actor} 取消了参加 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 活动 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}"  target="_blank" class="lit">查看 &rsaquo;</a> <div class="quote"><blockquote>{reason}</blockquote></div>',
+	'activity_cancel' => '{actor} ได้ยกเลิกการเปิดให้เข้าร่วมกิจกรรม <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=viewthread&tid={tid}"  target="_blank" class="lit">ตรวจสอบ &rsaquo;</a> <div class="quote"><blockquote>{reason}</blockquote></div>',
 
-	'activity_notification' => '活动 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 的发起人 {actor} 发来通知&nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看活动 &rsaquo;</a> <div class="quote"><blockquote>{msg}</blockquote></div>',
+	'activity_notification' => 'ผู้สนับสนุน {actor} ได้ส่งการแจ้งเตือนเกี่ยวกับกิจกรรม <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบกิจกรรม &rsaquo;</a> <div class="quote"><blockquote>{msg}</blockquote></div>',
 
-	'reward_question' => '您的悬赏主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 被 {actor} 设置了最佳答案 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'reward_question' => '您的悬赏主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 被 {actor} 设置了最佳答案 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
-	'reward_bestanswer' => '您的回复被悬赏主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 的作者 {actor} 选为最佳答案 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'reward_bestanswer' => '您的回复被悬赏主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 的作者 {actor} 选为最佳答案 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
-	'reward_bestanswer_moderator' => '您在悬赏主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 的回复被选为最佳答案 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'reward_bestanswer_moderator' => '您在悬赏主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 的回复被选为最佳答案 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
-	'comment_add' => '{actor} 点评了您曾经在主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 发表的帖子 &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'comment_add' => '{actor} 点评了您曾经在主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 发表的帖子 &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
-	'reppost_noticeauthor' => '{actor} ตอบกลับโพสต์ของคุณ <a href="forum.php?mod=redirect&goto=findpost&ptid={tid}&pid={pid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">查看</a>',
+	'reppost_noticeauthor' => '{actor} ตอบกลับโพสต์ของคุณ <a href="forum.php?mod=redirect&goto=findpost&ptid={tid}&pid={pid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}" target="_blank" class="lit">ตรวจสอบ</a>',
 
-	'task_reward_credit' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得积分 {creditbonus} &nbsp; <a href="home.php?mod=spacecp&ac=credit&op=base" target="_blank" class="lit">查看我的积分 &rsaquo;</a></p>',
+	'task_reward_credit' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得积分 {creditbonus} &nbsp; <a href="home.php?mod=spacecp&ac=credit&op=base" target="_blank" class="lit">ตรวจสอบเครดิตของฉัน &rsaquo;</a></p>',
 
 	'task_reward_magic' => 'ยินดีด้วย ภารกิจสำเร็จแล้ว：<a href="home.php?mod=task&do=view&id={taskid}" target="_blank">{name}</a>，获得道具 <a href="home.php?mod=magic&action=mybox" target="_blank">{rewardtext}</a> {bonus} 张',
 
@@ -174,9 +174,9 @@ $lang = array
 
 	'grouplevel_update' => '恭喜您，您的群组 {groupname} 已升级到 {newlevel}。',
 
-	'thread_invite' => '{actor} 邀请您{invitename} <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
-	'blog_invite' => '{actor} 邀请您查看日志 <a href="home.php?mod=space&uid={uid}&do=blog&id={blogid}" target="_blank">{subject}</a> &nbsp; <a href="home.php?mod=space&uid={uid}&do=blog&id={blogid}" target="_blank" class="lit">查看 &rsaquo;</a>',
-	'article_invite' => '{actor} 邀请您查看文章 <a href="{url}" target="_blank">{subject}</a> &nbsp; <a href="{url}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'thread_invite' => '{actor} 邀请您{invitename} <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
+	'blog_invite' => '{actor} เชิญชวนให้คุณดูไดอารี่ <a href="home.php?mod=space&uid={uid}&do=blog&id={blogid}" target="_blank">{subject}</a> &nbsp; <a href="home.php?mod=space&uid={uid}&do=blog&id={blogid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
+	'article_invite' => '{actor} เชิญชวนคุณดูบทความ <a href="{url}" target="_blank">{subject}</a> &nbsp; <a href="{url}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 	'invite_friend' => '恭喜您成功邀请到 {actor} 并成为您的好友',
 
 	'poke_request' => '<a href="{fromurl}" class="xi2">{fromusername}</a>: <span class="xw0">{pokemsg}&nbsp;</span><a href="home.php?mod=spacecp&ac=poke&op=reply&uid={fromuid}&from=notice" id="a_p_r_{fromuid}" class="xw1" onclick="showWindow(this.id, this.href, \'get\', 0);">回打招呼</a><span class="pipe">|</span><a href="home.php?mod=spacecp&ac=poke&op=ignore&uid={fromuid}&from=notice" id="a_p_i_{fromuid}" onclick="showWindow(\'pokeignore\', this.href, \'get\', 0);">忽略</a>',
@@ -190,8 +190,8 @@ $lang = array
 	'member_change_usergroup' => '您已被 {user} 修改为 {groupname} 用户组，期限：{day} (0：代表永久生效)，扩展组信息为 {extgroupinfo}，并应操作者要求告知您相关变动，操作理由：{reason}',
 	'member_change_credits' => '您已被 {user} 调整积分，积分类型与调整值为 {extcredits} ，并应操作者要求告知您相关变动，操作理由：{reason}',
 
-	'member_follow' => '您关注的人已有{count}条新动态。<a href="home.php?mod=follow">点击查看</a>',
-	'member_follow_add' => '{actor} 收听了您。<a href="home.php?mod=follow&do=follower">点击查看</a>',
+	'member_follow' => '您关注的人已有{count}条新动态。<a href="home.php?mod=follow">คลิกเพื่อดู</a>',
+	'member_follow_add' => '{actor} 收听了您。<a href="home.php?mod=follow&do=follower">คลิกเพื่อดู</a>',
 
 	'member_moderate_invalidate' => '您的账号未能通过管理员的审核，请<a href="home.php?mod=spacecp&ac=profile">重新提交注册信息</a>。<br />管理员留言: <b>{remark}</b>',
 	'member_moderate_validate' => '您的账号已通过审核。<br />管理员留言: <b>{remark}</b>',
@@ -220,7 +220,7 @@ $lang = array
 	'new_post_report' => 'มีรายงานใหม่จาก {username} รายงานรอการจัดการ<a href="forum.php?mod=modcp&action=report&fid={fid}" target="_blank">คลิกที่นี่เพื่อเข้าสู่ศูนย์บริหารจัดการ</a>。',
 	'magics_receive' => '您收到 {actor} 送给您的道具 {magicname}
 <p class="summary">{actor} 说：<span>{msg}</span></p>
-<p class="mbn"><a href="home.php?mod=magic" target="_blank">回赠道具</a><span class="pipe">|</span><a href="home.php?mod=magic&action=mybox" target="_blank">查看我的道具箱</a></p>',
+<p class="mbn"><a href="home.php?mod=magic" target="_blank">回赠道具</a><span class="pipe">|</span><a href="home.php?mod=magic&action=mybox" target="_blank">ดูกล่องไอเทมของฉัน</a></p>',
 	'invite_collection' => '{actor} 邀请您参与维护淘专辑  <a href="forum.php?mod=collection&action=view&ctid={ctid}">{collectionname}</a>。<br /> <a href="forum.php?mod=collection&action=edit&op=acceptinvite&ctid={ctid}&dateline={dateline}">接受邀请</a>',
 	'collection_removed' => '您参与维护的淘专辑  <a href="forum.php?mod=collection&action=view&ctid={ctid}">{collectionname}</a> 已被 {actor} 关闭。',
 	'exit_collection' => '您已经退出维护淘专辑  <a href="forum.php?mod=collection&action=view&ctid={ctid}">{collectionname}</a>。',
@@ -230,7 +230,7 @@ $lang = array
 
 	'pmreportcontent' => '{pmreportcontent}',
 
-	'thread_hidden' => '您的主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 被多个用户认定为垃圾帖，现已被隐藏 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">查看 &rsaquo;</a>',
+	'thread_hidden' => '您的主题 <a href="forum.php?mod=viewthread&tid={tid}" target="_blank">{subject}</a> 被多个用户认定为垃圾帖，现已被隐藏 &nbsp; <a href="forum.php?mod=viewthread&tid={tid}" target="_blank" class="lit">ตรวจสอบ &rsaquo;</a>',
 
 );
 

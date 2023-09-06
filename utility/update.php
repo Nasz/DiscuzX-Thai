@@ -58,7 +58,7 @@ $lockfile = DISCUZ_ROOT.'./data/update.lock';
 if($_GET['lock']){
     @touch($lockfile);
     @unlink(DISCUZ_ROOT.'./install/update.php');
-    show_msg('<span id="finalmsg">ยินดีด้วย อัปเดตโครงสร้างฐานข้อมูล เสร็จแล้ว！</span>');
+    show_msg('<span id="finalmsg">ยินดีด้วย โครงสร้างฐานข้อมูลของคุณได้ถูกอัปเกรดเสร็จเรียบร้อยแล้ว！</span>');
 }
 if(file_exists($lockfile) && !$_GET['from']) {
 	show_msg('โปรดใช้โปรแกรม FTP แล้วลบไฟล์ ./data/update.lock ก่อนรันโปรแกรมนี้อีกครั้งเพื่ออัปเดต');
@@ -391,8 +391,8 @@ if($_GET['step'] == 'start') {
 		$nextop = 'setting';
 		$value = DB::result_first('SELECT count(*) FROM '.DB::table('common_member_profile_setting')." WHERE fieldid = 'birthdist'");
 		if(!$value) {
-			DB::query("INSERT INTO ".DB::table('common_member_profile_setting')." VALUES ('birthdist', 1, 0, 0, 'เขต', 'เขตการปกครอง/มณฑล', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '')");
-			DB::query("INSERT INTO ".DB::table('common_member_profile_setting')." VALUES ('birthcommunity', 1, 0, 0, 'คน', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '')");
+			DB::query("INSERT INTO ".DB::table('common_member_profile_setting')." VALUES ('birthdist', 1, 0, 0, 'ประเทศเกิด', 'เขตการปกครอง/มณฑลเกิด', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '')");
+			DB::query("INSERT INTO ".DB::table('common_member_profile_setting')." VALUES ('birthcommunity', 1, 0, 0, 'ชุมชนเกิด', '', 0, 0, 0, 0, 0, 0, 0, 'select', 0, '', '')");
 			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='สถานที่เกิด' WHERE fieldid = 'birthcity'");
 			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='ที่อยู่อาศัย' WHERE fieldid = 'residecity'");
 		}
@@ -404,11 +404,11 @@ if($_GET['step'] == 'start') {
 		if($profile['title'] == 'วันเกิด') {
 			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='วันเกิด' WHERE fieldid = 'birthday'");
 			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='ประเภทของใบรับรอง' WHERE fieldid = 'idcardtype'");
-			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='Aliipay' WHERE fieldid = 'alipay'");
+			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='Alipay' WHERE fieldid = 'alipay'");
 			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='ICQ' WHERE fieldid = 'icq'");
 			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='QQ' WHERE fieldid = 'qq'");
 			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='MSN' WHERE fieldid = 'msn'");
-			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='Ali Wangwang' WHERE fieldid = 'taobao'");
+			DB::query("UPDATE ".DB::table('common_member_profile_setting')." SET title='Aliwangwang' WHERE fieldid = 'taobao'");
 		}
 		show_msg("ตารางผู้ใช้ได้รับการอัปเดตแล้ว", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'setting') {
@@ -736,7 +736,7 @@ if($_GET['step'] == 'start') {
 			$newsettings['targetblank'] = $targetblanknew;
 		}
 		if(!isset($settings['article_tags'])) {
-			$article_tagsnew = array(1 => 'ต้นฉบับ', 2 => 'ร้อนแรง', 3 => 'รูปภาพ', 4 => 'เป็นกระแส', 5 => 'พาดหัว', 6 => 'สไลด์โชว์', 7 => 'ดำเนินการ', 8 => 'แนะนำ');
+			$article_tagsnew = array(1 => 'ต้นฉบับ', 2 => 'ร้อนแรง', 3 => 'รูปภาพ', 4 => 'ข่าวด่วน', 5 => 'พาดหัว', 6 => 'สไลด์', 7 => 'เลื่อน', 8 => 'แนะนำ');
 			$newsettings['article_tags'] = $article_tagsnew;
 		}
 		if(empty($settings['anonymoustext'])) {
@@ -746,7 +746,7 @@ if($_GET['step'] == 'start') {
 			DB::query("INSERT INTO ".DB::table('common_word_type')." VALUES('1', 'การเมือง'),('2', 'โฆษณา')");
 		}
 		if(!isset($settings['userreasons'])) {
-			$newsettings['userreasons'] = 'เจ๋ง!\r\nทุกอย่างไม่มีอะไรเลย\r\nให้มันชอบ!\r\nเลียนแบบ\r\nความสงบ';
+			$newsettings['userreasons'] = 'สุดยอด!\r\nเยี่ยมไปเลย\r\nชอบมาก\r\nเลียนแบบ\r\nใจเย็น';
 		}
 		if(!$forum_typevar_search = C::t('forum_typevar')->count_by_search(2)) {
 			C::t('forum_typevar')->update_by_search(1, array('search' => 3));
@@ -861,7 +861,7 @@ if($_GET['step'] == 'start') {
 		if(!DB::result_first("SELECT allowreplycredit FROM ".DB::table('common_usergroup_field')." WHERE groupid = 1")) {
 			DB::query("UPDATE ".DB::table('common_usergroup_field')." SET allowreplycredit = '1' WHERE groupid = 1");
 		}
-		show_msg("อัปเดต รายการการกำหนดค่า เสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดรายการการกำหนดค่าเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'admingroup') {
 		$nextop = 'updatethreadtype';
 		if(!DB::result_first("SELECT allowclearrecycle FROM ".DB::table('common_admingroup')." WHERE allowclearrecycle='1'")) {
@@ -892,7 +892,7 @@ if($_GET['step'] == 'start') {
 			DB::query('UPDATE '.DB::table('common_admingroup')." SET allowmanagecollection='1' WHERE admingid='1' OR admingid='2'");
 		}
 		DB::query('UPDATE '.DB::table('common_admingroup')." SET allowmakehtml='1' WHERE admingid=1");
-		show_msg("อัปเดต การตั้งค่ากลุ่มผู้จัดการ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดการตั้งค่ากลุ่มผู้จัดการเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'updatethreadtype') {
 		$nextop = 'updatecron';
 		$selectoption = array();
@@ -920,7 +920,7 @@ if($_GET['step'] == 'start') {
 				DB::query("ALTER TABLE ".DB::table('forum_optionvalue')."$threadtypearr[typeid] ".implode(',', $varnames));
 			}
 		}
-		show_msg("อัปเดต ข้อมูลหมวดหมู่ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดข้อมูลหมวดหมู่เสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'updatecron') {
 		$nextop = 'updatemagic';
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_cleanfeed.php'")) {
@@ -928,7 +928,7 @@ if($_GET['step'] == 'start') {
 		}
 
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_checkpatch_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('', '1','system','รับแพทช์ความปลอดภัยต่อวัน','cron_checkpatch_daily.php','1269746639','1269792000','-1','-1','2','22')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('', '1','system','รับแพทช์ความปลอดภัยรายวัน','cron_checkpatch_daily.php','1269746639','1269792000','-1','-1','2','22')");
 		}
 
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_publish_halfhourly.php'")) {
@@ -936,36 +936,36 @@ if($_GET['step'] == 'start') {
 		}
 
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_follow_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','อัปเดตผู้ฟังต่อสัปดาห์','cron_follow_daily.php','1269746639','1269792000','-1','-1','02','0')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','อัปเดตการออกอากาศรายสัปดาห์','cron_follow_daily.php','1269746639','1269792000','-1','-1','02','0')");
 		}
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_todayviews_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','อัปเดตจำนวนคนดูต่อวัน','cron_todayviews_daily.php','1321500558','1321556400','-1','-1','3','0	5	10	15	20	25	30	35	40	45	50	55')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','อัปเดตยอดคนดูรายวัน','cron_todayviews_daily.php','1321500558','1321556400','-1','-1','3','0	5	10	15	20	25	30	35	40	45	50	55')");
 		}
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_member_optimize_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','0','system','เพิ่มประสิทธิภาพตารางผู้ใช้ต่อวัน','cron_member_optimize_daily.php','1321500558','1321556400','-1','-1','2','0	5	10	15	20	25	30	35	40	45	50	55')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','0','system','เพิ่มประสิทธิภาพตารางผู้ใช้รายวัน','cron_member_optimize_daily.php','1321500558','1321556400','-1','-1','2','0	5	10	15	20	25	30	35	40	45	50	55')");
 		}
 		if(DB::result_first("SELECT COUNT(*) FROM ".DB::table('common_cron')." WHERE filename='cron_birthday_daily.php'")) {
 			DB::query("DELETE FROM ".DB::table('common_cron')." WHERE filename='cron_birthday_daily.php'");
 		}
 
 		if(!DB::result_first("SELECT filename FROM ".DB::table('common_cron')." WHERE filename='cron_todayheats_daily.php'")) {
-			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','สถิติโพสต์ร้อนแรงต่อวัน','cron_todayheats_daily.php','1269746623','1269792000','-1','-1','0','0')");
+			DB::query("INSERT INTO ".DB::table('common_cron')." VALUES ('','1','system','สถิติโพสต์ร้อนแรงวันนี้','cron_todayheats_daily.php','1269746623','1269792000','-1','-1','0','0')");
 		}
 
-		show_msg("อัปเดต งานที่ตั้งเวลาไว้ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดงานที่ตั้งเวลาไว้เสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'updatemagic') {
 		$nextop = 'updatereport';
 		if(DB::result_first("SELECT name FROM ".DB::table('common_magic')." WHERE identifier='highlight'")) {
-			DB::query("UPDATE ".DB::table('common_magic')." SET name='การ์ดเปลี่ยนสี', description='คุณสามารถไฮไลท์ชื่อของโพสต์หรือไดอารี่ได้' WHERE identifier='highlight'");
+			DB::query("UPDATE ".DB::table('common_magic')." SET name='ไอเทมเปลี่ยนสี', description='คุณสามารถไฮไลท์หรือเปลี่ยนสีชื่อของโพสต์หรือไดอารี่ได้' WHERE identifier='highlight'");
 		}
 		if(DB::result_first("SELECT name FROM ".DB::table('common_magic')." WHERE identifier='namepost'")) {
-			DB::query("UPDATE ".DB::table('common_magic')." SET name='การ์ดร่างกาย', description='คุณสามารถดูชื่อของผู้ใช้ที่โพสต์แบบไม่ระบุชื่อได้' WHERE identifier='namepost'");
+			DB::query("UPDATE ".DB::table('common_magic')." SET name='ไอเทมเผยตัว', description='คุณสามารถดูชื่อของผู้ใช้ที่โพสต์แบบไม่ระบุชื่อได้ครั้งหนึ่ง' WHERE identifier='namepost'");
 		}
 		if(DB::result_first("SELECT name FROM ".DB::table('common_magic')." WHERE identifier='anonymouspost'")) {
-			DB::query("UPDATE ".DB::table('common_magic')." SET name='การ์ดนิรนาม', description='กำหนดให้โพสต์ได้แบบไม่ระบุชื่อ' WHERE identifier='anonymouspost'");
+			DB::query("UPDATE ".DB::table('common_magic')." SET name='ไอเทมซ่อนตัว', description='ทำให้ชื่อของคุณกลายเป็นนิรนามเมื่อคุณโพสต์' WHERE identifier='anonymouspost'");
 		}
 
-		show_msg("อัปเดต การ์ด เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดไอเทมเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'updatereport') {
 		$nextop = 'myappcount';
 		if(!C::t('common_setting')->skey_exists('report_reward')) {
@@ -1002,7 +1002,7 @@ if($_GET['step'] == 'start') {
 			C::t('common_setting')->update('report_reward', $report_receive);
 		}
 
-		show_msg("อัปเดต รางวัลจากการรายงาน เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดรายงานเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'myappcount') {
 
 		$nextop = 'nav';
@@ -1011,7 +1011,7 @@ if($_GET['step'] == 'start') {
 			DB::query("DROP TABLE `".DB::table('common_myapp_count')."`");
 			DB::query("DROP TABLE `".DB::table('home_userapp_stat')."`");
 		}
-		show_msg("อัปเดต สถิติผู้ใช้งานแอป เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดสถิติผู้ใช้งานแอปเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'nav') {
 
@@ -1068,7 +1068,7 @@ if($_GET['step'] == 'start') {
 			}
 		}
 
-		show_msg("อัปเดต ข้อมูลการนำทาง เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดข้อมูลเมนูนำทางเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'forumstatus') {
 
@@ -1081,7 +1081,7 @@ if($_GET['step'] == 'start') {
 			DB::update('forum_forum', array('status' => 1), "status='2'");
 		}
 
-		show_msg("อัปเดต สถานะของบอร์ด เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดสถานะของบอร์ดเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'usergroup') {
 		$nextop = 'creditrule';
@@ -1091,7 +1091,7 @@ if($_GET['step'] == 'start') {
 			!DB::result_first("SELECT COUNT(*) FROM ".DB::table('common_usergroup_field')." WHERE allowmediacode>'0'")) {
 			DB::update('common_usergroup_field', array('allowmediacode' => 1), "groupid<'4' OR groupid>'9'");
 		}
-		show_msg("อัปเดต กลุ่มสมาชิก เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดกลุ่มสมาชิกเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'creditrule') {
 		$nextop = 'bbcode';
 		$delrule = array('register', 'realname', 'invitefriend', 'report', 'uploadimage', 'editrealname', 'editrealemail', 'delavatar');
@@ -1109,7 +1109,7 @@ if($_GET['step'] == 'start') {
 			DB::query("INSERT INTO ".DB::table('common_credit_rule')." (`rulename`, `action`, `cycletype`, `cycletime`, `rewardnum`, `norepeat`, `extcredits1`, `extcredits2`, `extcredits3`, `extcredits4`, `extcredits5`, `extcredits6`, `extcredits7`, `extcredits8`, `fids`) VALUES ('淘专辑被订阅','followedcollection','1','0','3','0','0','1','0','0','0','0','0','0','')");
 		}
 
-		show_msg("อัปเดต ตารางคะแนน เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดตารางเครดิตเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'bbcode') {
 		$nextop = 'stamp';
 		$allowcusbbcodes = array();
@@ -1122,7 +1122,7 @@ if($_GET['step'] == 'start') {
 		if($allowcusbbcodes) {
 			DB::query("UPDATE ".DB::table('forum_bbcode')." SET perm='".implode("\t", $allowcusbbcodes)."' WHERE perm=''");
 		}
-		show_msg("อัปเดต สิทธิ์การใช้บีบีโค๊ต เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดสิทธิ์การใช้บีบีโค๊ตเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'stamp') {
 		$nextop = 'block_item';
 		$stampnew = DB::result_first("SELECT COUNT(*) FROM ".DB::table('forum_thread')." WHERE stamp>'0'");
@@ -1135,13 +1135,13 @@ if($_GET['step'] == 'start') {
 			}
 		}
 		if(!DB::result_first("SELECT COUNT(*) FROM ".DB::table('common_smiley')." WHERE url='010.gif'")) {
-			DB::query("REPLACE INTO ".DB::table('common_smiley')." (typeid, displayorder, type, code, url) VALUES ('4','19','stamp','ฉบับปรับปรุง','010.gif')");
+			DB::query("REPLACE INTO " . DB::table('common_smiley') . " (typeid, displayorder, type, code, url) VALUES ('4','19','stamp','ฉบับปรับปรุง','010.gif')");
 		}
-		if(!DB::result_first("SELECT COUNT(*) FROM ".DB::table('common_smiley')." WHERE url='010.small.gif'")) {
-			DB::query("REPLACE INTO ".DB::table('common_smiley')." (typeid, displayorder, type, code, url) VALUES ('0','18','stamplist','ฉบับปรับปรุง','010.small.gif')");
+		if (!DB::result_first("SELECT COUNT(*) FROM " . DB::table('common_smiley') . " WHERE url='010.small.gif'")) {
+			DB::query("REPLACE INTO " . DB::table('common_smiley') . " (typeid, displayorder, type, code, url) VALUES ('0','18','stamplist','ฉบับปรับปรุง','010.small.gif')");
 		}
-		if(!DB::result_first("SELECT COUNT(*) FROM ".DB::table('common_smiley')." WHERE url='011.small.gif'")) {
-			DB::query("REPLACE INTO ".DB::table('common_smiley')." (typeid, displayorder, type, code, url) VALUES ('0','20','stamplist','โพสต์ใหม่','011.small.gif')");
+		if (!DB::result_first("SELECT COUNT(*) FROM " . DB::table('common_smiley') . " WHERE url='011.small.gif'")) {
+			DB::query("REPLACE INTO " . DB::table('common_smiley') . " (typeid, displayorder, type, code, url) VALUES ('0','20','stamplist','โพสต์ใหม่','011.small.gif')");
 			$setnewbie = true;
 		}
 		require_once libfile('function/cache');
@@ -1151,7 +1151,7 @@ if($_GET['step'] == 'start') {
 			$id = DB::result_first("SELECT displayorder FROM ".DB::table('common_smiley')." WHERE url='011.small.gif'");
 			DB::query("REPLACE INTO ".DB::table('common_setting')." VALUES ('newbie', '$id')");
 		}
-		show_msg("อัปเดต ตราประทับ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดตราประทับเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'block_item') {
 		$nextop = 'block_permission';
 		$bids = $items = $blocks = array();
@@ -1174,7 +1174,7 @@ if($_GET['step'] == 'start') {
 				DB::update('common_block_item', array('thumbpath' => $thumbpath), "itemid='$item[itemid]'");
 			}
 		}
-		show_msg("อัปเดต กล่องแสดงรูปภาพ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดกล่องแสดงรูปภาพเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'block_permission') {
 		$nextop = 'portalcategory_permission';
@@ -1195,7 +1195,7 @@ if($_GET['step'] == 'start') {
 				}
 			}
 		}
-		show_msg("อัปเดต สิทธิ์การใช้เท็มเพลต เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดสิทธิ์การใช้เท็มเพลตเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'portalcategory_permission') {
 		$nextop = 'portal_comment';
 		if(!DB::result_first('SELECT inheritedcatid FROM '.DB::table('portal_category_permission')." WHERE inheritedcatid > '0' LIMIT 1")) {
@@ -1212,14 +1212,14 @@ if($_GET['step'] == 'start') {
 				}
 			}
 		}
-		show_msg("อัปเดต สิทธิ์การดูพอร์ทัล เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดสิทธิ์การดูพอร์ทัลเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'portal_comment') {
 		$nextop = 'portal_article_cover_img';
 		$one = DB::fetch_first('SELECT * FROM '.DB::table('portal_comment')." WHERE id=0 AND idtype='' LIMIT 1");
 		if($one && isset($one['aid'])) {
 			DB::query("UPDATE ".DB::table('portal_comment')." SET id=aid,idtype='aid' WHERE aid>0");
 		}
-		show_msg("อัปเดต ความคิดเห็นของบทความ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดความคิดเห็นของบทความเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'portal_article_cover_img') {
 		$nextop = 'block_style';
@@ -1227,7 +1227,7 @@ if($_GET['step'] == 'start') {
 		if($pic && is_numeric(substr($pic, 0, strpos($pic,'/')))) {
 			DB::query("UPDATE ".DB::table('portal_article_title')." SET pic=CONCAT('portal/',pic) WHERE LENGTH(pic)>6");
 		}
-		show_msg("อัปเดต หน้าปกของบทความ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดหน้าปกของบทความเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'block_style') {
 		$nextop = 'block_script';
@@ -1252,7 +1252,7 @@ if($_GET['step'] == 'start') {
 			DB::query("UPDATE ".DB::table('common_block_style')." SET name = replace(`name`, 'X1.5', 'บิ้วอิน')");
 			DB::query("UPDATE ".DB::table('common_block_style')." SET name = replace(`name`, 'X2.0', 'บิ้วอิน')");
 		}
-		show_msg("อัปเดต โมดูลแม่แบบ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดโมดูลแม่แบบเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'block_script') {
 		$nextop = 'common_usergroup_field';
 		include_once libfile('function/block');
@@ -1287,7 +1287,7 @@ if($_GET['step'] == 'start') {
 			block_updatecache($bid, true);
 		}
 
-		show_msg("อัปเดต โมดูลกล่องไฟล์แนบ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดโมดูลกล่องไฟล์แนบเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'common_usergroup_field') {
 		$nextop = 'group_index';
 		if(!C::t('common_setting')->skey_exists('group_recommend')) {
@@ -1315,7 +1315,7 @@ if($_GET['step'] == 'start') {
 			DB::query('UPDATE '.DB::table('common_usergroup_field')." SET allowcreatecollection='5',allowcommentcollection='1',allowfollowcollection='30' WHERE groupid<'4' OR groupid>'9'");
 		}
 
-		show_msg("อัปเดต สิทธิ์ตามกลุ่มของสมาชิก เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดสิทธิ์ตามกลุ่มของสมาชิกเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'group_index') {
 		$nextop = 'domain';
@@ -1327,7 +1327,7 @@ if($_GET['step'] == 'start') {
 				import_diy($v['importfile'], $v['primaltplname'], $v['targettplname']);
 			}
 		}
-		show_msg("อัปเดต หน้าแรกของแต่ละคลับ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดหน้าแรกของแต่ละคลับเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'domain') {
 		$nextop = 'pm';
@@ -1365,12 +1365,12 @@ if($_GET['step'] == 'start') {
 		if(!empty($newsettings)) {
 			C::t('common_setting')->update_batch($newsettings);
 		}
-		show_msg("อัปเดต การตั้งค่าชื่อโดเมน เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดการตั้งค่าชื่อโดเมนเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'pm') {
 		$nextop = 'allowgetimage';
 			DB::query("UPDATE ".DB::table('common_member')." SET newpm='0', newprompt='0'");
-		show_msg("อัปเดต สถานะข้อความส่วนตัว เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดสถานะข้อความส่วนตัวเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'allowgetimage') {
 		$nextop = 'verify';
 		if(!DB::result_first("SELECT COUNT(*) FROM ".DB::table('common_usergroup_field')." WHERE allowgetimage='1'")) {
@@ -1383,7 +1383,7 @@ if($_GET['step'] == 'start') {
 				DB::query('UPDATE '.DB::table('forum_access')." SET allowgetimage='".intval($row['allowgetattach'])."' WHERE uid='$row[uid]'");
 			}
 		}
-		show_msg("อัปเดต สิทธิ์การอัปโหลดรูปภาพ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดสิทธิ์การอัปโหลดรูปภาพเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'verify') {
 		$nextop = 'threadimage';
@@ -1441,7 +1441,7 @@ if($_GET['step'] == 'start') {
 				}
 			}
 		}
-		show_msg("อัปเดต การรับรองข้อมูลจริง เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดการรับรองข้อมูลจริงเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'forumattach') {
 		$nextop = 'forumstatlog';
 		$limit = 10000;
@@ -1497,11 +1497,11 @@ if($_GET['step'] == 'start') {
 				DB::query("ALTER TABLE ".DB::table('forum_attachment').' '.implode(', ', $dropsql));
 			}
 		}
-		show_msg("อัปเดต ตารางไฟล์แนบ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดตารางไฟล์แนบเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'forumstatlog') {
 		$nextop = 'moderate';
 		DB::query('DELETE FROM '.DB::table('forum_statlog')." WHERE logdate='0000-00-00'");
-		show_msg("อัปเดต ข้อมูลสถิติเว็บบอร์ด เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดข้อมูลสถิติเว็บบอร์ดเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'threadimage') {
 		$nextop = 'forumattach';
 		$defaultmonth = 10;
@@ -1650,7 +1650,7 @@ if($_GET['step'] == 'start') {
 				}
 			}
 		}
-		show_msg("ตรวจสอบข้อมูลการอัปเดต เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("ตรวจสอบข้อมูลการอัปเดตเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'founder') {
 
@@ -1674,7 +1674,7 @@ if($_GET['step'] == 'start') {
 			}
 		}
 
-		show_msg("อัปเดต ข้อมูลของผู้ก่อตั้ง เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดข้อมูลของผู้ก่อตั้งเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'threadprofile') {
 
@@ -1685,7 +1685,7 @@ if($_GET['step'] == 'start') {
 			DB::query("REPLACE INTO ".DB::table("forum_bbcode")." VALUES ('2','2','qq','bb_qq.gif','<a href=\"http://wpa.qq.com/msgrd?v=3&uin={1}&amp;site=[Discuz!]&amp;from=discuz&amp;menu=yes\" target=\"_blank\"><img src=\"static/image/common/qq_big.gif\" border=\"0\"></a>','[qq]688888[/qq]','แสดงสถานะ QQ ออนไลน์คลิกไอคอนนี้เพื่อแชทกับเขาหรือเธอ','1','กรุณากรอกหมายเลข QQ:<a href=\"\" class=\"xi2\" onclick=\"this.href=\'http://wp.qq.com/set.html?from=discuz&uin=\'+$(\'e_cst1_qq_param_1\').value\" target=\"_blank\" style=\"float:right;\">ตั้งสถานะ QQ ออนไลน์&nbsp;&nbsp;</a>','1','21','1	2	3	10	11	12	13	14	15	16	17	18	19');");
 		}
 
-		show_msg("อัปเดต การตั้งค่ารูปโปรไฟล์ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดการตั้งค่ารูปโปรไฟล์เสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 
 	} elseif($_GET['op'] == 'plugin') {
 
@@ -1716,7 +1716,7 @@ if($_GET['step'] == 'start') {
 			savecache('pluginlanguage_install', $_G['cache']['pluginlanguage_install']);
 		}
 
-		show_msg("อัปเดต ข้อมูลภาษาสำหรับปลั้คอิน เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดข้อมูลภาษาสำหรับปลั้คอินเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'notification') {
 		$nextop = 'medal';
 		if(!DB::result_first("SELECT id FROM ".DB::table('home_notification')." WHERE category>0")) {
@@ -1739,7 +1739,7 @@ if($_GET['step'] == 'start') {
 			DB::query("UPDATE ".DB::table('home_notification')." SET category=2,type='comment' WHERE type IN('piccomment','blogcomment','sharecomment','doing')");
 			DB::query("UPDATE ".DB::table('home_notification')." SET category=3,type='click' WHERE type IN('clickblog','clickarticle','clickpic')");
 		}
-		show_msg("อัปเดต ข้อมูลการแจ้งเตือน เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดข้อมูลการแจ้งเตือนเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'medal') {
 
 		$nextop = 'closeswitch';
@@ -1758,7 +1758,7 @@ if($_GET['step'] == 'start') {
 				}
 			}
 		}
-		show_msg("อัปเดต ข้อมูลเหรียญตราของผู้ใช้ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดข้อมูลเครดิตของผู้ใช้เสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} elseif($_GET['op'] == 'closeswitch') {
 		$nextop = 'end';
 		if($first_to_2_5) {
@@ -1767,7 +1767,7 @@ if($_GET['step'] == 'start') {
 			$newsettings['pwlength'] = 0;
 			C::t('common_setting')->update_batch($newsettings);
 		}
-		show_msg("การอัปเดตข้อมูล เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+		show_msg("การอัปเกรดข้อมูลเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} else {
 
 		$deletevar = array('app', 'home');//configโปรเจ็คที่ต้องลบ
@@ -1997,7 +1997,7 @@ function show_msg($message, $url_forward='', $time = 1, $noexit = 0, $notice = '
 
 	if($url_forward) {
 		$url_forward = $_GET['from'] ? $url_forward.'&from='.rawurlencode($_GET['from']).'&frommd5='.rawurlencode($_GET['frommd5']) : $url_forward;
-		$message = "<a href=\"$url_forward\">$message (跳转中...)</a><br>$notice<script>setTimeout(\"window.location.href ='$url_forward';\", $time);</script>";
+		$message = "<a href=\"$url_forward\">$message (ข้าม...)</a><br>$notice<script>setTimeout(\"window.location.href ='$url_forward';\", $time);</script>";
 	}
 
 	show_header();
@@ -2165,8 +2165,8 @@ function save_config_file($filename, $config, $default, $deletevar) {
 EOT;
 	$content .= getvars(array('_config' => $config));
 	$content .= "\r\n// ".str_pad('  THE END  ', 50, '-', STR_PAD_BOTH)." //\r\n\r\n?>";
-	if(!is_writable($filename) || !($len = file_put_contents($filename, $content, LOCK_EX))) {
-		file_put_contents(DISCUZ_ROOT.'./data/config_global.php', $content, LOCK_EX);
+	if (!is_writable($filename) || !($len = file_put_contents($filename, $content))) {
+		file_put_contents(DISCUZ_ROOT . './data/config_global.php', $content);
 		return 0;
 	}
 	return 1;

@@ -69,7 +69,7 @@
 			<a href="home.php?mod=spacecp&ac=profile" class="xi2">{lang update_profile}</a>
 		<!--{else}-->
 			<!--{if helper_access::check_module('follow')}-->
-			<a href="home.php?mod=spacecp&ac=follow&op={if !empty($follow)}del{else}add{/if}&hash={FORMHASH}&fuid=$space[uid]" id="card_followmod_$space[uid]" onclick="showWindow(this.id, this.href, 'get', 0)" class="xi2"><!--{if !empty($follow)}-->{lang follow_del}<!--{else}-->{lang follow_add}เขา<!--{/if}--></a>
+			<a href="home.php?mod=spacecp&ac=follow&op={if !empty($follow)}del{else}add{/if}&hash={FORMHASH}&fuid=$space[uid]" id="card_followmod_$space[uid]" onclick="showWindow(this.id, this.href, 'get', 0)" class="xi2"><!--{if !empty($follow)}-->{lang follow_del}<!--{else}-->{lang follow_add}TA<!--{/if}--></a>
 			<!--{/if}-->
 			<!--{if helper_access::check_module('friend')}-->
 			<!--{if !$isfriend}-->
@@ -113,10 +113,10 @@
 	<!--{if $_G['setting']['magicstatus']}-->
 	<div class="mgc">
 		<!--{if !empty($_G['setting']['magics']['showip'])}-->
-			<a href="home.php?mod=magic&mid=showip&idtype=user&id=$encodeusername" id="a_showip_li_{$space[pid]}" onclick="showWindow(this.id, this.href)"><img src="{STATICURL}/image/magic/showip.small.gif" class="vm" title="$_G['setting']['magics']['showip']" /> $_G['setting']['magics']['showip']</a>
+			<a href="home.php?mod=magic&mid=showip&idtype=user&id=$encodeusername" id="a_showip_li_{$space[pid]}" onclick="showWindow(this.id, this.href)"><img src="{STATICURL}image/magic/showip.small.gif" class="vm" title="$_G['setting']['magics']['showip']" /> $_G['setting']['magics']['showip']</a>
 		<!--{/if}-->
 		<!--{if !empty($_G['setting']['magics']['checkonline']) && $space['uid'] != $_G['uid']}-->
-			<a href="home.php?mod=magic&mid=checkonline&idtype=user&id=$encodeusername" id="a_repent_{$space[pid]}" onclick="showWindow(this.id, this.href)"><img src="{STATICURL}/image/magic/checkonline.small.gif" class="vm" title="$_G['setting']['magics']['checkonline']" /> $_G['setting']['magics']['checkonline']</a>
+			<a href="home.php?mod=magic&mid=checkonline&idtype=user&id=$encodeusername" id="a_repent_{$space[pid]}" onclick="showWindow(this.id, this.href)"><img src="{STATICURL}image/magic/checkonline.small.gif" class="vm" title="$_G['setting']['magics']['checkonline']" /> $_G['setting']['magics']['checkonline']</a>
 		<!--{/if}-->
 		<!--{hook/space_card_magic_user}-->
 	</div>

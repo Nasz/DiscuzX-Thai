@@ -250,6 +250,8 @@ $lang = array (
   'profile_passwd_notmatch' => 'ขออภัยรหัสผ่านในสองอินพุตไม่สอดคล้องกัน',
   'profile_email_not_change' => 'ขออภัยเว็บไซต์นี้ไม่ได้รับอนุญาตให้แก้ไขการเชื่อมโยงกล่องจดหมายของการเชื่อมโยงบัญชีผ่านแผนกต้อนรับส่วนหน้า',
   'profile_secmobile_not_change' => 'ขออภัยไซต์นี้ไม่ได้รับอนุญาตให้แก้ไขโทรศัพท์มือถือความปลอดภัยที่กำหนดโดยบัญชีโดยแผนกต้อนรับส่วนหน้า',
+  'profile_secmobicc_illegal' => '安全手机号国际电话区号格式不正确',
+  'profile_secmobile_illegal' => '安全手机号格式不正确',
   'profile_username_illegal' => 'ชื่อผู้ใช้มีอักขระที่ละเอียดอ่อน',
   'profile_username_duplicate' => 'ชื่อผู้ใช้นี้ได้รับการลงทะเบียนแล้ว',
   'profile_illegal' => 'รูปแบบไม่ถูกต้องหรือว่างเปล่า',
@@ -285,6 +287,7 @@ $lang = array (
   'announcement_nonexistence' => 'ขออภัยตอนนี้ยังไม่มีการประกาศได ๆ',
 
   'attachment_expired' => 'ขออภัยลิงก์ไฟล์แนบเดิมล้มเหลว <br /><a href="forum.php?mod=attachment&aid={aid}">[ คลิกที่นี่เพื่อดาวน์โหลดอีกครั้ง ]</a><br /><a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}">[ คลิกที่นี่เพื่อดูโพสต์ต้นฉบับ ]</a>',
+  'attachment_expired_nosession' => '抱歉，原附件链接已失效<br /><a href="forum.php?mod=redirect&goto=findpost&pid={pid}&ptid={tid}">[ 点击这里查看原帖 ]</a>',
   'attachment_referer_invalid' => 'โปรดอย่าดาวน์โหลดไฟล์แนบของเว็บไซต์นี้จากลิงก์ภายนอก',
   'attachment_payto' => 'ชุดรูปแบบที่ไฟล์แนบต้องการการชำระเงินโปรดดาวน์โหลดหลังจากชำระเงิน',
   'attachement_payto_attach' => 'ต้องชำระเงินแนบโปรดดาวน์โหลดหลังจากชำระเงิน',
@@ -767,7 +770,7 @@ $lang = array (
 
   'eccredit_order_notfound' => 'ขออภัยคำสั่งซื้อของคุณไม่มีอยู่หรือถูกลบ',
   'eccredit_rate_repeat' => 'ขออภัยคุณไม่สามารถให้คะแนนซ้ำได้',
-  'eccredit_succeed' => 'รประเมินผลแล้ว ',
+  'eccredit_succeed' => 'ประเมินผลแล้ว ',
   'eccredit_reexplanation_repeat' => 'อย่าอธิบายซ้ำ',
   'eccredit_reexplanation_closed' => 'ขออภัยระยะเวลาที่ถูกต้องสำหรับการให้คำอธิบายผ่านไปแล้ว',
 
@@ -817,7 +820,7 @@ $lang = array (
   'haved_red_bag_gain' => 'คุณได้รับอั่งเปา: ได้ {percredit} {credittype}',
   'space_no_red_bag' => 'ขออภัยเจ้าสเปซนี้ไม่เปิดรับหรือแจกอั่งเปา',
   'red_bag_no_credits' => 'อั่งเปาหมดแล้ว',
-  'return_red_bag' => 'กู้คืนอั่งเปาแล้ว มี {leftcredit} {credittype}',
+  'return_red_bag' => 'ได้รับอั่งเปาคืนแล้ว {leftcredit} {credittype}',
 
   'delete_pm_error_option' => 'ขออภัยการดำเนินการของคุณผิด',
   'delete_pm_success' => 'ลบข้อความแล้ว ',

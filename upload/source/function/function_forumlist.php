@@ -36,7 +36,7 @@ function forum(&$forum) {
 
 	if($forum['icon']) {
 		$forum['icon'] = get_forumimg($forum['icon']);
-		$forum['icon'] = '<a href="forum.php?mod=forumdisplay&fid='.$forum['fid'].'"><img src="'.$forum['icon'].'" align="left" alt="'.$forum['name'].'" /></a>';
+		$forum['icon'] = '<a href="forum.php?mod=forumdisplay&fid='.$forum['fid'].'"><img src="'.$forum['icon'].'" '.(!empty($forum['extra']['iconwidth']) && !defined('IN_MOBILE') ? 'style="width: '.$forum['extra']['iconwidth'].'px;"' : '').' align="left" alt="'.$forum['name'].'" /></a>';
 	}
 
 	$lastpost = array(0, 0, '', '');
@@ -185,6 +185,7 @@ function replace_formhash($timestamp, $input) {
 	$temp_md5 = md5(substr($timestamp, 0, -3).substr($_G['config']['security']['authkey'], 3, -3));
 	$temp_formhash = substr($temp_md5, 8, 8);
 	$input = preg_replace('/(name=[\'|\"]formhash[\'|\"] value=[\'\"]|formhash=)'.$temp_formhash.'/ismU', '${1}'.constant("FORMHASH"), $input);
+	
 	$temp_siteurl = 'siteurl_'.substr($temp_md5, 16, 8);
 	$input = preg_replace('/("|\')'.$temp_siteurl.'/ismU', '${1}'.$_G['siteurl'], $input);
 	return $input;
@@ -193,7 +194,7 @@ function replace_formhash($timestamp, $input) {
 function recommendupdate($fid, &$modrecommend, $force = '', $position = 0) {
 	global $_G;
 
-	$recommendlist = $recommendimagelist = $modedtids = array();
+	$recommendlist = $modedtids = array();
 	$num = $modrecommend['num'] ? intval($modrecommend['num']) : 10;
 	$imagenum = $modrecommend['imagenum'] = $modrecommend['imagenum'] ? intval($modrecommend['imagenum']) : 0;
 	$imgw = $modrecommend['imagewidth'] = $modrecommend['imagewidth'] ? intval($modrecommend['imagewidth']) : 200;
@@ -293,7 +294,7 @@ function recommendupdate($fid, &$modrecommend, $force = '', $position = 0) {
 		}
 	}
 
-	$recommendlists = $recommendlist = array();
+	$recommendlists = $recommendlist = $recommendimagelist = array();
 	foreach(C::t('forum_forumrecommend')->fetch_all_by_fid($fid, $position) as $recommend) {
 		if(($recommend['expiration'] && $recommend['expiration'] > TIMESTAMP) || !$recommend['expiration']) {
 			if($recommend['filename'] && strexists($recommend['filename'], "\t")) {
@@ -427,34 +428,49 @@ function get_attach($list, $video = false, $audio = false){
 	global $_G;
 	require_once libfile('function/post');
 	require_once libfile('function/discuzcode');
-	$tids = $attach_tids = $attachtableid_array = $threadlist_data = $posttableids = array();
+	$tids = $threads = $attachtableid_array = $threadlist_data = $posttableids = array();
 	foreach($list as $value) {
 		$tids[] = $value['tid'];
 		if(!in_array($value['posttableid'], $posttableids)){
 			$posttableids[] = $value['posttableid'];
 		}
-		if($value['attachment'] == 2) {
-			$attach_tids[] = $value['tid'];
-		}
+		$threads[$value['tid']] = $value;
 	}
 	foreach ($posttableids as $id) {
-		$theards = C::t('forum_post')->fetch_all_by_tid($id, $tids, true, '', 0, 0, 1, null, null, null);
-		foreach($theards as $value) {
-			if($value['message'] && ($video || $audio)){
-				$value['media'] = '';
-				$value['message'] = preg_replace(array("/\[hide=?\d*\](.*?)\[\/hide\]/is"), array(""), $value['message']);
-				$value['msglower'] = strtolower($value['message']);
-				if(strpos($value['msglower'], '[/media]') !== FALSE && $video) {
-					preg_match("/\[media=([\w,]+)\]\s*([^\[\<\r\n]+?)\s*\[\/media\]/is", $value['message'], $value['video']);
-					$threadlist_data[$value['tid']]['media'] = parsemedia($value['video'][1], $value['video'][2]);
-				}elseif(strpos($value['msglower'], '[/audio]') !== FALSE && $audio) {
-					preg_match("/\[audio(=1)*\]\s*([^\[\<\r\n]+?)\s*\[\/audio\]/is", $value['message'], $value['audio']);
-					$threadlist_data[$value['tid']]['media'] = parseaudio($value['audio'][2], 400);
+		$posts = C::t('forum_post')->fetch_all_by_tid($id, $tids, true, '', 0, 0, 1, null, null, null);
+		foreach($posts as $value) {
+			if(!$_G['forum']['ismoderator'] && $value['status'] & 1) {
+				$threadlist_data[$value['tid']]['message'] = lang('forum/template', 'message_single_banned');
+			} elseif(strpos($value['message'], '[/password]') !== FALSE) {
+				$threadlist_data[$value['tid']]['message'] = lang('forum/template', 'message_password_exists');
+			} elseif($threads[$value['tid']]['readperm'] > 0) {
+				$value['message'] = '';
+			} else {
+				if($threads[$value['tid']]['price'] > 0) {
+					preg_match_all("/\[free\](.+?)\[\/free\]/is", $value['message'], $matches);
+					$value['message'] = '';
+					if(!empty($matches[1])) {
+						foreach($matches[1] as $match) {
+							$value['message'] .= $match.' ';
+						}
+					}
 				}
-			}
-			$threadlist_data[$value['tid']]['message'] = messagecutstr($value['message'], 90);
-			if(in_array($value['tid'], $attach_tids)) {
-				$attachtableid_array[getattachtableid($value['tid'])][] = $value['pid'];
+				if($value['message'] && ($video || $audio)){
+					$value['media'] = '';
+					$value['message'] = preg_replace(array("/\[hide=?\d*\](.*?)\[\/hide\]/is"), array(""), $value['message']);
+					$value['msglower'] = strtolower($value['message']);
+					if(strpos($value['msglower'], '[/media]') !== FALSE && $video) {
+						preg_match("/\[media=([\w,]+)\]\s*([^\[\<\r\n]+?)\s*\[\/media\]/is", $value['message'], $value['video']);
+						$threadlist_data[$value['tid']]['media'] = parsemedia($value['video'][1], $value['video'][2]);
+					}elseif(strpos($value['msglower'], '[/audio]') !== FALSE && $audio) {
+						preg_match("/\[audio(=1)*\]\s*([^\[\<\r\n]+?)\s*\[\/audio\]/is", $value['message'], $value['audio']);
+						$threadlist_data[$value['tid']]['media'] = parseaudio($value['audio'][2], 400);
+					}
+				}
+				$threadlist_data[$value['tid']]['message'] = messagecutstr($value['message'], 90);
+				if($threads[$value['tid']]['attachment'] == 2) {
+					$attachtableid_array[getattachtableid($value['tid'])][] = $value['pid'];
+				}
 			}
 		}
 	}

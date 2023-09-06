@@ -170,7 +170,7 @@ class discuz_application extends discuz_base{
 
 			'mobile' => '',
 			'notice_structure' => array(
-				'mypost' => array('post','pcomment','activity','reward','goods','at'),
+				'mypost' => array('post','rate','pcomment','activity','reward','goods','at'),
 				'interactive' => array('poke','friend','wall','comment','click','sharenotice'),
 				'system' => array('system','credit','group','verify','magic','task','show','group','pusearticle','mod_member','blog','article'),
 				'manage' => array('mod_member','report','pmreport'),
@@ -309,6 +309,8 @@ class discuz_application extends discuz_base{
 			error_reporting(0);
 		}
 
+		
+		
 		if(!empty($this->var['config']['deprecated'])) {
 			define('DISCUZ_DEPRECATED', $this->var['config']['deprecated']);
 		}
@@ -395,18 +397,25 @@ class discuz_application extends discuz_base{
 	}
 
 	private function _is_https() {
+		
 		if(isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') {
 			return true;
 		}
+		
 		if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') {
 			return true;
 		}
+		
+		
 		if(isset($_SERVER['HTTP_X_CLIENT_SCHEME']) && strtolower($_SERVER['HTTP_X_CLIENT_SCHEME']) == 'https') {
 			return true;
 		}
+		
+		
 		if(isset($_SERVER['HTTP_FROM_HTTPS']) && strtolower($_SERVER['HTTP_FROM_HTTPS']) != 'off') {
 			return true;
 		}
+		
 		if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
 			return true;
 		}
@@ -566,7 +575,7 @@ class discuz_application extends discuz_base{
 		setglobal('groupid', getglobal('groupid', 'member'));
 		if(!empty($this->var['member']['newprompt'])) {
 			$this->var['member']['newprompt_num'] = C::t('common_member_newprompt')->fetch($this->var['member']['uid']);
-			$this->var['member']['newprompt_num'] = unserialize($this->var['member']['newprompt_num']['data']);
+			$this->var['member']['newprompt_num'] = dunserialize($this->var['member']['newprompt_num']['data']);
 			$this->var['member']['category_num'] = helper_notification::get_categorynum($this->var['member']['newprompt_num']);
 		}
 
@@ -756,7 +765,7 @@ class discuz_application extends discuz_base{
 				$this->var['cache']['style_default']['styleid'] = $styleid = $this->var['category']['styleid'];
 			}
 		}
-
+		
 		if(defined('IN_NEWMOBILE') && $this->var['setting']['mobile']['allowmnew'] && $this->var['setting']['styleid2']) {
 			$styleid = $this->var['setting']['styleid2'];
 		}

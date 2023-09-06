@@ -15,6 +15,7 @@ class memory_common_session
 {
 	private $_pre_cache_key;
 
+	
 	const LUA_RETURN_DATA = <<<LUA
 	local rs = {}
 	for _, key in ipairs(sids) do
@@ -28,6 +29,7 @@ LUA;
 		$this->_pre_cache_key = 'common_session_';
 	}
 
+	
 	public function fetch($sid, $ip = false, $uid = false) {
 		if(empty($sid)) {
 			return array();
@@ -42,15 +44,17 @@ LUA;
 		return $session;
 	}
 
+	
 	public function fetch_member($ismember = 0, $invisible = 0, $start = 0, $limit = 0) {
-		if ($ismember < 1 || $ismember > 2) $ismember = 0; // $ismember只有0, 1, 2是合法值
-		if ($invisible < 1 || $invisible > 2) $invisible = 0; // invisible只有0, 1, 2是合法值
+		if ($ismember < 1 || $ismember > 2) $ismember = 0; 
+		if ($invisible < 1 || $invisible > 2) $invisible = 0; 
 
 		list($ss, $ee) = $this->get_start_and_end($start, $limit);
-		($invisible == 2) ? $inv_idx = 0 : $inv_idx = 1; // $invisible == 2，相当于sql条件 invisible = 0
-		($ismember == 2) ? $uid_idx = 0 : $uid_idx = 1; // $ismember == 2，相当于sql条件 uid = 0
+		($invisible == 2) ? $inv_idx = 0 : $inv_idx = 1; 
+		($ismember == 2) ? $uid_idx = 0 : $uid_idx = 1; 
 
-		if ($ismember == 0 && $invisible == 0) {
+		
+		if ($ismember == 0 && $invisible == 0) { 
 			$script = <<<LUA
 			local prefix = ARGV[1]
 			local start = ARGV[2]
@@ -58,7 +62,7 @@ LUA;
 			local sids = redis.call('ZREVRANGE', prefix..'idx_lastactivity', start, stop)
 LUA;
 			$data = memory('eval', $script . self::LUA_RETURN_DATA, array($ss, $ee), "fetch_member_1st", $this->_pre_cache_key);
-		} elseif ($ismember == 0) {
+		} elseif ($ismember == 0) { 
 			$script = <<<LUA
 			local prefix = ARGV[1]
 			local inv_idx = ARGV[2]
@@ -67,7 +71,7 @@ LUA;
 			local sids = redis.call('ZREVRANGE', prefix..'idx_invisible_'..inv_idx, start, stop)
 LUA;
 			$data = memory('eval', $script . self::LUA_RETURN_DATA, array($inv_idx, $ss, $ee), "fetch_member_2nd", $this->_pre_cache_key);
-		} elseif ($invisible == 0) {
+		} elseif ($invisible == 0) { 
 			$script = <<<LUA
 			local prefix = ARGV[1]
 			local uid_idx = ARGV[2]
@@ -76,7 +80,7 @@ LUA;
 			local sids = redis.call('ZREVRANGE', prefix..'idx_uid_group_'..uid_idx, start, stop)
 LUA;
 			$data = memory('eval', $script . self::LUA_RETURN_DATA, array($uid_idx, $ss, $ee), "fetch_member_3rd", $this->_pre_cache_key);
-		} else {
+		} else { 
 			global $_G;
 			$temp_uniq = substr(md5(substr(TIMESTAMP, 0, -3).substr($_G['config']['security']['authkey'], 3, -3)), 1, 8);
 			$script = <<<LUA
@@ -96,10 +100,12 @@ LUA;
 		return $this->array_from_memory_result($data);
 	}
 
+	
 	public function count_invisible($type = 1) {
 		return memory('zcard', 'idx_invisible_' . $type, $this->_pre_cache_key);
 	}
 
+	
 	public function count($type = 0) {
 		switch ($type) {
 			case 1:
@@ -111,11 +117,14 @@ LUA;
 		}
 	}
 
+	
 	public function delete_by_session($session, $onlinehold, $guestspan) {
 		if(empty($session) || !is_array($session)) return;
 		$onlinehold = time() - $onlinehold;
 		$guestspan = time() - $guestspan;
 
+		
+		
 		global $_G;
 		$temp_uniq = substr(md5(substr(TIMESTAMP, 0, -3).substr($_G['config']['security']['authkey'], 3, -3)), 1, 8);
 		$script = <<<LUA
@@ -194,6 +203,7 @@ LUA;
 		memory('eval', $script, array($session['sid'], $onlinehold, $guestspan, $session['ip'], $session['uid'] ? $session['uid'] : -1, $temp_uniq), "delete_by_session", $this->_pre_cache_key);
 	}
 
+	
 	public function fetch_by_uid($uid) {
 		if(empty($uid)) {
 			return false;
@@ -201,11 +211,13 @@ LUA;
 
 		$sids = memory('smembers', 'idx_uid_' . $uid, $this->_pre_cache_key);
 		foreach ($sids as $sid) {
-			return $this->get_data_by_pk($sid);
+			return $this->get_data_by_pk($sid); 
 		}
 		return false;
 	}
 
+	
+	
 	public function fetch_all_by_uid($uids, $start = 0, $limit = 0) {
 		if(empty($uids)) {
 			return array();
@@ -243,11 +255,14 @@ LUA;
 		return $this->array_from_memory_result($data);
 	}
 
+	
+	
 	public function update_by_uid($uid, $data) {
 		if(!($uid = dintval($uid)) || empty($data) || !is_array($data)) {
 			return 0;
 		}
 
+		
 		$script = <<<LUA
 		local prefix = ARGV[1]
 		local uid = ARGV[2]
@@ -259,7 +274,7 @@ LUA;
 		memory('pipeline');
 		foreach ($items as $olditem) {
 			$sid = $olditem['sid'];
-			$data['sid'] = $sid; 	// $data中可能没有sid
+			$data['sid'] = $sid; 	
 			memory('hmset', $sid, $data, 0, $this->_pre_cache_key);
 			$this->update_memory_index($sid, $data, $olditem);
 		}
@@ -267,13 +282,18 @@ LUA;
 	}
 
 	public function update_max_rows($max_rows) {
+		
 		return TRUE;
 	}
 
 	public function clear() {
+		
+		
+		
 		return TRUE;
 	}
 
+	
 	public function count_by_fid($fid) {
 		$fid = dintval($fid);
 		if (!$fid) return 0;
@@ -294,6 +314,7 @@ LUA;
 		return $data;
 	}
 
+	
 	public function fetch_all_by_fid($fid, $limit = 12) {
 		$fid = dintval($fid);
 		if (!$fid) return array();
@@ -333,11 +354,13 @@ LUA;
 		return $result;
 	}
 
+	
 	public function count_by_ip($ip) {
 		if (empty($ip)) return 0;
 		return memory('zcard', 'idx_ip_' . $ip, $this->_pre_cache_key);
 	}
 
+	
 	public function fetch_all_by_ip($ip, $start = 0, $limit = 0) {
 		if (empty($ip)) return array();
 
@@ -369,17 +392,19 @@ LUA;
 		memory('commit');
 	}
 
+	
 	private function update_memory_index($sid, $newdata, $olddata = array()) {
-		if (!empty($olddata) && !isset($olddata['lastactivity'])) {
+		if (!empty($olddata) && !isset($olddata['lastactivity'])) { 
 			return;
 		}
-		if (!empty($olddata) && !isset($newdata['lastactivity'])) {
+		if (!empty($olddata) && !isset($newdata['lastactivity'])) { 
 			$newdata['lastactivity'] = $olddata['lastactivity'];
 		}
 		foreach ($newdata as $col => $value) {
+			
 			if (!in_array($col, array("ip", "uid", "fid", "lastactivity", "invisible"))) continue;
-			if (isset($olddata[$col])) {
-				if ($olddata[$col] === $value && $olddata['lastactivity'] === $newdata['lastactivity']) {
+			if (isset($olddata[$col])) { 
+				if ($olddata[$col] === $value && $olddata['lastactivity'] === $newdata['lastactivity']) { 
 					continue;
 				}
 				switch ($col) {
@@ -403,6 +428,7 @@ LUA;
 						continue 2;
 				}
 			}
+			
 			switch ($col) {
 				case 'ip':
 				case 'fid':
@@ -422,6 +448,7 @@ LUA;
 		}
 	}
 
+	
 	private function array_from_memory_result($data) {
 		$result = array();
 		foreach ($data as $row) {
@@ -442,11 +469,13 @@ LUA;
 		return $result;
 	}
 
+	
 	private function get_data_by_pk($sid) {
 		$data = memory('hgetall', $sid, $this->_pre_cache_key);
 		return $data;
 	}
 
+	
 	private function get_start_and_end($start, $limit) {
 		$limit = intval($limit > 0 ? $limit : 0);
 		$start = intval($start > 0 ? $start : 0);

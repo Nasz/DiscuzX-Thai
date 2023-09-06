@@ -24,7 +24,7 @@
 				<li{if $_GET[view] == 'favtimes'} class="a"{/if}><a href="misc.php?mod=ranklist&type=blog&view=favtimes&orderby=$orderby">{lang ranklist_favorite}</a></li>
 				<!--{if $clicks}-->
 				<!--{loop $clicks $key $value}-->
-				<li{if $_GET[view] == $key} class="a"{/if}><a href="misc.php?mod=ranklist&type=blog&view=$key&orderby=$orderby">{lang ranklist}$value[name]</a></li>
+				<li{if $_GET[view] == $key} class="a"{/if}><a href="misc.php?mod=ranklist&type=blog&view=$key&orderby=$orderby">$value[name]{lang ranklist}</a></li>
 				<!--{/loop}-->
 				<!--{/if}-->
 			</ul>

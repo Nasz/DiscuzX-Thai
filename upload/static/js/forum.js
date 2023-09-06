@@ -244,11 +244,11 @@ function fastpostvalidate(theform, noajaxpost) {
 		theform.subject.focus();
 	}
 	if(!disablepostctrl && dstrlen(trim(theform.subject.value)) && ((postminsubjectchars != 0 && dstrlen(theform.subject.value) < postminsubjectchars) || (postminsubjectchars != 0 && dstrlen(theform.subject.value) > postmaxsubjectchars))) {
-		showError('ความยาวหัวข้อของคุณไม่เป็นไปตามข้อกำหนด\n\nความยาวปัจจุบัน: ' + dstrlen(theform.subject.value) + ' 字\n系统限制: ' + postminsubjectchars + ' 到 ' + postmaxsubjectchars + ' 字');
+		showError('ความยาวหัวข้อของคุณไม่เป็นไปตามข้อกำหนด\n\nความยาวปัจจุบัน: ' + dstrlen(theform.subject.value) + ' ตัวอักษร\nข้อจำกัดของระบบ: ' + postminsubjectchars + ' ถึง ' + postmaxsubjectchars + ' ตัวอักษร');
 		return false;
 	}
 	if(!disablepostctrl && ((postminchars != 0 && mb_strlen(theform.message.value) < postminchars) || (postmaxchars != 0 && mb_strlen(theform.message.value) > postmaxchars))) {
-		s = '您的帖子长度不符合要求。\n\nความยาวปัจจุบัน: ' + mb_strlen(theform.message.value) + ' ' + '字节\n系统限制: ' + postminchars + ' 到 ' + postmaxchars + ' 字节';
+		s = 'ความยาวหัวข้อของคุณไม่เป็นไปตามข้อกำหนด\n\nความยาวปัจจุบัน: ' + mb_strlen(theform.message.value) + ' ' + 'ตัวอักษร\nข้อจำกัดของระบบ: ' + postminchars + ' ถึง ' + postmaxchars + ' ตัวอักษร';
 	}
 	if(s) {
 		showError(s);

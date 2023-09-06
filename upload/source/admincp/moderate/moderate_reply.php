@@ -63,7 +63,6 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 
 	showtablefooter();
 	showboxfooter();
-	showtableheader();
 	$fidadd = array();
 	$sqlwhere = '';
 	if(!empty($_GET['username'])) {
@@ -97,8 +96,11 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 	}
 	$multipage = multi($modcount, $ppp, $page, ADMINSCRIPT."?action=moderate&operation=replies&filter=$filter&modfid=$modfid&dateline={$_GET['dateline']}&username={$_GET['username']}&title={$_GET['title']}&ppp=$ppp&showcensor=$showcensor&posttableid=$posttable");
 
-	echo '<p class="margintop marginbot"><a href="javascript:;" onclick="expandall();">'.cplang('moderate_all_expand').'</a> <a href="javascript:;" onclick="foldall();">'.cplang('moderate_all_fold').'</a><p>';
+	showtableheader('', 'nobottom');
+	echo '<tr><td><p class="margintop marginbot"><a href="javascript:;" onclick="expandall();">'.cplang('moderate_all_expand').'</a> &nbsp;<a href="javascript:;" onclick="foldall();">'.cplang('moderate_all_fold').'</a></p></td></tr>';
+	showtablefooter();
 
+	showtableheader();
 	$censor = & discuz_censor::instance();
 	$censor->highlight = '#FF0000';
 	require_once libfile('function/misc');
@@ -140,7 +142,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 				$attach['url'] = $attach['isimage']
 				 		? " {$attach['filename']} (".sizecount($attach['filesize']).")<br /><br /><img src=\"".$_G['setting']['attachurl']."forum/{$attach['attachment']}\" onload=\"if(this.width > 400) {this.resized=true; this.width=400;}\">"
 					 	 : "<a href=\"".$_G['setting']['attachurl']."forum/{$attach['attachment']}\" target=\"_blank\">{$attach['filename']}</a> (".sizecount($attach['filesize']).")";
-				$post['message'] .= "<br /><br />{$lang['attachment']}: ".attachtype(fileext($attach['filename'])).$attach['url'];
+				$post['message'] .= "<br /><br />{$lang['attachment']}: ".attachtype(fileext($attach['filename'])."\t").$attach['url'];
 			}
 		}
 
@@ -299,7 +301,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 			if(getstatus($post['status'], 3) == 0) {
 				$post['subject'] = $threadlist[$post['tid']]['subject'];
 				$firsttime_validatepost[] = $post;
-				$uids[] = $post['authorid'];				
+				$uids[] = $post['authorid'];
 				updatepostcredits('+', $post['authorid'], 'reply', $post['fid']);
 				$attachcount = C::t('forum_attachment_n')->count_by_id('tid:'.$post['tid'], 'pid', $post['pid']);
 				updatecreditbyaction('postattach', $post['authorid'], array(), '', $attachcount, 1, $post['fid']);
@@ -356,7 +358,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 					feed_add($feed['icon'], $feed['title_template'], $feed['title_data'], $feed['body_template'], $feed['body_data'], '', $feed['images'], $feed['image_links'], '', '', '', 0, $feed['id'], $feed['idtype'],$post['authorid'], $post['author']);
 				}
 			}
-		}		
+		}
 
 		foreach($threads as $tid => $thread) {
 			C::t('forum_thread')->increase($tid, $thread);

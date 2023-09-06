@@ -18,7 +18,7 @@ define('UC_ROOT', substr(__FILE__, 0, -10));
 require UC_ROOT.'./release/release.php';
 define('UC_DATADIR', UC_ROOT.'./data/');
 define('UC_DATAURL', UC_API.'/data');
-define('UC_API_FUNC', (defined('UC_CONNECT') && UC_CONNECT == 'mysql') ? 'uc_api_mysql' : 'uc_api_post');
+define('UC_API_FUNC', ((defined('UC_CONNECT') && UC_CONNECT == 'mysql') || UC_STANDALONE) ? 'uc_api_mysql' : 'uc_api_post');
 $uc_controls = array();
 
 function uc_addslashes($string, $force = 0, $strip = FALSE) {
@@ -103,7 +103,7 @@ function uc_api_post($module, $action, $arg = array()) {
 }
 
 function uc_api_requestdata($module, $action, $arg='', $extra='') {
-	$input = uc_api_input($arg);
+	$input = uc_api_input($arg, $module, $action);
 	$post = "m=$module&a=$action&inajax=2&release=".UC_CLIENT_RELEASE."&input=$input&appid=".UC_APPID.$extra;
 	return $post;
 }
@@ -113,7 +113,8 @@ function uc_api_url($module, $action, $arg='', $extra='') {
 	return $url;
 }
 
-function uc_api_input($data) {
+function uc_api_input($data, $module, $action) {
+	$data = $data."&m=$module&a=$action&appid=".UC_APPID;
 	$s = urlencode(uc_authcode($data.'&agent='.md5($_SERVER['HTTP_USER_AGENT'])."&time=".time(), 'ENCODE', UC_KEY));
 	return $s;
 }
@@ -149,27 +150,35 @@ function uc_unserialize($s) {
 
 function uc_authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 
+	
 	$ckey_length = 4;
 
 	$key = md5($key ? $key : UC_KEY);
+	
 	$keya = md5(substr($key, 0, 16));
 	$keyb = md5(substr($key, 16, 16));
 	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
 
+	
 	$cryptkey = $keya.md5($keya.$keyc);
 	$key_length = strlen($cryptkey);
 
+	
+	
 	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
 	$string_length = strlen($string);
 
 	$result = '';
 	$box = range(0, 255);
 
+	
 	$rndkey = array();
 	for($i = 0; $i <= 255; $i++) {
 		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 	}
 
+	
+	
 	for($j = $i = 0; $i < 256; $i++) {
 		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 		$tmp = $box[$i];
@@ -177,6 +186,7 @@ function uc_authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 		$box[$j] = $tmp;
 	}
 
+	
 	for($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 256;
 		$j = ($j + $box[$a]) % 256;
@@ -187,12 +197,16 @@ function uc_authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 	}
 
 	if($operation == 'DECODE') {
+		
+		
+		
 		if(((int)substr($result, 0, 10) == 0 || (int)substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) === substr(md5(substr($result, 26).$keyb), 0, 16)) {
 			return substr($result, 26);
 		} else {
 			return '';
 		}
 	} else {
+		
 		return $keyc.str_replace('=', '', base64_encode($result));
 	}
 }
@@ -218,6 +232,8 @@ function uc_fopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE,
 		$ch = curl_init();
 		$ip && curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: ".$host));
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+		
+		
 		if(!empty($ip) && filter_var($ip, FILTER_VALIDATE_IP) && !filter_var($host, FILTER_VALIDATE_IP) && version_compare(PHP_VERSION, '5.5.0', 'ge')) {
 			curl_setopt($ch, CURLOPT_RESOLVE, array("$host:$port:$ip"));
 			curl_setopt($ch, CURLOPT_URL, $scheme.'://'.$host.':'.$port.$path);
@@ -440,7 +456,13 @@ function uc_user_delete($uid) {
 }
 
 function uc_user_deleteavatar($uid) {
-	uc_api_post('user', 'deleteavatar', array('uid'=>$uid));
+	if(UC_STANDALONE) {
+		@include_once UC_ROOT.'./extend_client.php';
+		uc_note_handler::loadavatarpath();
+		uc_api_mysql('user', 'deleteavatar', array('uid'=>$uid));
+	} else {
+		uc_api_post('user', 'deleteavatar', array('uid'=>$uid));
+	}
 }
 
 function uc_user_checkname($username) {
@@ -495,7 +517,7 @@ function uc_user_logincheck($username, $ip) {
 }
 
 function uc_pm_location($uid, $newpm = 0) {
-	$apiurl = uc_api_url('pm_client', 'ls', "uid=$uid", ($newpm ? '&folder=newbox' : ''));
+	$apiurl = uc_api_url('pm_client', 'ls', "uid=$uid&frontend=1", ($newpm ? '&folder=newbox' : ''));
 	@header("Expires: 0");
 	@header("Cache-Control: private, post-check=0, pre-check=0, max-age=0", FALSE);
 	@header("Pragma: no-cache");
@@ -642,10 +664,11 @@ function uc_tag_get($tagname, $nums = 0) {
 
 function uc_avatar($uid, $type = 'virtual', $returnhtml = 1) {
 	$uid = intval($uid);
-	$uc_input = uc_api_input("uid=$uid");
+	$uc_input = uc_api_input("uid=$uid&frontend=1", "user", "rectavatar");
+	$avatarpath = UC_STANDALONE ? UC_AVTAPI : UC_API;
 	$uc_avatarflash = UC_API.'/images/camera.swf?inajax=1&appid='.UC_APPID.'&input='.$uc_input.'&agent='.md5($_SERVER['HTTP_USER_AGENT']).'&ucapi='.urlencode(UC_API).'&avatartype='.$type.'&uploadSize=2048';
 	$uc_avatarhtml5 = UC_API.'/index.php?m=user&a=camera&width=450&height=253&appid='.UC_APPID.'&input='.$uc_input.'&agent='.md5($_SERVER['HTTP_USER_AGENT']).'&ucapi='.urlencode(UC_API).'&avatartype='.$type.'&uploadSize=2048';
-	$uc_avatarstl = '&width=450&height=253&appid='.UC_APPID.'&input='.$uc_input.'&agent='.md5($_SERVER['HTTP_USER_AGENT']).'&ucapi='.urlencode(UC_API).'&avatartype='.$type.'&uploadSize=2048';
+	$uc_avatarstl = $avatarpath.'/index.php?m=user&inajax=1&a=rectavatar&appid='.UC_APPID.'&input='.$uc_input.'&agent='.md5($_SERVER['HTTP_USER_AGENT']).'&avatartype='.$type.'&base64=yes';
 	if($returnhtml) {
 		$flash = '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="450" height="253" id="mycamera" align="middle"><param name="allowScriptAccess" value="always" /><param name="scale" value="exactfit" /><param name="wmode" value="transparent" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" /><param name="movie" value="'.$uc_avatarflash.'" /><param name="menu" value="false" /><embed src="'.$uc_avatarflash.'" quality="high" bgcolor="#ffffff" width="450" height="253" name="mycamera" align="middle" allowScriptAccess="always" allowFullScreen="false" scale="exactfit"  wmode="transparent" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>';
 		$html5 = '<iframe src="' . $uc_avatarhtml5 . '" width="450" marginwidth="0" height="253" marginheight="0" scrolling="no" frameborder="0" id="mycamera" name="mycamera" align="middle"></iframe>';
@@ -669,13 +692,22 @@ function uc_avatar($uid, $type = 'virtual', $returnhtml = 1) {
 	}
 }
 
+function uc_rectavatar($uid) {
+	return uc_api_mysql('user', 'rectavatar', array('uid' => $uid));
+}
+
 function uc_mail_queue($uids, $emails, $subject, $message, $frommail = '', $charset = 'gbk', $htmlon = FALSE, $level = 1) {
 	return call_user_func(UC_API_FUNC, 'mail', 'add', array('uids' => $uids, 'emails' => $emails, 'subject' => $subject, 'message' => $message, 'frommail' => $frommail, 'charset' => $charset, 'htmlon' => $htmlon, 'level' => $level));
 }
 
 function uc_check_avatar($uid, $size = 'middle', $type = 'virtual') {
-	$url = UC_API."/avatar.php?uid=$uid&size=$size&type=$type&check_file_exists=1";
-	$res = uc_fopen2($url, 500000, '', '', TRUE, UC_IP, 20);
+	if(UC_STANDALONE && @include UC_ROOT.'./extend_client.php') {
+		$uc_chk = new uc_note_handler();
+		$res = $uc_chk->checkavatar(array('uid' => $uid, 'size' => $size, 'type' => $type), array());
+	} else {
+		$url = UC_API."/avatar.php?uid=$uid&size=$size&type=$type&check_file_exists=1";
+		$res = uc_fopen2($url, 500000, '', '', TRUE, UC_IP, 20);
+	}
 	if($res == 1) {
 		return 1;
 	} else {

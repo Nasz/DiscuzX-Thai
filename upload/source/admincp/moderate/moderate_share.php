@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 if(!submitcheck('modsubmit') && !$_GET['fast']) {
 
 	shownav('topic', $lang['moderate_shares']);
-	showsubmenu('nav_moderate_posts', $submenu);
+	showsubmenu('nav_moderate_shares', $submenu);
 
 	$select[$_GET['tpp']] = $_GET['tpp'] ? "selected='selected'" : '';
 	$tpp_options = "<option value='20' $select[20]>20</option><option value='50' $select[50]>50</option><option value='100' $select[100]>100</option>";
@@ -78,7 +78,9 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 	$page = $pagetmp + 1;
 	$multipage = multi($modcount, $tpp, $page, ADMINSCRIPT."?action=moderate&operation=shares&filter=$filter&dateline={$_GET['dateline']}&username={$_GET['username']}&keyword={$_GET['keyword']}&tpp=$tpp&showcensor=$showcensor");
 
-	echo '<p class="margintop marginbot"><a href="javascript:;" onclick="expandall();">'.cplang('moderate_all_expand').'</a> <a href="javascript:;" onclick="foldall();">'.cplang('moderate_all_fold').'</a></p>';
+	showtableheader('', 'nobottom');
+	echo '<tr><td><p class="margintop marginbot"><a href="javascript:;" onclick="expandall();">'.cplang('moderate_all_expand').'</a> &nbsp;<a href="javascript:;" onclick="foldall();">'.cplang('moderate_all_fold').'</a></p></td></tr>';
+	showtablefooter();
 
 	showtableheader();
 	$censor = & discuz_censor::instance();

@@ -91,6 +91,7 @@ class table_home_album extends discuz_table
 	}
 
 	public function fetch_all($ids, $force_from_db = false, $null1 = 0, $null2 = 0) {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch_all($ids, $force_from_db);

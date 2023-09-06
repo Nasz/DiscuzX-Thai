@@ -13,7 +13,7 @@ if(!defined('IN_DISCUZ')) {
 
 if(!defined('DISCUZ_VERSION')) {
 	define('DISCUZ_VERSION', 'X3.5');
-	define('DISCUZ_RELEASE', 'v3.5-202212270500-89791f2b');
+	define('DISCUZ_RELEASE', 'v3.5-202309050500-07e5039e');
 	define('DISCUZ_FIXBUG', '35000000');
 }
 

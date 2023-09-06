@@ -197,6 +197,12 @@ if(submitcheck('profilesubmit')) {
 		foreach($_GET['deletefile'] as $key => $value) {
 			if(isset($_G['cache']['profilesetting'][$key]) && $_G['cache']['profilesetting'][$key]['formtype'] == 'file') {
 				$verifyarr[$key] = $setarr[$key] = '';
+				if(isprofileimage($space[$key])) {
+					@unlink(getglobal('setting/attachdir').'./profile/'.$space[$key]);
+				}
+				if(isprofileimage($verifyinfo['field'][$key])) {
+					@unlink(getglobal('setting/attachdir').'./profile/'.$verifyinfo['field'][$key]);
+				}
 			}
 		}
 	}
@@ -207,6 +213,9 @@ if(submitcheck('profilesubmit')) {
 				continue;
 			}
 			$field = $_G['cache']['profilesetting'][$key];
+			if($field['formtype'] != 'file'){
+				continue;
+			}
 			if((!empty($file) && $file['error'] == 0) || (!empty($space[$key]) && empty($_GET['deletefile'][$key]))) {
 				$value = '1';
 			} else {
@@ -230,15 +239,24 @@ if(submitcheck('profilesubmit')) {
 					continue;
 				}
 				$setarr[$key] = '';
+				if(isprofileimage($space[$key])) {
+					@unlink(getglobal('setting/attachdir').'./profile/'.$space[$key]);
+				}
 				$attach['attachment'] = dhtmlspecialchars(trim($attach['attachment']));
 				if($vid && $verifyconfig['available'] && isset($verifyconfig['field'][$key])) {
 					if(isset($verifyinfo['field'][$key])) {
 						$verifyarr[$key] = $attach['attachment'];
+						if(isprofileimage($verifyinfo['field'][$key])) {
+							@unlink(getglobal('setting/attachdir').'./profile/'.$verifyinfo['field'][$key]);
+						}
 					}
 					continue;
 				}
 				if(isset($setarr[$key]) && $_G['cache']['profilesetting'][$key]['needverify']) {
 					$verifyarr[$key] = $attach['attachment'];
+					if(isprofileimage($verifyinfo['field'][$key])) {
+						@unlink(getglobal('setting/attachdir').'./profile/'.$verifyinfo['field'][$key]);
+					}
 					continue;
 				}
 				$setarr[$key] = $attach['attachment'];
@@ -272,6 +290,7 @@ if(submitcheck('profilesubmit')) {
 		$setarr['zodiac'] = get_zodiac($_POST['birthyear']);
 	}
 	if($setarr) {
+		
 		if($_G['setting']['profilehistory']) {
 			C::t('common_member_profile_history')->insert(array_merge(C::t('common_member_profile')->fetch($_G['uid']), array('dateline' => time())));
 		}
@@ -317,9 +336,9 @@ if(submitcheck('profilesubmit')) {
 	$membersql = $memberfieldsql = $authstradd1 = $authstradd2 = $newpasswdadd = '';
 	$setarr = array();
 	$emailnew = dhtmlspecialchars($_GET['emailnew']);
-	$secmobiccnew = intval($_GET['secmobiccnew']);
-	$secmobilenew = intval($_GET['secmobilenew']);
-	$secmobseccode = intval($_GET['secmobseccodenew']);
+	$secmobiccnew = $_GET['secmobiccnew'];
+	$secmobilenew = $_GET['secmobilenew'];
+	$secmobseccode = $_GET['secmobseccodenew'];
 	$ignorepassword = 0;
 	if($_G['setting']['connect']['allow']) {
 		$connect = C::t('#qqconnect#common_member_connect')->fetch($_G['uid']);
@@ -379,6 +398,24 @@ if(submitcheck('profilesubmit')) {
 		showmessage('profile_secmobile_not_change', '', array(), array('return' => true));
 	}
 
+	
+	if($secmobiccnew === '' && $secmobilenew !== '' && preg_match('#^(\d){1,12}$#', $secmobilenew)) {
+		$secmobiccnew = $_G['setting']['smsdefaultcc'];
+	}
+
+	
+	if($secmobiccnew === '') {
+		$secmobiccnew == 0;
+	}elseif(!preg_match('#^(\d){1,3}$#', $secmobiccnew)) {
+		showmessage('profile_secmobicc_illegal', '', array(), array('return' => true));
+	}
+
+	if($secmobilenew === '') {
+		$secmobilenew == 0;
+	}elseif($secmobilenew !== '' && !preg_match('#^(\d){1,12}$#', $secmobilenew)) {
+		showmessage('profile_secmobile_illegal', '', array(), array('return' => true));
+	}
+
 	loaducenter();
 	if($emailnew != $_G['member']['email']) {
 		include_once libfile('function/member');
@@ -393,7 +430,7 @@ if(submitcheck('profilesubmit')) {
 		showmessage('profile_email_domain_illegal', '', array(), array('return' => true));
 	} elseif($ucresult == -6) {
 		showmessage('profile_email_duplicate', '', array(), array('return' => true));
-	} elseif($ucresult == -8) {
+	} elseif($ucresult == -9) {
 		showmessage('profile_secmobile_duplicate', '', array(), array('return' => true));
 	}
 
@@ -415,13 +452,20 @@ if(submitcheck('profilesubmit')) {
 			dsetcookie('newemail', "{$space['uid']}\t$emailnew\t{$_G['timestamp']}", 31536000);
 		}
 	}
+	
 	if($_G['setting']['smsstatus'] && (strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) && empty($secmobseccode)) {
 		$length = $_G['setting']['smsdefaultlength'] ? $_G['setting']['smsdefaultlength'] : 4;
+		
+		
 		sms::send($_G['uid'], 0, 1, $secmobiccnew, $secmobilenew, random($length, 1), 0);
 	}
-	$setarr['secmobicc'] = $secmobiccnew;
-	$setarr['secmobile'] = $secmobilenew;
-	$setarr['secmobilestatus'] = sms::verify($_G['uid'], 1, $secmobiccnew, $secmobilenew, $secmobseccode);
+	
+	$setarr['secmobicc'] = $secmobiccnew == 0 ? '' : $secmobiccnew;
+	$setarr['secmobile'] = $secmobilenew == 0 ? '' : $secmobilenew;
+	
+	if(strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) {
+		$setarr['secmobilestatus'] = sms::verify($_G['uid'], 1, $secmobiccnew, $secmobilenew, $secmobseccode);
+	}
 	if($setarr) {
 		if($_G['member']['freeze'] == 1) {
 			$setarr['freeze'] = 0;
@@ -450,6 +494,49 @@ if(submitcheck('profilesubmit')) {
 			), false, true);
 		}
 		manage_addnotify('verifyuser');
+	}
+
+	
+	if(!empty($_GET['newpassword'])) {
+		if(!function_exists('sendmail')) {
+			include libfile('function/mail');
+		}
+
+		$reset_password_subject = array(
+			'tpl' => 'password_reset',
+			'var' => array(
+				'username' => $_G['member']['username'],
+				'bbname' => $_G['setting']['bbname'],
+				'siteurl' => $_G['setting']['securesiteurl'],
+				'datetime' => dgmdate(time(), 'Y-m-d H:i:s'),
+				'clientip' => $_G['clientip']
+			)
+		);
+		if(!sendmail("{$_G['member']['username']} <{$_G['member']['email']}>", $reset_password_subject)) {
+			runlog('sendmail', "{$_G['member']['email']} sendmail failed.");
+		}
+	}
+
+	
+	if((strcmp($secmobiccnew, $_G['member']['secmobicc']) != 0 || strcmp($secmobilenew, $_G['member']['secmobile']) != 0) && (!$_G['setting']['smsstatus'] || $setarr['secmobilestatus'])) {
+		if(!function_exists('sendmail')) {
+			include libfile('function/mail');
+		}
+
+		$reset_secmobile_subject = array(
+			'tpl' => 'secmobile_reset',
+			'var' => array(
+				'username' => $_G['member']['username'],
+				'bbname' => $_G['setting']['bbname'],
+				'siteurl' => $_G['setting']['securesiteurl'],
+				'datetime' => dgmdate(time(), 'Y-m-d H:i:s'),
+				'secmobile' => $_G['member']['secmobicc'].'-'.$_G['member']['secmobile'],
+				'clientip' => $_G['clientip']
+			)
+		);
+		if(!sendmail("{$_G['member']['username']} <{$_G['member']['email']}>", $reset_secmobile_subject)) {
+			runlog('sendmail', "{$_G['member']['email']} sendmail failed.");
+		}
 	}
 
 	if($authstr) {
@@ -572,7 +659,6 @@ if($operation == 'password') {
 			}
 		}
 	}
-
 }
 
 include template("home/spacecp_profile");

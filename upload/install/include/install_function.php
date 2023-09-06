@@ -62,7 +62,6 @@ function check_db($dbhost, $dbuser, $dbpw, $dbname, $tablepre) {
 	if(!function_exists('mysqli_connect')) {
 		show_msg('undefine_func', 'mysqli_connect', 0);
 	}
-	if (strpos($dbhost, ":") === FALSE) $dbhost .= ":3306";
 
 	mysqli_report(MYSQLI_REPORT_OFF);
 
@@ -596,8 +595,7 @@ function transfer_ucinfo(&$post) {
 function createtable($sql, $dbver) {
 	$type = strtoupper(preg_replace("/^\s*CREATE TABLE\s+.+\s+\(.+?\).*(ENGINE|TYPE)\s*=\s*([a-z]+?).*$/isU", "\\2", $sql));
 	$type = in_array($type, array('INNODB', 'MYISAM', 'HEAP', 'MEMORY')) ? $type : 'INNODB';
-	return 
-		preg_replace("/^\s*(CREATE TABLE\s+.+\s+\(.+?\)).*$/isU", "\\1", $sql) .
+	return preg_replace("/^\s*(CREATE TABLE\s+.+\s+\(.+?\)).*$/isU", "\\1", $sql) .
 		" ENGINE=$type DEFAULT CHARSET=" . DBCHARSET .
 		(DBCHARSET === 'utf8mb4' ? " COLLATE=utf8mb4_unicode_ci" : "");
 }
@@ -665,6 +663,7 @@ function show_header() {
 </script>
 <meta content="Comsenz Inc." name="Copyright" />
 </head>
+<body>
 <div class="container{$nostep}">
 	<div class="header">
 		<h1>$titlehtml</h1>
@@ -696,9 +695,6 @@ EOT;
 function showjsmessage($message) {
 	if(VIEW_OFF) return;
 	append_to_install_log_file($message);
-	echo ' ';
-	flush();
-	ob_flush();
 }
 
 function random($length, $numeric = 0) {
@@ -718,7 +714,7 @@ function random($length, $numeric = 0) {
 }
 
 function secrandom($length, $numeric = 0, $strong = false) {
-	// Thank you @popcorner for your strong support for the enhanced security of the function.
+	
 	$chars = $numeric ? array('A','B','+','/','=') : array('+','/','=');
 	$num_find = str_split('CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 	$num_repl = str_split('01234567890123456789012345678901234567890123456789');
@@ -729,7 +725,7 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			return random_bytes($length);
 		};
 	} elseif(extension_loaded('mcrypt') && function_exists('mcrypt_create_iv')) {
-		// for lower than PHP 7.0, Please Upgrade ASAP.
+		
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
@@ -740,9 +736,9 @@ function secrandom($length, $numeric = 0, $strong = false) {
 			}
 		};
 	} elseif(extension_loaded('openssl') && function_exists('openssl_random_pseudo_bytes')) {
-		// for lower than PHP 7.0, Please Upgrade ASAP.
-		// openssl_random_pseudo_bytes() does not appear to cryptographically secure
-		// https://github.com/paragonie/random_compat/issues/5
+		
+		
+		
 		$isstrong = true;
 		$random_bytes = function($length) {
 			$rand = openssl_random_pseudo_bytes($length, $secure);
@@ -759,7 +755,7 @@ function secrandom($length, $numeric = 0, $strong = false) {
 	$retry_times = 0;
 	$return = '';
 	while($retry_times < 128) {
-		$getlen = $length - strlen($return); // 33% extra bytes
+		$getlen = $length - strlen($return); 
 		$bytes = $random_bytes(max($getlen, 12));
 		if($bytes === false) {
 			return false;
@@ -836,35 +832,35 @@ function setdefault($var, $default) {
 
 function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 
-	// 动态密钥长度, 通过动态密钥可以让相同的 string 和 key 生成不同的密文, 提高安全性
+	
 	$ckey_length = 4;
 
 	$key = md5($key ? $key : UC_KEY);
-	// a参与加解密, b参与数据验证, c进行密文随机变换
+	
 	$keya = md5(substr($key, 0, 16));
 	$keyb = md5(substr($key, 16, 16));
 	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
 
-	// 参与运算的密钥组
+	
 	$cryptkey = $keya.md5($keya.$keyc);
 	$key_length = strlen($cryptkey);
 
-	// 前 10 位用于保存时间戳验证数据有效性, 10 - 26位保存 $keyb , 解密时通过其验证数据完整性
-	// 如果是解码的话会从第 $ckey_length 位开始, 因为密文前 $ckey_length 位保存动态密匙以保证解密正确
+	
+	
 	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
 	$string_length = strlen($string);
 
 	$result = '';
 	$box = range(0, 255);
 
-	// 产生密钥簿
+	
 	$rndkey = array();
 	for($i = 0; $i <= 255; $i++) {
 		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 	}
 
-	// 打乱密钥簿, 增加随机性
-	// 类似 AES 算法中的 SubBytes 步骤
+	
+	
 	for($j = $i = 0; $i < 256; $i++) {
 		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 		$tmp = $box[$i];
@@ -872,7 +868,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 		$box[$j] = $tmp;
 	}
 
-	// 从密钥簿得出密钥进行异或，再转成字符 
+	
 	for($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 256;
 		$j = ($j + $box[$a]) % 256;
@@ -883,16 +879,16 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 	}
 
 	if($operation == 'DECODE') {
-		// 这里按照算法对数据进行验证, 保证数据有效性和完整性
-		// $result 01 - 10 位是时间, 如果小于当前时间或为 0 则通过
-		// $result 10 - 26 位是加密时的 $keyb , 需要和入参的 $keyb 做比对
+		
+		
+		
 		if(((int)substr($result, 0, 10) == 0 || (int)substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) === substr(md5(substr($result, 26).$keyb), 0, 16)) {
 			return substr($result, 26);
 		} else {
 			return '';
 		}
 	} else {
-		// 把动态密钥保存在密文里, 并用 base64 编码保证传输时不被破坏
+		
 		return $keyc.str_replace('=', '', base64_encode($result));
 	}
 
@@ -900,10 +896,11 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 
 function show_db_install() {
 	if(VIEW_OFF) return;
-	global $dbhost, $dbuser, $dbpw, $dbname, $tablepre, $username, $password, $email, $uid;
+	global $dbhost, $dbuser, $dbpw, $dbname, $tablepre, $username, $password, $email, $uid, $myisam2innodb;
 	$dzucfull = DZUCFULL;
 	$dzucstl = DZUCSTL ? 1 : 0;
-	$allinfo = base64_encode(serialize(compact('dbhost', 'dbuser', 'dbpw', 'dbname', 'tablepre', 'username', 'password', 'email', 'dzucfull', 'dzucstl', 'uid')));
+	$succlang = $myisam2innodb ? 'initdbinnodbresult_succ' : 'initdbdataresult_succ';
+	$allinfo = base64_encode(serialize(compact('dbhost', 'dbuser', 'dbpw', 'dbname', 'tablepre', 'username', 'password', 'email', 'dzucfull', 'dzucstl', 'uid', 'myisam2innodb')));
 	init_install_log_file();
 ?>
 		<script type="text/javascript">
@@ -992,15 +989,63 @@ function show_db_install() {
 				ajax.get('index.php?<?= http_build_query(array('method' => 'do_db_init', 'allinfo' => $allinfo)) ?>', function(data) {
 					if(data.indexOf('Discuz! Database Error') !== -1 || data.indexOf('Discuz! System Error') !== -1 || data.indexOf('Fatal error') !== -1) {
 						var p = document.createElement('p');
-						p.innerText = '<?= lang('failed') ?> ' + data;
+						p.innerHTML = '<?= lang('failed') ?> ' + data;
+						p.className = 'red';
+						append_notice(p.outerHTML);
+						append_notice('<p class="red"><?= lang('error_quit_msg') ?></p>');
+						document.getElementById('laststep').value = '<?= lang('error_reinstall_msg') ?>';
+						add_instfail();
+						return;
+					}
+					// 失败时不继续请求后续操作
+					var resultDiv = document.getElementById('notice');
+					if(resultDiv.innerHTML.indexOf('<?= lang('failed') ?>') === -1) {
+						// 数据库表创建请求完成拉起数据库数据初始化
+						request_do_db_data_init();
+					}
+				});
+			}
+
+			function request_do_db_data_init() {
+				ajax.get('index.php?<?= http_build_query(array('method' => 'do_db_data_init', 'allinfo' => $allinfo)) ?>', function(data) {
+					if(data.indexOf('Discuz! Database Error') !== -1 || data.indexOf('Discuz! System Error') !== -1 || data.indexOf('Fatal error') !== -1) {
+						var p = document.createElement('p');
+						p.innerHTML = '<?= lang('failed') ?> ' + data;
+						p.className = 'red';
+						append_notice(p.outerHTML);
+						append_notice('<p class="red"><?= lang('error_quit_msg') ?></p>');
+						document.getElementById('laststep').value = '<?= lang('error_reinstall_msg') ?>';
+						add_instfail();
+						return;
+					}
+					var resultDiv = document.getElementById('notice');
+					if(resultDiv.innerHTML.indexOf('<?= lang('failed') ?>') === -1) {
+						<?php echo $myisam2innodb ? 'request_do_db_innodb(0);' : 'request_do_initsys();';?>
+					}
+				});
+			}
+
+			function request_do_db_innodb(i) {
+				ajax.get('index.php?<?= http_build_query(array('method' => 'do_db_innodb', 'allinfo' => $allinfo)) ?>&i=' + i, function(data) {
+					if(data.indexOf('Discuz! Database Error') !== -1 || data.indexOf('Discuz! System Error') !== -1 || data.indexOf('Fatal error') !== -1) {
+						var p = document.createElement('p');
+						p.innerHTML = '<?= lang('failed') ?> ' + data;
 						p.className = 'red';
 						append_notice(p.outerHTML);
 						append_notice('<p class="red"><?= lang('error_quit_msg') ?></p>');
 						add_instfail();
 						return;
 					}
-					// 数据库初始化请求完成拉起初始化
-					request_do_initsys();
+					var resultDiv = document.getElementById('notice');
+					if(resultDiv.innerHTML.indexOf('<?= lang('failed') ?>') === -1) {
+						if(resultDiv.innerHTML.indexOf('<?= lang('initdbinnodbresult_succ') ?>') !== -1) {
+							// 拉起系统初始化
+							request_do_initsys();
+						} else if(document.getElementById('laststep').value.indexOf('<?= lang('install_in_processed') ?>') !== -1) {
+							// 循环完成InnoDB转换
+							request_do_db_innodb(Number(i)+1);
+						}
+					}
 				});
 			}
 
@@ -1048,7 +1093,7 @@ function show_db_install() {
 						add_instfail();
 						return;
 					}
-					if(data.indexOf('<?= lang('initdbresult_succ') ?>') === -1) {
+					if(data.indexOf('<?= lang($succlang) ?>') === -1) {
 						setTimeout(request_log, 200);
 					}
 				});
@@ -1058,10 +1103,12 @@ function show_db_install() {
 				var resultDiv = document.getElementById('notice');
 				// 数据库初始化失败不进行系统初始化
 				if(resultDiv.innerHTML.indexOf('<?= lang('failed') ?>') !== -1) {
-					document.getElementById('laststep').value = '<?= lang('error_quit_msg') ?>';
+					if(document.getElementById('laststep').value.indexOf('<?= lang('error_reinstall_msg') ?>') === -1) {
+						document.getElementById('laststep').value = '<?= lang('error_quit_msg') ?>';
+					}
 					return;
 				}
-				if(resultDiv.innerHTML.indexOf('<?= lang('initdbresult_succ') ?>') !== -1) {
+				if(resultDiv.innerHTML.indexOf('<?= lang($succlang) ?>') !== -1) {
 					// 数据库初始化成功就进行系统初始化
 					append_notice("<p><?= lang('initsys') ?> ... </p>");
 					refresh_lastmsg();
@@ -1184,7 +1231,6 @@ function runucquery($sql, $tablepre) {
 	foreach($ret as $query) {
 		$query = trim($query);
 		if($query) {
-
 			if(substr($query, 0, 12) == 'CREATE TABLE') {
 				$name = preg_replace("/CREATE TABLE ([a-z0-9_]+) .*/is", "\\1", $query);
 				if($db->query(createtable($query, $db->version()))) {
@@ -1194,12 +1240,15 @@ function runucquery($sql, $tablepre) {
 					return false;
 				}
 			} else {
-				$db->query($query);
+				if (!$db->query($query)) {
+					showjsmessage(lang('failed') . "\n");
+					return false;
+				}
 			}
 
 		}
 	}
-
+	return true;
 }
 
 
@@ -1256,8 +1305,8 @@ function dfopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $
 		$ch = curl_init();
 		$ip && curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: ".$host));
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-		// 在提供 IP 地址的同时, 当请求主机名并非一个合法 IP 地址, 且 PHP 版本 >= 5.5.0 时, 使用 CURLOPT_RESOLVE 设置固定的 IP 地址与域名关系
-		// 在不支持的 PHP 版本下, 继续采用原有不支持 SNI 的流程
+		
+		
 		if(!empty($ip) && filter_var($ip, FILTER_VALIDATE_IP) && !filter_var($host, FILTER_VALIDATE_IP) && version_compare(PHP_VERSION, '5.5.0', 'ge')) {
 			curl_setopt($ch, CURLOPT_RESOLVE, array("$host:$port:$ip"));
 			curl_setopt($ch, CURLOPT_URL, $scheme.'://'.$host.':'.$port.$path);
@@ -1446,7 +1495,7 @@ function show_error($type, $errors = '', $quit = false) {
 	if($step > 0) {
 		echo "<div class=\"desc\"><b>$title</b><ul>$comment</ul>";
 	} else {
-		echo "</div><div class=\"main\"><b>$title</b><ul style=\"line-height: 200%; margin-left: 30px;\">$comment</ul>";
+		echo "<div><b>$title</b><ul style=\"line-height: 200%; margin-left: 30px;\">$comment</ul>";
 	}
 
 	if($quit) {
@@ -1492,7 +1541,7 @@ function show_setting($setname, $varname = '', $value = '', $type = 'text|passwo
 		if(strpos($type, 'oldbtn') !== FALSE) {
 			echo "<input type=\"button\" name=\"oldbtn\" value=\"".lang('old_step')."\" class=\"btn oldbtn\" onclick=\"history.back();\">\n";
 		}
-		$value = empty($value) ? 'next_step' : $value;
+		$value = empty($value) ? 'new_step' : $value;
 		echo "<input type=\"submit\" name=\"$varname\" value=\"".lang($value)."\" class=\"btn\">\n";
 	} elseif($type == 'checkbox') {
 		if(!is_array($varname) && !is_array($value)) {
@@ -1676,17 +1725,27 @@ function uc_write_config($config, $file, $password) {
 	$config .= "define('UC_MYKEY', '$ucmykey');\r\n";
 	$config .= "define('UC_DEBUG', false);\r\n";
 	$config .= "define('UC_PPP', 20);\r\n";
+	$config .= "define('UC_ONLYREMOTEADDR', 1);\r\n";
+	$config .= "define('UC_IPGETTER', 'header');\r\n";
+	$config .= "// define('UC_IPGETTER_HEADER', serialize(array('header' => 'HTTP_X_FORWARDED_FOR')));\r\n";
 
 	file_put_contents($file, $config);
 }
 
 function install_uc_server() {
-	global $db, $dbhost, $dbuser, $dbpw, $dbname, $tablepre, $username, $password, $email, $dzucstl;
+	global $db, $dbhost, $dbuser, $dbpw, $dbname, $tablepre, $username, $password, $email, $dzucstl, $myisam2innodb;
 
 	$ucsql = file_get_contents(ROOT_PATH.'./uc_server/install/uc.sql');
 	$uctablepre = $tablepre.'ucenter_';
 	$ucsql = str_replace(' uc_', ' '.$uctablepre, $ucsql);
-	$ucsql && runucquery($ucsql, $uctablepre);
+	if ($ucsql) {
+		if($myisam2innodb) {
+			$ucsql = str_replace('ENGINE=InnoDB', 'ENGINE=MyISAM', $ucsql);
+		}
+		if (!runucquery($ucsql, $uctablepre)) {
+			exit();
+		}
+	}
 	$appauthkey = _generate_key();
 	$ucdbhost = $dbhost;
 	$ucdbname = $dbname;
@@ -2200,7 +2259,7 @@ function append_to_install_log_file($message, $close = false) {
 	static $fh = false;
 	if (!$fh) {
 		$fh = fopen(INST_LOG_PATH, "a+");
-	} 
+	}
 	if ($fh) {
 		fwrite($fh, $message);
 		fflush($fh);
@@ -2231,25 +2290,25 @@ function send_mime_type_header($type = 'application/xml') {
 }
 
 function is_https() {
-	// PHP 标准服务器变量
+	
 	if(isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') {
 		return true;
 	}
-	// X-Forwarded-Proto 事实标准头部, 用于反代透传 HTTPS 状态
+	
 	if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') {
 		return true;
 	}
-	// 阿里云全站加速私有 HTTPS 状态头部
-	// Git 意见反馈 https://gitee.com/Discuz/DiscuzX/issues/I3W5GP
+	
+	
 	if(isset($_SERVER['HTTP_X_CLIENT_SCHEME']) && strtolower($_SERVER['HTTP_X_CLIENT_SCHEME']) == 'https') {
 		return true;
 	}
-	// 西部数码建站助手私有 HTTPS 状态头部
-	// 官网意见反馈 https://www.discuz.net/thread-3849819-1-1.html
+	
+	
 	if(isset($_SERVER['HTTP_FROM_HTTPS']) && strtolower($_SERVER['HTTP_FROM_HTTPS']) != 'off') {
 		return true;
 	}
-	// 服务器端口号兜底判断
+	
 	if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
 		return true;
 	}

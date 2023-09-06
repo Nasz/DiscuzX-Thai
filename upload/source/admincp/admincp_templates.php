@@ -99,7 +99,7 @@ if($operation == 'admin') {
 	}
 
 } elseif($operation == 'add') {
-	$predefinedvars = array('available' => array(), 'boardimg' => array(), 'searchimg' => array(), 'imgdir' => array(), 'styleimgdir' => array(), 'stypeid' => array(),
+	$predefinedvars = array('available' => array(), 'boardimg' => array(), 'searchimg' => array(), 'touchimg' => array(), 'imgdir' => array(), 'styleimgdir' => array(), 'stypeid' => array(),
 		'headerbgcolor' => array(0, $lang['styles_edit_type_bg']),
 		'bgcolor' => array(0),
 		'sidebgcolor' => array(0, '', '#FFF sidebg.gif repeat-y 100% 0'),
@@ -201,6 +201,7 @@ if($operation == 'admin') {
 				C::t('common_stylevar')->insert(array('styleid' => $styleid, 'variable' => $variable, 'substitute' => $substitute));
 			}
 		}
+		dmkdir(DISCUZ_ROOT.'./template/'.$identifiernew.'/');
 		updatecache(array('setting', 'styles'));
 		loadcache('style_default', true);
 		updatecache('updatediytemplate');

@@ -83,7 +83,7 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 	};
 	firstObj.onkeyup = function () {
 		if(pwlength == 0 || $(firstObj.id).value.length >= pwlength) {
-			var passlevels = new Array('','อ่อนแอ','กลาง','ทรงพลัง');
+			var passlevels = new Array('','อ่อนไหว','ปานกลาง','เข้มงวด');
 			var passlevel = checkstrongpw(firstObj.id);
 			errormessage(firstObj.id, '<span class="passlevel passlevel'+passlevel+'">ความแข็งแรงของรหัสผ่าน:'+passlevels[passlevel]+'</span>');
 		}

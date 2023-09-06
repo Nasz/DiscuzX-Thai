@@ -125,7 +125,7 @@
 							<!--{if $settings[$fieldid][formtype] != 'file'}-->
 									$htmls[$fieldid]
 							<!--{else}-->
-								 <input id="activitypic_$fieldid" type="text" tabindex="1" value="" class="px" name="$fieldid" onblur="if(!this.value.match(/^https?:\/\/.+\/.+\.(jpg|png|gif|jpeg|bmp)$/i)){$('showerror_$fieldid').innerHTML='{lang activity_imgurl_error}';}else{$('showerror_$fieldid').innerHTML='&nbsp;';}"><div id="showerror_$fieldid" class="rq mtn">{lang activity_enter_imgurl}</div>
+								 <input id="activitypic_$fieldid" type="text" value="" class="px" name="$fieldid" onblur="if(!this.value.match(/^https?:\/\/.+\/.+\.(jpg|png|gif|jpeg|bmp)$/i)){$('showerror_$fieldid').innerHTML='{lang activity_imgurl_error}';}else{$('showerror_$fieldid').innerHTML='&nbsp;';}"><div id="showerror_$fieldid" class="rq mtn">{lang activity_enter_imgurl}</div>
 							<!--{/if}-->
 								</td>
 							</tr>
@@ -197,7 +197,7 @@
 			<!--{loop $applylist $apply}-->
 				<tr>
 					<td>
-						<a target="_blank" href="home.php?mod=space&uid=$apply[uid]" class="ratl vm"><!--{echo avatar($apply[uid], 'small')}--></a>
+						<a target="_blank" href="home.php?mod=space&uid=$apply[uid]" class="ratl vm"><!--{echo avatar($apply['uid'], 'small')}--></a>
 						<a target="_blank" href="home.php?mod=space&uid=$apply[uid]">$apply[username]</a>
 					</td>
 					<td><!--{if $apply[message]}--><p>$apply[message]</p><!--{/if}--></td>
@@ -234,7 +234,7 @@
 			<!--{loop $applylistverified $apply}-->
 				<tr>
 					<td>
-						<a target="_blank" href="home.php?mod=space&uid=$apply[uid]" class="ratl vm"><!--{echo avatar($apply[uid], 'small')}--></a>
+						<a target="_blank" href="home.php?mod=space&uid=$apply[uid]" class="ratl vm"><!--{echo avatar($apply['uid'], 'small')}--></a>
 						<a target="_blank" href="home.php?mod=space&uid=$apply[uid]">$apply[username]</a>
 					</td>
 					<td><!--{if $_G['forum_thread']['authorid'] == $_G['uid'] && $apply[message]}-->$apply[message]<!--{/if}--></td>

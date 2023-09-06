@@ -157,7 +157,8 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			"/\[backcolor=([#\w]+?)\]/i",
 			"/\[backcolor=((rgb|rgba)\([\d\s,]+?\))\]/i",
 			"/\[size=(\d{1,2}?)\]/i",
-			"/\[size=(\d{1,2}(\.\d{1,2}+)?(px|pt)+?)\]/i",
+			"/\[size=(\d{1,2}(\.\d{1,5})?(px|pt)+?)\]/i",
+			"/\[size=(\d+(\.\d+)?(px|pt)+?)\]/i",
 			"/\[font=([^\[\<]+?)\]/i",
 			"/\[align=(left|center|right)\]/i",
 			"/\[p=(\d{1,2}|null), (\d{1,2}|null), (left|center|right)\]/i",
@@ -171,6 +172,7 @@ function discuzcode($message, $smileyoff = false, $bbcodeoff = false, $htmlon = 
 			"<font style=\"background-color:\\1\">",
 			"<font size=\"\\1\">",
 			"<font style=\"font-size:\\1\">",
+			"<font>",
 			"<font face=\"\\1\">",
 			"<div align=\"\\1\">",
 			"<p style=\"line-height:\\1px;text-indent:\\2em;text-align:\\3\">",
@@ -411,11 +413,12 @@ function parseed2k($url) {
 
 function parseattachurl($aid, $ext, $ignoretid = 0) {
 	global $_G;
+	require_once libfile('function/attachment');
 	$_G['forum_skipaidlist'][] = $aid;
 	if(!empty($ext)) {
 		$attach = C::t('forum_attachment_n')->fetch('aid:'.$aid, $aid);
-		// 如果不是音视频类附件则不允许生成无条件限制的地址, 此处不支持附件收费以及阅读权限判定
-		if(!in_array(attachtype(fileext($attach['filename'])), array(9, 10))) {
+		
+		if(!in_array(attachtype(fileext($attach['filename'])."\t", 'id'), array(9, 10))) {
 			$ext = 0;
 		}
 	}
@@ -510,12 +513,12 @@ function parsemedia($params, $url) {
 		$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
 	}
 
-	// 兼容手机版（待测试）
+	
 	$width = defined('IN_MOBILE') ? '100%' : $width;
 	$height = defined('IN_MOBILE') ? 'auto' : $height;
 
 	$url = addslashes($url);
-        if(!in_array(strtolower(substr($url, 0, 6)), array('http:/', 'https:', 'ftp://', 'rtsp:/', 'mms://')) && !preg_match('/^static\//', $url) && !preg_match('/^data\//', $url)) {
+	if(!in_array(strtolower(substr($url, 0, 6)), array('http:/', 'https:', 'ftp://', 'rtsp:/', 'mms://')) && !preg_match('/^static\//', $url) && !preg_match('/^data\//', $url)) {
 		return dhtmlspecialchars($url);
 	}
 
@@ -574,11 +577,11 @@ function highlightword($text, $words, $prepend) {
 function parseflv($url, $width = 0, $height = 0) {
 	global $_G;
 	$lowerurl = strtolower($url);
-	$flv = $iframe = $imgurl = '';		
+	$flv = $iframe = $imgurl = '';
 	if(empty($_G['setting']['parseflv']) || !is_array($_G['setting']['parseflv'])) {
 		return FALSE;
 	}
-	
+
 	foreach($_G['setting']['parseflv'] as $script => $checkurl) {
 		$check = FALSE;
 		foreach($checkurl as $row) {
@@ -594,7 +597,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			}
 			break;
 		}
-	}	    	
+	}
 	if($flv || $iframe) {
 		if(!$width && !$height) {
 			return array('flv' => $flv, 'iframe' => $iframe, 'imgurl' => $imgurl);
@@ -604,7 +607,7 @@ function parseflv($url, $width = 0, $height = 0) {
 			$flv = addslashes($flv);
 			$iframe = addslashes($iframe);
 			$randomid = 'flv_'.random(3);
-			// 允许media扩展只返回其中一种播放方式，如两种都返回，则根据浏览器是否支持HTML5进行自动选择
+			
 			$player_iframe = $iframe ? "\"<iframe src='$iframe' border='0' scrolling='no' framespacing='0' allowfullscreen='true' style='max-width: 100%' width='$width' height='$height' frameborder='no'></iframe>\"" : '';
 			$player_flv = $flv ? "AC_FL_RunContent('width', '$width', 'height', '$height', 'allowNetworking', 'internal', 'allowScriptAccess', 'never', 'src', '$flv', 'quality', 'high', 'bgcolor', '#ffffff', 'wmode', 'transparent', 'allowfullscreen', 'true')" : '';
 			$player = (!empty($player_iframe) && !empty($player_flv)) ? "detectHtml5Support() ? $player_iframe : $player_flv" : (empty($player_iframe) ? $player_flv : $player_iframe);

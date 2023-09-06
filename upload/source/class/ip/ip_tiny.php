@@ -14,7 +14,7 @@ if(!defined('IN_DISCUZ')) {
 class ip_tiny_init_exception extends Exception {}
 
 class ip_tiny {
-	
+
 	private static $instance = NULL;
 	private $fp = NULL;
 	private $offset = array();
@@ -73,10 +73,11 @@ class ip_tiny {
 
 		@fseek($this->fp, $this->offset['len'] + $index_offset['len'] - 1024);
 		if($index_length['len']) {
-			return @fread($this->fp, $index_length['len']);
+			return '- '.@fread($this->fp, $index_length['len']);
 		} else {
 			return 'ไม่ทราบ';
 		}
 	}
 
 }
+?>

@@ -29,7 +29,7 @@ class dbstuff {
 			$this->halt('ไม่สามารถเชื่อมต่อกับ MySQL Server');
 		}
 
-		if ($this->version() < '5.5.3') {
+		if (version_compare($this->version(), '5.5.3', '<')) {
 			$this->halt('MySQL ต้องเป็นรุ่น 5.5.3 หรือมากกว่า');
 		}
 

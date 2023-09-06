@@ -356,7 +356,6 @@ if(submitcheck('threadsubmit', 1)) {
 	showtips('remoderate_tips');
 	
 	showformheader('remoderate');
-	showboxheader();
 	showtableheader();
 	showsubtitle(array('', 'remoderate_amount'));
 	showhiddenfields(array('pertask' => ''));
@@ -408,7 +407,6 @@ if(submitcheck('threadsubmit', 1)) {
 	));
 
 	showtablefooter();
-	showboxfooter();
 	showformfooter();
 
 }

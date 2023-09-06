@@ -101,7 +101,6 @@ var rowtypedata = [
 		showtips('misc_link_tips');
 		
 		showformheader('misc&operation=link');
-		showboxheader();
 		showtableheader();
 		showsubtitle(array('', 'display_order', 'misc_link_edit_name', 'misc_link_edit_url', 'misc_link_edit_description', 'misc_link_edit_logo', 'misc_link_group1', 'misc_link_group2', 'misc_link_group3','misc_link_group4'));
 		showsubtitle(array('', '', '', '', '', '', '<input class="checkbox" type="checkbox" name="portalall" onclick="checkAll(\'prefix\', this.form, \'portal\', \'portalall\')">',
@@ -129,7 +128,6 @@ var rowtypedata = [
 		echo '<tr><td></td><td colspan="3"><div><a href="###" onclick="addrow(this, 0)" class="addtr">'.$lang['misc_link_add'].'</a></div></td></tr>';
 		showsubmit('linksubmit', 'submit', 'del');
 		showtablefooter();
-		showboxfooter();
 		showformfooter();
 
 	} else {
@@ -200,7 +198,7 @@ var rowtypedata = [
 		
 		showtips('misc_relatedlink_tips');
 		
-		$tdstyle = array('width="50"', 'width="120"', 'width="330"', 'width="50"', 'width="80"', 'width="80"', '');
+		$tdstyle = array('width="80"', 'width="120"', 'width="330"', 'width="75"', 'width="105"', 'width="105"', '');
 		showformheader('misc&operation=relatedlink');
 		showtableheader();
 		showsetting('misc_relatedlink_status', 'relatedlinkstatus', $_G['setting']['relatedlinkstatus'], 'radio');
@@ -208,8 +206,7 @@ var rowtypedata = [
 		showtableheader('', '', 'id="relatedlink_header"');
 		showsubtitle(array('', 'misc_relatedlink_edit_name', 'misc_relatedlink_edit_url', 'misc_relatedlink_extent_article', 'misc_relatedlink_extent_forum', 'misc_relatedlink_extent_group', 'misc_relatedlink_extent_blog'), 'header tbm', $tdstyle);
 		showtablefooter();
-		echo '<script type="text/javascript">floatbottom(\'relatedlink_header\');</script>';
-		showtableheader();
+		showtableheader('', '', 'id="relatedlinktable"');
 		showsubtitle(array('', 'misc_relatedlink_edit_name', 'misc_relatedlink_edit_url', '<label><input class="checkbox" type="checkbox" name="articleall" onclick="checkAll(\'prefix\', this.form, \'article\', \'articleall\')">'.cplang('misc_relatedlink_extent_article').'</label>', '<label><input class="checkbox" type="checkbox" name="forumall" onclick="checkAll(\'prefix\', this.form, \'forum\', \'forumall\')">'.cplang('misc_relatedlink_extent_forum').'</label>', '<label><input class="checkbox" type="checkbox" name="groupall" onclick="checkAll(\'prefix\', this.form, \'group\', \'groupall\')">'.cplang('misc_relatedlink_extent_group').'</label>', '<label><input class="checkbox" type="checkbox" name="blogall" onclick="checkAll(\'prefix\', this.form, \'blog\', \'blogall\')">'.cplang('misc_relatedlink_extent_blog').'</label>'), 'header', $tdstyle);
 
 		$query = C::t('common_relatedlink')->range(0, 0, 'DESC');
@@ -230,6 +227,7 @@ var rowtypedata = [
 		showsubmit('linksubmit', 'submit', 'del');
 		showtablefooter();
 		showformfooter();
+		echo '<script type="text/javascript">floatbottom(\'relatedlink_header\');$(\'relatedlink_header\').style.width = $(\'relatedlinktable\').offsetWidth + \'px\';</script>';
 
 	} else {
 
@@ -330,7 +328,7 @@ var rowtypedata = [
 			}
 			$availablenew = $_GET['availablenew'];
 			foreach($tagnew as $id => $val) {
-				if(in_array($id, $custom_ids) && !preg_match("/^[0-9a-z]+$/i", $tagnew[$id]) && strlen($tagnew[$id]) < 20) {
+				if(in_array($id, $custom_ids) && (!preg_match("/^[0-9a-z]+$/i", $tagnew[$id]) || strlen($tagnew[$id]) > 20)) {
 					cpmsg('dzcode_edit_tag_invalid', '', 'error');
 				}
 				$availablenew[$id] = in_array($id, $custom_ids) ? $availablenew[$id] : 1;
@@ -349,7 +347,7 @@ var rowtypedata = [
 
 		$newtag = $_GET['newtag'];
 		if($newtag != '') {
-			if(!preg_match("/^[0-9a-z]+$/i", $newtag && strlen($newtag) < 20)) {
+			if(!preg_match("/^[0-9a-z]+$/i", $newtag) || strlen($newtag) > 20) {
 				cpmsg('dzcode_edit_tag_invalid', '', 'error');
 			}
 			$data = array(
@@ -592,8 +590,9 @@ var rowtypedata = [
 		showtagheader('div', 'list', $anchor == 'list');
 		showformheader("misc&operation=censor&page=$page", '', 'keywordsearch');
 		showtableheader();
-		echo '<br /><br /><form method="post">'. $lang['keywords'].': <input type="text" name="censorkeyword" value="'.$_GET['censorkeyword'].'" /> &nbsp; <select name="censor_search_type"><option value = "">'.cplang("misc_censor_wordtype_search").'</option><option value="0">'.cplang('misc_censor_word_default_typename').'</option>'.($word_type_option_search ? $word_type_option_search : $word_type_option).'</select> &nbsp;<input type="submit" name="censor_search" value="'.$lang['search'].'" class="btn" /> </form>';
+		echo '<tr><td>'. $lang['keywords'].': <input type="text" name="censorkeyword" value="'.$_GET['censorkeyword'].'" /> &nbsp; <select name="censor_search_type"><option value = "">'.cplang("misc_censor_wordtype_search").'</option><option value="0">'.cplang('misc_censor_word_default_typename').'</option>'.($word_type_option_search ? $word_type_option_search : $word_type_option).'</select> &nbsp;<input type="submit" name="censor_search" value="'.$lang['search'].'" class="btn" /></td></tr>';
 		showtablefooter();
+		showformfooter();
 
 		showformheader("misc&operation=censor&page=$page", '', 'listform');
 		showtableheader('', 'fixpadding');
@@ -791,7 +790,6 @@ EOT;
 		
 		showformheader('misc&operation=stamp');
 		showhiddenfields(array('anchor' => 'list'));
-		showboxheader();
 		showtableheader();
 		showsubtitle(array('', 'misc_stamp_id', 'misc_stamp_name', 'smilies_edit_image', 'smilies_edit_filename', 'misc_stamp_icon', 'misc_stamp_option'));
 
@@ -832,7 +830,6 @@ EOT;
 
 		showsubmit('stampsubmit', 'submit', 'del');
 		showtablefooter();
-		showboxfooter();
 		showformfooter();
 		showtagfooter('div');
 
@@ -842,7 +839,6 @@ EOT;
 		
 		showformheader('misc&operation=stamp&type=list');
 		showhiddenfields(array('anchor' => 'llist'));
-		showboxheader();
 		showtableheader();
 		showsubtitle(array('', 'misc_stamp_id', 'misc_stamp_listname', 'smilies_edit_image', 'smilies_edit_filename'));
 
@@ -859,7 +855,6 @@ EOT;
 
 		showsubmit('stampsubmit', 'submit', 'del');
 		showtablefooter();
-		showboxfooter();
 		showformfooter();
 		showtagfooter('div');
 
@@ -868,7 +863,6 @@ EOT;
 		
 		showtips('misc_stamp_addtips');
 		
-		showboxheader();
 		showtableheader();
 		showsubtitle(array('add', 'misc_stamp_type', 'misc_stamp_id', 'misc_stamp_imagename', 'smilies_edit_image', 'smilies_edit_filename'));
 
@@ -899,7 +893,6 @@ EOT;
 		}
 
 		showtablefooter();
-		showboxfooter();
 		showformfooter();
 		showtagfooter('div');
 
@@ -1000,14 +993,12 @@ var rowtypedata = [
 		showtips('misc_attachtype_tips');
 		
 		showformheader('misc&operation=attachtype');
-		showboxheader();
 		showtableheader('', 'nomargin');
 		showtablerow('class="partition"', array('class="td25"', 'class="td24"'), array('', cplang('misc_attachtype_ext'), cplang('misc_attachtype_maxsize')));
 		echo $attachtypes;
 		echo '<tr><td></td><td colspan="2"><div><a href="###" onclick="addrow(this, 0)" class="addtr">'.$lang['misc_attachtype_add'].'</a></div></tr>';
 		showsubmit('typesubmit', 'submit', 'del');
 		showtablefooter();
-		showboxfooter();
 		showformfooter();
 
 	} else {
@@ -1520,7 +1511,7 @@ var rowtypedata = [
 	if($statid && $statkey) {
 		$q = "statid=$statid&statkey=$statkey";
 		$q=rawurlencode(base64_encode($q));
-		$url = 'http://stat.discuz.com/stat_ins.php?action=checkstat&q='.$q;
+		$url = 'https://stat.discuz.vip/stat_ins.php?action=checkstat&q='.$q;
 		$key = dfsockopen($url);
 		$newstatdisable = $key == $statkey ? 0 : 1;
 		if($newstatdisable != $statdisable) {
@@ -1565,14 +1556,12 @@ EOT;
 			shownav('tools', 'nav_custommenu');
 			showsubmenu('nav_custommenu');
 			showformheader('misc&operation=custommenu');
-			showboxheader();
 			showtableheader();
 			showsubtitle(array('', 'display_order', 'name', 'URL'));
 			echo $optionlist;
 			echo '<tr><td></td><td colspan="3"><div><a href="###" onclick="addrow(this, 0)" class="addtr">'.$lang['custommenu_add'].'</a></div></td></tr>';
 			showsubmit('optionsubmit', 'submit', 'del', '', $multipage);
 			showtablefooter();
-			showboxfooter();
 			showformfooter();
 
 		} else {

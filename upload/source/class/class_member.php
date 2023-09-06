@@ -362,6 +362,7 @@ class register_ctl {
 				}
 			} elseif(!$this->setting['regstatus']) {
 				if($this->setting['regconnect']) {
+					
 					if(CURMODULE != 'connect'){
 						dheader('location:connect.php?mod=login&op=init&referer=forum.php&statfrom=login_simple');
 					}

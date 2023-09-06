@@ -73,7 +73,7 @@ function cutstr($string, $length, $dot = '') {
 	return $strcut.$dot;
 }
 
-function parseqqicq($qqicq, $minlen = 5, $maxlen = 12) {// qq 转换
+function parseqqicq($qqicq, $minlen = 5, $maxlen = 12) {// แปลง qq 
 	return $qqicq ? (preg_match("/^([0-9]+)$/", $qqicq) && strlen($qqicq) >= $minlen && strlen($qqicq) <= $maxlen ? $qqicq : '') : '';
 }
 
@@ -133,7 +133,7 @@ function parsesign($sign) {
 	return daddslashes(str_replace($searcharray, $replacearray, preg_replace($pregfind, $pregreplace, $sign)));
 }
 
-function bbcodeurl($url, $tags) {//url 转换
+function bbcodeurl($url, $tags) {//แปลง url 
 	if(!preg_match("/<.+?>/s", $url)) {
 		if(!in_array(strtolower(substr($url, 0, 6)), array('http:/', 'ftp://', 'rtsp:/', 'mms://'))) {
 			$url = 'http://'.$url;
@@ -454,7 +454,7 @@ function showfooter($halt = false) {
 	if(!$isshow) {
 		echo <<<EOT
 	</div>
-	<div id="footer">&copy; Comsenz Inc. 2001-2010 www.discuz.net</div>
+	<div id="footer">&copy; Comsenz Inc. 2001-2010 www.discuz.vip</div>
 	</div>
 </body>
 </html>

@@ -86,7 +86,7 @@ if(!$_GET['type']) {
 	$_GET['type'] = 'all';
 }
 if($_GET['type'] == 'group') {
-	$navtitle = lang('core', 'title_group_favorite', array('group' => $_G['setting']['navs'][3]['navname']));
+	$navtitle = lang('core', 'title_group_favorite', array('gorup' => $_G['setting']['navs'][3]['navname']));
 } else {
 	$navtitle = lang('core', 'title_'.$_GET['type'].'_favorite');
 }

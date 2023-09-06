@@ -27,6 +27,7 @@ var page = {
 		var nextpage = qSel('div.pg .nxt') ? qSel('div.pg .nxt').href : undefined;
 		var lastpage = qSel('div.pg label span') ? (qSel('div.pg label span').innerText.replace(/[^\d]/g, '') || 0) : 0;
 		var curpage = qSel('div.pg input') ? qSel('div.pg input').value : 1;
+		var multipage_url = getID('multipage_url') ? getID('multipage_url').value : undefined;
 
 		if(!lastpage) {
 			prevpage = qSel('div.pg .pgb a') ? qSel('div.pg .pgb a').href : undefined;
@@ -49,19 +50,26 @@ var page = {
 			selector += '<a id="select_a">';
 			selector += '<select id="dumppage">';
 			for(var i=1; i<=lastpage; i++) {
-				selector += '<option value="'+i+'" '+ (i == curpage ? 'selected' : '') +'>第'+i+'页</option>';
+				selector += '<option value="'+i+'" '+ (i == curpage ? 'selected' : '') +'>หน้า'+i+'</option>';
 			}
 			selector += '</select>';
-			selector += '<span>第'+curpage+'页</span>';
+			selector += '<span>หน้า'+curpage+'</span>';
 		}
 
 		var pgobj = qSel('div.pg');
 		pgobj.classList.remove('pg');
 		pgobj.classList.add('page');
-		pgobj.innerHTML = '<a href="'+ prevpagehref +'">上一页</a>'+ selector +'<a href="'+ nextpagehref +'">下一页</a>';
+		pgobj.innerHTML = '<a href="'+ prevpagehref +'">ก่อนหน้า</a>'+ selector +'<a href="'+ nextpagehref +'">ถัดไป</a>';
 		qSel('#dumppage').addEventListener('change', function() {
 			var href = (prevpage || nextpage);
-			window.location.href = href.replace(/page=\d+/, 'page=' + this.value);
+			var newhref = href.replace(/page=\d+/, 'page=' + this.value);
+			if (newhref == href) {
+				newhref = href.replace(/(forum|thread|article|group|blog)-(\d+)-(\d+)(-(\d+))?\.html/i, '$1-$2-' + this.value + '$4.html');
+				if (newhref == href && multipage_url != undefined) {
+					newhref = multipage_url.replace(/{page}/i, this.value);
+				}
+			}
+			window.location.href = newhref;
 		});
 	},
 };
@@ -170,6 +178,7 @@ var popup = {
 				pop.css({'display':'none'});
 				obj.on('click', function(e) {
 					$this.open(pop);
+					return false;
 				});
 			}
 		});
@@ -190,7 +199,7 @@ var popup = {
 			if(type == 'alert') {
 				pop = '<div class="tip"><dt>'+ pop +'</dt><dd><input class="button2" type="button" value="确定" onclick="popup.close();"></dd></div>'
 			} else if(type == 'confirm') {
-				pop = '<div class="tip"><dt>'+ pop +'</dt><dd><input class="redirect button2" type="button" value="确定" href="'+ url +'"><a href="javascript:;" onclick="popup.close();">ยกเลิก</a></dd></div>'
+				pop = '<div class="tip"><dt>'+ pop +'</dt><dd><a class="button" href="'+ url +'">确定</a> <button onclick="popup.close();" class="button">取消</a></dd></div>'
 			}
 			$('body').append('<div id="ntcmsg" style="display:none;">'+ pop +'</div>');
 			pop = $('#ntcmsg');
@@ -262,17 +271,6 @@ var formdialog = {
 				popup.open('表单提交异常，无法完成您的请求', 'alert');
 			});
 			return false;
-		});
-	}
-};
-
-var redirect = {
-	init : function() {
-		qSelA('.redirect').forEach(function (rd) {
-			rd.addEventListener('click', function () {
-				popup.close();
-				window.location.href = this.getAttribute('href');
-			});
 		});
 	}
 };
@@ -703,7 +701,6 @@ $(document).ready(function() {
 	}
 	dialog.init();
 	formdialog.init();
-	redirect.init();
 });
 
 function ajaxget(url, showid, waitid, loading, display, recall) {
@@ -883,6 +880,8 @@ function portal_flowlazyload() {
 	this.showNextPage = function() {
 		var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
 		var offsetTop = this.getOffset(document.getElementsByClassName('page')[0]);
+		
+		
 		if (!processing && times <= 9 && offsetTop > document.documentElement.clientHeight && (offsetTop - scrollTop < document.documentElement.clientHeight)) {
 			processing = true;
 			times++;

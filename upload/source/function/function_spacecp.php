@@ -564,7 +564,7 @@ function emailcheck_send($uid, $email) {
 	global $_G;
 
 	if($uid && $email) {
-		// 读取用户论坛表内的时间，限制重发间隔
+		
 		$memberauthstr = C::t('common_member_field_forum')->fetch($uid);
 		if(!empty($memberauthstr['authstr'])) {
 			list($dateline) = explode("\t", $memberauthstr['authstr']);
@@ -573,7 +573,7 @@ function emailcheck_send($uid, $email) {
 				return false;
 			}
 		}
-		// 用户论坛字段表内authstr字段保存token和时间戳，实现邮件链接不可重复使用
+		
 		$timestamp = $_G['timestamp'];
 		$idstring = substr(md5($email), 0, 6);
 		C::t('common_member_field_forum')->update($uid, array('authstr' => "$timestamp\t3\t$idstring"));
@@ -581,7 +581,7 @@ function emailcheck_send($uid, $email) {
 		$hash = authcode("$uid\t$email\t$timestamp", 'ENCODE', md5(substr(md5($_G['config']['security']['authkey']), 0, 16)));
 		$verifyurl = $_G['setting']['securesiteurl'].'home.php?mod=misc&amp;ac=emailcheck&amp;hash='.urlencode($hash);
 		$mailmessage = array(
-			'tpl' => 'email_verify', 
+			'tpl' => 'email_verify',
 			'var' => array(
 				'username' => $_G['member']['username'],
 				'bbname' => $_G['setting']['bbname'],

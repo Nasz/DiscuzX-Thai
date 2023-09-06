@@ -54,7 +54,6 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
         );
 	showtablefooter();
 	showboxfooter();
-	showtableheader();
 
 	$title = '';
 	if(!empty($_GET['title'])) {
@@ -89,10 +88,19 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 		}
 		$multipage = multi($modcount, $tpp, $page, ADMINSCRIPT."?action=moderate&operation=threads&filter=$filter&modfid=$modfid&dateline={$_GET['dateline']}&username={$_GET['username']}&title={$_GET['title']}&tpp=$tpp&showcensor=$showcensor");
 	}
-	echo '<p class="margintop marginbot"><a href="javascript:;" onclick="expandall();">'.cplang('moderate_all_expand').'</a> &nbsp;<a href="javascript:;" onclick="foldall();">'.cplang('moderate_all_fold').'</a><p>';
+	showtableheader('', 'nobottom');
+	echo '<tr><td><p class="margintop marginbot"><a href="javascript:;" onclick="expandall();">'.cplang('moderate_all_expand').'</a> &nbsp;<a href="javascript:;" onclick="foldall();">'.cplang('moderate_all_fold').'</a></p></td></tr>';
+	showtablefooter();
+
+	showtableheader();
 	loadcache('forums');
 	require_once libfile('function/misc');
 	foreach($threadlist as $thread) {
+		
+		if($thread['displayorder'] >= 0) {
+			updatemoderate('tid', $thread['tid'], 2);
+			continue;
+		}
 		$threadsortinfo = '';
 		$thread['useip'] = $thread['useip'] . '-' . convertip($thread['useip']);
 		if($thread['authorid'] && $thread['author']) {
@@ -126,7 +134,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 				$attach['url'] = $attach['isimage']
 						? " {$attach['filename']} (".sizecount($attach['filesize']).")<br /><br /><img src=\"".$_G['setting']['attachurl']."forum/{$attach['attachment']}\" onload=\"if(this.width > 400) {this.resized=true; this.width=400;}\">"
 						 : "<a href=\"".$_G['setting']['attachurl']."forum/{$attach['attachment']}\" target=\"_blank\">{$attach['filename']}</a> (".sizecount($attach['filesize']).")";
-				$thread['message'] .= "<br /><br />{$lang['attachment']}: ".attachtype(fileext($attach['filename'])).$attach['url'];
+				$thread['message'] .= "<br /><br />{$lang['attachment']}: ".attachtype(fileext($attach['filename'])."\t").$attach['url'];
 			}
 		}
 
@@ -146,7 +154,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 		}
 		$forumname = $_G['cache']['forums'][$thread['fid']]['name'];
 		showtagheader('tbody', '', true, 'hover');
-		showtablerow("id=\"mod_{$thread['tid']}_row1\"", array("id=\"mod_{$thread['tid']}_row1_op\" rowspan=\"3\" class=\"rowform threadopt\" style=\"width:80px;\"", '', 'width="120"', 'width="120"', 'width="55"'), array(
+		showtablerow("id=\"mod_{$thread['tid']}_row1\"", array("id=\"mod_{$thread['tid']}_row1_op\" rowspan=\"3\" class=\"rowform threadopt\" style=\"width:80px;\"", '', 'width="120"', 'width="120"', 'width="70"'), array(
 			"<ul class=\"nofloat\"><li><input class=\"radio\" type=\"radio\" name=\"moderate[{$thread['tid']}]\" id=\"mod_{$thread['tid']}_1\" value=\"validate\" onclick=\"mod_setbg({$thread['tid']}, 'validate');document.getElementById('deloptions_{$thread['tid']}').style.display='none';\"><label for=\"mod_{$thread['tid']}_1\">{$lang['validate']}</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[{$thread['tid']}]\" id=\"mod_{$thread['tid']}_2\" value=\"delete\" onclick=\"mod_setbg({$thread['tid']}, 'delete');document.getElementById('deloptions_{$thread['tid']}').style.display='inline';\"><label for=\"mod_{$thread['tid']}_2\">{$lang['delete']}</label></li><li><input class=\"radio\" type=\"radio\" name=\"moderate[{$thread['tid']}]\" id=\"mod_{$thread['tid']}_3\" value=\"ignore\" onclick=\"mod_setbg({$thread['tid']}, 'ignore');document.getElementById('deloptions_{$thread['tid']}').style.display='none';\"><label for=\"mod_{$thread['tid']}_3\">{$lang['ignore']}</label></li></ul>",
 			"<h3><a href=\"javascript:;\" onclick=\"display_toggle('{$thread['tid']}');\">{$thread['subject']}</a> $thread_censor_text</h3><p>{$thread['useip']}</p>",
 			"<a target=\"_blank\" href=\"forum.php?mod=forumdisplay&fid={$thread['fid']}\">$forumname</a>",
@@ -210,7 +218,7 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 
 	if($moderation['delete']) {
 		$deletetids = array();
-		$recyclebintids = array();		
+		$recyclebintids = array();
 		$deleteauthorids = array();
 		foreach(C::t('forum_thread')->fetch_all_by_tid_displayorder($moderation['delete'], $displayorder, '>=', $fidadd['fids']) as $thread) {
 			if($recyclebins[$thread['fid']]) {
@@ -269,20 +277,20 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 
 		$tids = $authoridarray = $moderatedthread = array();
 		$firsttime_validatethread = array();
-		$uids = array();				
+		$uids = array();
 		foreach(C::t('forum_thread')->fetch_all_by_tid_fid($moderation['validate'], $fidadd['fids']) as $thread) {
 			if($thread['displayorder'] != -2 && $thread['displayorder']!= -3) {
 				continue;
 			}
 			$poststatus = C::t('forum_post')->fetch_threadpost_by_tid_invisible($thread['tid']);
 			$thread['anonymous'] = $poststatus['anonymous'];
-			$thread['message'] = $poststatus['message'];			
+			$thread['message'] = $poststatus['message'];
 			$poststatus = $poststatus['status'];
 			$tids[] = $thread['tid'];
 
 			if(getstatus($poststatus, 3) == 0) {
 				$firsttime_validatethread[] = $thread;
-				$uids[] = $thread['authorid'];				
+				$uids[] = $thread['authorid'];
 				updatepostcredits('+', $thread['authorid'], 'post', $thread['fid']);
 				$attachcount = C::t('forum_attachment_n')->count_by_id('tid:'.$thread['tid'], 'tid', $thread['tid']);
 				updatecreditbyaction('postattach', $thread['authorid'], array(), '', $attachcount, 1, $thread['fid']);

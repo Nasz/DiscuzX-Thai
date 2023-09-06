@@ -16,7 +16,7 @@ define('UC_USER_EMAIL_FORMAT_ILLEGAL', -4);
 define('UC_USER_EMAIL_ACCESS_ILLEGAL', -5);
 define('UC_USER_EMAIL_EXISTS', -6);
 define('UC_USER_USERNAME_CHANGE_FAILED', -7);
-define('UC_USER_SECMOBILE_EXISTS', -8);
+define('UC_USER_SECMOBILE_EXISTS', -9);
 
 class usercontrol extends base {
 
@@ -89,7 +89,7 @@ class usercontrol extends base {
 			return $status;
 		}
 		if(($status = $this->_check_secmobile($secmobicc, $secmobile)) > 0) {
-			return -8;
+			return UC_USER_SECMOBILE_EXISTS;
 		}
 
 		$uid = $_ENV['user']->add_user($username, $password, $email, 0, $questionid, $answer, $regip, $secmobicc, $secmobile);
@@ -111,8 +111,8 @@ class usercontrol extends base {
 		if(!$ignoreoldpw && $email && ($status = $this->_check_email($email, $username)) < 0) {
 			return $status;
 		}
-		if(($status = $this->_check_secmobile($secmobicc, $secmobile)) > 0) {
-			return -8;
+		if(($status = $this->_check_secmobile($secmobicc, $secmobile, $username)) > 0) {
+			return UC_USER_SECMOBILE_EXISTS;
 		}
 
 		$status = $_ENV['user']->edit_user($username, $oldpw, $newpw, $email, $ignoreoldpw, $questionid, $answer, $secmobicc, $secmobile);
@@ -140,6 +140,8 @@ class usercontrol extends base {
 		$ip = $this->input('ip');
 		$nolog = $this->input('nolog');
 
+		
+		
 		$check_times = $this->settings['login_failedtime'] > 0 ? $this->settings['login_failedtime'] : ($this->settings['login_failedtime'] < 0 ? 0 : 5);
 
 		if($ip && $check_times && !$loginperm = $_ENV['user']->can_do_login($username, $ip)) {
@@ -152,6 +154,7 @@ class usercontrol extends base {
 		} elseif($isuid == 2) {
 			$user = $_ENV['user']->get_user_by_email($username);
 		} elseif($isuid == 4) {
+			
 			list($secmobicc, $secmobile) = explode('-', $username);
 			$user = $_ENV['user']->get_user_by_secmobile($secmobicc, $secmobile);
 		} else {
@@ -165,6 +168,7 @@ class usercontrol extends base {
 		} elseif($checkques && $user['secques'] != $_ENV['user']->quescrypt($questionid, $answer)) {
 			$status = -3;
 		} else {
+			
 			$_ENV['user']->upgrade_password($username, $password, $user['password'], $user['salt']);
 			$status = $user['uid'];
 		}
@@ -248,8 +252,7 @@ class usercontrol extends base {
 	function ondelete() {
 		$this->init_input();
 		$uid = $this->input('uid');
-		$action = $this->input('action');
-		return ($action == 'delete' || $this->settings['insecureuserdelete']) ? $_ENV['user']->delete_user($uid) : 0;
+		return $_ENV['user']->delete_user($uid);
 	}
 
 	function ondeleteavatar() {
@@ -353,7 +356,7 @@ class usercontrol extends base {
 		@header("Expires: 0");
 		@header("Cache-Control: private, post-check=0, pre-check=0, max-age=0", FALSE);
 		@header("Pragma: no-cache");
-		$this->init_input(getgpc('agent', 'G'));
+		$this->init_input(getgpc('agent', 'G'), false);
 
 		$uid = $this->input('uid');
 		if(empty($uid)) {
@@ -397,19 +400,22 @@ class usercontrol extends base {
 		}else{
 			header("Content-type: application/xml; charset=utf-8");
 		}
-		$this->init_input(getgpc('agent'));
+		$this->init_input(getgpc('agent'), false);
 		$uid = $this->input('uid');
 		if(empty($uid)) {
 			return '<root><message type="error" value="-1" /></root>';
 		}
 		$home = $this->get_home($uid);
-		if(!is_dir(UC_DATADIR.'./avatar/'.$home)) {
-			$this->set_home($uid, UC_DATADIR.'./avatar/');
+		if(!defined('UC_UPAVTDIR')) {
+			define('UC_UPAVTDIR', UC_DATADIR.'./avatar/');
+		}
+		if(!is_dir(UC_UPAVTDIR.$home)) {
+			$this->set_home($uid, UC_UPAVTDIR);
 		}
 		$avatartype = getgpc('avatartype', 'G') == 'real' ? 'real' : 'virtual';
-		$bigavatarfile = UC_DATADIR.'./avatar/'.$this->get_avatar($uid, 'big', $avatartype);
-		$middleavatarfile = UC_DATADIR.'./avatar/'.$this->get_avatar($uid, 'middle', $avatartype);
-		$smallavatarfile = UC_DATADIR.'./avatar/'.$this->get_avatar($uid, 'small', $avatartype);
+		$bigavatarfile = UC_UPAVTDIR.$this->get_avatar($uid, 'big', $avatartype);
+		$middleavatarfile = UC_UPAVTDIR.$this->get_avatar($uid, 'middle', $avatartype);
+		$smallavatarfile = UC_UPAVTDIR.$this->get_avatar($uid, 'small', $avatartype);
 		$bigavatar = $this->flashdata_decode(getgpc('avatar1', 'P'));
 		$middleavatar = $this->flashdata_decode(getgpc('avatar2', 'P'));
 		$smallavatar = $this->flashdata_decode(getgpc('avatar3', 'P'));
@@ -441,9 +447,6 @@ class usercontrol extends base {
 			$success = 0;
 		}
 
-		$filetype = '.jpg';
-		@unlink(UC_DATADIR.'./tmp/upload'.$uid.$filetype);
-
 		if(getgpc('base64', 'G')){
 			if($success) {
 				return "<script>window.parent.postMessage('success','*');</script>";
@@ -451,6 +454,8 @@ class usercontrol extends base {
 				return "<script>window.parent.postMessage('failure','*');</script>";
 			}
 		}else{
+			$filetype = '.jpg';
+			@unlink(UC_DATADIR.'./tmp/upload'.$uid.$filetype);
 			if($success) {
 				return '<?xml version="1.0" ?><root><face success="1"/></root>';
 			} else {

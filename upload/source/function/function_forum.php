@@ -67,7 +67,7 @@ function formulaperm($formula) {
 			loadcache('medals');
 			foreach($medalpermc as $medal) {
 				if($_G['cache']['medals'][$medal]) {
-					$_G['forum_formulamessage'] .= '<img src="'.STATICURL.'image/common/'.$_G['cache']['medals'][$medal]['image'].'" style="vertical-align:middle;" />&nbsp;'.$_G['cache']['medals'][$medal]['name'].'&nbsp; ';
+					$_G['forum_formulamessage'] .= '<img src="'.$_G['cache']['medals'][$medal]['image'].'" style="vertical-align:middle;" />&nbsp;'.$_G['cache']['medals'][$medal]['name'].'&nbsp; ';
 				}
 			}
 			showmessage('forum_permforum_nomedal', NULL, array('forum_permforum_nomedal' => $_G['forum_formulamessage']), array('login' => 1));
@@ -99,8 +99,8 @@ function formulaperm($formula) {
 					break;
 				case 'regip':
 				case 'lastip':
-					$formula = preg_replace("/\{([\d\.]+?)\}/", "'\\1'", $formula);
-					$formula = preg_replace('/(\$memberformula\[\'(regip|lastip)\'\])\s*=+\s*\'([\d\.]+?)\'/', "strpos(\\1, '\\3')===0", $formula);
+					$formula = preg_replace("/\{([0-9a-fA-F\.\:\/]+?)\}/", "'\\1'", $formula);
+					$formula = preg_replace('/(\$memberformula\[\'(regip|lastip)\'\])\s*=+\s*\'([0-9a-fA-F\.\:\/]+?)\'/', "ip::check_ip(\\1, '\\3')", $formula);
 				case 'buyercredit':
 				case 'sellercredit':
 					space_merge($_G['member'], 'status');break;
@@ -206,8 +206,8 @@ function medalformulaperm($formula, $type) {
 					break;
 				case 'regip':
 				case 'lastip':
-					$formula = preg_replace("/\{([\d\.]+?)\}/", "'\\1'", $formula);
-					$formula = preg_replace('/(\$memberformula\[\'(regip|lastip)\'\])\s*=+\s*\'([\d\.]+?)\'/', "strpos(\\1, '\\3')===0", $formula);
+					$formula = preg_replace("/\{([0-9a-fA-F\.\:\/]+?)\}/", "'\\1'", $formula);
+					$formula = preg_replace('/(\$memberformula\[\'(regip|lastip)\'\])\s*=+\s*\'([0-9a-fA-F\.\:\/]+?)\'/', "ip::check_ip(\\1, '\\3')", $formula);
 				case 'buyercredit':
 				case 'sellercredit':
 					space_merge($_G['member'], 'status');break;
@@ -420,7 +420,7 @@ function loadforum($fid = null, $tid = null) {
 	if(isset($_G['forum']['fid']) && $_G['forum']['fid'] == $fid || isset($_G['thread']['tid']) && $_G['thread']['tid'] == $tid){
 		return null;
 	}
-	if(!empty($_GET['archiver'])) {//X1.5的Archiver兼容
+	if(!empty($_GET['archiver'])) {
 		if($fid) {
 			dheader('location: archiver/?fid-'.$fid.'.html');
 		} elseif($tid) {
@@ -492,7 +492,7 @@ function loadforum($fid = null, $tid = null) {
 			}
 			$forum['ismoderator'] = !empty($forum['ismoderator']) || $adminid == 1 || $adminid == 2 ? 1 : 0;
 			$fid = $forum['fid'];
-			$group_admingroupids = $_G['setting']['group_admingroupids'] ? dunserialize($_G['setting']['group_admingroupids']) : array('1' => '1');
+			$gorup_admingroupids = $_G['setting']['group_admingroupids'] ? dunserialize($_G['setting']['group_admingroupids']) : array('1' => '1');
 
 			if($forum['status'] == 3) {
 				if(!empty($forum['moderators'])) {
@@ -504,9 +504,9 @@ function loadforum($fid = null, $tid = null) {
 				if($_G['uid'] && $_G['adminid'] != 1) {
 					$forum['ismoderator'] = !empty($forum['moderators'][$_G['uid']]) ? 1 : 0;
 					$_G['adminid'] = 0;
-					if($forum['ismoderator'] || $group_admingroupids[$_G['groupid']]) {
+					if($forum['ismoderator'] || $gorup_admingroupids[$_G['groupid']]) {
 						$_G['adminid'] = $_G['adminid'] ? $_G['adminid'] : 3;
-						if(!empty($group_admingroupids[$_G['groupid']])) {
+						if(!empty($gorup_admingroupids[$_G['groupid']])) {
 							$forum['ismoderator'] = 1;
 							$_G['adminid'] = 2;
 						}
@@ -833,7 +833,8 @@ function insertpost($data) {
 	if(isset($data['tid'])) {
 		$thread = C::t('forum_thread')->fetch_thread($data['tid']);
 		$tableid = $thread['posttableid'];
-		if($thread['replies'] <= 0 && C::t('forum_sofa')->fetch($thread['tid'])) {
+		
+		if(!$data['first'] && $thread['replies'] <= 0 && C::t('forum_sofa')->fetch($thread['tid'])) {
 			C::t('forum_sofa')->delete($thread['tid']);
 		}
 	} else {
@@ -1141,7 +1142,7 @@ function safefilter(&$data) {
 			'</font>', '<b>', '</b>', '<strike>', '</strike>', '<i>', '</i>', '<u>', '</u>'
 			), preg_replace(array(
 			"/\[color=([#\w]+?)\]/i",
-			"/\[color=((rgb|rgba)\([\d\s,]+?\))\]/i",
+			"/\[color=((rgb|rgba)\([\d\s\.,]+?\))\]/i",
 			), array(
 			"<font color=\"\\1\">",
 			"<font style=\"color:\\1\">",

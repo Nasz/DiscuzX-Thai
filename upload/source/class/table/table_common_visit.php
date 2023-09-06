@@ -13,6 +13,7 @@ if(!defined('IN_DISCUZ')) {
 
 class table_common_visit extends discuz_table
 {
+	
 	public function __construct() {
 
 		$this->_table = 'common_visit';
@@ -22,6 +23,7 @@ class table_common_visit extends discuz_table
 		$this->_cache_ttl = -1;
 
 		parent::__construct();
+		
 		$this->_allowmem = $this->_allowmem && C::memory()->gotsortedset;
 	}
 
@@ -96,6 +98,7 @@ class table_common_visit extends discuz_table
 		return memory('zcard', 'idx_ip_view', $this->_pre_cache_key);
 	}
 
+	
 	private function get_start_and_end($start, $limit) {
 		$limit = intval($limit > 0 ? $limit : 0);
 		$start = intval($start > 0 ? $start : 0);

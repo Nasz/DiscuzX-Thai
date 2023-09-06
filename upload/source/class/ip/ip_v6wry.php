@@ -7,6 +7,7 @@ if(!defined('IN_DISCUZ')) {
 class ip_v6wry_init_exception extends Exception {}
 
 
+
 class ip_v6wry {
 	private static $instance = null;
 	public $ipdb,$firstIndex,$indexCount,$offlen;

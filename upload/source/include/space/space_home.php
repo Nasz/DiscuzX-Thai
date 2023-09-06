@@ -363,7 +363,7 @@ if($space['self'] && empty($start)) {
 } elseif(empty($_G['uid'])) {
 	$defaultusers = C::t('home_specialuser')->fetch_all_by_status(1, 12);
 
-	$query = C::t('home_show')->fetch_all_by_credit(0, 12); //DB::query("SELECT * FROM ".DB::table('home_show')." ORDER BY credit DESC LIMIT 0,12");
+	$query = C::t('home_show')->fetch_all_by_credit(0, 12); 
 	foreach($query as $value) {
 		$showusers[] = $value;
 	}

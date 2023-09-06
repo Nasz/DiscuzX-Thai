@@ -293,6 +293,7 @@ $lang = array (
   'notice' => 'แจ้งเตือน',
   'notice_pm' => 'ข้อความส่วนตัวของฉัน',
   'notice_mypost' => 'โพสต์ของฉัน',
+  'notice_mypost_rate' => '评分',
   'notice_mypost_at' => 'พูดถึงฉัน',
   'notice_mypost_post' => 'โพสต์',
   'notice_mypost_pcomment' => 'ความเห็น',

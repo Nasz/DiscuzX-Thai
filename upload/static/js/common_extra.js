@@ -227,26 +227,26 @@ function _showselect(obj, inpid, t, rettype) {
 		s = '';
 		if(!t) {
 			s += showselect_row(inpid, 'เมื่อวาน', 1, 0, rettype);
-			s += showselect_row(inpid, '一周', 7, 0, rettype);
-			s += showselect_row(inpid, '一个月', 30, 0, rettype);
-			s += showselect_row(inpid, '三个月', 90, 0, rettype);
-			s += showselect_row(inpid, '自定义', -2);
+			s += showselect_row(inpid, 'สัปดาห์', 7, 0, rettype);
+			s += showselect_row(inpid, 'หนึ่งเดือน', 30, 0, rettype);
+			s += showselect_row(inpid, 'สามเดือน', 90, 0, rettype);
+			s += showselect_row(inpid, 'ปรับแต่ง', -2);
 		} else {
 			if($(t)) {
 				var lis = $(t).getElementsByTagName('LI');
 				for(i = 0;i < lis.length;i++) {
 					s += '<a href="javascript:;" onclick="$(\'' + inpid + '\').value = this.innerHTML;$(\''+obj.id+'_menu\').style.display=\'none\'">' + lis[i].innerHTML + '</a>';
 				}
-				s += showselect_row(inpid, '自定义', -1);
+				s += showselect_row(inpid, 'ปรับแต่ง', -1);
 			} else {
 				s += '<a href="javascript:;" onclick="$(\'' + inpid + '\').value = \'0\'">永久</a>';
 				s += showselect_row(inpid, '7 วัน', 7, 1, rettype);
 				s += showselect_row(inpid, '14 วัน', 14, 1, rettype);
-				s += showselect_row(inpid, '一个月', 30, 1, rettype);
-				s += showselect_row(inpid, '三个月', 90, 1, rettype);
-				s += showselect_row(inpid, '半年', 182, 1, rettype);
-				s += showselect_row(inpid, '一年', 365, 1, rettype);
-				s += showselect_row(inpid, '自定义', -1);
+				s += showselect_row(inpid, 'หนึ่งเดือน', 30, 1, rettype);
+				s += showselect_row(inpid, 'สามเดือน', 90, 1, rettype);
+				s += showselect_row(inpid, 'หกเดือน', 182, 1, rettype);
+				s += showselect_row(inpid, 'หนึ่งปี', 365, 1, rettype);
+				s += showselect_row(inpid, 'ปรับแต่ง', -1);
 			}
 		}
 		$(div.id).innerHTML = s;
@@ -469,10 +469,10 @@ function _zoom(obj, zimg, nocover, pn, showexif) {
 		menu.id = menuid;
 		if(cover) {
 			menu.innerHTML = '<div class="zoominner" id="' + menuid + '_zoomlayer" style="display:none"><p><span class="y"><a id="' + menuid + '_imglink" class="imglink" target="_blank" title="เปิดในหน้าต่างใหม่">เปิดในหน้าต่างใหม่</a><a id="' + menuid + '_adjust" href="javascipt:;" class="imgadjust" title="ขนาดจริง">ขนาดจริง</a>' +
-				'<a href="javascript:;" onclick="hideMenu()" class="imgclose" title="ปิด">ปิด</a></span>สกอเมาส์เพื่อปรับขนาดรูปภาพ</p>' +
+				'<a href="javascript:;" onclick="hideMenu()" class="imgclose" title="ปิด">ปิด</a></span>สกอล์เมาส์เพื่อปรับขนาดรูปภาพ</p>' +
 				'<div class="zimg_p" id="' + menuid + '_picpage"></div><div class="hm" id="' + menuid + '_img"></div></div>';
 		} else {
-			menu.innerHTML = '<div class="popupmenu_popup" id="' + menuid + '_zoomlayer" style="width:auto"><span class="right y"><a href="javascript:;" onclick="hideMenu()" class="flbc" style="width:20px;margin:0 0 2px 0">ปิด</a></span>สกอเมาส์เพื่อปรับขนาดรูปภาพ<div class="zimg_p" id="' + menuid + '_picpage"></div><div class="hm" id="' + menuid + '_img"></div></div>';
+			menu.innerHTML = '<div class="popupmenu_popup" id="' + menuid + '_zoomlayer" style="width:auto"><span class="right y"><a href="javascript:;" onclick="hideMenu()" class="flbc" style="width:20px;margin:0 0 2px 0">ปิด</a></span>สกอล์เมาส์เพื่อปรับขนาดรูปภาพ<div class="zimg_p" id="' + menuid + '_picpage"></div><div class="hm" id="' + menuid + '_img"></div></div>';
 		}
 		if(BROWSER.ie || BROWSER.chrome){
 			menu.onmousewheel = adjust;

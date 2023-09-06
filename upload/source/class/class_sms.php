@@ -14,13 +14,22 @@ if(!defined('IN_DISCUZ')) {
 
 class sms {
 
+	
+	
 	const DISCUZ_CLASS_SMS_TYPE_SECCODE = 0;
 	const DISCUZ_CLASS_SMS_TYPE_MESSAGE = 1;
 
+	
+	
+	
 	const DISCUZ_CLASS_SMS_SRVTYPE_OTHERSRV = 0;
 	const DISCUZ_CLASS_SMS_SRVTYPE_SECCHECK = 1;
 	const DISCUZ_CLASS_SMS_SRVTYPE_NEWSLETT = 2;
 
+	
+	
+	
+	
 	const DISCUZ_CLASS_SMS_ERROR_NOWNOERR = 0;
 	const DISCUZ_CLASS_SMS_ERROR_TIMELESS = -1;
 	const DISCUZ_CLASS_SMS_ERROR_NUMLIMIT = -2;
@@ -32,13 +41,19 @@ class sms {
 	const DISCUZ_CLASS_SMS_ERROR_SMSDISAB = -8;
 	const DISCUZ_CLASS_SMS_ERROR_SMSGWERR = -9;
 
+	
+	
 	const DISCUZ_CLASS_SMS_VERIFY_FAIL = 0;
 	const DISCUZ_CLASS_SMS_VERIFY_PASS = 1;
 
+	
+	
 	const DISCUZ_CLASS_SMSGW_GWTYPE_MSG = 0;
 	const DISCUZ_CLASS_SMSGW_GWTYPE_TPL = 1;
 
+	
 	public static function verify($uid, $svctype, $secmobicc, $secmobile, $seccode, $updateverify = 1) {
+		
 		$smstimelimit = getglobal('setting/smstimelimit');
 		$smstimelimit = $smstimelimit > 0 ? $smstimelimit : 86400;
 		$lastsend = C::t('common_smslog')->get_lastsms_by_uumm($uid, $svctype, $secmobicc, $secmobile);
@@ -53,44 +68,56 @@ class sms {
 	}
 
 	public static function send($uid, $smstype, $svctype, $secmobicc, $secmobile, $content, $force) {
+		
 		$time = time();
 		$ip = getglobal('clientip');
 		$port = getglobal('remoteport');
 
+		
 		$check = self::check($uid, $secmobicc, $secmobile, $time, $ip, $port, $force);
 		if($check < 0) {
 			self::log($smstype, $svctype, 0, $check, $uid, $secmobicc, $secmobile, $time, $ip, $port, $content);
 			return $check;
 		}
 
+		
 		$smsgw = self::smsgw($smstype, $secmobicc);
 		if($smsgw < 0) {
 			self::log($smstype, $svctype, 0, $smsgw, $uid, $secmobicc, $secmobile, $time, $ip, $port, $content);
 			return $smsgw;
 		}
 
+		
 		$output = self::output($smsgw, $uid, $smstype, $svctype, $secmobicc, $secmobile, $content);
 		self::log($smstype, $svctype, 0, $output, $uid, $secmobicc, $secmobile, $time, $ip, $port, $content);
 		return $output;
 	}
 
 	protected static function check($uid, $secmobicc, $secmobile, $time, $ip, $port, $force) {
+		
+		
 		if(!getglobal('setting/smsstatus')) {
 			return self::DISCUZ_CLASS_SMS_ERROR_SMSDISAB;
 		}
 
 		if(!$force) {
+			
 			$smstimelimit = getglobal('setting/smstimelimit');
 			$smstimelimit = $smstimelimit > 0 ? $smstimelimit : 86400;
+			
 			$smsnumlimit = getglobal('setting/smsnumlimit');
 			$smsnumlimit = $smsnumlimit > 0 ? $smsnumlimit : 5;
+			
 			$smsinterval = getglobal('setting/smsinterval');
 			$smsinterval = $smsinterval > 0 ? $smsinterval : 300;
+			
 			$smsmillimit = getglobal('setting/smsmillimit');
 			$smsmillimit = $smsmillimit > 0 ? $smsmillimit : 20;
+			
 			$smsglblimit = getglobal('setting/smsglblimit');
 			$smsglblimit = $smsglblimit > 0 ? $smsglblimit : 1000;
 
+			
 			$ut = C::t('common_smslog')->get_sms_by_ut($uid, $smstimelimit);
 			$mmt = C::t('common_smslog')->get_sms_by_mmt($secmobicc, $secmobile, $smstimelimit);
 			if($time - $ut[0]['dateline'] < $smsinterval || $time - $mmt[0]['dateline'] < $smsinterval) {
@@ -100,11 +127,13 @@ class sms {
 				return self::DISCUZ_CLASS_SMS_ERROR_NUMLIMIT;
 			}
 
+			
 			$lastmilion = C::t('common_smslog')->count_sms_by_milions_mmt($secmobicc, $secmobile, $smstimelimit);
 			if($lastmilion > $smsmillimit) {
 				return self::DISCUZ_CLASS_SMS_ERROR_MILLIMIT;
 			}
 
+			
 			$globalsend = C::t('common_smslog')->count_sms_by_time($smstimelimit);
 			if($globalsend > $smsglblimit) {
 				return self::DISCUZ_CLASS_SMS_ERROR_GLBLIMIT;
@@ -147,7 +176,7 @@ class sms {
 			$classname = 'smsgw_' . ((is_array($efile) && count($efile) > 1) ? $efile[1] : $smsgw['class']);
 			if(class_exists($classname)) {
 				$class = new $classname();
-				$class->parameters = unserialize($smsgw['parameters']);
+				$class->parameters = dunserialize($smsgw['parameters']);
 				$result = $class->send($uid, $smstype, $svctype, $secmobicc, $secmobile, array('content' => $content));
 			} else {
 				$result = self::DISCUZ_CLASS_SMS_ERROR_CTFGWCLS;

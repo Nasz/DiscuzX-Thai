@@ -77,6 +77,7 @@
 				<!--{/if}-->
 				<!--{if !$separatepos || !$_G['setting']['forumseparator']}-->
 					<tbody id="separatorline" class="emptb"><tr><td class="icn"></td><!--{if !$_GET['archiveid'] && $_G['forum']['ismoderator']}--><td class="o"></td><!--{/if}--><th></th><!--{if CURMODULE == 'guide'}--><td class="by"></td><!--{/if}--><td class="by"></td><td class="num"></td><td class="by"></td></tr></tbody>
+					<!--{if !empty($_G['forum']['picstyle'])}--><!--{ad/threadlist}--><!--{/if}-->
 				<!--{/if}-->
 				<!--{if $_G['forum_threadcount']}-->
 					<!--{if empty($_G['forum']['picstyle']) || $_G['cookie']['forumdefstyle']}-->
@@ -326,7 +327,7 @@
 									imgsloaded = 0,
 									loadready = 0,
 									showready = 1,
-									nxtpgurl = 'forum.php?mod=forumdisplay&fid={$_G[fid]}&filter={$filter}&orderby={$_GET[orderby]}{$forumdisplayadd[page]}&page=',
+									nxtpgurl = 'forum.php?mod=forumdisplay&fid={$_G[fid]}&{$forumdisplayadd[page]}{eval echo ($multiadd ? '&'.implode('&', $multiadd) : '');}{$multipage_archive}&page=',
 									wfloading = "<div class=\"loadicon vm\"></div> {lang onloading}...",
 									pgbtn = $("pgbtn").getElementsByTagName("a")[0];
 
@@ -469,11 +470,11 @@
 	<!--{/if}-->
 <!--{/if}-->
 <!--{if $multipage && $filter != 'hot'}-->
-	<!--{if !($_G[forum][picstyle] && !$_G[cookie][forumdefstyle])}-->
-		<a class="bm_h" href="javascript:;" rel="$multipage_more" curpage="$page" id="autopbn" totalpage="$maxpage" picstyle="$_G[forum][picstyle]" forumdefstyle="$_G[cookie][forumdefstyle]">{lang next_page_extra}</a>
+	<!--{if !($_G['forum']['picstyle'] && !$_G['cookie']['forumdefstyle'])}-->
+		<a class="bm_h" href="javascript:;" rel="$multipage_more" curpage="$page" id="autopbn" totalpage="$maxpage" picstyle="$_G['forum']['picstyle']" forumdefstyle="$_G['cookie']['forumdefstyle']">{lang next_page_extra}</a>
 		<script type="text/javascript" src="{$_G[setting][jspath]}autoloadpage.js?{VERHASH}"></script>
 	<!--{else}-->
-		<div id="pgbtn" class="pgbtn"><a href="forum.php?mod=forumdisplay&fid={$_G[fid]}&filter={$filter}&orderby={$_GET[orderby]}{$forumdisplayadd[page]}&{$multipage_archive}&page=$nextpage" hidefocus="true">{lang next_page_extra}</a></div>
+		<div id="pgbtn" class="pgbtn"><a href="$multipage_more" hidefocus="true">{lang next_page_extra}</a></div>
 	<!--{/if}-->
 <!--{/if}-->
 <div class="bm bw0 pgs cl">

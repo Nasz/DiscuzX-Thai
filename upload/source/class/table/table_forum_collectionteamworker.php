@@ -73,6 +73,7 @@ class table_forum_collectionteamworker extends discuz_table
 	}
 
 	public function update($val, $data, $unbuffered = false, $low_priority = false, $null = false) {
+		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::update($val, $data, $unbuffered, $low_priority);

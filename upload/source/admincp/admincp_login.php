@@ -48,6 +48,10 @@ function html_login_header($form = true) {
 	$title = lang('admincp_login', 'login_title');
 	$tips = lang('admincp_login', 'login_tips');
 	$staticurl = STATICURL;
+	$light_mode = lang('admincp_login', 'login_dk_light_mode');
+	$by_system = lang('admincp_login', 'login_dk_by_system');
+	$normal_mode = lang('admincp_login', 'login_dk_normal_mode');
+	$dark_mode = lang('admincp_login', 'login_dk_dark_mode');
 	echo <<<EOT
 <!DOCTYPE html>
 <html>
@@ -65,7 +69,7 @@ function html_login_header($form = true) {
 <script src="{$staticurl}js/admincp_base.js"></script>
 </head>
 <body>
-<div class="darkmode" title="亮色模式">
+<div class="darkmode" title="$light_mode">
 <div>
 <div class="dk-light">
 <svg width="24" height="24">
@@ -78,7 +82,7 @@ function html_login_header($form = true) {
 </svg>
 </div>
 </div>
-<ul id="dkm_menu" style="display: none;"><li class="current">跟随系统</li><li>正常模式</li><li>夜间模式</li></ul>
+<ul id="dkm_menu" style="display: none;"><li class="current">$by_system</li><li>$normal_mode</li><li>$dark_mode</li></ul>
 </div>
 EOT;
 
@@ -99,7 +103,7 @@ function html_login_footer($halt = true) {
 	$copy = lang('admincp_login', 'copyright');
 	echo <<<EOT
 </div>
-<footer><span>Powered by <a href="http://www.discuz.net/" target="_blank">Discuz!</a> $version </span><span>$copy</span></footer>
+<footer><span>Powered by <a href="https://www.discuz.vip/" target="_blank">Discuz!</a> $version </span><span>$copy</span></footer>
 <script>
 	var cookiepre = '{$cookiepre}';
 	if(self.parent.frames.length != 0) {
@@ -152,6 +156,11 @@ EOT;
 		</select>
 		<input type="text" name="admin_answer" class="loginqa" placeholder="{$lang['security_answer']}" autocomplete="off">
 		<button type="submit">{$lang['submit']}</button>
+EOT;
+	if (!empty($_G['admincp_checkip_noaccess'])) {
+		echo  '<br><span>'.lang('admincp_login', 'login_ip_noaccess').'</span>';
+	}
+	echo <<<EOT
 		</form>
 EOT;
 }

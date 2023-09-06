@@ -13,10 +13,10 @@ class control extends adminbase {
 
 	var $_setting_items = array('doublee', 'accessemail', 'censoremail', 'censorusername',
 		'dateformat', 'timeoffset', 'timeformat', 'extra', 'maildefault', 'mailsend', 'mailserver',
-		'mailport', 'mailauth', 'mailfrom', 'mailauth_username', 'mailauth_password', 'maildelimiter',
+		'mailport', 'mailtimeout', 'mailauth', 'mailfrom', 'mailauth_username', 'mailauth_password', 'maildelimiter',
 		'mailusername', 'mailsilent', 'pmcenter', 'privatepmthreadlimit', 'chatpmthreadlimit',
 		'chatpmmemberlimit', 'pmfloodctrl', 'sendpmseccode', 'pmsendregdays', 'login_failedtime',
-		'addappbyurl', 'insecureuserdelete', 'passwordalgo', 'passwordoptions');
+		'addappbyurl', 'insecureoperation', 'passwordalgo', 'passwordoptions');
 
 	function __construct() {
 		$this->control();
@@ -47,7 +47,7 @@ class control extends adminbase {
 			$sendpmseccode = getgpc('sendpmseccode', 'P');
 			$login_failedtime = getgpc('login_failedtime', 'P');
 			$addappbyurl = getgpc('addappbyurl', 'P');
-			$insecureuserdelete = getgpc('insecureuserdelete', 'P');
+			$insecureoperation = getgpc('insecureoperation', 'P');
 			$passwordalgo = getgpc('passwordalgo', 'P');
 			$passwordoptions = htmlspecialchars_decode(stripslashes(getgpc('passwordoptions', 'P')));
 			$dateformat = str_replace(array('yyyy', 'mm', 'dd'), array('y', 'n', 'j'), strtolower($dateformat));
@@ -55,8 +55,11 @@ class control extends adminbase {
 			$timeoffset = in_array($timeoffset, array('-12', '-11', '-10', '-9', '-8', '-7', '-6', '-5', '-4', '-3.5', '-3', '-2', '-1', '0', '1', '2', '3', '3.5', '4', '4.5', '5', '5.5', '5.75', '6', '6.5', '7', '8', '9', '9.5', '10', '11', '12')) ? $timeoffset : 8;
 
 			if(empty($passwordalgo) && !empty($passwordoptions)) {
+				
 				$passwordoptions = '';
 			} else if(!empty($passwordalgo)) {
+				
+				
 				$options = empty($passwordoptions) ? array() : json_decode($passwordoptions, true);
 				$tresult = password_hash($passwordalgo, constant($passwordalgo), $options);
 				if($tresult === false || $tresult === null || !password_verify($passwordalgo, $tresult)) {
@@ -78,7 +81,7 @@ class control extends adminbase {
 			$this->set_setting('sendpmseccode', $sendpmseccode ? 1 : 0);
 			$this->set_setting('login_failedtime', intval($login_failedtime));
 			$this->set_setting('addappbyurl', $addappbyurl);
-			$this->set_setting('insecureuserdelete', $insecureuserdelete);
+			$this->set_setting('insecureoperation', $insecureoperation);
 			$this->set_setting('passwordalgo', $passwordalgo);
 			$this->set_setting('passwordoptions', $passwordoptions);
 			$updated = true;
@@ -93,6 +96,7 @@ class control extends adminbase {
 		$settings['dateformat'] = str_replace(array('y', 'n', 'j'), array('yyyy', 'mm', 'dd'), $settings['dateformat']);
 		$settings['timeformat'] = $settings['timeformat'] == 'H:i' ? 1 : 0;
 		$settings['pmcenter'] = $settings['pmcenter'] ? 1 : 0;
+		$settings['insecureoperation'] = $settings['insecureoperation'] ? 1 : 0;
 		$a = getgpc('a');
 		$this->view->assign('a', $a);
 
@@ -110,14 +114,14 @@ class control extends adminbase {
 		$pmcenterchecked['display'] = $settings['pmcenter'] ? '' : 'style="display:none"';
 		$addappbyurlchecked = array('','');
 		$addappbyurlchecked[$settings['addappbyurl']] = 'checked="checked"';
-		$insecureuserdeletechecked = array('','');
-		$insecureuserdeletechecked[$settings['insecureuserdelete']] = 'checked="checked"';
+		$insecureoperationchecked = array('','');
+		$insecureoperationchecked[$settings['insecureoperation']] = 'checked="checked"';
 		$this->view->assign('pmcenter', $pmcenterchecked);
 		$sendpmseccodechecked = array('','');
 		$sendpmseccodechecked[$settings['sendpmseccode']] = 'checked="checked"';
 		$this->view->assign('sendpmseccode', $sendpmseccodechecked);
 		$this->view->assign('addappbyurl', $addappbyurlchecked);
-		$this->view->assign('insecureuserdelete', $insecureuserdeletechecked);
+		$this->view->assign('insecureoperation', $insecureoperationchecked);
 		$this->view->assign('passwordalgo', $settings['passwordalgo']);
 		$this->view->assign('passwordoptions', htmlspecialchars($settings['passwordoptions']));
 		$timeoffset = intval($settings['timeoffset'] / 3600);
@@ -162,11 +166,14 @@ class control extends adminbase {
 	}
 
 	function onmail() {
-		$items = array('maildefault', 'mailsend', 'mailserver', 'mailport', 'mailauth', 'mailfrom', 'mailauth_username', 'mailauth_password', 'maildelimiter', 'mailusername', 'mailsilent');
+		$items = array('maildefault', 'mailsend', 'mailserver', 'mailport', 'mailtimeout', 'mailauth', 'mailfrom', 'mailauth_username', 'mailauth_password', 'maildelimiter', 'mailusername', 'mailsilent');
 		$updated = false;
 		if($this->submitcheck()) {
 			foreach($items as $item) {
 				$value = getgpc($item, 'P');
+				if($item == 'mailtimeout') {
+					$value = strlen(trim($value)) ? intval($value) : 30;
+				}
 				$this->set_setting($item, $value);
 			}
 			$updated = true;
@@ -179,6 +186,9 @@ class control extends adminbase {
 			$this->_add_note_for_setting($settings);
 		}
 		foreach($items as $item) {
+			if($item == 'mailtimeout') {
+				$settings[$item] = strlen(trim($settings[$item])) ? intval($settings[$item]) : 30;
+			}
 			$this->view->assign($item, dhtmlspecialchars($settings[$item]));
 		}
 

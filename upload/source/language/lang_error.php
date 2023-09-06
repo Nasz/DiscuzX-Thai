@@ -33,6 +33,7 @@ $lang = array
 	'system_init_ok' => 'ระบบเว็บไซต์เริ่มต้นได้โปรด<a href="index.php">คลิกที่นี่</a>เข้า',
 	'backtrace' => 'เรียกใช้ข้อมูล',
 	'error_end_message' => 'ขออภัยในความไม่สะดวกต่อการเข้าชมเว็บไซต์ของคุณ นี่คือรายละเอียดบันทึกข้อผิดพลาดของเว็บไซต์ <a href="http://{host}">{host}</a>',
+	'suggestion_user' => '如果您是用户，建议您尝试刷新页面、关闭所有浏览器窗口重新进行操作。如果无法解决，建议您完整截图本页面并保存，随后向站点管理员反馈此问题',
 	'suggestion_plugin' => 'หากคุณเป็นเว็บมาสเตอร์ขอแนะนำให้คุณลอง <a href="admin.php?action=plugins&frames=yes" class="guess" target="_blank">{guess}</a> เพื่อเช็คปลั๊กอินหรือ <a href="admin.php?action=tools&operation=updatecache&frames=yes" class="guess" target="_blank">รีเฟรชแคช</a> หากปัญหายังไม่ได้รับการแก้ไขขอแนะนำให้คุณติดต่อยังเจ้าของปลั๊กอินปลั๊กเพื่อขอความช่วยเหลือ',
 	'suggestion' => 'หากคุณเป็นเว็บมาสเตอร์ขอแนะนำให้คุณลอง <a href="admin.php?action=tools&operation=updatecache&frames=yes" target="_blank">รีเฟรชแคช</a> ผู้ใช้ชาวจีนสามารถขอความช่วยเหลือผ่าน <a href="https://www.discuz.net/" target="_blank">เว็บไซต์อย่างเป็นทางการของ Discuz!</a> หากคุณแน่ใจว่านี่เป็น Bug คุณสามารถเข้าไป <a href="https://gitee.com/discuz/DiscuzX/issues" target="_blank">แจ้งปัญหา</a> ให้เราทราบได้',
 

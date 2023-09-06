@@ -503,8 +503,11 @@ if($_GET['op'] == 'checknewpm') {
 	$contents = nl2br($contents);
 
 	$filesize = strlen($contents);
+	
 	$filenameencode = strtolower(CHARSET) == 'utf-8' ? rawurlencode($filename) : rawurlencode(diconv($filename, CHARSET, 'UTF-8'));
 
+	
+	
 	$rfc6266blacklist = strexists($_SERVER['HTTP_USER_AGENT'], 'UCBrowser') || strexists($_SERVER['HTTP_USER_AGENT'], 'Quark') || strexists($_SERVER['HTTP_USER_AGENT'], 'SogouM') || strexists($_SERVER['HTTP_USER_AGENT'], 'baidu');
 
 	dheader('Date: '.gmdate('D, d M Y H:i:s', $val['dateline']).' GMT');

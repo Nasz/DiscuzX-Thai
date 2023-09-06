@@ -553,7 +553,7 @@ INSERT INTO pre_common_setting VALUES ('simplemode','0');
 INSERT INTO pre_common_setting VALUES ('sitemessage','a:5:{s:4:\"time\";s:1:\"3\";s:8:\"register\";s:0:\"\";s:5:\"login\";s:0:\"\";s:9:\"newthread\";s:0:\"\";s:5:\"reply\";s:0:\"\";}');
 INSERT INTO pre_common_setting VALUES ('sitename','Discuz! X');
 INSERT INTO pre_common_setting VALUES ('siteuniqueid','KD1Q6Vbd03ALJ34u');
-INSERT INTO pre_common_setting VALUES ('siteurl','https://www.discuz.net/');
+INSERT INTO pre_common_setting VALUES ('siteurl','https://www.discuz.vip/');
 INSERT INTO pre_common_setting VALUES ('site_qq','');
 INSERT INTO pre_common_setting VALUES ('smcols','8');
 INSERT INTO pre_common_setting VALUES ('smrows','5');
@@ -791,6 +791,7 @@ INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'imgdir', '');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'boardimg', 'logo.svg');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'searchimg', 'logo_sc.svg');
+INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'touchimg', 'logo_m.svg');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'available', '');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'headertext', '#444');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'footertext', '#666');
@@ -805,7 +806,7 @@ INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (
 
 
 
-INSERT INTO pre_common_template VALUES ('1','ชุดเทมเพลตเริ่มต้น','./template/default','Tencent Cloud Computing (Beijing) Co. , Ltd.');
+INSERT INTO pre_common_template VALUES ('1','ชุดเทมเพลตเริ่มต้น','./template/default','Discuz!');
 
 
 
@@ -860,7 +861,7 @@ INSERT INTO pre_forum_bbcode VALUES ('3','0','sup','bb_sup.gif','<sup>{1}</sup>'
 INSERT INTO pre_forum_bbcode VALUES ('4','0','sub','bb_sub.gif','<sub>{1}</sub>','X[sub]2[/sub]','การเสนอราคา','1','กรุณากรอกข้อความประมูล:','1','23','1	2	3	12	13	14	15	16	17	18	19');
 
 
-INSERT INTO pre_forum_forum SET `fid`='1',`fup`='0',`type`='group',`name`='Discuz! หมวดเริ่มต้น',`status`='1';
+INSERT INTO pre_forum_forum SET `fid`='1',`fup`='0',`type`='group',`name`='Discuz!',`status`='1';
 INSERT INTO pre_forum_forum SET `fid`='2',`fup`='1',`type`='forum',`name`='บอร์ดเริ่มต้น',`status`='1',`allowsmilies`='1',`allowbbcode`='1',`allowimgcode`='1',`allowmediacode`='1',`allowpostspecial`='1',`recyclebin`='1', `allowfeed`='1';
 
 INSERT INTO pre_forum_forumfield SET `fid`='1';
@@ -901,7 +902,12 @@ INSERT INTO pre_forum_onlinelist VALUES ('2','2','ผู้ดูแลบอร
 INSERT INTO pre_forum_onlinelist VALUES ('3','3','ผู้ควบคุม','online_moderator.gif');
 INSERT INTO pre_forum_onlinelist VALUES ('0','4','สมาชิก','online_member.gif');
 
-INSERT INTO pre_forum_typeoption SET `optionid`=1, `title`='หมวดหมู่เริ่มต้น';
+INSERT INTO pre_forum_typeoption SET `optionid`=1, `title`='หมวดหมู่ A';
+INSERT INTO pre_forum_typeoption SET `optionid`=2, `title`='หมวดหมู่ B';
+INSERT INTO pre_forum_typeoption SET `optionid`=3, `title`='หมวดหมู่ C';
+INSERT INTO pre_forum_typeoption SET `optionid`=4, `title`='หมวดหมู่ D';
+INSERT INTO pre_forum_typeoption SET `optionid`=5, `title`='หมวดหมู่ E';
+INSERT INTO pre_forum_typeoption SET `optionid`=6, `title`='หมวดหมู่ F';
 
 INSERT INTO pre_home_click VALUES ('1','ผ่านศึก','luguo.gif','blogid','1','0');
 INSERT INTO pre_home_click VALUES ('2','สายฟ้า','leiren.gif','blogid','1','0');

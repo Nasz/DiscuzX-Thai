@@ -106,7 +106,7 @@ EOF;
 					$freezeshow = $member['freeze'] ? '<em class="lightnum">['.cplang('freeze').']</em>' : '';
 					$members .= showtablerow('', array('class="td25"', '', 'title="'.implode("\n", $memberextcredits).'"'), array(
 						"<input type=\"checkbox\" name=\"uidarray[]\" value=\"{$member['uid']}\"".($member['adminid'] == 1 ? 'disabled' : '')." class=\"checkbox\">",
-						($_G['setting']['connect']['allow'] && $member['conisbind'] ? '<img class="vmiddle" src="'.STATICURL.'/image/common/connect_qq.gif" /> ' : '')."<a href=\"home.php?mod=space&uid={$member['uid']}\" target=\"_blank\">{$member['username']}</a>",
+						($_G['setting']['connect']['allow'] && $member['conisbind'] ? '<img class="vmiddle" src="'.STATICURL.'image/common/connect_qq.gif" /> ' : '')."<a href=\"home.php?mod=space&uid={$member['uid']}\" target=\"_blank\">{$member['username']}</a>",
 						$member['credits'],
 						$member['posts'],
 						$usergroups[$member['adminid']]['grouptitle'],
@@ -144,7 +144,7 @@ EOF;
 			}
 		}
 		showformheader("members&operation=clean".$condition_str);
-		showboxheader(cplang('members_search_result', array('membernum' => $membernum)).'<a href="'.ADMINSCRIPT.'?action=members&operation=search" class="act lightlink normal">'.cplang('research').'</a>&nbsp;&nbsp;&nbsp;<a href='.ADMINSCRIPT.'?action=members&operation=export'.$condition_str.'>'.$lang['members_search_export'].'</a>');
+		showtableheader(cplang('members_search_result', array('membernum' => $membernum)).'<a href="'.ADMINSCRIPT.'?action=members&operation=search" class="act lightlink normal">'.cplang('research').'</a>&nbsp;&nbsp;&nbsp;<a href='.ADMINSCRIPT.'?action=members&operation=export'.$condition_str.'>'.$lang['members_search_export'].'</a>');
 		showtableheader();
 
 		if($membernum) {
@@ -401,7 +401,7 @@ EOF;
 		$urladd = '';
 		if(!empty($_GET['username'])) {
 			$uid = C::t('common_member')->fetch_uid_by_username($_GET['username']);
-			$searchmember = $uid ? C::t('common_member_status')->fetch($uid) : '';
+			$searchmember = $uid ? C::t('common_member_status')->fetch($uid) : array();
 			$searchmember['username'] = $_GET['username'];
 			$urladd .= '&username='.$_GET['username'];
 		} elseif(!empty($_GET['uid'])) {
@@ -746,7 +746,7 @@ EOF;
 			showsubmenusteps('nav_members_newsletter', array(
 				array('nav_members_select', !$_GET['submit']),
 				array('nav_members_notify', $_GET['submit']),
-			), array(), array(array('members_grouppmlist', 'members&operation=grouppmlist', 0)));
+			), array(), array(array('members_grouppmlist_newsletter', 'members&operation=newsletter', 1), array('members_grouppmlist', 'members&operation=grouppmlist', 0)));
 		}
 		showsearchform('newsletter');
 
@@ -779,8 +779,9 @@ EOF;
 				shownewsletter();
 
 				$search_condition = serialize($search_condition);
-				showsubmit('newslettersubmit', 'submit', 'td', '<input type="hidden" name="conditions" value=\''.$search_condition.'\' />');
-
+				showtableheader();
+				showsubmit('newslettersubmit', 'submit', '', '<input type="hidden" name="conditions" value=\''.$search_condition.'\' />');
+				showtablefooter();
 			}
 
 			showformfooter();
@@ -838,6 +839,7 @@ EOF;
 	}
 	showtablefooter();
 	if($do) {
+		showboxheader();
 		$_GET['filter'] = in_array($_GET['filter'], array('read', 'unread')) ? $_GET['filter'] : '';
 		$filteradd = $_GET['filter'] ? '&filter='.$_GET['filter'] : '';
 		$ppp = 100;
@@ -863,6 +865,7 @@ EOF;
 			echo '</div>';
 		}
 		echo $multipage;
+		showboxfooter();
 	}
 
 } elseif($operation == 'reward') {
@@ -907,7 +910,7 @@ EOF;
 				));
 				showboxfooter();
 
-				showboxheader('nav_members_reward');
+				showboxheader('nav_members_reward', 'nobottom');
 				showtableheader('', 'noborder');
 				showsubtitle($creditscols);
 				showtablerow('', array('class="td23"', 'class="td28"', 'class="td28"', 'class="td28"', 'class="td28"', 'class="td28"', 'class="td28"', 'class="td28"', 'class="td28"'), $creditsvalue);
@@ -918,7 +921,9 @@ EOF;
 				showtagheader('div', 'messagebody');
 				shownewsletter();
 				showtagfooter('div');
-				showsubmit('rewardsubmit', 'submit', 'td', '<input class="checkbox" type="checkbox" name="notifymember" value="1" onclick="$(\'messagebody\').style.display = this.checked ? \'\' : \'none\'" id="credits_notify" /><label for="credits_notify">'.cplang('members_reward_notify').'</label>');
+				showtableheader();
+				showsubmit('rewardsubmit', 'submit', '', '<input class="checkbox" type="checkbox" name="notifymember" value="1" onclick="$(\'messagebody\').style.display = this.checked ? \'\' : \'none\'" id="credits_notify" /><label for="credits_notify">'.cplang('members_reward_notify').'</label>');
+				showtablefooter();
 
 			}
 
@@ -1254,7 +1259,7 @@ EOF;
 		
 		shownav('user', 'members_group');
 		showsubmenu('members_group_member', array(), '', array('username' => $member['username']));
-		echo '<script src="'.STATICURL.'/js/calendar.js" type="text/javascript"></script>';
+		echo '<script src="'.STATICURL.'js/calendar.js" type="text/javascript"></script>';
 		showformheader("members&operation=group&uid={$member['uid']}");
 		showtableheader('usergroup', 'nobottom');
 		showsetting('members_group_group', '', '', '<select name="groupidnew" onchange="if(in_array(this.value, ['.$radmingids.'])) {$(\'relatedadminid\').style.display = \'\';$(\'adminidnew\').name=\'adminidnew[\' + this.value + \']\';} else {$(\'relatedadminid\').style.display = \'none\';$(\'adminidnew\').name=\'adminidnew[0]\';}"><optgroup label="'.$lang['usergroups_system'].'">'.$groups['system'].'<optgroup label="'.$lang['usergroups_special'].'">'.$groups['special'].'<optgroup label="'.$lang['usergroups_specialadmin'].'">'.$groups['specialadmin'].'<optgroup label="'.$lang['usergroups_member'].'">'.$groups['member'].'</select>');
@@ -2303,6 +2308,8 @@ EOF;
 				cpmsg('members_email_domain_illegal', '', 'error');
 			} elseif($ucresult == -6) {
 				cpmsg('members_email_duplicate', '', 'error');
+			} elseif($ucresult == -8) {
+				cpmsg('members_edit_protectedmembers', '', 'error');
 			} elseif($ucresult == -9) {
 				cpmsg('members_mobile_duplicate', '', 'error');
 			}
@@ -2507,7 +2514,6 @@ EOF;
 				}
 			}
 
-			updatecache('ipbanned');
 			cpmsg('members_ipban_succeed', 'action=members&operation=ipban', 'succeed');
 
 		}
@@ -2529,7 +2535,7 @@ EOF;
 			showtablefooter();
 			showformfooter();
 		} else {
-			$iplist = explode("\n", $_GET['inputipbanlist']);
+			$iplist = explode("\n", str_replace("\r",'',$_GET['inputipbanlist']));
 			foreach($iplist as $banip) {
 				if(strpos($banip, ',') !== false) {
 					list($banipaddr, $expiration) = explode(',', $banip);
@@ -2612,7 +2618,6 @@ EOF;
 				C::t('common_banned')->insert($data, false, true);
 			}
 
-			updatecache('ipbanned');
 			cpmsg('members_ipban_succeed', 'action=members&operation=ipban&ipact=input', 'succeed');
 		}
 	} elseif($_GET['ipact'] == 'output') {
@@ -2857,13 +2862,11 @@ EOF;
 			showsubmenu($lang['members_profile'], $profilenav);
 			showtips('members_profile_tips');
 			showformheader('members&operation=profile');
-			showboxheader('members_profile', 'nobottom', 'id="porfiletable"');
 			showtableheader('', '', 'id="profiletable_header"');
 			$tdstyle = array('class="td22"', 'class="td28" width="100"', 'class="td28" width="100"', 'class="td28" width="100"', 'class="td28" width="100"', 'class="td28"', 'class="td28"');
 			showsubtitle(array('members_profile_edit_name', 'members_profile_edit_display_order', 'members_profile_edit_available', 'members_profile_edit_profile_view', 'members_profile_edit_card_view', 'members_profile_edit_reg_view', ''), 'header tbm', $tdstyle);
 			showtablefooter();
-			echo '<script type="text/javascript">floatbottom(\'profiletable_header\');</script>';
-			showtableheader();
+			showtableheader('members_profile', '', 'id="porfiletable"');
 			showsubtitle(array('members_profile_edit_name', 'members_profile_edit_display_order', 'members_profile_edit_available', 'members_profile_edit_profile_view', 'members_profile_edit_card_view', 'members_profile_edit_reg_view', ''), 'header', $tdstyle);
 			foreach($list as $fieldid => $value) {
 				$value['available'] = '<input type="checkbox" class="checkbox" name="available['.$fieldid.']" '.($value['available'] ? 'checked="checked" ' : '').'value="1">';
@@ -2876,8 +2879,8 @@ EOF;
 			}
 			showsubmit('ordersubmit');
 			showtablefooter();
-			showboxfooter();
 			showformfooter();
+			echo '<script type="text/javascript">floatbottom(\'profiletable_header\');$(\'profiletable_header\').style.width = $(\'porfiletable\').offsetWidth + \'px\';</script>';
 		} else {
 			foreach($_GET['displayorder'] as $fieldid => $value) {
 				$setarr = array(
@@ -2968,8 +2971,7 @@ EOF;
 		showtips('members_stat_tips');
 
 		showformheader('members&operation=stat&fieldid='.$_GET['fieldid']);
-		showboxheader('members_stat_options');
-		showtableheader();
+		showtableheader('members_stat_options');
 		$option_html = '<ul>';
 		foreach($options as $key=>$value) {
 			$extra_style = $_GET['fieldid'] == $key ? ' font-weight: 900;' : '';
@@ -3020,17 +3022,12 @@ EOF;
 				));
 			}
 
-			showtablefooter();
-			showboxfooter();
 			$optype_html = '<input type="radio" class="radio" name="optype" id="optype_option" value="option" /><label for="optype_option">'.cplang('members_stat_update_option').'</label>&nbsp;&nbsp;'
 					.'<input type="radio" class="radio" name="optype" id="optype_data" value="data" /><label for="optype_data">'.cplang('members_stat_update_data').'</label>';
 			showsubmit('statsubmit', 'submit', $optype_html);
-			showformfooter();
-
-		} else {
-			showtablefooter();
-			showformfooter();
 		}
+		showtablefooter();
+		showformfooter();
 
 	} else {
 
@@ -3112,7 +3109,7 @@ function showsearchform($operation = '') {
 	echo '<style type="text/css">#residedistrictbox select, #birthdistrictbox select{width: auto;}</style>';
 	$formurl = "members&operation=$operation".(($_GET['do'] == 'mobile' || $_GET['do'] == 'sms') ? '&do=' . $_GET['do'] : '');
 	showformheader($formurl, "onSubmit=\"if($('updatecredittype1') && $('updatecredittype1').checked && !window.confirm('{$lang['members_reward_clean_alarm']}')){return false;} else {return true;}\"");
-	showtableheader();
+	showtableheader('', 'nobottom');
 	if(isset($_G['setting']['membersplit'])) {
 		showsetting('members_search_table', '', '', '<select name="tablename" ><option value="master">'.$lang['members_search_table_master'].'</option><option value="archive">'.$lang['members_search_table_archive'].'</option></select>');
 	}
@@ -3304,7 +3301,7 @@ function countmembers($condition, &$urladd) {
 function shownewsletter() {
 	global $lang;
 
-	showtableheader();
+	showtableheader('', 'nobottom');
 	showsetting('members_newsletter_subject', 'subject', '', 'text');
 	showsetting('members_newsletter_message', 'message', '', 'textarea');
 	if($_GET['do'] == 'mobile' || $_GET['do'] == 'sms') {
@@ -3577,7 +3574,10 @@ function notifymembers($operation, $variable) {
 			} elseif($_GET['notifymembers'] == 'sms') {
 				
 				
-				sms::send($member['uid'], 1, 2, $member['secmobicc'], $member['secmobile'], "[$subject]$message$addmsg", 1);
+				
+				if(!empty($member['secmobicc']) && !empty($member['secmobile']) && preg_match('#^(\d){1,3}$#', $member['secmobicc']) && preg_match('#^(\d){1,12}$#', $member['secmobile'])) {
+					sms::send($member['uid'], 1, 2, $member['secmobicc'], $member['secmobile'], "[$subject]$message$addmsg", 1);
+				}
 			}
 
 			$log = array();

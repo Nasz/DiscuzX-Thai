@@ -338,10 +338,10 @@ function strLenCalc(obj, checklen, maxlen) {
 	checklen = $(checklen);
 	if(checklen.style.display == 'none') checklen.style.display = '';
 	if(curlen <= maxlen) {
-		checklen.innerHTML = '已输入 <b>'+(curlen)+'</b> ตัวอักษร';
+		checklen.innerHTML = 'ได้อีก <b>'+(curlen)+'</b> ตัวอักษร';
 		return true;
 	} else {
-		checklen.innerHTML = '超出 <b style="color:red">'+(curlen - maxlen)+'</b> ตัวอักษร';
+		checklen.innerHTML = 'เกิน <b style="color:red">'+(curlen - maxlen)+'</b> ตัวอักษร';
 		return false;
 	}
 }
@@ -349,12 +349,12 @@ function strLenCalc(obj, checklen, maxlen) {
 function check_itemdata_lentgh(form) {
 	if(form.title && (!strLenCalc(form.title, "titlechk", form.title.getAttribute('_maxlength')) || !form.title.value)) {
 		form.title.focus();
-		showDialog('标题长度不正确', 'error', null, function(){form.title.select();});
+		showDialog('ความยาวของชื่อเรื่องไม่ถูกต้อง', 'error', null, function(){form.title.select();});
 		return false;
 	}
 	if(form.summary && !strLenCalc(form.summary, "summarychk", form.summary.getAttribute('_maxlength'))) {
 		form.summary.focus();
-		showDialog('简介长度不正确', 'error', null, function(){form.summary.select();});
+		showDialog('ความยาวบทนำไม่ถูกต้อง', 'error', null, function(){form.summary.select();});
 		return false;
 	}
 	return true;

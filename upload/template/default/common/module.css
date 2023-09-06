@@ -2,13 +2,13 @@
 
 Extend CSS file for Discuz! X
 (C) Comsenz Inc.
-http://www.comsenz.com
+https://www.discuz.vip
 Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 
 1. 一些通用模块的样式
 	1. 公告
 	2. 在线会员列表
-	3. 类似群组中邀请好友中的好友列表
+	3. 类似圈子中邀请好友中的好友列表
 	4. 动态列表
 	5. 进度条
 	6. 广场以外的引用、代码样式
@@ -21,7 +21,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	3. 提交表单
 	4. 发特殊主题帖
 3. 列表样式
-	1. 广场版块、群组分类列表
+	1. 广场版块、圈子分类列表
 	2. 房屋列表
 	3. 主题列表
 4. 帖子内容区域样式
@@ -34,7 +34,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	4. 特殊帖样式
 	5. 广场和空间共用的商品、辩论等样式
 	6. 显示原始图片弹出层样式
-5. 群组相关样式
+5. 圈子相关样式
 6. 文章、日志等页面样式
 7. 空间相关样式
 8. 门户相关样式
@@ -47,11 +47,11 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 * 分类之间空三行，模块之间空两行，区块之间空一行 */
 
 /** group::index **/
-	/* 群组 index 模块使用的CSS */
+	/* 圈子 index 模块使用的CSS */
 /** end **/
 
 /** group::index,forum::index **/
-	/* 群组 index 和 论坛 index 模块使用的CSS */
+	/* 圈子 index 和 论坛 index 模块使用的CSS */
 /** end **/
 
 /** forum **/
@@ -120,7 +120,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 /** end **/
 
 /** misc::invite,group,forum::viewthread,portal::view,home::space **/
-	/* .usl -> 用于类似群组中邀请好友中的好友列表 by Pony */
+	/* .usl -> 用于类似圈子中邀请好友中的好友列表 by Pony */
 		.usl { overflow: scroll; overflow-x: hidden; padding: 5px; width: 580px; height: 280px; }
 		.usl2 { width: auto; border: dashed {WRAPBORDERCOLOR}; border-width: 0 1px 1px; }
 			.usl li { overflow: hidden; float: left; margin: 3px; width: 134px; height: 64px; }
@@ -207,7 +207,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 	.side_btn a svg { fill: {MENUBGCOLOR}; }
 	.side_btn a.btn_s_close { left:-27px; top:-11px; }
 	.side_btn a.btn_s_open { left:-21px; top:-11px; }
-
+#subjecthide { width: 585px; }
 /** end **/
 
 /**  forum::forumdisplay,forum::viewthread,group::viewthread,home::space,home::spacecp,home::invite,portal::view,portal::comment,forum::post,group::post **/
@@ -220,7 +220,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 /** end **/
 
 /** forum::modcp,misc::stat **/
-	/* จัดการบอร์ด */
+	/* 版块管理 */
 		.mdcp {}
 			.stl { float: left; width: 15%; }
 			.str { float: left; overflow: auto; overflow-y: hidden; width: 84%; }
@@ -427,7 +427,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 
 
 
-/* ------------------------------------------------------------------------ 广场版块、群组分类等列表样式 */
+/* ------------------------------------------------------------------------ 广场版块、圈子分类等列表样式 */
 /** forum::index,forum::forumdisplay,group::index,group::group,search::group **/
 /* 版块列表 */
 .fl {}
@@ -446,8 +446,9 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 		.fl_g dl { margin-left: 31px; padding-left: 10px; }
 			.fl_g dt { font-weight: 700; }
 	.fl_row td { border-top: 1px dashed {COMMONBORDER}; }
+	.fl_icn img, .fl_icn svg , .fl_icn_g img, .fl_icn_g svg { vertical-align: middle; }
 
-/* 群组分类列表 */
+/* 圈子分类列表 */
 	.flt {}
 		.flt .flc { width: 294px; }
 		.gcop { margin-right: 15px; clear: left; }
@@ -602,6 +603,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 			.tl th, .tl td.fn { padding-right: 1.5em; zoom: 1; }
 				.tl th a:visited, .tl td.fn a:visited { color: {MIDTEXT}; }
 				.fromg { visibility: hidden; }
+				tr:hover .fromg {visibility: visible;}
 			.tl .icn { padding-left: 5px; width: 25px; text-align: left; }
 				.tl .icn a:hover { text-decoration: none; }
 				.tl .tpin { position: relative; }
@@ -675,7 +677,7 @@ Created & Modified by Alice, Monkey, Lushnis, Pony, Dfox & DragonLee.
 /*
 	Name:			mod_thread_type
 	Level:			Function
-	Explain:		论坛群组的帖子主题分类分类信息等的筛选样式
+	Explain:		论坛圈子的帖子主题分类分类信息等的筛选样式
 	Author:			lushnis
 	Last Modify:	Pony
 */
@@ -1326,7 +1328,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		.t_attachinsert p img{ margin-bottom: -4px; }
 	.t_table{ border: 1px solid #E3EDF5; empty-cells: show; border-collapse: collapse; }
 		.pl table.t_table { table-layout: auto; }
-		.t_table td { padding: 4px; border: 1px solid #E3EDF5; overflow: hidden; }
+		.t_table td { padding: 4px; border: 1px solid #E3EDF5; overflow: hidden; overflow-wrap: anywhere; }
 	.tattl { float: left; overflow: hidden; padding: 10px 10px 10px 0; width: 45%; height: 64px; }
 		.tattl a { color: {HIGHLIGHTLINK}; text-decoration: underline; }
 		.tattl dt { float: left; width: 40px; font-weight: 700; }
@@ -1387,7 +1389,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 /** end **/
 
 
-/* ----------------------------------------------------------------------- 群组相关样式 by dfox */
+/* ----------------------------------------------------------------------- 圈子相关样式 by dfox */
 /** group::index **/
 	#g_focus { width: 320px; }
 	#g_commend {}
@@ -1400,7 +1402,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 		#g_guide strong { display: block; }
 	.fl .bm_h { border-bottom: none; background-color: transparent; }
 
-/* 群组列表 by Pony */
+/* 圈子列表 by Pony */
 	.fl_icn, .fl_icn_g { width: 48px; }
 	.fl_g dl { margin-left: 48px; padding: 0 5px; }
 /** end **/
@@ -1432,11 +1434,11 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 
 
 /** group::my **/
-/* 设置关注的群组弹窗 by Pony */
+/* 设置关注的圈子弹窗 by Pony */
 	.attgroup { width: 450px; }
 		.attgroup li { float: left; overflow: hidden; margin-right: 5px; width: 145px; white-space: nowrap; }
 
-/* 关注按钮和所有群组的按钮 by Shuaishuai*/
+/* 关注按钮和所有圈子的按钮 by Shuaishuai*/
 	.groupbtn { float: left; margin: 0 2px; padding: 0 !important; height: 23px; border: 1px solid #C1CFDA !important; background: #EEF0F3 !important; border-radius: 3px; line-height: 23px; text-align: center; cursor: pointer; }
 	.groupbtn:hover{ text-decoration: none; }
 		.groupbtn span { display: block; padding: 0 7px; }
@@ -1505,7 +1507,7 @@ i.pstatus { display: block; margin-bottom: -30px; font-size: 12px; text-align: c
 .pgm { clear: both; padding: 5px 0; }
 	.pgm .pg { float: left; }
 
-/* เกี่ยวกับการจัดการ文章 */
+/* 管理相关文章 */
 .bart { position: relative; padding: 10px; width: 640px; }
 	.bartl { overflow-y: scroll; padding: 10px; width: 270px; height: 270px; border: 1px solid {COMMONBORDER}; }
 		.bartl li { overflow: hidden; width: 250px; height: 20px; }
@@ -1958,7 +1960,7 @@ body { background: none !important; }
 		.pbw strong { font-weight: 400; }
 			.pbw p { color: #000; }
 		.p_pop span { display: none; }
-#nv_search #ft { margin: 20px; text-align: center; }
+#nv_search #ft.w { margin: 20px; text-align: center; }
 .pg { float: none; }
 #myspace_menu li a, #navs_menu li a { background-repeat: no-repeat; background-position: -200px 0; }
 /** end **/
@@ -2092,7 +2094,7 @@ body { background: none !important; }
 .flw_quote { margin-left: 10px; padding-left: 15px; border-left: 3px solid #B1CCD8; }
 .flw_readfull { padding: 3px 5px; border: 1px solid #DDD; border-radius: 3px; background: #FFF; }
 	.flw_readfull:hover { border-color: #9EB4C2; text-decoration: none; }
-.flw_delete { visibility: hidden; float: right; width: 40px; height: 20px; background: #AAA; overflow: hidden; font-size: 16px; text-align: center; line-height: 20px; border-radius: 2px; }
+.flw_delete { visibility: hidden; float: right; width: 20px; height: 20px; background: #AAA; overflow: hidden; font-size: 16px; text-align: center; line-height: 20px; border-radius: 2px; }
 	.flw_delete:before { content: "\d7"; color: #fff; font-weight: 700; }
 	.flw_delete:hover { background: #15AFDB; text-decoration: none; }
 	.flw_feed_hover .flw_delete { visibility: visible; }

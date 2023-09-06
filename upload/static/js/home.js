@@ -1029,6 +1029,7 @@ function spaceMusicPlayer(url, height) {
 	if (JSLOADED[STATICURL + 'js/player/aplayer.min.js']) {
 		var x = new Ajax('JSON');
 		x.getJSON(url, function(s) {
+			
 			var audio = new Array();
 			s.mp3list.forEach(function (s) {
 				var obj = new Object();
@@ -1038,9 +1039,11 @@ function spaceMusicPlayer(url, height) {
 				obj.cover = s.cdbj;
 				audio.push(obj);
 			});
+			
 			$('music_content').style.height = height + 'px';
 			$('music_content').style.padding = '0px';
 			$('music_content').style.margin = '0px';
+			
 			window['music_content'] = new APlayer({
 				container: $('music_content'),
 				autoplay: s.config.autorun == 'true',

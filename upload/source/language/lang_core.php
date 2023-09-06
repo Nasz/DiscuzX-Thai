@@ -53,7 +53,7 @@ $lang = array
 
 	'fullblankspace' => '　',
 
-	'title_grouptype' => 'คลับ',
+	'title_goruptype' => 'คลับ',
 	'title_of' => 'ของ',
 	'title_board_message' => 'แจ้งข้อมูล',
 	'title_view_all' => 'ดูทั้งหมด',

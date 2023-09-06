@@ -17,6 +17,8 @@ define('ROOT_PATH', dirname(__FILE__).'/../');
 define('CHARSET', $_config['output']['charset']);
 define('DBCHARSET', $_config['db']['1']['dbcharset']);
 
+header('Content-Type: text/html; charset='.CHARSET);
+
 $lock_file = ROOT_PATH.'./data/restore.lock';
 if(file_exists($lock_file)) {
 	show_msg('restored_error');
@@ -104,7 +106,7 @@ if($operation == 'import') {
 
 			foreach($sqlquery as $sql) {
 
-				$sql = syntablestruct(trim($sql), $db->version() > '4.1', DBCHARSET);
+				$sql = syntablestruct(trim($sql), true, DBCHARSET);
 
 				if($sql != '') {
 					$db->query($sql, 'SILENT');
@@ -494,7 +496,7 @@ table { border-collapse:collapse; margin-bottom:20px; }
 <div class="bodydiv">
 	<h1>
 		เครื่องมือกู้คืนข้อมูล Discuz!
-		<span> &nbsp; หากคุณมีคำถามใด ๆ ในการกู้คืนกรุณาเยี่ยมชมเว็บไซต์สนับสนุนด้านเทคนิค <a href="http://www.discuz.net" target="_blank">http://www.discuz.net</a></span>
+		<span> &nbsp; หากคุณมีคำถามใด ๆ ในการกู้คืนกรุณาเยี่ยมชมเว็บไซต์สนับสนุนด้านเทคนิค <a href="http://www.discuz.vip" target="_blank">http://www.discuz.vip</a></span>
 	</h1>
 	<div class="main">
 EOT;
@@ -675,18 +677,25 @@ function syntablestruct($sql, $version, $dbcharset) {
 }
 
 function is_https() {
+
 	if(isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) != 'off') {
 		return true;
 	}
+
 	if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) == 'https') {
 		return true;
 	}
+
+
 	if(isset($_SERVER['HTTP_X_CLIENT_SCHEME']) && strtolower($_SERVER['HTTP_X_CLIENT_SCHEME']) == 'https') {
 		return true;
 	}
+
+
 	if(isset($_SERVER['HTTP_FROM_HTTPS']) && strtolower($_SERVER['HTTP_FROM_HTTPS']) != 'off') {
 		return true;
 	}
+	
 	if(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
 		return true;
 	}

@@ -16,7 +16,7 @@
 		<div class="mn">
 			<div class="bm bml pbn">
 				<div class="bm_h cl">
-					<!--{if $view != 'index' && $view != 'my'}-->
+					<!--{if $view != 'index' && $view != 'my' && $_G[setting][rssstatus] }-->
 					<span class="y">
 						<a href="forum.php?mod=guide&view=$view&rss=1" class="fa_rss" target="_blank" title="RSS">{lang rss_subscribe_this}</a>
 					</span>
@@ -66,7 +66,7 @@
 					 			<!--{eval $i++;$newtd=$i%2;}-->
 					 			<li{if !$newtd} class="xl2_r"{/if}>
 						 			<em>
-							 			<!--{if $key == 'hot'}--><span class="xi1">{lang guide_attend} $thread['heats']</span><!--{/if}-->
+							 			<!--{if $key == 'hot'}--><span class="xi1">$thread['heats']{lang guide_attend}</span><!--{/if}-->
 							 			<!--{if $key == 'new'}-->$thread['lastpost']<!--{/if}-->
 						 			</em>
 						 			

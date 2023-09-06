@@ -52,6 +52,7 @@ class pm_clientcontrol extends base {
 		$unreadpmnum = $_ENV['pm']->getpmnum($uid, 0, 1);
 		$this->view->assign('user', $this->user);
 		$this->view->assign('pmnum_private', $pmnum_private);
+		
 		$this->view->assign('unreadpmnum', $unreadpmnum);
 		$this->view->assign('folder', $folder);
 		if ($folder == 'blackls') {
@@ -143,6 +144,7 @@ class pm_clientcontrol extends base {
 			$this->view->assign('touser', $touser);
 			$this->view->assign('user', $this->user);
 			$this->view->assign('pmnum_private', $pmnum_private);
+			
 			$this->view->assign('unreadpmnum', $unreadpmnum);
 			$this->view->assign('friends', $friends);
 			$this->view->assign('extra', $extra);
@@ -354,6 +356,7 @@ class pm_clientcontrol extends base {
 		$this->view->assign('touser', $touser);
 		$this->view->assign('subject', $subject);
 		$this->view->assign('pmnum_private', $pmnum_private);
+		
 		$this->view->assign('unreadpmnum', $unreadpmnum);
 		$this->view->assign('daterange', $daterange);
 		$this->view->assign('replypmid', $replypmid);
@@ -405,6 +408,7 @@ class pm_clientcontrol extends base {
 		$this->view->assign('scroll', $scroll);
 		$this->view->assign('user', $this->user);
 		$this->view->assign('pmnum_private', $pmnum_private);
+		
 		$this->view->assign('unreadpmnum', $unreadpmnum);
 		$this->view->assign('replypmid', $replypmid);
 		$this->view->assign('subject', $subject);

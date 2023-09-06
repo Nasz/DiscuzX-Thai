@@ -45,10 +45,17 @@ class usermodel {
 	function check_username($username) {
 		$charset = strtolower(UC_CHARSET);
 		if ($charset === 'utf-8') {
+			
+			
+			
 			$guestexp = '\xE3\x80\x80|\xE6\xB8\xB8\xE5\xAE\xA2|\xE9\x81\x8A\xE5\xAE\xA2';
 		} elseif ($charset === 'gbk') {
+			
+			
 			$guestexp = '\xA1\xA1|\xD3\xCE\xBF\xCD';
 		} elseif ($charset === 'big5') {
+			
+			
 			$guestexp = '\xA1\x40|\xB9\x43\xAB\xC8';
 		} else {
 			return FALSE;
@@ -133,6 +140,8 @@ class usermodel {
 
 	function check_secmobileexists($secmobicc, $secmobile, $username = '') {
 		$sqladd = $username !== '' ? "AND username<>'$username'" : '';
+		$secmobicc == 0 && $secmobicc = '';
+		$secmobile == 0 && $secmobile = '';
 		$secmobile = $this->db->result_first("SELECT secmobile FROM  ".UC_DBTABLEPRE."members WHERE secmobicc='$secmobicc' AND secmobile='$secmobile' $sqladd");
 		return $secmobile;
 	}
@@ -144,6 +153,7 @@ class usermodel {
 		} elseif(!$this->verify_password($password, $user['password'], $user['salt'])) {
 			return -2;
 		}
+		
 		$this->upgrade_password($username, $password, $user['password'], $user['salt']);
 		return $user['uid'];
 	}
@@ -154,8 +164,8 @@ class usermodel {
 		$password = $this->generate_password($password);
 		$sqladd = $uid ? "uid='".intval($uid)."'," : '';
 		$sqladd .= $questionid > 0 ? " secques='".$this->quescrypt($questionid, $answer)."'," : " secques='',";
-		$sqladd = $secmobicc ? "secmobicc='".$secmobicc."'," : '';
-		$sqladd = $secmobile ? "secmobile='".$secmobile."'," : '';
+		$sqladd .= $secmobicc ? "secmobicc='".$secmobicc."'," : '';
+		$sqladd .= $secmobile ? "secmobile='".$secmobile."'," : '';
 		$this->db->query("INSERT INTO ".UC_DBTABLEPRE."members SET $sqladd username='$username', password='$password', email='$email', regip='$regip', regdate='".$this->base->time."', salt='$salt'");
 		$uid = $this->db->insert_id();
 		$this->db->query("INSERT INTO ".UC_DBTABLEPRE."memberfields SET uid='$uid'");
@@ -178,8 +188,9 @@ class usermodel {
 
 		$sqladd = $newpw ? "password='".$this->generate_password($newpw)."', salt=''" : '';
 		$sqladd .= $email ? ($sqladd ? ',' : '')." email='$email'" : '';
-		$sqladd .= !empty($secmobicc) ? ($sqladd ? ',' : '')." secmobicc='$secmobicc'" : '';
-		$sqladd .= !empty($secmobile) ? ($sqladd ? ',' : '')." secmobile='$secmobile'" : '';
+		
+		$sqladd .= $secmobicc !== '' ? ($sqladd ? ',' : '').(!empty($secmobicc) ? " secmobicc='$secmobicc'" : " secmobicc=''") : '';
+		$sqladd .= $secmobile !== '' ? ($sqladd ? ',' : '').(!empty($secmobile) ? " secmobile='$secmobile'" : " secmobile=''") : '';
 		if($questionid !== '') {
 			if($questionid > 0) {
 				$sqladd .= ($sqladd ? ',' : '')." secques='".$this->quescrypt($questionid, $answer)."'";
@@ -216,6 +227,21 @@ class usermodel {
 			return $this->db->affected_rows();
 		} else {
 			return 0;
+		}
+	}
+
+	function delete_useravatar($uidsarr) {
+		if(!defined('UC_DELAVTDIR')) {
+			define('UC_DELAVTDIR', UC_DATADIR.'./avatar/');
+		}
+		$uidsarr = (array)$uidsarr;
+		foreach((array)$uidsarr as $uid) {
+			file_exists($avatar_file = UC_DELAVTDIR.$this->base->get_avatar($uid, 'big', 'real')) && unlink($avatar_file);
+			file_exists($avatar_file = UC_DELAVTDIR.$this->base->get_avatar($uid, 'middle', 'real')) && unlink($avatar_file);
+			file_exists($avatar_file = UC_DELAVTDIR.$this->base->get_avatar($uid, 'small', 'real')) && unlink($avatar_file);
+			file_exists($avatar_file = UC_DELAVTDIR.$this->base->get_avatar($uid, 'big')) && unlink($avatar_file);
+			file_exists($avatar_file = UC_DELAVTDIR.$this->base->get_avatar($uid, 'middle')) && unlink($avatar_file);
+			file_exists($avatar_file = UC_DELAVTDIR.$this->base->get_avatar($uid, 'small')) && unlink($avatar_file);
 		}
 	}
 
@@ -260,6 +286,8 @@ class usermodel {
 
 	function can_do_login($username, $ip = '') {
 
+		
+		
 		$check_times = $this->base->settings['login_failedtime'] > 0 ? $this->base->settings['login_failedtime'] : ($this->base->settings['login_failedtime'] < 0 ? 0 : 5);
 
 		if($check_times == 0) {
@@ -340,11 +368,16 @@ class usermodel {
 	function generate_password($password) {
 		$algo = $this->get_passwordalgo();
 		$options = $this->get_passwordoptions();
+		
+		
 		$hash = password_hash($password, $algo, $options);
 		return ($hash === false || $hash === null || !password_verify($password, $hash)) ? password_hash($password, PASSWORD_BCRYPT) : $hash;
 	}
 
 	function verify_password($password, $hash, $salt = '') {
+		
+		
+		
 		if(empty($salt)) {
 			return password_verify($password, $hash);
 		} else if(strlen($salt) == 6) {

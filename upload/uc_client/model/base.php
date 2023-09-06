@@ -57,8 +57,8 @@ class base {
 		if (!defined('UC_ONLYREMOTEADDR') || (defined('UC_ONLYREMOTEADDR') && !constant('UC_ONLYREMOTEADDR'))) {
 			require_once UC_ROOT.'./lib/ucip.class.php';
 			if(defined('UC_IPGETTER') && !empty(constant('UC_IPGETTER'))) {
-				$s = defined('UC_IPGETTER_'.constant('UC_IPGETTER')) && is_array(constant('UC_IPGETTER_'.constant('UC_IPGETTER'))) ? constant('UC_IPGETTER_'.constant('UC_IPGETTER')) : array();
-				$c = 'ucip_getter_'.constant('UC_IPGETTER');
+				$s = defined('UC_IPGETTER_'.strtoupper(constant('UC_IPGETTER'))) ? (is_string(constant('UC_IPGETTER_'.strtoupper(constant('UC_IPGETTER')))) ? unserialize(constant('UC_IPGETTER_'.strtoupper(constant('UC_IPGETTER')))) : constant('UC_IPGETTER_'.strtoupper(constant('UC_IPGETTER')))) : array();
+				$c = 'ucip_getter_'.strtolower(constant('UC_IPGETTER'));
 				require_once UC_ROOT.'./lib/'.$c.'.class.php';
 				$r = $c::get($s);
 				$this->onlineip = ucip::validate_ip($r) ? $r : $this->onlineip;
@@ -114,6 +114,35 @@ class base {
 
 	function implode($arr) {
 		return "'".implode("','", (array)$arr)."'";
+	}
+
+	function set_home($uid, $dir = '.') {
+		$uid = sprintf("%09d", $uid);
+		$dir1 = substr($uid, 0, 3);
+		$dir2 = substr($uid, 3, 2);
+		$dir3 = substr($uid, 5, 2);
+		!is_dir($dir.'/'.$dir1) && mkdir($dir.'/'.$dir1, 0777) && @touch($dir.'/'.$dir1.'/index.htm');
+		!is_dir($dir.'/'.$dir1.'/'.$dir2) && mkdir($dir.'/'.$dir1.'/'.$dir2, 0777) && @touch($dir.'/'.$dir1.'/'.$dir2.'/index.htm');
+		!is_dir($dir.'/'.$dir1.'/'.$dir2.'/'.$dir3) && mkdir($dir.'/'.$dir1.'/'.$dir2.'/'.$dir3, 0777) && @touch($dir.'/'.$dir1.'/'.$dir2.'/'.$dir3.'/index.htm');
+	}
+
+	function get_home($uid) {
+		$uid = sprintf("%09d", $uid);
+		$dir1 = substr($uid, 0, 3);
+		$dir2 = substr($uid, 3, 2);
+		$dir3 = substr($uid, 5, 2);
+		return $dir1.'/'.$dir2.'/'.$dir3;
+	}
+
+	function get_avatar($uid, $size = 'big', $type = '') {
+		$size = in_array($size, array('big', 'middle', 'small')) ? $size : 'big';
+		$uid = abs(intval($uid));
+		$uid = sprintf("%09d", $uid);
+		$dir1 = substr($uid, 0, 3);
+		$dir2 = substr($uid, 3, 2);
+		$dir3 = substr($uid, 5, 2);
+		$typeadd = $type == 'real' ? '_real' : '';
+		return  $dir1.'/'.$dir2.'/'.$dir3.'/'.substr($uid, -2).$typeadd."_avatar_$size.jpg";
 	}
 
 	function &cache($cachefile) {

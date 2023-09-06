@@ -50,8 +50,8 @@ class base {
 		if (!defined('UC_ONLYREMOTEADDR') || (defined('UC_ONLYREMOTEADDR') && !constant('UC_ONLYREMOTEADDR'))) {
 			require_once UC_ROOT.'./lib/ucip.class.php';
 			if(defined('UC_IPGETTER') && !empty(constant('UC_IPGETTER'))) {
-				$s = defined('UC_IPGETTER_'.constant('UC_IPGETTER')) && is_array(constant('UC_IPGETTER_'.constant('UC_IPGETTER'))) ? constant('UC_IPGETTER_'.constant('UC_IPGETTER')) : array();
-				$c = 'ucip_getter_'.constant('UC_IPGETTER');
+				$s = defined('UC_IPGETTER_'.strtoupper(constant('UC_IPGETTER'))) ? (is_string(constant('UC_IPGETTER_'.strtoupper(constant('UC_IPGETTER')))) ? unserialize(constant('UC_IPGETTER_'.strtoupper(constant('UC_IPGETTER')))) : constant('UC_IPGETTER_'.strtoupper(constant('UC_IPGETTER')))) : array();
+				$c = 'ucip_getter_'.strtolower(constant('UC_IPGETTER'));
 				require_once UC_ROOT.'./lib/'.$c.'.class.php';
 				$r = $c::get($s);
 				$this->onlineip = ucip::validate_ip($r) ? $r : $this->onlineip;
@@ -83,7 +83,7 @@ class base {
 		}
 	}
 
-	function init_input($getagent = '') {
+	function init_input($getagent = '', $secureoperation = true) {
 		$input = getgpc('input', 'R');
 		if($input) {
 			$input = $this->authcode($input, 'DECODE', $this->app['authkey']);
@@ -91,7 +91,11 @@ class base {
 			$this->input = daddslashes($this->input, 1, TRUE);
 			$agent = $getagent ? $getagent : $this->input['agent'];
 
-			if(($getagent && $getagent != $this->input['agent']) || (!$getagent && md5($_SERVER['HTTP_USER_AGENT']) != $agent)) {
+			if($secureoperation && !$this->settings['insecureoperation'] && (getgpc('m') != $this->input['m'] || getgpc('a') != $this->input['a'] || getgpc('appid') != $this->input['appid'])) {
+				exit('Access denied for operation changed');
+			} elseif($this->input('frontend') == 1 && !((getgpc('m') == 'user' && in_array(getgpc('a'), array('uploadavatar', 'rectavatar'))) || getgpc('m') == 'pm_client')) {
+				exit('Access denied for operation changed');
+			} elseif(($getagent && $getagent != $this->input['agent']) || (!$getagent && md5($_SERVER['HTTP_USER_AGENT']) != $agent)) {
 				exit('Access denied for agent changed');
 			} elseif($this->time - $this->input('time') > 3600) {
 				exit('Authorization has expired');
@@ -151,27 +155,35 @@ class base {
 
 	function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 
+		
 		$ckey_length = 4;
 
 		$key = md5($key ? $key : UC_KEY);
+		
 		$keya = md5(substr($key, 0, 16));
 		$keyb = md5(substr($key, 16, 16));
 		$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
 
+		
 		$cryptkey = $keya.md5($keya.$keyc);
 		$key_length = strlen($cryptkey);
 
+		
+		
 		$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
 		$string_length = strlen($string);
 
 		$result = '';
 		$box = range(0, 255);
 
+		
 		$rndkey = array();
 		for($i = 0; $i <= 255; $i++) {
 			$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 		}
 
+		
+		
 		for($j = $i = 0; $i < 256; $i++) {
 			$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 			$tmp = $box[$i];
@@ -179,6 +191,7 @@ class base {
 			$box[$j] = $tmp;
 		}
 
+		
 		for($a = $j = $i = 0; $i < $string_length; $i++) {
 			$a = ($a + 1) % 256;
 			$j = ($j + $box[$a]) % 256;
@@ -189,12 +202,16 @@ class base {
 		}
 
 		if($operation == 'DECODE') {
+			
+			
+			
 			if(((int)substr($result, 0, 10) == 0 || (int)substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) === substr(md5(substr($result, 26).$keyb), 0, 16)) {
 				return substr($result, 26);
 			} else {
 				return '';
 			}
 		} else {
+			
 			return $keyc.str_replace('=', '', base64_encode($result));
 		}
 
@@ -326,9 +343,9 @@ class base {
 		$dir1 = substr($uid, 0, 3);
 		$dir2 = substr($uid, 3, 2);
 		$dir3 = substr($uid, 5, 2);
-		!is_dir($dir.'/'.$dir1) && mkdir($dir.'/'.$dir1, 0777);
-		!is_dir($dir.'/'.$dir1.'/'.$dir2) && mkdir($dir.'/'.$dir1.'/'.$dir2, 0777);
-		!is_dir($dir.'/'.$dir1.'/'.$dir2.'/'.$dir3) && mkdir($dir.'/'.$dir1.'/'.$dir2.'/'.$dir3, 0777);
+		!is_dir($dir.'/'.$dir1) && mkdir($dir.'/'.$dir1, 0777) && @touch($dir.'/'.$dir1.'/index.htm');
+		!is_dir($dir.'/'.$dir1.'/'.$dir2) && mkdir($dir.'/'.$dir1.'/'.$dir2, 0777) && @touch($dir.'/'.$dir1.'/'.$dir2.'/index.htm');
+		!is_dir($dir.'/'.$dir1.'/'.$dir2.'/'.$dir3) && mkdir($dir.'/'.$dir1.'/'.$dir2.'/'.$dir3, 0777) && @touch($dir.'/'.$dir1.'/'.$dir2.'/'.$dir3.'/index.htm');
 	}
 
 	function get_home($uid) {
@@ -375,7 +392,7 @@ class base {
 		    } elseif(!preg_match("/^[0-9]+$/", $this->input[$k])) {
 		        return NULL;
 		    }
-		}
+		}		
 		return isset($this->input[$k]) ? (is_array($this->input[$k]) ? $this->input[$k] : trim($this->input[$k])) : NULL;
 	}
 
@@ -500,12 +517,17 @@ class base {
 	}
 
 	function detectescape($basepath, $relativepath) {
+		
+		
 		if(!file_exists($basepath)) {
 			return FALSE;
 		}
 
+		
 		if(!file_exists($basepath . $relativepath)) {
 			$relativepath = dirname($relativepath);
+			
+			
 			if(!file_exists($basepath . $relativepath)) {
 				return FALSE;
 			}
@@ -514,6 +536,9 @@ class base {
 		$real_base = realpath($basepath);
 		$real_target = realpath($basepath . $relativepath);
 
+		
+		
+		
 		if(strcmp($real_target, $real_base) !== 0 && strpos($real_target, $real_base . DIRECTORY_SEPARATOR) !== 0) {
 			return FALSE;
 		}
@@ -538,6 +563,7 @@ class base {
 	}
 
 	function secrandom($length, $numeric = 0, $strong = false) {
+		
 		$chars = $numeric ? array('A','B','+','/','=') : array('+','/','=');
 		$num_find = str_split('CDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 		$num_repl = str_split('01234567890123456789012345678901234567890123456789');
@@ -548,6 +574,7 @@ class base {
 				return random_bytes($length);
 			};
 		} elseif(extension_loaded('mcrypt') && function_exists('mcrypt_create_iv')) {
+			
 			$isstrong = true;
 			$random_bytes = function($length) {
 				$rand = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
@@ -558,6 +585,9 @@ class base {
 				}
 			};
 		} elseif(extension_loaded('openssl') && function_exists('openssl_random_pseudo_bytes')) {
+			
+			
+			
 			$isstrong = true;
 			$random_bytes = function($length) {
 				$rand = openssl_random_pseudo_bytes($length, $secure);
@@ -574,7 +604,7 @@ class base {
 		$retry_times = 0;
 		$return = '';
 		while($retry_times < 128) {
-			$getlen = $length - strlen($return); // 33% extra bytes
+			$getlen = $length - strlen($return); 
 			$bytes = $random_bytes(max($getlen, 12));
 			if($bytes === false) {
 				return false;

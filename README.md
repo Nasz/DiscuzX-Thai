@@ -1,7 +1,7 @@
 ![โลโก้เว็บบอร์ด](https://github.com/Nasz/DiscuzX/blob/master/upload/static/image/common/logo.svg)<br />
 รุ่นภาษาไทยของโปรแกรมเว็บบอร์ดสำเร็จรูป "ดิสคัซ!สิบ"
 
-## จากต้นฉบับ Discuz! X3.5 UTF-8 บิลท์ล่าสุด 2023-09-05
+## จากต้นฉบับ Discuz! X3.5 UTF-8 บิลท์ล่าสุด 2023-10-01
 
 Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discuz/DiscuzX](https://gitee.com/Discuz/DiscuzX)) รุ่นภาษาจีนตัวย่อ UTF8<br />
 

@@ -46,7 +46,6 @@ if($operation == 'alipay') {
 			array('nav_ec_transferorders', 'ec&operation=transferorders', 0),
 		));
 
-		
 		showtips('ec_alipay_tips');
 		showformheader('ec&operation=alipay');
 
@@ -90,7 +89,6 @@ if($operation == 'alipay') {
 		showsetting('ec_alipay_check', '', '',
 			'<a href="' . ADMINSCRIPT . '?action=ec&operation=alipay&checktype=credit" target="_blank">' . $lang['ec_alipay_checklink_credit'] . '</a><br />'
 		);
-		
 		showtableheader('', 'notop');
 		showsubmit('alipaysubmit');
 		showtablefooter();
@@ -140,7 +138,6 @@ if($operation == 'alipay') {
 			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 
-		
 		showtips('ec_wechat_tips');
 		showformheader('ec&operation=wechat');
 
@@ -187,7 +184,6 @@ if($operation == 'alipay') {
 		showsetting('ec_wechat_check', '', '',
 			'<a href="' . ADMINSCRIPT . '?action=ec&operation=wechat&checktype=credit" target="_blank">' . $lang['ec_wechat_checklink_credit'] . '</a><br />'
 		);
-		
 		showtableheader('', 'notop');
 		showsubmit('wechatsubmit');
 		showtablefooter();
@@ -247,7 +243,6 @@ if($operation == 'alipay') {
 			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 
-		
 		showtips('ec_qpay_tips');
 		showformheader('ec&operation=qpay');
 
@@ -273,7 +268,6 @@ if($operation == 'alipay') {
 		showsetting('ec_qpay_check', '', '',
 			'<a href="' . ADMINSCRIPT . '?action=ec&operation=qpay&checktype=credit" target="_blank">' . $lang['ec_qpay_checklink_credit'] . '</a><br />'
 		);
-		
 		showtableheader('', 'notop');
 		showsubmit('qpaysubmit');
 		showtablefooter();
@@ -363,7 +357,6 @@ if($operation == 'alipay') {
 	} else {
 		$start_limit = ($page - 1) * $_G['tpp'];
 
-		
 		echo '<style type="text/css">.order-status-0 td { color: #555; } .order-status-1 td { color: green; } .order-status-1 td a { color: #fe8080; } .order-status-2 td, .order-status-2 td a { color: #ccc; } .order-status-3 td { color: red; }</style>';
 		echo '<script src="static/js/calendar.js" type="text/javascript"></script>';
 		$queryparams = array(
@@ -418,7 +411,6 @@ if($operation == 'alipay') {
 		showtableheader('', 'notop');
 		showsubmit('searchsubmit');
 		showtablefooter();
-		
 		if($queryparams['user']) {
 			if(preg_match('/^\d+$/', $queryparams['user'])) {
 				$queryparams['uid'] = $queryparams['user'];
@@ -530,7 +522,6 @@ if($operation == 'alipay') {
 	} else {
 		$start_limit = ($page - 1) * $_G['tpp'];
 
-		
 		echo '<style type="text/css">.order-status-1 td { color: #555; } .order-status-2 td { color: green; } .order-status-3 td { color: red; }</style>';
 		echo '<script src="static/js/calendar.js" type="text/javascript"></script>';
 		$queryparams = array(
@@ -577,7 +568,6 @@ if($operation == 'alipay') {
 		showtableheader('', 'notop');
 		showsubmit('searchsubmit');
 		showtablefooter();
-		
 		if($queryparams['user']) {
 			if(preg_match('/^\d+$/', $queryparams['user'])) {
 				$queryparams['uid'] = $queryparams['user'];
@@ -664,7 +654,6 @@ if($operation == 'alipay') {
 			array('nav_ec_paymentorders', 'ec&operation=paymentorders', 0),
 			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
-		
 		showtips('ec_orders_tips');
 		showtagheader('div', 'ordersearch', !submitcheck('searchsubmit', 1));
 		showformheader('ec&operation=orders');
@@ -685,7 +674,6 @@ if($operation == 'alipay') {
 		showtablefooter();
 		showformfooter();
 		showtagfooter('div');
-		
 
 		if(submitcheck('searchsubmit', 1)) {
 
@@ -802,13 +790,11 @@ if($operation == 'alipay') {
 			array('nav_ec_transferorders', 'ec&operation=transferorders', 0)
 		));
 
-		
 		showtips('ec_credit_tips');
 		showformheader('ec&operation=credit');
 		showtableheader('ec_credit', 'nobottom');
 		showsetting('ec_credit_maxcreditspermonth', 'ec_creditnew[maxcreditspermonth]', $ec_credit['maxcreditspermonth'], 'text');
 		showtablefooter('</tbody>');
-		
 
 		showtableheader('ec_credit_rank', 'notop fixpadding');
 		showsubtitle(array('ec_credit_rank', 'ec_credit_between', 'ec_credit_sellericon', 'ec_credit_buyericon'));

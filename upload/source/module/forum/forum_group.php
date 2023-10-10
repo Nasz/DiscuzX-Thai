@@ -178,7 +178,7 @@ if($action == 'index') {
 			include_once libfile('function/post');
 			$livethread = C::t('forum_thread')->fetch_thread($_G['forum']['livetid']);
 			$livepost = C::t('forum_post')->fetch_threadpost_by_tid_invisible($_G['forum']['livetid']);
-			$livemessage = messagecutstr($livepost['message'], 200);
+			$livemessage = threadmessagecutstr($livethread, $livepost['message'], 200);
 			$liveallowpostreply = $groupuser['uid'] && $groupuser['level'] ? true : false;
 			list($seccodecheck, $secqaacheck) = seccheck('post', 'newthread');
 		}
@@ -274,6 +274,9 @@ if($action == 'index') {
 
 } elseif($action == 'out') {
 
+	if(!submitcheck('groupexit')) {
+		showmessage('undefined_action');
+	}
 	if($_G['uid'] == $_G['forum']['founderuid']) {
 		showmessage('group_exit_founder');
 	}

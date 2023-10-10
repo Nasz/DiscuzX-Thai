@@ -707,7 +707,6 @@ if(!submitcheck('modsubmit')) {
 				set_stamp($stampstatus, $stampaction, $threadlist, $expiration);
 			}
 
-			
 			$fidarr = array();
 			foreach ($threadlist as $thread) {
 				$fidarr[] = $thread['fid'];

@@ -97,9 +97,7 @@ var rowtypedata = [
 
 		shownav('extended', 'misc_link');
 		showsubmenu('nav_misc_links');
-		
 		showtips('misc_link_tips');
-		
 		showformheader('misc&operation=link');
 		showtableheader();
 		showsubtitle(array('', 'display_order', 'misc_link_edit_name', 'misc_link_edit_url', 'misc_link_edit_description', 'misc_link_edit_logo', 'misc_link_group1', 'misc_link_group2', 'misc_link_group3','misc_link_group4'));
@@ -195,9 +193,7 @@ var rowtypedata = [
 
 		shownav('extended', 'misc_relatedlink');
 		showsubmenu('nav_misc_relatedlink');
-		
 		showtips('misc_relatedlink_tips');
-		
 		$tdstyle = array('width="80"', 'width="120"', 'width="330"', 'width="75"', 'width="105"', 'width="105"', '');
 		showformheader('misc&operation=relatedlink');
 		showtableheader();
@@ -277,7 +273,6 @@ var rowtypedata = [
 			array('setting_editor_code', 'misc&operation=bbcode', 1),
 		));
 
-		
 		showtips('misc_bbcode_edit_tips');
 		showformheader('misc&operation=bbcode');
 		showtableheader('', 'fixpadding');
@@ -308,7 +303,6 @@ var rowtypedata = [
 		showsubmit('bbcodessubmit', 'submit', 'del');
 		showtablefooter();
 		showformfooter();
-		
 
 	} elseif(submitcheck('bbcodessubmit')) {
 
@@ -581,11 +575,9 @@ var rowtypedata = [
 			array('misc_censor_batch_add', 'import', $anchor == 'import'),
 			array('misc_censor_wordtype_edit', 'wordtype', $anchor == 'wordtype'),
 		));
-		
 		showtips('misc_censor_tips', 'list_tips', $anchor == 'list');
 		showtips('misc_censor_batch_add_tips', 'import_tips', $anchor == 'import');
 		showtips('misc_censor_wordtype_tips', 'wordtype_tips', $anchor == 'wordtype');
-		
 
 		showtagheader('div', 'list', $anchor == 'list');
 		showformheader("misc&operation=censor&page=$page", '', 'keywordsearch');
@@ -785,9 +777,7 @@ EOT;
 		));
 
 		showtagheader('div', 'list', $anchor == 'list');
-		
 		showtips('misc_stamp_listtips');
-		
 		showformheader('misc&operation=stamp');
 		showhiddenfields(array('anchor' => 'list'));
 		showtableheader();
@@ -834,9 +824,7 @@ EOT;
 		showtagfooter('div');
 
 		showtagheader('div', 'llist', $anchor == 'llist');
-		
 		showtips('misc_stamp_listtips');
-		
 		showformheader('misc&operation=stamp&type=list');
 		showhiddenfields(array('anchor' => 'llist'));
 		showtableheader();
@@ -860,9 +848,7 @@ EOT;
 
 		showtagheader('div', 'add', $anchor == 'add');
 		showformheader('misc&operation=stamp');
-		
 		showtips('misc_stamp_addtips');
-		
 		showtableheader();
 		showsubtitle(array('add', 'misc_stamp_type', 'misc_stamp_id', 'misc_stamp_imagename', 'smilies_edit_image', 'smilies_edit_filename'));
 
@@ -989,9 +975,7 @@ var rowtypedata = [
 
 		shownav('global', 'nav_posting_attachtype');
 		showsubmenu('nav_posting_attachtype');
-		
 		showtips('misc_attachtype_tips');
-		
 		showformheader('misc&operation=attachtype');
 		showtableheader('', 'nomargin');
 		showtablerow('class="partition"', array('class="td25"', 'class="td24"'), array('', cplang('misc_attachtype_ext'), cplang('misc_attachtype_maxsize')));
@@ -1044,9 +1028,7 @@ var rowtypedata = [
 
 			shownav('tools', 'misc_cron');
 			showsubmenu('nav_misc_cron');
-			
 			showtips('misc_cron_tips');
-			
 			showformheader('misc&operation=cron');
 			showtableheader('', 'fixpadding');
 			showsubtitle(array('', 'name', 'available', 'type', 'time', 'misc_cron_last_run', 'misc_cron_next_run', ''));
@@ -1304,7 +1286,7 @@ var rowtypedata = [
 		array('member', cplang('misc_focus_position_member')),
 		array('forum', cplang('misc_focus_position_forum')),
 		array('group', cplang('misc_focus_position_group')),
-		array('search', cplang('misc_focus_position_search')),		
+		array('search', cplang('misc_focus_position_search')),
 	);
 
 	if(!$do) {
@@ -1317,7 +1299,6 @@ var rowtypedata = [
 				array('admin', 'misc&operation=focus', 1),
 				array('add', 'misc&operation=focus&do=add')
 			));
-			
 			showtips('misc_focus_tips');
 			showformheader('misc&operation=focus');
 			showtableheader('admin', 'fixpadding');
@@ -1336,7 +1317,6 @@ var rowtypedata = [
 			showsubmit('focussubmit', 'submit', 'del');
 			showtablefooter();
 			showformfooter();
-			
 
 		} else {
 
@@ -1373,7 +1353,6 @@ var rowtypedata = [
 				array('admin', 'misc&operation=focus', 0),
 				array('add', 'misc&operation=focus&do=add', 1)
 			));
-			
 			showformheader('misc&operation=focus&do=add');
 			showtableheader('misc_focus_handadd', 'fixpadding');
 			showsetting('misc_focus_handurl', 'focus_url', '', 'text');
@@ -1385,7 +1364,6 @@ var rowtypedata = [
 			showsubmit('addsubmit', 'submit', '', '');
 			showtablefooter();
 			showformfooter();
-			
 
 		} else {
 
@@ -1482,7 +1460,6 @@ var rowtypedata = [
 				array('admin', 'misc&operation=focus', 0),
 				array('add', 'misc&operation=focus&do=add', 0)
 			));
-			
 			showformheader('misc&operation=focus&do=config');
 			showtableheader('config', 'fixpadding');
 			showsetting('misc_focus_area_title', 'focus_title', empty($focus['title']) ? cplang('misc_focus') : $focus['title'], 'text');
@@ -1490,7 +1467,6 @@ var rowtypedata = [
 			showsubmit('confsubmit', 'submit');
 			showtablefooter();
 			showformfooter();
-			
 
 		} else {
 

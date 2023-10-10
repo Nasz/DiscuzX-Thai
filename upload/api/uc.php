@@ -57,7 +57,6 @@ if(!defined('IN_UC')) {
 	$phpinput = file_get_contents('php://input');
 	$post = xml_unserialize($phpinput);
 
-	
 	require DISCUZ_ROOT.'./uc_client/extend_client.php';
 
 	if(in_array($get['action'], array('test', 'deleteuser', 'renameuser', 'gettag', 'synlogin', 'synlogout', 'updatepw', 'updatebadwords', 'updatehosts', 'updateapps', 'updateclient', 'updatecredit', 'getcredit', 'getcreditsettings', 'updatecreditsettings', 'addfeed'))) {

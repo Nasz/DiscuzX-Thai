@@ -234,7 +234,7 @@ class credit {
 			$this->updatemembercount($creditarr, $uids, is_array($uids) ? false : true, $this->coef > 0 ? urldecode($rule['rulenameuni']) : '');
 		}
 	}
-	
+
 	function frequencycheck($uids) {
 		global $_G;
 		if(empty($_G['config']['security']['creditsafe']['second']) || empty($_G['config']['security']['creditsafe']['times'])) {

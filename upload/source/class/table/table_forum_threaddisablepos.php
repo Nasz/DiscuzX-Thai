@@ -13,7 +13,6 @@ class table_forum_threaddisablepos extends discuz_table {
 
 	private $enable_set = false;
 
-	
 	public function __construct() {
 		$this->_table = 'forum_threaddisablepos';
 		$this->_pk    = 'tid';
@@ -21,8 +20,6 @@ class table_forum_threaddisablepos extends discuz_table {
 		$this->_cache_ttl = 0;
 		parent::__construct();
 
-		
-		
 		$this->enable_set = $this->_allowmem && C::memory()->gotset;
 	}
 

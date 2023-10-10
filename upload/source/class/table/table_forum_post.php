@@ -129,7 +129,6 @@ class table_forum_post extends discuz_table
 	}
 
 	public function fetch($id, $force_from_db = false, $null = true) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {
@@ -181,7 +180,6 @@ class table_forum_post extends discuz_table
 	}
 
 	public function fetch_all($ids, $force_from_db = false, $null = true) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {
@@ -459,7 +457,6 @@ class table_forum_post extends discuz_table
 	}
 
 	public function update($val, $data, $unbuffered = false, $low_priority = false, $null1 = false, $null2 = null, $null3 = null, $null4 = null, $null5 = null) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {
@@ -521,7 +518,6 @@ class table_forum_post extends discuz_table
 	}
 
 	public function update_cache($val, $data, $unbuffered = false, $low_priority = false, $null1 = array(), $null2 = 'merge') {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {
@@ -642,7 +638,6 @@ class table_forum_post extends discuz_table
 	}
 
 
-	
 	private function _insert_use_db($tableid, $data, $return_insert_id = false, $replace = false, $silent = false) {
 		$tablename = self::get_tablename($tableid);
 		foreach (range(1, 5) as $try_count) {
@@ -651,25 +646,22 @@ class table_forum_post extends discuz_table
 				$ret = DB::insert($tablename, $data, $return_insert_id, $replace, $silent);
 				return $ret;
 			} catch (Exception $e) {
-				if ($try_count >= 2) usleep(mt_rand(2, 6) * 10000); 
-				if ($try_count >= 3 && $try_count <= 4) usleep(mt_rand(4, 6) * 10000); 
-				if ($try_count === 5) throw $e; 
+				if ($try_count >= 2) usleep(mt_rand(2, 6) * 10000);
+				if ($try_count >= 3 && $try_count <= 4) usleep(mt_rand(4, 6) * 10000);
+				if ($try_count === 5) throw $e;
 			}
 		}
 	}
 
-	
 	private function _next_pos_from_db($tablename, $tid) {
 		return DB::result_first("SELECT IFNULL(MAX(position), 0) + 1 FROM " . DB::table($tablename) . " WHERE tid = " . $tid);
 	}
 
-	
 	private function _next_pos_from_memory($key) {
 		return memory('incex', $key, 1, 0, "");
 	}
 
 	public function insert($data, $return_insert_id = false, $replace = false, $silent = false, $null = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {
@@ -677,27 +669,24 @@ class table_forum_post extends discuz_table
 		}
 	}
 
-	
 	public function insert_post($tableid, $data, $return_insert_id = false, $replace = false, $silent = false) {
-		if (strtolower(getglobal("config/db/common/engine")) !== 'innodb') { 
+		if (strtolower(getglobal("config/db/common/engine")) !== 'innodb') {
 			return DB::insert(self::get_tablename($tableid), $data, $return_insert_id, $replace, $silent);
 		}
 		$tablename = self::get_tablename($tableid);
 
-		
 		$mc = strtolower(memory('check'));
-		if ($mc !== 'memcache' && $mc !== 'redis' && $mc !== 'memcached') { 
+		if ($mc !== 'memcache' && $mc !== 'redis' && $mc !== 'memcached') {
 			return $this->_insert_use_db($tableid, $data, $return_insert_id, $replace, $silent);
 		}
 
-		$memory_position_key = "forum_post_position_" . $data['tid']; 
+		$memory_position_key = "forum_post_position_" . $data['tid'];
 		$next_pos = $this->_next_pos_from_memory($memory_position_key);
 
-		if (!$next_pos) { 
+		if (!$next_pos) {
 			$next_pos = $this->_next_pos_from_db($tablename, $data['tid']);
-			if (!memory('add', $memory_position_key, $next_pos, 259200 )) { 
-				$next_pos = $this->_next_pos_from_memory($memory_position_key); 
-				
+			if (!memory('add', $memory_position_key, $next_pos, 259200 /* 3天 */)) {
+				$next_pos = $this->_next_pos_from_memory($memory_position_key);
 				if (!$next_pos) {
 					memory('rm', $memory_position_key);
 					return $this->_insert_use_db($tableid, $data, $return_insert_id, $replace, $silent);
@@ -705,15 +694,13 @@ class table_forum_post extends discuz_table
 			}
 		}
 		foreach (range(1, 3) as $try_count) {
-			
 			$data['position'] = $next_pos;
 			try {
 				$ret = DB::insert($tablename, $data, $return_insert_id, $replace, $silent);
 				return $ret;
 			} catch (Exception $e) {
-				
 				$next_pos = $this->_next_pos_from_memory($memory_position_key);
-				if (!$next_pos || $try_count === 3) { 
+				if (!$next_pos || $try_count === 3) {
 					memory('rm', $memory_position_key);
 					return $this->_insert_use_db($tableid, $data, $return_insert_id, $replace, $silent);
 				}
@@ -722,7 +709,6 @@ class table_forum_post extends discuz_table
 	}
 
 	public function delete($val, $unbuffered = false, $null = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {

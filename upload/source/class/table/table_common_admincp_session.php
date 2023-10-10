@@ -31,7 +31,6 @@ class table_common_admincp_session extends discuz_table
 	}
 
 	public function delete($val, $unbuffered = false, $null = 3600) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::delete($val, $unbuffered);

@@ -73,7 +73,7 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 		if(firstObj.value == '') {
 			var pwmsg = !modifypwd ? 'กรุณากรอกรหัสผ่าน' : profileTips;
 			if(pwlength > 0) {
-				pwmsg += ', ความยาวขั้นต่ำ '+pwlength+' ตัวอักษร';
+				pwmsg += ', ความยาวขั้นต่ำคือ '+pwlength+' ตัวอักษร';
 			}
 			errormessage(firstObj.id, pwmsg);
 		}else{
@@ -85,7 +85,7 @@ function checkPwdComplexity(firstObj, secondObj, modify) {
 		if(pwlength == 0 || $(firstObj.id).value.length >= pwlength) {
 			var passlevels = new Array('','อ่อนไหว','ปานกลาง','เข้มงวด');
 			var passlevel = checkstrongpw(firstObj.id);
-			errormessage(firstObj.id, '<span class="passlevel passlevel'+passlevel+'">ความแข็งแรงของรหัสผ่าน:'+passlevels[passlevel]+'</span>');
+			errormessage(firstObj.id, '<span class="passlevel passlevel'+passlevel+'">ความแข็งแกร่งของรหัสผ่าน:'+passlevels[passlevel]+'</span>');
 		}
 	};
 	secondObj.onblur = function () {
@@ -109,7 +109,7 @@ function addMailEvent(mailObj) {
 	};
 	mailObj.onblur = function () {
 		if(mailObj.value == '') {
-			errormessage(mailObj.id, 'กรุณาป้อนที่อยู่อีเมล');
+			errormessage(mailObj.id, 'กรุณากรอกที่อยู่อีเมล');
 		}
 		emailMenuOp(3, null, mailObj.id);
 	};
@@ -278,7 +278,7 @@ function checkusername(id) {
 	}
 	var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
 	if(unlen < 3 || unlen > 15) {
-		errormessage(id, unlen < 3 ? 'ชื่อผู้ใช้จะต้องไม่น้อยกว่าน้อย 3 ตัวอักษร' : 'ชื่อผู้ใช้จะต้องไม่เกิน 15 ตัวอักษร');
+		errormessage(id, unlen < 3 ? 'ชื่อผู้ใช้ต้องมีอย่างน้อย 3 ตัวอักษร' : 'ชื่อผู้ใช้ต้องมีความยาวไม่เกิน 15 ตัวอักษร');
 		return;
 	}
 	var x = new Ajax();
@@ -294,7 +294,7 @@ function checkpassword(id1, id2) {
 	}
 	if(pwlength > 0) {
 		if($(id1).value.length < pwlength) {
-			errormessage(id1, 'รหัสผ่านสั้นเกินไป ต้องมากกว่า '+pwlength+' ตัวอักษร');
+			errormessage(id1, 'รหัสผ่านสั้นเกินไป ต้องมีอักขระอย่างน้อย '+pwlength+' ตัวอักษร');
 			return;
 		}
 	}
@@ -309,17 +309,17 @@ function checkpassword(id1, id2) {
 			}
 			if(strongpw[i] === 2 && !$(id1).value.match(/[a-z]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = 'ตัวอักษรตัวพิมพ์เล็ก';
+				strongpw_str[j] = 'ตัวพิมพ์เล็ก';
 				j++;
 			}
 			if(strongpw[i] === 3 && !$(id1).value.match(/[A-Z]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = 'อักษรตัวพิมพ์ใหญ่';
+				strongpw_str[j] = 'ตัวพิมพ์ใหญ่';
 				j++;
 			}
 			if(strongpw[i] === 4 && !$(id1).value.match(/[^A-Za-z0-9]+/g)) {
 				strongpw_error = true;
-				strongpw_str[j] = 'เครื่องหมาย';
+				strongpw_str[j] = 'สัญลักษณ์พิเศษ';
 				j++;
 			}
 		}
@@ -330,7 +330,7 @@ function checkpassword(id1, id2) {
 	}
 	errormessage(id2);
 	if($(id1).value != $(id2).value) {
-		errormessage(id2, 'รหัสผ่านที่ป้อนสองครั้งไม่เหมือนกัน');
+		errormessage(id2, 'รหัสผ่านที่ป้อนทั้งสองครั้งไม่เหมือนกัน');
 	} else {
 		errormessage(id2, !modifypwd ? 'succeed' : '');
 	}
@@ -345,7 +345,7 @@ function checkemail(id) {
 		lastemail = email;
 	}
 	if(email.match(/<|"/ig)) {
-		errormessage(id, 'Email มีคำที่ละเอียดอ่อน');
+		errormessage(id, 'อีเมลมีคำที่ละเอียดอ่อน');
 		return;
 	}
 	var x = new Ajax();
@@ -364,7 +364,7 @@ function checkinvite() {
 		lastinvitecode = invitecode;
 	}
 	if(invitecode.match(/<|"/ig)) {
-		errormessage('invitecode', 'รหัสเชิญมีคำที่ละเอียดอ่อน');
+		errormessage('invitecode', 'รหัสคำเชิญมีคำที่ละเอียดอ่อน');
 		return;
 	}
 	var x = new Ajax();

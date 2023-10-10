@@ -39,6 +39,7 @@ function mobile_discuzcode($param) {
 		}
 	}
 
+	$message = preg_replace('/\[\tDISCUZ_CODE_\d+\t\]/', '', $message);
 	if($parsetype != 1 && !$bbcodeoff && $allowbbcode && (strpos($message, '[/code]') || strpos($message, '[/CODE]')) !== FALSE) {
 		$message = preg_replace_callback("/\s?\[code\](.+?)\[\/code\]\s?/is", 'mobile_discuzcode_callback_mobile_parsecode_1', $message);
 	}
@@ -63,7 +64,7 @@ function mobile_discuzcode($param) {
 
 	if($allowbbcode) {
 		if(strpos($msglower, 'ed2k://') !== FALSE) {
-			$message = preg_replace_callback("/ed2k:\/\/(.+?)\//", 'mobile_discuzcode_callback_mobile_parseed2k_1', $message);
+			$message = preg_replace_callback("/ed2k:\/\/([^\/\s'\"]+)\//", 'mobile_discuzcode_callback_mobile_parseed2k_1', $message);
 		}
 	}
 
@@ -91,11 +92,11 @@ function mobile_discuzcode($param) {
 			'<ul type="A" class="litype_3">', '<li>', '<li>', '</ul>', '', '', ''
 			), preg_replace(array(
 			"/\[color=([#\w]+?)\]/i",
-			"/\[color=((rgb|rgba)\([\d\s,]+?\))\]/i",
+			"/\[color=((rgb|rgba)\([\d\s\.,]+?\))\]/i",
 			"/\[backcolor=([#\w]+?)\]/i",
-			"/\[backcolor=((rgb|rgba)\([\d\s,]+?\))\]/i",
+			"/\[backcolor=((rgb|rgba)\([\d\s\.,]+?\))\]/i",
 			"/\[size=(\d{1,2}?)\]/i",
-			"/\[size=(\d{1,2}(\.\d{1,2}+)?(px|pt)+?)\]/i",
+			"/\[size=(\d+(\.\d+)?(px|pt)+?)\]/i",
 			"/\[font=([^\[\<]+?)\]/i",
 			"/\[align=(left|center|right)\]/i",
 			"/\[p=(\d{1,2}|null), (\d{1,2}|null), (left|center|right)\]/i",

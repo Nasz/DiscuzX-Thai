@@ -11,7 +11,6 @@ if(!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-
 if(getglobal('setting/membersplit')) {
 	C::t('common_member')->split(100);
 }

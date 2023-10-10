@@ -144,9 +144,9 @@ button::-moz-focus-inner { border: none; padding: 0; }
 	.mainhd.toggle #frameuinfo>p { display: block; }
 	.mainhd.toggle .uinfo { box-shadow: -5px 0 5px rgba(0, 0, 0, .2); }
 	.mainhd.toggle #frameuinfo:before { content: ""; display: block; color: #2b7acd; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-left: 5px solid; border-right: 0; transform: translate(-5px, 0); }
-	.uinfo { padding: 0 51px 0 6px; }
+}
 
-/* ???? */
+/* ????????????????????? */
 .darkmode {
 	align-self: flex-end;
 	width: 45px;

@@ -186,7 +186,7 @@ function announcement() {
 }
 
 function removeindexheats() {
-	return confirm('คุณแน่ใจหรือไม่ว่าต้องการลบหัวข้อนี้ออกจากเธรดร้อนแรง?');
+	return confirm('คุณต้องการลบหัวข้อนี้ออกจากหัวข้อร้อนแรงใช่หรือไม่?');
 }
 
 function showTypes(id, mod) {
@@ -240,7 +240,7 @@ function fastpostvalidate(theform, noajaxpost) {
 		s = 'ขออภัยคุณยังไม่ได้ป้อนหัวข้อหรือเนื้อหา';
 		theform.message.focus();
 	} else if(dstrlen(theform.subject.value) > 255) {
-		s = 'หัวข้อของคุณเกินขีดิจำกัด (มากกว่า 255 ตัวอักษร)';
+		s = 'ชื่อหัวข้อของคุณยาวเกินขีดจำกัด 255 ตัวอักษร)';
 		theform.subject.focus();
 	}
 	if(!disablepostctrl && dstrlen(trim(theform.subject.value)) && ((postminsubjectchars != 0 && dstrlen(theform.subject.value) < postminsubjectchars) || (postminsubjectchars != 0 && dstrlen(theform.subject.value) > postmaxsubjectchars))) {
@@ -315,12 +315,12 @@ function loadData(quiet, formobj) {
 
 	if(in_array((data = trim(data)), ['', 'null', 'false', null, false])) {
 		if(!quiet) {
-			showDialog('ไม่มีข้อมูลที่สามารถกู้คืนได้!', 'notice');
+			showDialog('ไม่สามารถกู้คืนข้อมูลได้!', 'notice');
 		}
 		return;
 	}
 
-	if(!quiet && !confirm('การดำเนินการนี้จะยกเลิกเนื้อหาของโพสต์ในปัจจุบัน ยังต้องการกู้คืนข้อมูลหรือไม่?')) {
+	if(!quiet && !confirm('การดำเนินการนี้จะเขียนทับเนื้อหาโพสต์ในปัจจุบัน ยังต้องการกู้คืนข้อมูลหรือไม่?')) {
 		return;
 	}
 

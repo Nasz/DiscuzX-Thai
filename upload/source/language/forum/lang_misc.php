@@ -97,6 +97,7 @@ $lang = array
 	'trade_overedrefund' => 'เสร็จสิ้นการคืนเงิน',
 	'trade_refundsuccess' => '<font color="green">คืนเงินสำเร็จ</font>',
 	'trade_refundclosed' => '<font color="green">ปิดการคืนเงิน</font>',
+	'trade_refundclosed' => '<font color="green">ปิดการคืนเงินแล้ว</font>',
 
 	'trade_offline_1' => '交易单生效',
 	'trade_offline_4' => '我已付款，等待卖家发货',

@@ -156,7 +156,6 @@ if(empty($operation)) {
 		));
 		showformheader("announce&operation=edit&announceid={$_GET['announceid']}");
 		showtableheader();
-		
 		showtitle('announce_edit');
 		showsetting($lang['subject'], 'newsubject', $announce['subject'], 'htmltext');
 		showsetting('start_time', 'starttimenew', $announce['starttime'], 'calendar', '', 0, '', 1);
@@ -168,7 +167,6 @@ if(empty($operation)) {
 		showsetting('announce_message', 'messagenew', $announce['message'], 'textarea');
 		showsubmit('editsubmit');
 		showtablefooter();
-		
 		showformfooter();
 
 	} else {

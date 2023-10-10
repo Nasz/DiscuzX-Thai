@@ -281,7 +281,6 @@ if(!$operation || in_array($operation, array('plugins', 'templates'))) {
 			$v = reset($batch);
 			dheader('location: '.$v[0]);
 		} else {
-			
 			list($_GET['key'], $_GET['type'], $_GET['rid']) = explode('.', $addonids[0]);
 			if($_GET['type'] == 'plugin') {
 				dheader('location: '.ADMINSCRIPT.'?action=plugins&operation=upgrade&pluginid='.$plugin['pluginid']);

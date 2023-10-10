@@ -53,7 +53,6 @@ $uchidden = getgpc('uchidden');
 if(in_array($method, array('app_reg', 'ext_info'))) {
 	$isHTTPS = is_https();
 	$PHP_SELF = $_SERVER['PHP_SELF'] ? $_SERVER['PHP_SELF'] : $_SERVER['SCRIPT_NAME'];
-	
 	$bbserver = 'http'.($isHTTPS ? 's' : '').'://'.$_SERVER['HTTP_HOST'];
 	$default_ucapi = $bbserver.'/ucenter';
 	$default_appurl = $bbserver.substr($PHP_SELF, 0, strrpos($PHP_SELF, '/') - 8);
@@ -121,7 +120,7 @@ if($method == 'show_license') {
 
 	if($submit) {
 
-		$app_type = 'DISCUZX'; 
+		$app_type = 'DISCUZX'; // Only For Discuz!
 
 		$app_name = $sitename ? $sitename : SOFT_NAME;
 		$app_url = $siteurl ? $siteurl : $default_appurl;
@@ -261,7 +260,6 @@ if($method == 'show_license') {
 	} else {
 		$submit = false;
 	}
-	
 	$myisam2innodb = isset($_POST['dbinfo']['myisam2innodb']) ? $_POST['dbinfo']['myisam2innodb'] : '';
 	if($submit && !VIEW_OFF && $_SERVER['REQUEST_METHOD'] == 'POST') {
 		if($password != $password2) {
@@ -471,7 +469,6 @@ if($method == 'show_license') {
 
 	$db->query("REPLACE INTO {$tablepre}common_member (uid, username, password, adminid, groupid, email, regdate, timeoffset) VALUES ('$uid', '$username', '$password', '1', '1', '$email', '".time()."', '9999');");
 
-	
 	if($uid) {
 		$db->query("REPLACE INTO {$tablepre}common_member_count SET uid='$uid';");
 		$db->query("REPLACE INTO {$tablepre}common_member_status SET uid='$uid';");
@@ -529,7 +526,6 @@ if($method == 'show_license') {
 		@unlink(ROOT_PATH.'./install/data/install_data_appendage.sql');
 	}
 
-	
 	$saltkey = random(8);
 	$authkey = md5($_config['security']['authkey'].$saltkey);
 	$cookiepre = $_config['cookie']['cookiepre'].substr(md5($_config['cookie']['cookiepath'].'|'.$_config['cookie']['cookiedomain']), 0, 4).'_';

@@ -15,7 +15,7 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'hello' => 'สวัสดี',
-	'moderate_member_invalidate' => 'ยับยั้ง',
+	'moderate_member_invalidate' => 'ปฏิเสธ',
 	'moderate_member_delete' => 'ลบ',
 	'moderate_member_validate' => 'ผ่าน',
 

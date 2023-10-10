@@ -52,7 +52,7 @@ if($op == 'send' || $op == 'reply') {
 			'pokeuid' => $uid+$_G['uid'],
 			'uid' => $uid,
 			'fromuid' => $_G['uid'],
-			'note' => $notetext, 
+			'note' => $notetext, //need to do
 			'dateline' => $_G['timestamp'],
 			'iconid' => intval($_POST['iconid'])
 		);

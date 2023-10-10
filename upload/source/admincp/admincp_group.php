@@ -35,7 +35,6 @@ if($operation == 'setting') {
 	if(!submitcheck('updategroupsetting')) {
 		shownav('group', 'nav_group_setting');
 		showsubmenu('nav_group_setting');
-		
 		showformheader('group&operation=setting');
 		showtableheader();
 		showtitle('groups_setting_basic');
@@ -54,7 +53,6 @@ if($operation == 'setting') {
 		showsubmit('updategroupsetting');
 		showtablefooter();
 		showformfooter();
-		
 	} else {
 
 		require_once libfile('function/group');
@@ -642,7 +640,6 @@ var rowtypedata = [
 		shownav('group', 'nav_group_userperm');
 		$varname = array('newgroup_userperm', array(), 'isfloat');
 		showsubmenu(cplang('nav_group_userperm').' - '.cplang('group_userperm_moderator'));
-		
 		showformheader("group&operation=userperm&id=$id");
 		showtableheader();
 		$varname[1] = array(
@@ -689,7 +686,6 @@ var rowtypedata = [
 		showsubmit('permsubmit', 'submit');
 		showtablefooter();
 		showformfooter();
-		
 	} else {
 		$default_perm = array('allowstickthread' => 0, 'allowbumpthread' => 0, 'allowhighlightthread' => 0, 'allowlivethread' => 0, 'allowstampthread' => 0, 'allowclosethread' => 0, 'allowmergethread' => 0, 'allowsplitthread' => 0, 'allowrepairthread' => 0, 'allowrefund' => 0, 'alloweditpoll' => 0, 'allowremovereward' => 0, 'alloweditactivity' => 0, 'allowedittrade' => 0, 'allowdigestthread' => 0, 'alloweditpost' => 0, 'allowwarnpost' => 0, 'allowbanpost' => 0, 'allowdelpost' => 0, 'allowupbanner' => 0, 'disablepostctrl' => 0, 'allowviewip' => 0);
 		if(empty($_GET['newgroup_userperm']) || !is_array($_GET['newgroup_userperm'])) {
@@ -736,9 +732,7 @@ var rowtypedata = [
 EOT;
 			shownav('group', 'nav_group_level');
 			showsubmenu('nav_group_level');
-			
 			showtips('group_level_tips');
-			
 
 			showformheader('group&operation=level');
 			showtableheader('group_level', 'fixpadding', 'id="grouplevel"');
@@ -1093,7 +1087,6 @@ function searchgroups($submit) {
 		$dayselect .= "<option value=\"$d\" ".($birthday == $d ? 'selected' : '').">$d</option>\n";
 	}
 
-	
 	showtagheader('div', 'searchgroups', !$submit);
 	echo '<script src="' . STATICURL . 'js/calendar.js" type="text/javascript"></script>';
 	showformheader("group&operation=manage");
@@ -1114,7 +1107,6 @@ function searchgroups($submit) {
 	showtablefooter();
 	showformfooter();
 	showtagfooter('div');
-	
 }
 
 function countgroups() {

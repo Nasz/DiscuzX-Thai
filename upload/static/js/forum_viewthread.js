@@ -173,7 +173,7 @@ function parsetag(pid) {
 }
 
 function setanswer(pid, from){
-	if(confirm('ยืนยันว่าคุณต้องการเลือกการตอบกลับนี้เป็น "คำตอบที่ดีที่สุด"？')){
+	if(confirm('คุณต้องการเลือกการตอบกลับนี้เป็น "คำตอบที่ดีที่สุด"ใช่หรือไม่？')){
 		if(BROWSER.ie) {
 			doane(event);
 		}
@@ -245,7 +245,7 @@ function succeedhandle_fastpost(locationhref, message, param) {
 		$('fastpostreturn').className = '';
 	} else {
 		if(!message) {
-			message = 'จำเป็นต้องมีการตรวจสอบคำตอบนี้ โพสต์ของคุณจะปรากฏขึ้นหลังจากผ่านการตรวจสอบแล้ว';
+			message = 'โพสต์ในฟอรัมนี้จำเป็นต้องได้รับการอนุมัติก่อน โพสต์ของคุณจะปรากฏขึ้นหลังจากผ่านการตรวจสอบแล้ว';
 		}
 		$('post_new').style.display = $('fastpostmessage').value = $('fastpostreturn').className = '';
 		$('fastpostreturn').innerHTML = message;
@@ -735,7 +735,7 @@ function changecontentdivid(tid) {
 }
 
 function showmobilebbs(obj) {
-	var content = '<h3 class="flb" style="cursor:move;"><em>ดาวน์โหลดเว็บบอร์ดขนาดพกพา</em><span><a href="javascript:;" class="flbc" onclick="hideWindow(\'mobilebbs\')" title="{lang close}">{lang close}</a></span></h3><div class="c"><h4>มือถือ Android สามารถสแกน QR แล้วดาวน์โหลดได้โดยตรง</h4><p class="mtm mbm vm"><span class="code_bg"><img src="'+ STATICURL +'image/common/zslt_andriod.png" alt="" /></span><img src="'+ STATICURL +'image/common/andriod.png" alt="เหมาะสำหรับ Samsung/HTC/Xiaomi และโทรศัพท์มือถืออื่น ๆ ที่ใช้ระบบ Android" /></p><h4>มือถือ iPhone สามารถสแกน QR แล้วดาวน์โหลดได้โดยตรง</h4><p class="mtm mbm vm"><span class="code_bg"><img src="'+ STATICURL +'image/common/zslt_ios.png" alt="" /></span><img src="'+ STATICURL +'image/common/ios.png" alt="เหมาะสำหรับโทรศัพท์มือถือของ Apple" /></p></div>';
+	var content = '<h3 class="flb" style="cursor:move;"><em>ดาวน์โหลดฟอรัมบนมือถือ</em><span><a href="javascript:;" class="flbc" onclick="hideWindow(\'mobilebbs\')" title="{lang close}">{lang close}</a></span></h3><div class="c"><h4>มือถือ Android สามารถสแกน QR แล้วดาวน์โหลดได้โดยตรง</h4><p class="mtm mbm vm"><span class="code_bg"><img src="'+ STATICURL +'image/common/zslt_andriod.png" alt="" /></span><img src="'+ STATICURL +'image/common/andriod.png" alt="เหมาะสำหรับ Samsung/HTC/Xiaomi และโทรศัพท์มือถืออื่น ๆ ที่ใช้ระบบ Android" /></p><h4>มือถือ iPhone สามารถสแกน QR แล้วดาวน์โหลดได้โดยตรง</h4><p class="mtm mbm vm"><span class="code_bg"><img src="'+ STATICURL +'image/common/zslt_ios.png" alt="" /></span><img src="'+ STATICURL +'image/common/ios.png" alt="เหมาะสำหรับโทรศัพท์มือถือของ Apple" /></p></div>';
 	showWindow('mobilebbs', content, 'html');
 }
 

@@ -298,7 +298,7 @@ function refreshAvatarCanvasForDisplay() {
     ctx.fillText('อัปโหลดสำเร็จ!', dwidth - 160,155);
     ctx.fillStyle = "grey";
     ctx.font = "bold 12px Arial";
-    ctx.fillText('นี่คือรูปโปรไฟล์สามขนาดของคุณ', dwidth - 200, 180);
+    ctx.fillText('นี่คือรูปโปรไฟล์ทั้งสามขนาดของคุณ', dwidth - 200, 180);
 }
 
 function rectAvatarDone(res) {

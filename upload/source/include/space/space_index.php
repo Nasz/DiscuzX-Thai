@@ -28,7 +28,6 @@ if ($_GET['op'] == 'getmusiclist') {
 	if($reauthcode == $_GET['hash']) {
 		space_merge($space,'field_home');
 		$userdiy = getuserdiydata($space);
-		
 		helper_output::json($userdiy['parameters']['music']);
 	}
 	exit();

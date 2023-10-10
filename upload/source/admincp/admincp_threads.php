@@ -74,13 +74,10 @@ EOT;
 		array('newlist', 'threads'.($operation ? '&operation='.$operation : ''), !empty($newlist)),
 		array('search', 'threads'.($operation ? '&operation='.$operation : '').'&search=true', empty($newlist)),
 	));
-	
 	if(empty($newlist)) {
 		$search_tips = 1;
 		showtips('threads_tips');
 	}
-	
-	
 	showtagheader('div', 'threadsearch', !submitcheck('searchsubmit', 1) && empty($newlist));
 	showformheader('threads'.($operation ? '&operation='.$operation : ''), '', 'threadforum');
 	showhiddenfields(array('page' => $page, 'pp' => $_GET['pp'] ? $_GET['pp'] : $_GET['perpage']));
@@ -152,7 +149,6 @@ EOT;
 	showtablefooter();
 	showformfooter();
 	showtagfooter('div');
-	
 	if(submitcheck('searchsubmit', 1) || $newlist) {
 		$operation == 'group' && $_GET['inforum'] = 'isgroup';
 
@@ -349,7 +345,7 @@ EOT;
 		showsubmit('modsubmit', 'submit', '', '', $multi);
 		showtablefooter();
 		showformfooter();
-		echo '<script type="text/JavaScript">ajaxget(\'forum.php?mod=ajax&action=getthreadtypes&fid=\' + $("toforum").value, \'threadtypes\')</script>'; 		
+		echo '<script type="text/JavaScript">ajaxget(\'forum.php?mod=ajax&action=getthreadtypes&fid=\' + $("toforum").value, \'threadtypes\')</script>';
 		echo '<iframe name="threadframe" style="display:none"></iframe>';
 		showtagfooter('div');
 
@@ -372,7 +368,7 @@ EOT;
 
 		foreach(explode(',', $_GET['fids'].','.$_GET['toforum']) as $fid) {
 			updateforumcount(intval($fid));
-		}		
+		}
 
 		$cpmsg = cplang('threads_succeed');
 
@@ -399,7 +395,7 @@ EOT;
 		foreach(explode(',', $_GET['fids']) as $fid) {
 			updateforumcount(intval($fid));
 		}
-		
+
 		$cpmsg = cplang('threads_succeed');
 
 	} elseif($optype == 'deleteattach') {
@@ -441,13 +437,13 @@ EOT;
 		}
 		C::t('forum_thread')->update($tidsarray, array('digest'=>$_GET['digest_level']));
 		$my_act = $_GET['digest_level'] ? 'digest' : 'update';
-		
+
 		$cpmsg = cplang('threads_succeed');
 
 	} elseif($optype == 'addstatus') {
 
 		C::t('forum_thread')->update($tidsarray, array('closed'=>$_GET['status']));
-		$my_opt = $_GET['status'] ? 'close' : 'open';	
+		$my_opt = $_GET['status'] ? 'close' : 'open';
 
 		$cpmsg = cplang('threads_succeed');
 

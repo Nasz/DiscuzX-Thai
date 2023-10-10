@@ -50,12 +50,10 @@ if(!submitcheck('postcommentsubmit')) {
 		array('postcomment_search', !$searchsubmit),
 		array('nav_postcomment', $searchsubmit)
 	));
-	
 	if(empty($newlist)) {
 		$search_tips = 1;
 		showtips('postcomment_tips');
 	}
-	
 	$staticurl = STATICURL;
 	echo <<<EOT
 <script type="text/javascript" src="{$staticurl}js/calendar.js"></script>
@@ -67,7 +65,6 @@ function page(number) {
 </script>
 EOT;
 	showtagheader('div', 'searchposts', !$searchsubmit && empty($newlist));
-	
 	showformheader("postcomment".(!empty($_GET['search']) ? '&search=true' : ''), '', 'postcommentforum');
 	showhiddenfields(array('page' => $page, 'pp' => $_GET['pp'] ? $_GET['pp'] : $_GET['perpage']));
 	showtableheader();
@@ -84,7 +81,6 @@ EOT;
 	showtablefooter();
 	showformfooter();
 	showtagfooter('div');
-	
 
 } else {
 	$cids = authcode($cids, 'DECODE');

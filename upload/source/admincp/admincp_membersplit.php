@@ -25,9 +25,7 @@ if(!empty($_G['cache']['membersplitstep'])) {
 if($operation == 'check') {
 	shownav('founder', 'nav_membersplit');
 	showsubmenu('membersplit');
-	
 	showtips('membersplit_check_tips');
-	
 	showformheader('membersplit&operation=manage');
 	showtableheader('membersplit_table_orig');
 	$membercount = $_G['cache']['userstats']['totalmembers'];
@@ -52,9 +50,7 @@ if($operation == 'check') {
 	shownav('founder', 'nav_membersplit');
 	if(!submitcheck('membersplit_split_submit', 1)) {
 		showsubmenu('membersplit');
-		
 		showtips('membersplit_tips');
-		
 		showformheader('membersplit&operation=manage');
 		showtableheader('membersplit_table_orig');
 

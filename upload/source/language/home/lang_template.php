@@ -36,7 +36,7 @@ $lang = array (
   'follow_del' => 'เลิกตาม',
   'follow_del_special_following' => 'เลิกติดตามพิเศษ',
   'follow_feeds_num' => 'จำนวนการกระจายเสียง',
-  'follow_fetch_interested_user' => '寻找感兴趣的人并收听他',
+  'follow_fetch_interested_user' => 'ค้นหาคนที่น่าสนใจและฟังเขา',
   'follow_follower' => 'ผู้รับฟัง',
   'follow_following' => 'ฉันกำลังฟัง',
   'follow_following_null' => 'ฉันยังไม่ได้ติดตามใคร',
@@ -1560,3 +1560,4 @@ $lang = array (
   'payment_wxjsapi_succeed' => 'การชำระเงินสำเร็จ',
   'payment_wx_qrcode_title' => 'สแกน WeChat เพื่อชำระเงิน',
 );
+?>

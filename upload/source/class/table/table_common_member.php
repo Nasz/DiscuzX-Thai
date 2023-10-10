@@ -270,7 +270,6 @@ class table_common_member extends discuz_table_archive
 	}
 
 	public function insert($data, $return_insert_id = false, $replace = false, $silent = false, $null1 = null, $null2 = null, $null3 = null, $null4 = 0, $null5 = 0) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::insert($data, $return_insert_id, $replace, $silent);
@@ -347,7 +346,7 @@ class table_common_member extends discuz_table_archive
 	}
 
 	public function count_zombie() {
-		$dateline = TIMESTAMP - 31536000;
+		$dateline = TIMESTAMP - 31536000;//60*60*24*365
 		return DB::result_first('SELECT count(*) FROM %t mc, %t ms WHERE mc.posts<5 AND ms.lastvisit<%d AND ms.uid=mc.uid', array('common_member_count', 'common_member_status', $dateline));
 	}
 
@@ -355,7 +354,7 @@ class table_common_member extends discuz_table_archive
 		loadcache('membersplitdata');
 		@set_time_limit(0);
 		discuz_database_safecheck::setconfigstatus(0);
-		$dateline = TIMESTAMP - 31536000;
+		$dateline = TIMESTAMP - 31536000;//60*60*24*365
 		$temptablename = DB::table('common_member_temp___');
 		if(!DB::fetch_first("SHOW TABLES LIKE '$temptablename'")) {
 			$engine = strtolower(getglobal("config/db/common/engine")) !== 'innodb' ? 'MyISAM' : 'InnoDB';

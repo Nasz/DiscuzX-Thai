@@ -218,7 +218,7 @@ var rowtypedata = [
 				"<input type=\"text\" class=\"txt\" size=\"15\" name=\"titlenew[{$class['optionid']}]\" value=\"".dhtmlspecialchars($class['title'])."\">",
 			), TRUE);
 		}
-		
+
 		shownav('forum', 'threadtype_infotypes');
 		showsubmenu('threadtype_infotypes', array(
 			array('threadtype_infotypes_type', 'threadtypes', 0),
@@ -540,7 +540,7 @@ EOT;
 				C::t('forum_optionvalue')->alter($typevar['sortid'], "change ".$option['identifier']." ".$_GET['identifiernew']." ".$type_tableoption_sql);
 			}
 		}
-		
+
 		updatecache('threadsorts');
 		cpmsg('threadtype_infotypes_option_succeed', 'action=threadtypes&operation=typeoption&classid='.$option['classid'], 'succeed');
 	}

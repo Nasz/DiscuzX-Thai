@@ -88,7 +88,6 @@ if($operation == 'export') {
 			array('nav_db_optimize', 'db&operation=optimize', 0),
 			array('nav_db_dbcheck', 'db&operation=dbcheck', 0)
 		));
-		
 		showtips($db_export_tips);
 		showformheader('db&operation=export&setup=1');
 		showtableheader();
@@ -130,7 +129,6 @@ if($operation == 'export') {
 		showsubmit('exportsubmit', 'submit', '', 'more_options');
 		showtablefooter();
 		showformfooter();
-		
 
 	} else {
 
@@ -462,11 +460,9 @@ if($operation == 'export') {
 			array('nav_db_optimize', 'db&operation=optimize', 0),
 			array('nav_db_dbcheck', 'db&operation=dbcheck', 0)
 		));
-		
 		showtips('db_import_tips');
 		showtableheader('db_import');
 		showtablerow('', array('colspan="9" class="tipsblock"'), array(cplang('do_import_option', array('restore_url' => $restore_url))));
-		
 
 		showformheader('db&operation=import');
 		showtitle('db_export_file');
@@ -618,7 +614,6 @@ if($operation == 'export') {
 			array('nav_db_optimize', 'db&operation=optimize', 0),
 			array('nav_db_dbcheck', 'db&operation=dbcheck', 0)
 		));
-		
 		showtips('db_runquery_tips');
 		showtableheader();
 		showformheader('db&operation=runquery&option=simple');
@@ -636,7 +631,6 @@ if($operation == 'export') {
 		}
 
 		showtablefooter();
-		
 
 	} else {
 		$queries = $_GET['queries'];
@@ -680,9 +674,7 @@ if($operation == 'export') {
 		array('nav_db_optimize', 'db&operation=optimize', 1),
 		array('nav_db_dbcheck', 'db&operation=dbcheck', 0)
 	));
-	
 	showtips('db_optimize_tips');
-	
 	showformheader('db&operation=optimize');
 	showtableheader('db_optimize_tables');
 	showsubtitle(array('', 'db_optimize_table_name', 'type', 'db_optimize_rows', 'db_optimize_data', 'db_optimize_index', 'db_optimize_frag'));
@@ -939,7 +931,6 @@ if($operation == 'export') {
 						$tempvalue = str_replace('mediumtext', 'text', $value);
 						$discuzdbnew[$dbtable][$key] = str_replace('mediumtext', 'text', $discuzdbnew[$dbtable][$key]);
 						if($tempvalue != $discuzdbnew[$dbtable][$key]) {
-							
 							if((strpos($tempvalue['Type'], 'int(') !== false) && !empty($discuzdbnew[$dbtable][$key]['Type']) && (strpos($discuzdbnew[$dbtable][$key]['Type'], '(') === false)) {
 								$tempvalue['Type'] = preg_replace('/\(\d+\)/', '', $tempvalue['Type']);
 								if($tempvalue != $discuzdbnew[$dbtable][$key]) {

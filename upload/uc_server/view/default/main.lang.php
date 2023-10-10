@@ -3,13 +3,13 @@
 $lang = array(
 
 	'other' => 'เพิ่มเติม',
-	'app_connent_ok' => 'เชื่อมต่อแล้ว ',
-	'app_connent_false' => 'ขาดการเชื่อมต่อ',
+	'app_connect_ok' => 'เชื่อมต่อแล้ว ',
+	'app_connect_false' => 'ขาดการเชื่อมต่อ',
 
 	'note_deleteuser' => 'ลบผู้ใช้',
 	'note_renameuser' => 'เปลี่ยนชื่อผู้ใช้',
 	'note_deletefriend' => 'ลบเพื่อน',
-	'note_gettag' => 'รับTAG',
+	'note_gettag' => 'รับแท็ก',
 	'note_getcreditsettings' => 'รับการตั้งค่าคะแนนแอปพลิเคชัน',
 	'note_updatecreditsettings' => 'อัปเดตการตั้งค่าคะแนนแอปพลิเคชัน',
 	'note_updateclient' => 'อัปเดตแอปพลิเคชันแคช',

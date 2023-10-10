@@ -40,7 +40,7 @@ class model_forum_post extends discuz_model {
 
 	protected function _init_parameters($parameters) {
 		$varname = array(
-			'member', 'group', 'forum', 'thread', 'extramessage', 'special',
+			'member', 'group', 'forum', 'thread', 'extramessage', 'special',//'nauthorid' 'modnewreplies' 'tid'
 			'message','clientip', 'invisible', 'isanonymous', 'usesig',
 			'htmlon', 'bbcodeoff', 'smileyoff', 'parseurloff', 'pstatus',
 			'noticetrimstr', 'noticeauthor', 'from', 'sechash', 'geoloc',

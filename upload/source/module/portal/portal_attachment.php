@@ -23,6 +23,9 @@ if($operation == 'delete') {
 	if(!$_G['group']['allowmanagearticle'] && ($_G['uid'] != $attach['uid'] || $aid != $attach['aid'])) {
 		showmessage('portal_attachment_nopermission_delete');
 	}
+	if(!isset($_GET['formhash']) || formhash() != $_GET['formhash']) {
+		showmessage('portal_attachment_nopermission_delete');
+	}
 	if($aid) {
 		C::t('portal_article_title')->update($aid, array('pic' => ''));
 	}
@@ -112,8 +115,8 @@ function getlocalfile($filename, $readmod = 2, $range = 0) {
 			@fseek($fp, $range);
 			if(function_exists('fpassthru') && ($readmod == 3 || $readmod == 4)) {
 				@fpassthru($fp);
-			} else {
-				echo @fread($fp, filesize($filename));
+			} else if(filesize($filename)) {
+				echo fread($fp, filesize($filename));
 			}
 		}
 		@fclose($fp);

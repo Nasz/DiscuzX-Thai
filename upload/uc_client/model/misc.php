@@ -73,8 +73,6 @@ class miscmodel {
 			$ch = curl_init();
 			$ip && curl_setopt($ch, CURLOPT_HTTPHEADER, array("Host: ".$host));
 			curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-			
-			
 			if(!empty($ip) && filter_var($ip, FILTER_VALIDATE_IP) && !filter_var($host, FILTER_VALIDATE_IP) && version_compare(PHP_VERSION, '5.5.0', 'ge')) {
 				curl_setopt($ch, CURLOPT_RESOLVE, array("$host:$port:$ip"));
 				curl_setopt($ch, CURLOPT_URL, $scheme.'://'.$host.':'.$port.$path);

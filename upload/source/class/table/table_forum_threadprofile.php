@@ -22,7 +22,6 @@ class table_forum_threadprofile extends discuz_table
 	}
 
 	public function fetch_all($ids = null, $force_from_db = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch_all($ids, $force_from_db);

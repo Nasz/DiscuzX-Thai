@@ -25,7 +25,7 @@ class ucserver_db {
 	var $goneaway = 5;
 
 	function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = '', $pconnect = 0, $tablepre='', $time = 0) {
-		if (intval($pconnect) === 1) $dbhost = 'p:' . $dbhost; 
+		if (intval($pconnect) === 1) $dbhost = 'p:' . $dbhost;
 		$this->dbhost = $dbhost;
 		$this->dbuser = $dbuser;
 		$this->dbpw = $dbpw;
@@ -125,7 +125,6 @@ class ucserver_db {
 		}
 		$this->querynum++;
 		$this->histories[] = $parse[0];
-		
 		return strncasecmp("SELECT", $sql, 6) ? $query : $stmt->get_result();
 	}
 

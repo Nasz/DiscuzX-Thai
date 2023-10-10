@@ -19,7 +19,6 @@ showsubmenu('collection', array(
 	array('collection_comment', 'collection&operation=comment', $current['comment']),
 	array('collection_recommend', 'collection&operation=recommend', $current['recommend'])
 ));
-
 echo '<script src="' . STATICURL . 'js/calendar.js"></script>';
 
 if($operation == 'comment') {
@@ -258,5 +257,4 @@ function removeNonExistsCollection($collectionrecommend) {
 	}
 	return $collectionrecommend;
 }
-
 ?>

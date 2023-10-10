@@ -389,19 +389,19 @@ if($filter && $filter != 'hot') {
 			$selectadd = $issort ? $geturl : array();
 			foreach($filterfield as $option) {
 				foreach($geturl as $field => $value) {
-					if(in_array($field, $filterfield) && $option != $field && $field != 'page' && ($field != 'orderby' || !in_array($option, array('author', 'reply', 'view', 'lastpost', 'heat')))) {
+					if(in_array($field, $filterfield) && $option != $field && $field != 'page' && $option != 'page' && ($field != 'orderby' || !in_array($option, array('author', 'reply', 'view', 'lastpost', 'heat')))) {
 						if(!(in_array($option, array('digest', 'recommend')) && in_array($field, array('digest', 'recommend')))) {
 							$forumdisplayadd[$option] .= '&'.rawurlencode($field).'='.rawurlencode($value);
 						}
 					}
 				}
-				if($issort) {
-					$sfilterfield = array_merge(array('filter', 'sortid', 'orderby', 'fid'), $filterfield);
-					foreach($geturl as $soption => $value) {
-						$forumdisplayadd[$soption] .= !in_array($soption, $sfilterfield) ? '&'.rawurlencode($soption).'='.rawurlencode($value) : '';
-					}
-					unset($sfilterfield);
+			}
+			if($issort) {
+				$sfilterfield = array_merge(array('filter', 'sortid', 'orderby', 'fid'), $filterfield);
+				foreach($geturl as $soption => $value) {
+					$forumdisplayadd[$soption] .= !in_array($soption, $sfilterfield) ? '&'.rawurlencode($soption).'='.rawurlencode($value) : '';
 				}
+				unset($sfilterfield);
 			}
 			if($issort && is_array($quicksearchlist)) {
 				foreach($quicksearchlist as $option) {
@@ -835,7 +835,7 @@ if($_G['forum']['livetid'] && $page == 1 && (!$filter || ($filter == 'sortid' &&
 	include_once libfile('function/post');
 	$livethread = C::t('forum_thread')->fetch_thread($_G['forum']['livetid']);
 	$livepost = C::t('forum_post')->fetch_threadpost_by_tid_invisible($_G['forum']['livetid']);
-	$livemessage = messagecutstr($livepost['message'], 200);
+	$livemessage = threadmessagecutstr($livethread, $livepost['message'], 200);
 	$liveallowpostreply = ($_G['forum']['allowreply'] != -1) && (($livethread['isgroup'] || (!$livethread['closed'] && !checkautoclose($livethread))) || $_G['forum']['ismoderator']) && ((!$_G['forum']['replyperm'] && $_G['group']['allowreply']) || ($_G['forum']['replyperm'] && forumperm($_G['forum']['replyperm'])) || $_G['forum']['allowreply']);
 }
 
@@ -975,6 +975,10 @@ if($_G['forum']['status'] == 3) {
 	$template = 'diy:group/group:'.$_G['fid'];
 }
 
+$threadlist_data = array();
+if(defined('IN_MOBILE') && $_G['forum_threadcount']) {
+	$threadlist_data = get_attach($_G['forum_threadlist']);
+}
 if(!defined('IN_ARCHIVER')) {
 	include template($template);
 } else {

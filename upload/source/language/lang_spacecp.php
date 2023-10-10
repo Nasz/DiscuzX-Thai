@@ -317,3 +317,5 @@ $lang = array(
 	'payment_credit' => 'ค่าทำเนียม',
 
 );
+
+?>

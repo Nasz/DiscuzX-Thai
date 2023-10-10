@@ -417,7 +417,6 @@ function parseattachurl($aid, $ext, $ignoretid = 0) {
 	$_G['forum_skipaidlist'][] = $aid;
 	if(!empty($ext)) {
 		$attach = C::t('forum_attachment_n')->fetch('aid:'.$aid, $aid);
-		
 		if(!in_array(attachtype(fileext($attach['filename'])."\t", 'id'), array(9, 10))) {
 			$ext = 0;
 		}
@@ -513,7 +512,6 @@ function parsemedia($params, $url) {
 		$height = ($params[2] > 0 && $params[2] < 4096) ? intval($params[2]) : 600;
 	}
 
-	
 	$width = defined('IN_MOBILE') ? '100%' : $width;
 	$height = defined('IN_MOBILE') ? 'auto' : $height;
 
@@ -607,7 +605,6 @@ function parseflv($url, $width = 0, $height = 0) {
 			$flv = addslashes($flv);
 			$iframe = addslashes($iframe);
 			$randomid = 'flv_'.random(3);
-			
 			$player_iframe = $iframe ? "\"<iframe src='$iframe' border='0' scrolling='no' framespacing='0' allowfullscreen='true' style='max-width: 100%' width='$width' height='$height' frameborder='no'></iframe>\"" : '';
 			$player_flv = $flv ? "AC_FL_RunContent('width', '$width', 'height', '$height', 'allowNetworking', 'internal', 'allowScriptAccess', 'never', 'src', '$flv', 'quality', 'high', 'bgcolor', '#ffffff', 'wmode', 'transparent', 'allowfullscreen', 'true')" : '';
 			$player = (!empty($player_iframe) && !empty($player_flv)) ? "detectHtml5Support() ? $player_iframe : $player_flv" : (empty($player_iframe) ? $player_flv : $player_iframe);

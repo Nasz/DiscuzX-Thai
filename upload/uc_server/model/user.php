@@ -46,17 +46,10 @@ class usermodel {
 	function check_username($username) {
 		$charset = strtolower(UC_CHARSET);
 		if ($charset === 'utf-8') {
-			
-			
-			
 			$guestexp = '\xE3\x80\x80|\xE6\xB8\xB8\xE5\xAE\xA2|\xE9\x81\x8A\xE5\xAE\xA2';
 		} elseif ($charset === 'gbk') {
-			
-			
 			$guestexp = '\xA1\xA1|\xD3\xCE\xBF\xCD';
 		} elseif ($charset === 'big5') {
-			
-			
 			$guestexp = '\xA1\x40|\xB9\x43\xAB\xC8';
 		} else {
 			return FALSE;
@@ -154,7 +147,6 @@ class usermodel {
 		} elseif(!$this->verify_password($password, $user['password'], $user['salt'])) {
 			return -2;
 		}
-		
 		$this->upgrade_password($username, $password, $user['password'], $user['salt']);
 		return $user['uid'];
 	}
@@ -189,7 +181,6 @@ class usermodel {
 
 		$sqladd = $newpw ? "password='".$this->generate_password($newpw)."', salt=''" : '';
 		$sqladd .= $email ? ($sqladd ? ',' : '')." email='$email'" : '';
-		
 		$sqladd .= $secmobicc !== '' ? ($sqladd ? ',' : '').(!empty($secmobicc) ? " secmobicc='$secmobicc'" : " secmobicc=''") : '';
 		$sqladd .= $secmobile !== '' ? ($sqladd ? ',' : '').(!empty($secmobile) ? " secmobile='$secmobile'" : " secmobile=''") : '';
 		if($questionid !== '') {
@@ -287,8 +278,6 @@ class usermodel {
 
 	function can_do_login($username, $ip = '') {
 
-		
-		
 		$check_times = $this->base->settings['login_failedtime'] > 0 ? $this->base->settings['login_failedtime'] : ($this->base->settings['login_failedtime'] < 0 ? 0 : 5);
 
 		if($check_times == 0) {
@@ -378,16 +367,11 @@ class usermodel {
 	function generate_password($password) {
 		$algo = $this->get_passwordalgo();
 		$options = $this->get_passwordoptions();
-		
-		
 		$hash = password_hash($password, $algo, $options);
 		return ($hash === false || $hash === null || !password_verify($password, $hash)) ? password_hash($password, PASSWORD_BCRYPT) : $hash;
 	}
 
 	function verify_password($password, $hash, $salt = '') {
-		
-		
-		
 		if(empty($salt)) {
 			return password_verify($password, $hash);
 		} else if(strlen($salt) == 6) {

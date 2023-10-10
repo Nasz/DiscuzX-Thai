@@ -16,7 +16,6 @@ shownav('global', 'tag');
 showsubmenu('tag', array(
 	array('search', 'tag&operation=admin', $current['admin']),
 ));
-
 if($operation == 'admin') {
 	$tagarray = array();
 	if(submitcheck('submit') && !empty($_GET['tagidarray']) && is_array($_GET['tagidarray']) && !empty($_GET['operate_type'])) {
@@ -93,5 +92,4 @@ if($operation == 'admin') {
 		showformfooter();
 	}
 }
-
 ?>

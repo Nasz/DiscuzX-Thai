@@ -67,7 +67,6 @@ if(!$operation) {
 			$plugin['modules'] = dunserialize($plugin['modules']);
 			$submenuitem = array();
 			if(isset($_G['cache']['plugin'][$plugin['identifier']])) {
-				
 				$configexists = FALSE;
 				if(is_array($plugin['modules'])) {
 					foreach($plugin['modules'] as $k => $module) {

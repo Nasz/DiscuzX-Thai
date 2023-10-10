@@ -529,7 +529,7 @@ if(!($operation)) {
 		}
 		C::t('common_task')->update($id, array(
 			'relatedtaskid' => $_GET['relatedtaskid'],
-			'exclusivetaskid' => $_GET['exclusivetaskid'],			
+			'exclusivetaskid' => $_GET['exclusivetaskid'],
 			'name' => $_GET['name'],
 			'description' => $_GET['description'],
 			'icon' => $_GET['iconnew'],

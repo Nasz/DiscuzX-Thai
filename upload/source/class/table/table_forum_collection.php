@@ -37,7 +37,6 @@ class table_forum_collection extends discuz_table
 	}
 
 	public function range($start = 0, $limit = 0, $sort = '', $null = true) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::range($start, $limit, $sort);

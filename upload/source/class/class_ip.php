@@ -16,7 +16,6 @@ class ip {
 	function __construct() {
 	}
 
-	
 	public static function to_display($ip) {
 		if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
 			return '[' . $ip . ']';
@@ -24,10 +23,9 @@ class ip {
 		return $ip;
 	}
 
-	
 	public static function to_ip($ip) {
 		if (strlen($ip) == 0) return $ip;
-		if (preg_match('/(.*?)\[((.*?:)+.*)\](.*)/', $ip, $m)) { 
+		if (preg_match('/(.*?)\[((.*?:)+.*)\](.*)/', $ip, $m)) { // [xx:xx:xx]格式
 			if (filter_var($m[2], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
 				$ip = $m[1].$m[2].$m[4];
 			}
@@ -35,12 +33,10 @@ class ip {
 		return $ip;
 	}
 
-	
 	public static function validate_ip($ip) {
 		return filter_var($ip, FILTER_VALIDATE_IP) !== false;
 	}
 
-	
 	public static function validate_cidr($str, &$new_str) {
 		if(strpos($str, '/') !== false) {
 			list($newip, $mask) = explode('/', $str);
@@ -61,7 +57,6 @@ class ip {
 		return FALSE;
 	}
 
-	
 	public static function calc_cidr_range($str, $as_hex = false) {
 		if(self::validate_cidr($str, $str)) {
 			list($ip, $prefix) = explode('/', $str);
@@ -88,8 +83,8 @@ class ip {
 				$vary_byte = $ip_bytes[$num_same_bytes];
 				$diff_bytes_start[0] = $vary_byte & bindec(str_pad(str_repeat('1', $start_same_bits), 8, '0', STR_PAD_RIGHT));
 				$diff_bytes_end[0] = $diff_bytes_start[0] + bindec(str_repeat('1', 8 - $start_same_bits));
-			} 
-			
+			}
+
 			$start_array = array_merge($same_bytes, $diff_bytes_start);
 			$end_array = array_merge($same_bytes, $diff_bytes_end);
 			if ($as_hex) {
@@ -110,7 +105,6 @@ class ip {
 		return FALSE;
 	}
 
-	
 	public static function ip_to_hex_str($ip)
 	{
 		if (!self::validate_ip($ip)) {
@@ -124,7 +118,6 @@ class ip {
 		return unpack('H*hex', join(array_map('chr', $ip_bytes)))['hex'];
 	}
 
-	
 
 	public static function check_ip($requestIp, $ips)
 	{
@@ -193,7 +186,6 @@ class ip {
 		return 0 === substr_compare(sprintf('%032b', ip2long($requestIp)), sprintf('%032b', ip2long($address)), 0, $netmask);
 	}
 
-	
 	public static function convert($ip) {
 		global $_G;
 		if (false !== strpos($ip, '/')) {

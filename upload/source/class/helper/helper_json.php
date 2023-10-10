@@ -45,7 +45,7 @@ class helper_json {
 					return '{' . implode(',', $associative) . '}';
 				}
 			default:
-			return ''; 
+			return ''; // Not supported
 		}
 	}
 }

@@ -546,21 +546,15 @@ class task {
 			$processname = 'update_task_available';
 			if($update || !discuz_process::islocked($processname, 600)) {
 				if(TIMESTAMP >= $tasknext['starttime'] || $update) {
-					
 					C::t('common_task')->update_available(2);
-					
 					$starttime = C::t('common_task')->fetch_next_starttime();
-					
 					$tasknext['starttime'] = $starttime ? min($starttime, TIMESTAMP + 86400) : TIMESTAMP + 86400;
 					$updatetasknext = 1;
 				}
 
 				if(TIMESTAMP >= $tasknext['endtime'] || $update) {
-					
 					C::t('common_task')->update_available(1);
-					
 					$endtime = C::t('common_task')->fetch_next_endtime();
-					
 					$tasknext['endtime'] = $endtime ? min($endtime, TIMESTAMP + 86400) : TIMESTAMP + 86400;
 					$updatetasknext = 1;
 				}

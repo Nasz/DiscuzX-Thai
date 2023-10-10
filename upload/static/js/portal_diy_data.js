@@ -80,7 +80,7 @@ drag.extend({
 			if(s.indexOf('errorhandle_') != -1) {
 				bcontent.innerHTML = boldcontent;
 				runslideshow();
-				showDialog('ขออภัยคุณไม่มีอำนาจในการเพิ่มหรือแก้ไขโมดูล', 'alert');
+				showDialog('ขออภัย คุณไม่ได้รับอนุญาตให้เพิ่มหรือแก้ไขโมดูล', 'alert');
 				doane();
 			} else {
 				var obj = document.createElement('div');

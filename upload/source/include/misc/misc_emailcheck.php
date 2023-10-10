@@ -21,7 +21,6 @@ if($_GET['hash']) {
 
 if($uid && isemail($email) && $time > TIMESTAMP - 86400) {
 	$member = getuserbyuid($uid);
-	
 	$member = array_merge(C::t('common_member_field_forum')->fetch($uid), $member);
 	list($dateline, $operation, $idstring) = explode("\t", $member['authstr']);
 	if($dateline != $time || $operation != 3 || $idstring != substr(md5($email), 0, 6)) {
@@ -50,12 +49,10 @@ if($uid && isemail($email) && $time > TIMESTAMP - 86400) {
 	$oldemail = $member['email'];
 	updatecreditbyaction('realemail', $uid);
 	C::t('common_member')->update($uid, $setarr);
-	
 	C::t('common_member_field_forum')->update($uid, array('authstr' => ''));
 	C::t('common_member_validate')->delete($uid);
 	dsetcookie('newemail', "", -1);
 
-	
 	if(!function_exists('sendmail')) {
 		include libfile('function/mail');
 	}

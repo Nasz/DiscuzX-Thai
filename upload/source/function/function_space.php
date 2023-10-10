@@ -39,7 +39,6 @@ function getblockhtml($blockname,$parameters = array()) {
 			$privacy = $space['privacy']['profile'] ? $space['privacy']['profile'] : array();
 
 			foreach($_G['cache']['profilesetting'] as $fieldid=>$field) {
-				
 				if($_G['setting']['nsprofiles']) {
 					break;
 				}

@@ -79,24 +79,24 @@ class WeChatServer {
 
 		switch ($result['type']) {
 			case 'text':
-				$result['content'] = (string) $postObj->Content; // Content 消息内容
+				$result['content'] = (string) $postObj->Content; 
 				break;
 
 			case 'location':
-				$result['X'] = (float) $postObj->Location_X; // Location_X 地理位置纬度
-				$result['Y'] = (float) $postObj->Location_Y; // Location_Y 地理位置经度
-				$result['S'] = (float) $postObj->Scale;      // Scale 地图缩放大小
-				$result['I'] = (string) $postObj->Label;     // Label 地理位置信息
+				$result['X'] = (float) $postObj->Location_X; 
+				$result['Y'] = (float) $postObj->Location_Y; 
+				$result['S'] = (float) $postObj->Scale;      
+				$result['I'] = (string) $postObj->Label;     
 				break;
 
 			case 'image':
-				$result['url'] = (string) $postObj->PicUrl;  // PicUrl 图片链接，开发者可以用HTTP GET获取
-				$result['mid'] = (string) $postObj->MediaId; // MediaId 图片消息媒体id，可以调用多媒体文件下载接口拉取数据。
+				$result['url'] = (string) $postObj->PicUrl;  
+				$result['mid'] = (string) $postObj->MediaId; 
 				break;
 
 			case 'video':
-				$result['mid'] = (string) $postObj->MediaId;      // MediaId 图片消息媒体id，可以调用多媒体文件下载接口拉取数据。
-				$result['thumbmid'] = (string) $postObj->ThumbMediaId; // ThumbMediaId 视频消息缩略图的媒体id，可以调用多媒体文件下载接口拉取数据。
+				$result['mid'] = (string) $postObj->MediaId;      
+				$result['thumbmid'] = (string) $postObj->ThumbMediaId; 
 				break;
 
 			case 'link':
@@ -432,7 +432,7 @@ class WeChatClient {
 		}
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
-		# curl_setopt($ch, CURLOPT_HEADER, 1);
+		
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -455,7 +455,7 @@ class WeChatClient {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		# curl_setopt( $ch, CURLOPT_HEADER, 1);
+		
 
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
@@ -914,7 +914,7 @@ class WeChatHook {
 
 	public static function updateAppInfo($extId, $appId = '', $appSecret = '') {
 		global $_G;
-		$wechatappInfos = unserialize($_G['setting']['wechatappInfos']);
+		$wechatappInfos = dunserialize($_G['setting']['wechatappInfos']);
 		if ($appId) {
 			$wechatappInfos[$extId] = array('appId' => $appId, 'appSecret' => $appSecret);
 		} else {
@@ -927,7 +927,7 @@ class WeChatHook {
 
 	public static function getAppInfo($extId) {
 		global $_G;
-		$wechatappInfos = unserialize($_G['setting']['wechatappInfos']);
+		$wechatappInfos = dunserialize($_G['setting']['wechatappInfos']);
 		if (isset($wechatappInfos[$extId])) {
 			return $wechatappInfos[$extId];
 		} else {
@@ -950,7 +950,7 @@ class WeChatHook {
 			$settings = array('wechatresponse' => serialize($response));
 		} else {
 			global $_G;
-			$wechatresponseExts = unserialize($_G['setting']['wechatresponseExts']);
+			$wechatresponseExts = dunserialize($_G['setting']['wechatresponseExts']);
 			if ($data) {
 				$wechatresponseExts[$extId] = $response;
 			} else {
@@ -966,9 +966,9 @@ class WeChatHook {
 	public static function getResponse($extId = '') {
 		global $_G;
 		if (!$extId) {
-			return unserialize($_G['setting']['wechatresponse']);
+			return dunserialize($_G['setting']['wechatresponse']);
 		} else {
-			$wechatresponseExts = unserialize($_G['setting']['wechatresponseExts']);
+			$wechatresponseExts = dunserialize($_G['setting']['wechatresponseExts']);
 			return $wechatresponseExts[$extId];
 		}
 	}
@@ -983,7 +983,7 @@ class WeChatHook {
 
 	public static function getRedirect() {
 		global $_G;
-		return unserialize($_G['setting']['wechatredirect']);
+		return dunserialize($_G['setting']['wechatredirect']);
 	}
 
 	public static function getViewPluginId() {
@@ -1023,7 +1023,7 @@ class WeChatHook {
 
 	public static function getAPIHook($getplugin = '') {
 		global $_G;
-		$data = unserialize($_G['setting']['mobileapihook']);
+		$data = dunserialize($_G['setting']['mobileapihook']);
 		if (!$getplugin) {
 			return $data;
 		} else {

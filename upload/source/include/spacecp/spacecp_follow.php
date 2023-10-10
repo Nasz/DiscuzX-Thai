@@ -34,7 +34,6 @@ if($op == 'add') {
 	if(empty($followuser)) {
 		showmessage('space_does_not_exist');
 	}
-	
 	$fields = C::t('common_member_field_home')->fetch($followuid);
 	if(!$fields['allowasfollow']) {
 		showmessage('follow_other_unfollow');

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
-	<item id="name">ตรวจสอบไฟล์ต้นฉบับ</item>
+	<item id="name">การตรวจสอบสิทธิ์ของไฟล์</item>
 	<item id="version">1.0.1</item>
 	<item id="author">Monkey</item>
 	<item id="date">2008-6-16</item>
 	<item id="lastmodified">2021-5-20</item>
 	<item id="copyright">สงวนสิทธิ์ Comsenz</item>
 	<item id="tabindex">2</item>
-	<item id="tips">การตรวจสอบ UCenter ไม่ว่าไฟล์จะถูกแก้ไขหรือไม่</item>
+	<item id="tips">ตรวจสอบว่าไฟล์ UCenter ถูกแก้ไขหรือไม่</item>
 	<item id="lang">
-		<item id="plugin_filecheck_modifed">ไฟล์ปรับแต่ง</item>
+		<item id="plugin_filecheck_modifed">ไฟล์ถูกแก้ไข</item>
 		<item id="plugin_filecheck_deleted">ไฟล์สูญหาย</item>
 		<item id="plugin_filecheck_unknow">ไฟล์ที่ไม่รู้จัก</item>
-		<item id="plugin_filecheck_modifed_in_aweek">ไฟล์ที่เพิ่งอัปเดต</item>
+		<item id="plugin_filecheck_modifed_in_aweek">อัปเดตภายในหนึ่งสัปดาห์</item>
 	</item>
 </root>

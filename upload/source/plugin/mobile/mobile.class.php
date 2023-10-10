@@ -109,7 +109,7 @@ class mobile_core {
 		}
 		$pluginvariables = array();
 		if(!empty($_G['setting']['mobileapihook'])) {
-			$mobileapihook = unserialize($_G['setting']['mobileapihook']);
+			$mobileapihook = dunserialize($_G['setting']['mobileapihook']);
 			if(!empty($mobileapihook[$_GET['module']])) {
 				if(!empty($mobileapihook[$_GET['module']]['variables'])) {
 					mobile_core::activeHook($_GET['module'], $mobileapihook, $variables, true);
@@ -354,8 +354,8 @@ class base_plugin_mobile {
 			$_G['discuzcodemessage'] = mobile_discuzcode($param['param']);
 		} else {
 			$_G['discuzcodemessage'] = preg_replace(array(
-				"/\[size=(\d{1,2}?)\]/i",
-				"/\[size=(\d{1,2}(\.\d{1,2}+)?(px|pt)+?)\]/i",
+				"/\[size=(\d+?)\]/i",
+				"/\[size=(\d+(\.\d+)?(px|pt)+?)\]/i",
 				"/\[\/size]/i",
 			), '', $_G['discuzcodemessage']);
 		}

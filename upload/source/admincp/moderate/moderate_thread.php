@@ -96,7 +96,6 @@ if(!submitcheck('modsubmit') && !$_GET['fast']) {
 	loadcache('forums');
 	require_once libfile('function/misc');
 	foreach($threadlist as $thread) {
-		
 		if($thread['displayorder'] >= 0) {
 			updatemoderate('tid', $thread['tid'], 2);
 			continue;

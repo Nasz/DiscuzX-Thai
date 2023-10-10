@@ -143,7 +143,6 @@ class payment_qpay extends payment_base {
 		if(strtoupper($_G['charset'] != 'UTF-8')) {
 			$refund_desc = diconv($refund_desc, $_G['charset'], 'UTF-8');
 		}
-		
 		$data = array('appid' => $this->settings['appid'], 'mch_id' => $this->settings['mch_id'], 'nonce_str' => $this->qpay_nonce(), 'transaction_id' => $trade_no, 'out_refund_no' => $refund_no, 'refund_fee' => $refund_amount, 'op_user_id' => $this->settings['op_user_id'], 'op_user_passwd' => $this->settings['op_user_passwd']);
 		$data['sign'] = $this->qpay_sign($this->settings['v1_key'], $data);
 		$data = $this->qpay_o2x($data);

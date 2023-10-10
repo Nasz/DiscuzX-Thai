@@ -13,8 +13,6 @@ if(!defined('IN_DISCUZ')) {
 
 require_once DISCUZ_ROOT.'/source/plugin/qqconnect/lib/OAuth.php';
 
-// Cloud::loadFile('Service_Connect');
-// Cloud::loadFile('Service_Client_OAuth');
 
 class Cloud_Service_Client_ConnectOAuth extends Cloud_Service_Client_OAuth {
 
@@ -389,9 +387,9 @@ class Cloud_Service_Client_ConnectOAuth extends Cloud_Service_Client_OAuth {
 				'access_token' => $result['access_token']
 			);
 			$response = $this->callback($this->dfsockopen($this->_openIdURL_V2.'?'.$utilService->httpBuildQuery($params, '', '&')));
-			if($response->openid) {
+			if($response['openid']) {
 				$result = array(
-					'openid' => $response->openid,
+					'openid' => $response['openid'],
 					'access_token' => $result['access_token']
 				);
 				return $result;

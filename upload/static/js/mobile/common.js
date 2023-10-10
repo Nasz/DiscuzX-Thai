@@ -50,10 +50,10 @@ var page = {
 			selector += '<a id="select_a">';
 			selector += '<select id="dumppage">';
 			for(var i=1; i<=lastpage; i++) {
-				selector += '<option value="'+i+'" '+ (i == curpage ? 'selected' : '') +'>หน้า'+i+'</option>';
+				selector += '<option value="'+i+'" '+ (i == curpage ? 'selected' : '') +'>เพจ'+i+'หน้า</option>';
 			}
 			selector += '</select>';
-			selector += '<span>หน้า'+curpage+'</span>';
+			selector += '<span>เพจ'+curpage+'หน้า</span>';
 		}
 
 		var pgobj = qSel('div.pg');
@@ -745,7 +745,7 @@ function hostconvert(url) {
 
 function Ajax(recvType, waitId) {
 	var aj = new Object();
-	aj.loading = 'โปรดรอ...';
+	aj.loading = 'รอสักครู่...';
 	aj.recvType = recvType ? recvType : 'XML';
 	aj.waitId = waitId ? $(waitId) : null;
 	aj.resultHandle = null;
@@ -880,8 +880,6 @@ function portal_flowlazyload() {
 	this.showNextPage = function() {
 		var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
 		var offsetTop = this.getOffset(document.getElementsByClassName('page')[0]);
-		
-		
 		if (!processing && times <= 9 && offsetTop > document.documentElement.clientHeight && (offsetTop - scrollTop < document.documentElement.clientHeight)) {
 			processing = true;
 			times++;
@@ -942,9 +940,9 @@ function setCopy(text, msg) {
 				popup.open(msg, 'alert');
 			}
 		} else {
-			popup.open('复制失败', 'alerts');
+			popup.open('การคัดลอกล้มเหลว', 'alerts');
 		}
 	} else {
-		popup.open('复制失败', 'alerts');
+		popup.open('การคัดลอกล้มเหลว', 'alerts');
 	}
 }

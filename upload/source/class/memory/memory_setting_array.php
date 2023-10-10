@@ -10,7 +10,6 @@ if (!defined('IN_DISCUZ')) {
 	exit('Access Denied');
 }
 
-
 class memory_setting_array implements ArrayAccess {
 	private $can_lazy = false;
 	public $array = Array();
@@ -52,7 +51,7 @@ class memory_setting_array implements ArrayAccess {
 	public function __construct()
 	{
  		$this->can_lazy = C::memory()->goteval && C::memory()->gothash;
-		if (!$this->can_lazy) { 
+		if (!$this->can_lazy) {
 			$this->array = memory('get', self::SETTING_KEY);
 			foreach ($this->array as $key => $value) {
 				if ($value) $this->array[$key] = dunserialize($value);
@@ -100,7 +99,6 @@ class memory_setting_array implements ArrayAccess {
 		unset($this->array[$index]);
 	}
 
-	
 	public static function save($data)
 	{
 		$can_lazy = C::memory()->goteval && C::memory()->gothash;

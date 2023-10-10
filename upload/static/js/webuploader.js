@@ -1,3 +1,4 @@
+
 var getBasePath = function() {
 	var els = document.getElementsByTagName('script'),
 	src;
@@ -115,7 +116,7 @@ SWFUpload.EXT_MIME_MAP = {
 
 SWFUpload.prototype.initSWFUpload = function(userSettings) {
 	try {
-		this.customSettings = {};	
+		this.customSettings = {};	// A container where developers can place their own settings associated with this instance.
 		this.settings = {};
 		this.eventQueue = [];
 		this.initSettings(userSettings);
@@ -140,7 +141,7 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 
 	this.ensureDefault("file_types", "*.*");
 	this.ensureDefault("file_types_description", "All Files");
-	this.ensureDefault("file_size_limit", 0);	
+	this.ensureDefault("file_size_limit", 0);	// Default zero means "unlimited"
 	this.ensureDefault("file_upload_limit", 0);
 	this.ensureDefault("file_queue_limit", 0);
 
@@ -445,7 +446,7 @@ function fileQueued(file) {
 
 		}
 		if(createQueue) {
-			progress.setStatus("等待上传...");
+			progress.setStatus("กำลังรอคิวอัปโหลด...");
 			this.uploader.upload(file);
 		} else {
 			this.uploader.cancelFile(file);
@@ -465,22 +466,22 @@ function fileQueueError(errorCode) {
 		var err = '';
 		switch (errorCode) {
 		case 'F_EXCEED_SIZE':
-			err = '单个文件大小不得超过' + WebUploader.Base.formatSize(this.uploader.option('fileSingleSizeLimit')) + '！';
+			err = 'ขนาดไฟล์ส่วนบุคคลต้องไม่เกิน ' + WebUploader.Base.formatSize(this.uploader.option('fileSingleSizeLimit')) + '！';
 			break;
 		case 'Q_EXCEED_NUM_LIMIT':
-			err = '最多只能上传' + this.settings.fileNumLimit + '个！';
+			err = 'สามารถอัปโหลดได้สูงสุด ' + this.settings.fileNumLimit + ' รายการ！';
 			break;
 		case 'Q_EXCEED_SIZE_LIMIT':
-			err = '上传文件总大小超出' + WebUploader.Base.formatSize(this.uploader.option('fileSizeLimit')) + '！';
+			err = 'ขนาดรวมของไฟล์ที่อัปโหลดเกิน' + WebUploader.Base.formatSize(this.uploader.option('fileSizeLimit')) + '！';
 			break;
 		case 'Q_TYPE_DENIED':
-			err = '无效文件类型，请上传正确的文件格式！';
+			err = 'ประเภทไฟล์ไม่ถูกต้อง โปรดอัปโหลดรูปแบบไฟล์ที่ถูกต้อง！';
 			break;
 		case 'F_DUPLICATE':
-			err = '请不要重复上传相同文件！';
+			err = 'กรุณาอย่าอัปโหลดไฟล์เดียวกันซ้ำๆ！';
 			break;
 		default:
-			err = '上传错误，请刷新重试！' + code;
+			err = 'เกิดข้อผิดพลาดในการอัปโหลด โปรดรีเฟรชและลองอีกครั้ง!' + code;
 			break;
 		}
 		showDialog(err, 'notice', null, null, 0, null, null, null, null, sdCloseTime);
@@ -497,10 +498,8 @@ function fileDialogComplete() {
 					switchAttachbutton('attachlist');
 				}
 				try {
-					
 						$('attach_tblheader').style.display = '';
 						$('attach_notice').style.display = '';
-					
 				} catch (ex) {}
 			} else if(this.customSettings.uploadType == 'image') {
 				if(typeof switchImagebutton == "function") {
@@ -534,7 +533,7 @@ function uploadStart(file) {
 			preObj.innerHTML = '';
 		}
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
-		progress.setStatus("上传中...");
+		progress.setStatus("กำลังอัปโหลด...");
 		progress.toggleCancel(true, this);
 		if(this.customSettings.uploadSource == 'forum') {
 			var objId = this.customSettings.uploadType == 'attach' ? 'attachlist' : 'imgattachlist';
@@ -548,7 +547,7 @@ function uploadStart(file) {
 function uploadProgress(file, percentage) {
 	try {
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
-		progress.setStatus("正在上传 <progress value='" + percentage + "' max='1' style='width: 200px;'></progress> " + Math.ceil(percentage * 100) + "%");
+		progress.setStatus("กำลังอัปโหลด <progress value='" + percentage + "' max='1' style='width: 200px;'></progress> " + Math.ceil(percentage * 100) + "%");
 	} catch (ex) {
 		this.debug(ex);
 	}
@@ -559,19 +558,18 @@ function uploadSuccess(file, serverData) {
 		var progress = new FileProgress(file, this.customSettings.progressTarget);
 		if(this.customSettings.uploadSource == 'forum') {
 			if(this.customSettings.uploadType == 'poll') {
-				
 				var data = serverData;
 				if(parseInt(data.aid)) {
 					var preObj = $(this.customSettings.progressTarget);
 					preObj.innerHTML = "";
 					preObj.style.display = '';
 					var img = new Image();
-					img.src = IMGDIR + '/attachimg_2.png';
+					img.src = IMGDIR + '/attachimg_2.png';//data.smallimg;
 					var imgObj = document.createElement("img");
 					imgObj.src = img.src;
 					imgObj.className = "cur1";
-					imgObj.onmouseout = function(){hideMenu('poll_img_preview_'+data.aid+'_menu');};
-					imgObj.onmouseover = function(){showMenu({'menuid':'poll_img_preview_'+data.aid+'_menu','ctrlclass':'a','duration':2,'timeout':0,'pos':'34'});};
+					imgObj.onmouseout = function(){hideMenu('poll_img_preview_'+data.aid+'_menu');};//"hideMenu('poll_img_preview_"+data.aid+"_menu');";
+					imgObj.onmouseover = function(){showMenu({'menuid':'poll_img_preview_'+data.aid+'_menu','ctrlclass':'a','duration':2,'timeout':0,'pos':'34'});};//"showMenu({'menuid':'poll_img_preview_"+data.aid+"_menu','ctrlclass':'a','duration':2,'timeout':0,'pos':'34'});";
 					preObj.appendChild(imgObj);
 					var inputObj = document.createElement("input");
 					inputObj.type = 'hidden';
@@ -605,18 +603,14 @@ function uploadSuccess(file, serverData) {
 						progress.setStatus(STATUSMSG[aid]);
 						showDialog(STATUSMSG[aid], 'notice', null, null, 0, null, null, null, null, sdCloseTime);
 					} else {
-						progress.setStatus("取消上传");
+						progress.setStatus("ยกเลิกการอัปโหลด");
 					}
 					this.uploader.cancelFile(file);
 					progress.setCancelled();
 					progress.toggleCancel(true, this.uploader);
-					
-					
-					
 				}
 			}
 		} else if(this.customSettings.uploadType == 'album') {
-			
 			var data = serverData;
 			if(parseInt(data.picid)) {
 				var newTr = document.createElement("TR");
@@ -633,15 +627,14 @@ function uploadSuccess(file, serverData) {
 				newTr.appendChild(newTd);
 				newTd = document.createElement("TD");
 				newTd.className = 'd';
-				newTd.innerHTML = '图片描述<br/><textarea name="title['+data.picid+']" cols="40" rows="2" class="pt"></textarea>';
+				newTd.innerHTML = 'คำอธิบายรูปภาพ<br/><textarea name="title['+data.picid+']" cols="40" rows="2" class="pt"></textarea>';
 				newTr.appendChild(newTd);
 				this.customSettings.imgBoxObj.appendChild(newTr);
 			} else {
-				showDialog('图片上传失败', 'notice', null, null, 0, null, null, null, null, sdCloseTime);
+				showDialog('การอัปโหลดรูปภาพล้มเหลว', 'notice', null, null, 0, null, null, null, null, sdCloseTime);
 			}
 			$(file.id).style.display = 'none';
 		} else if(this.customSettings.uploadType == 'blog') {
-			
 			var data = serverData;
 			if(parseInt(data.picid)) {
 				var tdObj = getInsertTdId(this.customSettings.imgBoxObj, 'image_td_'+data.picid);
@@ -658,11 +651,10 @@ function uploadSuccess(file, serverData) {
 				inputObj.value= data.picid;
 				tdObj.appendChild(inputObj);
 			} else {
-				showDialog('图片上传失败', 'notice', null, null, 0, null, null, null, null, sdCloseTime);
+				showDialog('การอัปโหลดรูปภาพล้มเหลว', 'notice', null, null, 0, null, null, null, null, sdCloseTime);
 			}
 			$(file.id).style.display = 'none';
 		} else if(this.customSettings.uploadSource == 'portal') {
-			
 			var data = serverData;
 			if(data.aid) {
 				if(this.customSettings.uploadType == 'attach') {
@@ -676,7 +668,7 @@ function uploadSuccess(file, serverData) {
 					$(file.id).style.display = 'none';
 				}
 			} else {
-				showDialog('上传失败', 'notice', null, null, 0, null, null, null, null, sdCloseTime);
+				showDialog('การอัปโหลดล้มเหลว', 'notice', null, null, 0, null, null, null, null, sdCloseTime);
 				progress.setStatus("Cancelled");
 				this.uploader.cancelFile(file);
 				progress.setCancelled();
@@ -684,7 +676,7 @@ function uploadSuccess(file, serverData) {
 			}
 		} else {
 			progress.setComplete();
-			progress.setStatus("上传完成.");
+			progress.setStatus("การอัปโหลดเสร็จสมบูรณ์");
 			progress.toggleCancel(false);
 		}
 	} catch (ex) {
@@ -908,7 +900,7 @@ FileProgress.prototype.disappear = function() {
 
 	var reduceOpacityBy = 15;
 	var reduceHeightBy = 4;
-	var rate = 30; 
+	var rate = 30; // 15 fps
 	if (this.opacity > 0) {
 		this.opacity -= reduceOpacityBy;
 		if (this.opacity < 0) {

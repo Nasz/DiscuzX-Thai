@@ -141,9 +141,9 @@ drag.extend({
 		var repeatarr = [{'key':'ทำซ้ำ','value':'repeat'},{'key':'ไม่ทำซ้ำ','value':'no-repeat'},{'key':'ทำซ้ำแนบนอน','value':'repeat-x'},{'key':'ทำซ้ำแนวตั้ง','value':'repeat-y'}];
 		var stylearr = [{'key':'ไม่มีสไตล์','value':'none'},{'key':'เส้นทึบ','value':'solid'},{'key':'จุดไข่ปลา','value':'dotted'},{'key':'ยัติภาค','value':'dashed'}];
 		var table = '<table class="tfm">';
-		table += '<tr><th>ขนาดฟ้อนต์</th><td><input type="text" id="fontsize" class="px p_fre vm" value="'+fontsize+'" size="2" />px <input type="text" id="fontcolor" class="px p_fre vm" value="'+fontcolor+'" size="2" />';
+		table += '<tr><th>แบบอักษร</th><td><input type="text" id="fontsize" class="px p_fre vm" value="'+fontsize+'" size="2" />px <input type="text" id="fontcolor" class="px p_fre vm" value="'+fontcolor+'" size="2" />';
 		table += getColorPalette(id+'_fontPalette', 'fontcolor' ,fontcolor)+'</td></tr>';
-		table += '<tr><th>ฟ้อนต์ลิงก์</th><td><input type="text" id="linkfontsize" class="px p_fre vm" value="'+linkfontsize+'" size="2" />px <input type="text" id="linkcolor" class="px p_fre vm" value="'+linkcolor+'" size="2" />';
+		table += '<tr><th>ลิงก์</th><td><input type="text" id="linkfontsize" class="px p_fre vm" value="'+linkfontsize+'" size="2" />px <input type="text" id="linkcolor" class="px p_fre vm" value="'+linkcolor+'" size="2" />';
 		table += getColorPalette(id+'_linkPalette', 'linkcolor' ,linkcolor)+'</td></tr>';
 
 		var ulclass = 'borderul', opchecked = '';
@@ -562,7 +562,7 @@ drag.extend({
 		if ($(id) == null) return false;
 		var obj = this.getObjByName(id);
 		if (!flag) {
-			if (!confirm('คุณต้องการลบมันจริงใช่ไหม ลบไปแล้วมันจะกู้คืนไม่ได้นะ')) return false;
+			if (!confirm('ต้องการลบมันใช่ไหม ลบไปแล้วมันจะกู้คืนไม่ได้นะ')) return false;
 		}
 		if (obj instanceof Block) {
 			this.delBlock(id);
@@ -678,7 +678,7 @@ drag.extend({
 	frameExport : function (e) {
 		var flag = true;
 		if (drag.isChange) {
-			flag = confirm('คุณได้ทำการแก้ไขแล้ว โปรดบันทึกไว้ก่อนส่งออก มิฉะนั้นข้อมูลที่ส่งออกจะไม่รวมการแก้ไขที่คุณทำในครั้งนี้');
+			flag = confirm('คุณได้ทำการแก้ไขแล้ว โปรดบันทึกก่อนส่งออก มิฉะนั้นข้อมูลที่ส่งออกจะไม่มีการแก้ไขที่คุณทำในครั้งนี้');
 		}
 		if (flag) {
 			if ( typeof e == 'object') {
@@ -852,7 +852,7 @@ drag.extend({
 		} else {
 			if (!this.isChange) {
 				window.onbeforeunload = function() {
-					return 'ข้อมูลของคุณมีการแก้ไข การปิดจะทำให้การดัดแปลงของคุณไม่ได้รับการบันทึก';
+					return 'ข้อมูลของคุณได้รับการแก้ไขแล้ว การปิดจะทำให้การแก้ไขของคุณไม่ได้รับการบันทึก';
 				};
 			}
 			this.isChange = true;
@@ -866,7 +866,7 @@ drag.extend({
 	},
 	goonDIY : function () {
 		if ($('prefile').value == '1') {
-			showDialog('<div style="line-height:28px;">กดปุ่มดำเนินต่อเพื่อเปิดข้อมูลชั่วคราว DIY<br />กดปุ่มลบทิ้งเพื่อลบข้อมูลชั่วคราว</div>','confirm','คุณยังคงเซฟข้อมูลชั่วคราวหรือไม่?', function(){location.replace(location.href+'&preview=yes');}, true, 'spaceDiy.cancelDIY()', '', 'ดำเนินต่อ', 'ลบทิ้ง');
+			showDialog('<div style="line-height:28px;">กดปุ่ม "ดำเนินต่อ" เพื่อเปิดใช้ข้อมูลชั่วคราวของ DIY<br />กดปุ่ม "ลบทิ้ง" เพื่อลบข้อมูลชั่วคราว</div>','confirm','คุณต้องการทำ DIY ต่อไปโดยใช้ข้อมูลชั่วคราวใช่หรือไม่?', function(){location.replace(location.href+'&preview=yes');}, true, 'spaceDiy.cancelDIY()', '', 'ดำเนินต่อ', 'ลบทิ้ง');
 		} else if (location.search.indexOf('preview=yes') > -1) {
 			spaceDiy.enablePreviewButton();
 		} else {
@@ -956,7 +956,7 @@ spaceDiy.extend({
 	cancel : function () {
 		saveUserdata('diy_advance_mode', '');
 		if (drag.isClearClose) {
-			showDialog('<div style="line-height:28px;">คุณต้องการเซฟข้อมูลชั่วคราวหรือไม่?<br />กดปุ่มเก็บเป็นข้อมูลชั่วคราวเพื่อเก็บข้อมูลชั่วคราวไว้ หรือ กดปุ่มยกเลิกเพื่อลบข้อมูลชั่วคราว</div>','confirm','เก็บเป็นข้อมูลชั่วคราว', function(){location.href = spaceDiy.cancelDiyUrl();}, true, function(){window.onunload=function(){spaceDiy.cancelDIY()};location.href = spaceDiy.cancelDiyUrl();});
+			showDialog('<div style="line-height:28px;">คุณต้องการเก็บข้อมูลไว้หรือไม่?<br />กดปุ่ม "เก็บ" เพื่อเก็บข้อมูลชั่วคราวไว้ หรือ กดปุ่ม "ยกเลิก" เพื่อลบข้อมูลชั่วคราว</div>','confirm','เก็บ', function(){location.href = spaceDiy.cancelDiyUrl();}, true, function(){window.onunload=function(){spaceDiy.cancelDIY()};location.href = spaceDiy.cancelDiyUrl();});
 		} else {
 			location.href = this.cancelDiyUrl();
 		}

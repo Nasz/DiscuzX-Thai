@@ -70,11 +70,9 @@ if(!submitcheck('picsubmit')) {
 		array('pic_search', !$searchsubmit),
 		array('nav_pic', $searchsubmit)
 	));
-	
 	if($muticondition) {
 		showtips('pic_tips');
 	}
-	
 	$staticurl = STATICURL;
 	echo <<<EOT
 <script type="text/javascript" src="{$staticurl}js/calendar.js"></script>
@@ -86,7 +84,6 @@ function page(number) {
 </script>
 EOT;
 	showtagheader('div', 'searchposts', !$searchsubmit && empty($newlist));
-	
 	showformheader("pic".(!empty($_GET['search']) ? '&search=true' : ''), '', 'picforum');
 	showhiddenfields(array('page' => $page, 'pp' => $_GET['pp'] ? $_GET['pp'] : $_GET['perpage']));
 	showtableheader();
@@ -106,7 +103,6 @@ EOT;
 	showtablefooter();
 	showformfooter();
 	showtagfooter('div');
-	
 
 } else {
 	$picids = authcode($picids, 'DECODE');

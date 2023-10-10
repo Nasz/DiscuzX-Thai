@@ -110,7 +110,6 @@ if($_G['setting']['verify']['enabled']) {
 	space_merge($space, 'verify');
 }
 foreach($_G['cache']['profilesetting'] as $fieldid => $field) {
-	
 	if($_G['setting']['nsprofiles']) {
 		break;
 	}

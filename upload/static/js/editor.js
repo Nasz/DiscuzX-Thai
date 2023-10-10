@@ -62,8 +62,8 @@ function initEditor() {
 		if(buttons[i].id.indexOf(editorid + '_') != -1) {
 			buttons[i].href = 'javascript:;';
 			if(buttons[i].id.substr(buttons[i].id.indexOf('_') + 1) == 'fullswitcher') {
-				buttons[i].innerHTML = !editorisfull ? 'เต็มจอ' : 'กลับไป';
-				buttons[i].onmouseover = function(e) {setEditorTip(editorisfull ? 'คืนค่าขนาดตัวแก้ไข' : 'ตัวแก้ไขแบบเต็มจอ');};
+				buttons[i].innerHTML = !editorisfull ? 'เต็มจอ' : 'ย้อนกลับ';
+				buttons[i].onmouseover = function(e) {setEditorTip(editorisfull ? 'คืนค่าขนาดตัวแก้ไข' : 'แก้ไขในโหมดเต็มหน้าจอ');};
 				buttons[i].onclick = function(e) {editorfull();doane();}
 			} else if(buttons[i].id.substr(buttons[i].id.indexOf('_') + 1) == 'simple') {
 				buttons[i].innerHTML = !simplodemode ? 'ปกติ' : 'ขั้นสูง';
@@ -844,11 +844,11 @@ function discuzcode(cmd, arg) {
 	} else if(cmd == 'chck') {
 		checklength(editorform);
 	} else if(cmd == 'tpr') {
-		if(confirm('คุณจะยืนยันว่าต้องการล้างทุกอย่างหรือไม่?')) {
+		if(confirm('คุณแน่ใจหรือไม่ว่าต้องการล้างทุกอย่าง?')) {
 			clearContent();
 		}
 	} else if(cmd == 'downremoteimg') {
-		showDialog('<div id="remotedowninfo"><p class="mbn">ดาวน์โหลดไฟล์แนบระยะไกลโปรดรอสักครู่……</p><p><img src="' + STATICURL + 'image/common/uploading.gif" alt="" /></p></div>', 'notice', '', null, 1);
+		showDialog('<div id="remotedowninfo"><p class="mbn">กำลังดาวน์โหลดไฟล์แนบจากการรีโมต โปรดรอสักครู่……</p><p><img src="' + STATICURL + 'image/common/uploading.gif" alt="" /></p></div>', 'notice', '', null, 1);
 		var message = wysiwyg ? html2bbcode(getEditorContents()) : (!editorform.parseurloff.checked ? parseurl(editorform.message.value) : editorform.message.value);
 		var oldValidate = editorform.onsubmit;
 		var oldAction = editorform.action;
@@ -918,7 +918,7 @@ function setContext(cmd) {
 	} else if(fs == null) {
 		fs = '';
 	}
-	fs = fs && cmd != 'clear' ? fs : 'ฟอนท์';
+	fs = fs && cmd != 'clear' ? fs : 'แบบอักษร';
 	if(fs != $(editorid + '_font').fontstate) {
 		thingy = fs.indexOf(',') > 0 ? fs.substr(0, fs.indexOf(',')) : fs;
 		$(editorid + '_font').innerHTML = thingy;
@@ -1047,7 +1047,7 @@ function showEditorMenu(tag, params) {
 				showHrBox(ctrlid, 'postbg');
 				break;
 			case 'password':
-				str = '<p class="pbn">กรุณากรอกรหัสผ่านโพสต์: <input type="text" id="' + ctrlid + '_param_1" size="10" value="" class="px" /></p>';
+				str = '<p class="pbn">กรอกรหัสผ่านโพสต์: <input type="text" id="' + ctrlid + '_param_1" size="10" value="" class="px" /></p>';
 				break;
 			case 'code':
 				if(wysiwyg) {

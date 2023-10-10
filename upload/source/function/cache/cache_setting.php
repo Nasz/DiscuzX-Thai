@@ -23,7 +23,7 @@ function build_cache_setting() {
 		'infosidestatus', 'uc', 'indexhot', 'relatedtag', 'sitemessage', 'uchome', 'heatthread', 'recommendthread',
 		'disallowfloat', 'allowviewuserthread', 'advtype', 'click', 'card', 'rewritestatus', 'rewriterule', 'privacy', 'focus',
 		'forumkeys', 'article_tags', 'verify', 'seotitle', 'seodescription', 'seokeywords', 'domain', 'ranklist', 'my_search_data',
-		'seccodedata', 'inviteconfig', 'advexpiration', 'allowpostcomment',  'mobile', 'connect', 'upgrade', 'patch', 'strongpw',
+		'seccodedata', 'inviteconfig', 'advexpiration', 'allowpostcomment', /*(IN_MOBILE)*/ 'mobile', 'connect', 'upgrade', 'patch', 'strongpw',
 		'posttable_info', 'threadtable_info', 'profilegroup', 'antitheft', 'makehtml', 'guestviewthumb', 'grid', 'guesttipsinthread', 'accountguard',
 		'security_usergroups_white_list', 'security_forums_white_list',
 		);
@@ -420,7 +420,7 @@ function build_cache_setting() {
 	}
 
 	$defaultcurhost = empty($_G['setting']['domain']['app']['default']) ? '{CURHOST}' : $_G['setting']['domain']['app']['default'];
-	$output = array('str'=>array(), 'preg' => array()); 
+	$output = array('str'=>array(), 'preg' => array()); //str???????????,preg?rewrite???????????
 	$_G['domain'] = array();
 	if(is_array($_G['setting']['domain']['app'])) {
 		$apps = $_G['setting']['domain']['app'];
@@ -521,8 +521,6 @@ function build_cache_setting() {
 
 	$data['minsubjectsize'] = empty($data['minsubjectsize']) ? 1 : $data['minsubjectsize'];
 
-	
-	
 	if($data['membersplit']) {
 		C::t('common_member_archive')->check_table();
 	}
@@ -663,7 +661,6 @@ function get_cachedata_setting_plugin($method = '') {
 									if($hscript == 'home' && in_array($curscript, array('space', 'spacecp'))) {
 										$curscript .= '_'.$v[1];
 									}
-									
 									if(strpos($funcname, '__') !== false) {
 										$curscript = current(explode('__', $funcname));
 									}

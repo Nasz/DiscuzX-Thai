@@ -61,7 +61,7 @@ function extrafunc_atListMenu(tag, op) {
 		}
 		curatli = 0;
 		setTimeout(function() {atFilter('', 'at_list','atListSet');$('atkeyword').focus();}, 100);
-		return 'ใส่ชื่อผู้ใช้:<br /><input type="text" id="atkeyword" style="width:240px" value="" class="px" onkeydown="atEnter(event, \'atListSet\')" onkeyup="atFilter(this.value, \'at_list\',\'atListSet\',event, true);" /><div class="p_pop" id="at_list" style="width:250px;"><ul><li>@บัญชีเพื่อน เพื่อเตือนให้เขาดูที่โพสต์</li></ul></div>';
+		return 'กรอกชื่อผู้ใช้:<br /><input type="text" id="atkeyword" style="width:240px" value="" class="px" onkeydown="atEnter(event, \'atListSet\')" onkeyup="atFilter(this.value, \'at_list\',\'atListSet\',event, true);" /><div class="p_pop" id="at_list" style="width:250px;"><ul><li>@บัญชีของเพื่อน เพื่อเตือนให้เขาดูโพสต์</li></ul></div>';
 	} else {
 		if($('atkeyword').value) {
 			str = '@' + $('atkeyword').value + (wysiwyg ? '&nbsp;' : ' ');
@@ -88,7 +88,7 @@ function atMenu(x, y) {
 	$('at_menu').style.left = x + 'px';
 	$('at_menu').style.top = y + 'px';
 	$('at_menu').style.display = '';
-	$('at_menu').innerHTML = '<div class="loadicon vm"></div> โปรดรอ... ';
+	$('at_menu').innerHTML = '<div class="loadicon vm"></div> รอสักครู่... ';
 }
 
 function atSearch(kw, call) {

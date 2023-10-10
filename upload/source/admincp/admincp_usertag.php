@@ -13,7 +13,6 @@ cpheader();
 shownav('user', 'usertag');
 $lpp = empty($_GET['lpp']) ? 20 : $_GET['lpp'];
 $start = ($page - 1) * $lpp;
-
 if($operation == '') {
 	if($_GET['srchname']) {
 		$addurl = '&srchname='.$_GET['srchname'];
@@ -105,5 +104,4 @@ if($operation == '') {
 	showtablefooter();
 	showformfooter();
 }
-
 ?>

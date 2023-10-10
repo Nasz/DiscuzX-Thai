@@ -195,10 +195,10 @@ if ($_GET['view'] == 'credit') {
 		space_merge($space, 'count');
 		$space['credit'] = empty($creditkey) ? 0 : $space[$creditkey];
 
-		$myshowinfo = C::t('home_show')->fetch_by_uid_credit($space['uid']); 
+		$myshowinfo = C::t('home_show')->fetch_by_uid_credit($space['uid']); //DB::fetch_first("SELECT unitprice, credit FROM ".DB::table('home_show')." WHERE uid='{$space['uid']}' AND credit>0");
 		$myallcredit = intval($myshowinfo['credit']);
 		$space['unitprice'] = intval($myshowinfo['unitprice']);
-		$now_pos = C::t('home_show')->count_by_credit($space['unitprice']);
+		$now_pos = C::t('home_show')->count_by_credit($space['unitprice']);//DB::result_first("SELECT COUNT(*) FROM ".DB::table('home_show')." WHERE unitprice>='{$space['unitprice']}' AND credit>0");
 
 		$deluser = false;
 		$query = C::t('home_show')->fetch_all_by_unitprice($start, $perpage);

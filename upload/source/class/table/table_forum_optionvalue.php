@@ -140,7 +140,6 @@ class table_forum_optionvalue extends discuz_table
 	}
 
 	public function insert($sortid, $fields = null, $replace = false, $null = null) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {

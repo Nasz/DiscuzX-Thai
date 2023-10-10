@@ -73,7 +73,6 @@ class table_forum_attachment_n extends discuz_table
 	}
 
 	public function insert($data, $return_insert_id = false, $replace = false, $silent = false, $null = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {
@@ -82,7 +81,6 @@ class table_forum_attachment_n extends discuz_table
 	}
 
 	public function fetch($id, $force_from_db = false, $null = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {
@@ -91,7 +89,6 @@ class table_forum_attachment_n extends discuz_table
 	}
 
 	public function fetch_all($ids, $force_from_db = false, $null1 = false , $null2 = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception("UnsupportedOperationException");
 		} else {

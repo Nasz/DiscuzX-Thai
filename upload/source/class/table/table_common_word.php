@@ -29,7 +29,6 @@ class table_common_word extends discuz_table
 	}
 
 	public function fetch_all($ids = array(), $force_from_db = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::fetch_all($ids, $force_from_db);

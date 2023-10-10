@@ -27,6 +27,9 @@ $perpage = 50;
 $start = $perpage * ($_G['page'] - 1);
 $data = array();
 if($_GET['rss'] == 1) {
+	if(!$_G['setting']['rssstatus']) {
+		exit('RSS Disabled');
+	}
 	if($view == 'index' || $view == 'my') {
 		showmessage('URL_ERROR');
 	}
@@ -104,7 +107,7 @@ if($view != 'index') {
 			$searchbody = 1;
 		}
 		require_once libfile('function/forumlist');
-		$orderactives[$viewtype] = 'class="a"';		
+		$orderactives[$viewtype] = 'class="a"';
 		$forumlist = forumselect(FALSE, 0, intval($_GET['fid']));
 		$data['my'] = get_my_threads($viewtype, $_GET['fid'], $filter, $searchkey, $start, $perpage, $theurl);
 		$tids = $data['my']['tids'];
@@ -173,13 +176,13 @@ function get_guide_list($view, $start = 0, $num = 50, $again = 0) {
 			return array();
 		}
 		if($view == 'sofa') {
-			// 只从没有设置权限的板块获取数据，不在接收前端发来的板块 fid
  			$sofa = C::t('forum_sofa')->fetch_all_by_fid($fids, $start, $num);
 			$tids = array_keys($sofa);
 		}
 		$updatecache = true;
 	}
 	$query = C::t('forum_thread')->fetch_all_for_guide($view, $limittid, $tids, $_G['setting']['heatthread']['guidelimit'], $dateline);
+	$list = array();
 	$n = 0;
 	foreach($query as $thread) {
 		if(empty($tids) && ($thread['isgroup'] || !in_array($thread['fid'], $fids))) {
@@ -188,7 +191,6 @@ function get_guide_list($view, $start = 0, $num = 50, $again = 0) {
 		if($thread['displayorder'] < 0) {
 			continue;
 		}
-		// 可能由于插件直接插入 post 等原因导致缓存表不符合实际情况, 这里对于不符合实际情况的数据做清理
 		if($view == 'sofa' && $thread['replies'] > 0) {
 			$notsofatids[] = $thread['tid'];
 			continue;
@@ -334,7 +336,7 @@ function get_my_threads($viewtype, $fid = 0, $filter = '', $searchkey = '', $sta
 			$closed = 0;
 		}
 		require_once libfile('function/post');
-		$followfid = getglobal('setting/followforumid');		
+		$followfid = getglobal('setting/followforumid');
 		$posts = C::t('forum_post')->fetch_all_by_authorid(0, $_G['uid'], true, 'DESC', $start, $perpage, null, $invisible, $fid, $followfid);
 		$listcount = count($posts);
 		foreach($posts as $pid => $post) {
@@ -415,7 +417,7 @@ function guide_procthread($thread) {
 	$thread['moved'] = $thread['heatlevel'] = $thread['new'] = 0;
 	$thread['icontid'] = $thread['forumstick'] || !$thread['moved'] && $thread['isgroup'] != 1 ? $thread['tid'] : $thread['closed'];
 	$thread['folder'] = 'common';
-	$thread['dbdateline'] = $thread['dateline'];	
+	$thread['dbdateline'] = $thread['dateline'];
 	$thread['weeknew'] = TIMESTAMP - 604800 <= $thread['dbdateline'];
 	if($thread['replies'] > $thread['views']) {
 		$thread['views'] = $thread['replies'];

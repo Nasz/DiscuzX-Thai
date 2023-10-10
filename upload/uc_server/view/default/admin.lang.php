@@ -12,6 +12,6 @@ $lang = array(
 	'user_password' => 'รหัสผ่าน',
 	'user_addsubmit' => 'เพิ่ม',
 	'delete' => 'ลบทิ้ง',
-	'email' => 'Email',
+	'email' => 'อีเมล',
 	'user_list' => 'รายชื่อผู้ใช้',
 );

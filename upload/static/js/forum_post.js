@@ -78,7 +78,7 @@ function validate(theform) {
 		showError('ขออภัย คุณยังไม่ได้ป้อนชื่อหรือเนื้อหา');
 		return false;
 	} else if(dstrlen(theform.subject.value) > 255) {
-		showError('ชื่อของคุณเกินขีดจำกัดที่ 255 ตัวอักษร');
+		showError('ชื่อหัวข้อของคุณเกินขีดจำกัดที่ 255 ตัวอักษร');
 		return false;
 	}
 	if(!disablepostctrl && theform.subject.value != "" && ((postminsubjectchars != 0 && dstrlen(theform.subject.value) < postminsubjectchars) || (postminsubjectchars != 0 && dstrlen(theform.subject.value) > postmaxsubjectchars))) {
@@ -224,9 +224,9 @@ function uploadNextAttach() {
 	if(arr[4] == 'ban') {
 		sizelimit = '(ห้ามแนบไฟล์ประเภทนี้)';
 	} else if(arr[4] == 'perday') {
-		sizelimit = '(ไม่สามารถเกิน ' + arr[5] + ' ไบต์)';
+		sizelimit = '(แนบไฟล์เกิน ' + arr[5] + ' ไบต์ไม่ได้)';
 	} else if(arr[4] > 0) {
-		sizelimit = '(ไม่สามารถเกิน ' + arr[4] + ' ไบต์)';
+		sizelimit = '(แนบไฟล์เกิน ' + arr[4] + ' ไบต์ไม่ได้)';
 	}
 	uploadAttach(parseInt(att[0]), arr[0] == 'DISCUZUPLOAD' ? parseInt(arr[1]) : -1, att[1], sizelimit);
 }
@@ -265,7 +265,7 @@ function uploadAttach(curId, statusid, prefix, sizelimit) {
 				updateAttachList();
 			}
 			if(UPLOADFAILED > 0) {
-				showDialog('การอัปโหลดไฟล์แนบเสร็จสมบูรณ์! สำเร็จ ' + UPLOADCOMPLETE + ' ไฟล์ ล้มเหลว' + UPLOADFAILED + ' ไฟล์:' + FAILEDATTACHS);
+				showDialog('อัปโหลดไฟล์แนบเสร็จแล้ว! สำเร็จ ' + UPLOADCOMPLETE + ' ไฟล์ ล้มเหลว' + UPLOADFAILED + ' ไฟล์:' + FAILEDATTACHS);
 				FAILEDATTACHS = '';
 			}
 			UPLOADSTATUS = 2;
@@ -280,7 +280,7 @@ function uploadAttach(curId, statusid, prefix, sizelimit) {
 				hideMenu();
 				validate($('postform'));
 			} else if(UPLOADFAILED == 0 && (prefix == 'img' || prefix == '')) {
-				showDialog('การอัปโหลดไฟล์แนบเสร็จสมบูรณ์!', 'right', null, null, 0, null, null, null, null, 3);
+				showDialog('อัปโหลดไฟล์แนบเสร็จแล้ว!', 'right', null, null, 0, null, null, null, null, 3);
 			}
 			UPLOADFAILED = UPLOADCOMPLETE = 0;
 			CURRENTATTACH = '0';
@@ -291,7 +291,7 @@ function uploadAttach(curId, statusid, prefix, sizelimit) {
 		$(prefix + 'uploadbtn').style.display = 'none';
 		$(prefix + 'uploading').style.display = '';
 	}
-	$(prefix + 'cpdel_' + nextId).innerHTML = '<div class="loadicon" title="กำลังอัพโหลด..."></div>';
+	$(prefix + 'cpdel_' + nextId).innerHTML = '<div class="loadicon" title="กำลังอัปโหลด..."></div>';
 	UPLOADSTATUS = 1;
 	$(prefix + 'attachform_' + nextId).submit();
 }
@@ -436,7 +436,7 @@ function appendAttachDel(ids) {
 			$('delattachop').value = 1;
 		}
 	} else {
-		showError('ขออภัย การดำเนินการลบล้มเหลว โปรดรีเฟรชหน้านี้แล้วลองอีกครั้ง');
+		showError('ขออภัย การลบล้มเหลว โปรดรีเฟรชหน้านี้แล้วลองอีกครั้ง');
 	}
 }
 
@@ -497,11 +497,11 @@ function updateImageList(action, aids) {
 function updateDownImageList(msg) {
 	hideMenu('fwin_dialog', 'dialog');
 	if(msg == '') {
-		showError('ขออภัยไม่มีไฟล์แนบจากระยะไกล');
+		showError('ขออภัยไม่มีไฟล์แนบจากการรีโมต');
 	} else {
 		ajaxget('forum.php?mod=ajax&action=imagelist&pid=' + pid + '&posttime=' + $('posttime').value + (!fid ? '' : '&fid=' + fid), 'imgattachlist', null, null, null, function(){if(wysiwyg) {editdoc.body.innerHTML = msg;switchEditor(0);switchEditor(1)} else {textobj.value = msg;}});
 		switchImagebutton('imgattachlist');$('imgattach_notice').style.display = '';
-		showDialog('การดาวน์โหลดไฟล์แนบจากระยะไกลเสร็จสมบูรณ์!', 'right', null, null, 0, null, null, null, null, 3);
+		showDialog('ดาวน์โหลดไฟล์แนบจากการรีโมตเสร็จแล้ว!', 'right', null, null, 0, null, null, null, null, 3);
 	}
 }
 
@@ -546,9 +546,9 @@ function uploadWindowload() {
 		if(arr[7] == 'ban') {
 			sizelimit = '(ห้ามแนบไฟล์ประเภทนี้)';
 		} else if(arr[7] == 'perday') {
-			sizelimit = '(ไม่สามารถเกิน ' + arr[8] + ' ไบต์)';
+			sizelimit = '(แนบไฟล์เกิน ' + arr[8] + ' ไบต์ไม่ได้)';
 		} else if(arr[7] > 0) {
-			sizelimit = '(ไม่สามารถเกิน ' + arr[7] + ' ไบต์)';
+			sizelimit = '(แนบไฟล์เกิน ' + arr[7] + ' ไบต์ไม่ได้)';
 		}
 		showError(STATUSMSG[arr[2]] + sizelimit);
 	}
@@ -644,7 +644,7 @@ function addpolloption() {
 		addUploadEvent(imgid, proid)
 
 	} else {
-		$('polloption_new').innerHTML = 'ถึงจำนวนโหวตสูงสุดแล้ว' + maxoptions;
+		$('polloption_new').innerHTML = 'โหวตครบเต็มจำนวนแล้ว' + maxoptions;
 	}
 }
 
@@ -712,7 +712,7 @@ function attachoption(type, op) {
 	} else if(op == 2) {
 		showDialog('<div id="unusedwin" class="c altw" style="overflow:auto;height:100px;">' + $('unusedlist_' + type).innerHTML + '</div>' +
 			'<p class="o pns"><span class="z xg1"><label for="unusedwinchkall"><input id="unusedwinchkall" type="checkbox" onclick="attachoption(\'' + type + '\', 3)" checked="checked" />全选</label></span>' +
-			'<button onclick="attachoption(\'' + type + '\', 1);hideMenu(\'fwin_dialog\', \'dialog\')" class="pn pnc"><strong>使用</strong></button></p>', 'info', '未使用的' + (type == 'attach' ? 'แนบไฟล์' : 'ภาพ'));
+			'<button onclick="attachoption(\'' + type + '\', 1);hideMenu(\'fwin_dialog\', \'dialog\')" class="pn pnc"><strong>ถูกใช้</strong></button></p>', 'info', 'ไม่ได้ใช้' + (type == 'attach' ? 'แนบไฟล์' : 'ภาพ'));
 	} else if(op == 3) {
 		list = $('unusedwin').getElementsByTagName('INPUT');
 		for(i = 0;i < list.length;i++) {
@@ -860,7 +860,7 @@ function extraCheckall() {
 }
 
 function deleteThread() {
-	if(confirm('คุณแน่ใจหรือไม่ว่าต้องการลบโพสต์นี้?') != 0){
+	if(confirm('คุณต้องการลบโพสต์นี้ใช่หรือไม่?') != 0){
 		$('delete').value = '1';
 		$('postform').submit();
 	}

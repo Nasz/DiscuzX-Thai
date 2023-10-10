@@ -195,7 +195,7 @@ if($_G['setting']['grid']['showgrid']) {
 		}
 		if(!$_G['setting']['grid']['gridtype']) {
 
-			$focuspic = $focusurl = $focustext = array();
+			$grids['slide'] = $focuspic = $focusurl = $focustext = array();
 			$grids['focus'] = 'config=5|0xffffff|0x0099ff|50|0xffffff|0x0099ff|0x000000';
 			foreach($grids['image'] as $ithread) {
 				if($ithread['displayorder'] < 0) {
@@ -212,6 +212,7 @@ if($_G['setting']['grid']['showgrid']) {
 						'subject' => addslashes($ithread['subject'])
 					);
 			}
+			$grids['slide'] = array_reverse($grids['slide'], true);
 		}
 		$grids['cachetime'] = TIMESTAMP;
 		savecache('grids', $grids);
@@ -475,7 +476,7 @@ function get_index_page_guest_cache() {
 		$debuginfo = ", Updated at $updatetime";
 		if(getglobal('setting/debug')) {
 			$gzip = $_G['gzipcompress'] ? ', Gzip On' : '';
-			$debuginfo .= ', ใช้เวลาประมวลผล '.sprintf("%0.6f", microtime(TRUE) - $start_time).' วินาที'.$gzip;
+			$debuginfo .= ', Processed in '.sprintf("%0.6f", microtime(TRUE) - $start_time).' second(s)'.$gzip;
 		}
 		echo '<script type="text/javascript">$("debuginfo") ? $("debuginfo").innerHTML = "'.$debuginfo.'." : "";</script></body></html>';
 		ob_end_flush();

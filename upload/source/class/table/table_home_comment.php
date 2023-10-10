@@ -43,7 +43,6 @@ class table_home_comment extends discuz_table
 	}
 
 	public function delete($val, $unbuffered = false, $null = '') {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::delete($val, $unbuffered);
@@ -135,7 +134,7 @@ class table_home_comment extends discuz_table
 			return $this->fetch_comment($id, $force_from_db);
 		}
 	}
-	
+
 	public function fetch_comment($cid, $authorid = '') {
 		if(!$cid) {
 			return null;

@@ -653,12 +653,12 @@ if($op == 'block') {
 				C::t('forum_thread')->update($item['id'], $data);
 			}
 			if($_POST['icflag'] && !(C::t('common_block_pic')->count_by_bid_pic($block['bid'], $thumbpath))) {
-				$picflag = 0; 
+				$picflag = 0; //common_block_pic???picflag??(0??,1??)
 				if($_G['setting']['ftp']['on'] && !empty($_G['setting']['ftp']['host'])) {
 					$ftp = & discuz_ftp::instance();
 					$ftp->connect();
 					if(($ftp->connectid && $ftp->ftp_size($thumbpath) > 0) || (ftpperm(fileext($thumbpath), filesize($_G['setting']['attachdir'].'./'.$thumbpath)) && $ftp->upload($_G['setting']['attachurl'].'/'.$thumbpath, $thumbpath))) {
-						$picflag = 1; 
+						$picflag = 1; //common_block_pic???picflag??(0??,1??)
 						@unlink($_G['setting']['attachdir'].'./'.$thumbpath);
 					}
 				}

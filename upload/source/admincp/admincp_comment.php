@@ -46,7 +46,6 @@ if(empty($operation)) {
 			array('comment_article_comment', 'comment&operation=article', 0),
 			array('comment_topic_comment', 'comment&operation=topic', 0)
 		));
-		
 		showtips('comment_tips');
 		$staticurl = STATICURL;
 		echo <<<EOT
@@ -83,7 +82,6 @@ EOT;
 		showtablefooter();
 		showformfooter();
 		showtagfooter('div');
-		
 
 	} else {
 		$cids = authcode($cids, 'DECODE');
@@ -232,7 +230,6 @@ if($operation == 'article' || $operation == 'topic') {
 			array('comment_article_comment', 'comment&operation=article', $operation == 'article' ? 1 : 0),
 			array('comment_topic_comment', 'comment&operation=topic',  $operation == 'topic' ? 1 : 0)
 		));
-		
 		showtips('comment_'.$operation.'_tips');
 		$staticurl = STATICURL;
 		echo <<<EOT
@@ -259,7 +256,6 @@ EOT;
 		showtablefooter();
 		showformfooter();
 		showtagfooter('div');
-		
 
 	} else {
 

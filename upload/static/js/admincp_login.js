@@ -4,5 +4,4 @@
 */
 
 function init_darkmode() {
-	
 }

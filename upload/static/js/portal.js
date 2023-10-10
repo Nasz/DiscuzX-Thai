@@ -237,13 +237,13 @@ function switchSetting() {
 		$('a_setting_show').innerHTML = 'ขยายการตั้งค่า';
 	} else {
 		$('tbody_setting').style.display = '';
-		$('a_setting_show').innerHTML = '收起设置项';
+		$('a_setting_show').innerHTML = 'ยุบการตั้งค่า';
 	}
 }
 
 function checkblockname(form) {
 	if(!(trim(form.name.value) > '')) {
-		showDialog('模块标识不能为空', 'error', null, function(){form.name.focus();});
+		showDialog('ID ของโมดุลต้องไม่ใช่ค่าว่าง', 'error', null, function(){form.name.focus();});
 		return false;
 	}
 	if(form.summary && form.summary.value) {
@@ -251,7 +251,7 @@ function checkblockname(form) {
 		if(tag) {
 			showBlockSummary();
 			form.summary.focus();
-			showDialog('自定义内容错误，HTML代码：'+tag+' 标签不匹配', 'error', null, function(){form.summary.select();});
+			showDialog('เกิดข้อผิดพลาดในเนื้อหาปรับแต่ง，โค๊ตแท็กของ HTML ที่ไม่แมทซ์：'+tag+' ', 'error', null, function(){form.summary.select();});
 			return false;
 		}
 	}

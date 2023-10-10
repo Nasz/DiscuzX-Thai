@@ -395,7 +395,7 @@ class template {
 		global $_G;
 		$modules = explode(',', $param);
 		foreach($modules as $module) {
-			$module .= '::'; 
+			$module .= '::'; //fix notice
 			list($b, $m) = explode('::', $module);
 			if($b && $b == $_G['basescript'] && (!$m || $m == CURMODULE)) {
 				$this->csscurmodules .= $content;

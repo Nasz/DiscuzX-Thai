@@ -420,7 +420,7 @@ function loadforum($fid = null, $tid = null) {
 	if(isset($_G['forum']['fid']) && $_G['forum']['fid'] == $fid || isset($_G['thread']['tid']) && $_G['thread']['tid'] == $tid){
 		return null;
 	}
-	if(!empty($_GET['archiver'])) {
+	if(!empty($_GET['archiver'])) {//X1.5?Archiver??
 		if($fid) {
 			dheader('location: archiver/?fid-'.$fid.'.html');
 		} elseif($tid) {
@@ -833,7 +833,6 @@ function insertpost($data) {
 	if(isset($data['tid'])) {
 		$thread = C::t('forum_thread')->fetch_thread($data['tid']);
 		$tableid = $thread['posttableid'];
-		
 		if(!$data['first'] && $thread['replies'] <= 0 && C::t('forum_sofa')->fetch($thread['tid'])) {
 			C::t('forum_sofa')->delete($thread['tid']);
 		}

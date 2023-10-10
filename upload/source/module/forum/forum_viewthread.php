@@ -379,7 +379,7 @@ if($_G['forum_thread']['special'] == 2) {
 }
 
 $onlyauthoradd = $threadplughtml = '';
-
+$postarr = array();
 $maxposition = 0;
 if(empty($_GET['viewpid'])) {
 	if(!in_array($_G['forum_thread']['special'], array(2,3,5))) {
@@ -429,7 +429,7 @@ if(empty($_GET['viewpid'])) {
 			}
 			$temp_reply = $_G['forum_thread']['replies'];
 			$_G['forum_thread']['replies'] = $countrushpost = max(0, count($rushids) - 1);
-			$countrushpost = max(0, count($rushids));            
+			$countrushpost = max(0, count($rushids));
 			$rushids = array_slice($rushids, ($page - 1) * $_G['ppp'], $_G['ppp']);
 			foreach(C::t('forum_post')->fetch_all_by_tid_position($posttableid, $_G['tid'], $rushids) as $post) {
 				$postarr[$post['position']] = $post;
@@ -509,7 +509,7 @@ if(empty($_GET['viewpid'])) {
 		(!empty($_GET['checkrush']) ? '&amp;checkrush='.$_GET['checkrush'] : '').
 		(!empty($_GET['modthreadkey']) ? '&amp;modthreadkey='.rawurlencode($_GET['modthreadkey']) : '').
 		$specialextra;
-	$multipage = multi($_G['forum_thread']['replies'] + 1, $_G['ppp'], $page, 'forum.php?mod=viewthread&tid='.$_G['tid'].$multipageparam); 
+	$multipage = multi($_G['forum_thread']['replies'] + 1, $_G['ppp'], $page, 'forum.php?mod=viewthread&tid='.$_G['tid'].$multipageparam);
 } else {
 	$_GET['viewpid'] = intval($_GET['viewpid']);
 	$pageadd = "AND p.pid='{$_GET['viewpid']}'";
@@ -543,7 +543,7 @@ if($maxposition) {
 		$postarr[$post['position']] = $post;
 		$lastposition = $post['position'];
 	}
-	$realpost = count($postarr);
+	$realpost = is_array($postarr) ? count($postarr) : 0;
 	if($realpost != $_G['ppp'] || $have_badpost) {
 		$k = 0;
 		for($i = $start; $i < $end; $i ++) {
@@ -1019,7 +1019,6 @@ if(empty($_GET['viewpid'])) {
 		$_G['widthauto'] = 0;
 		$sufix = '_album';
 		$post = &$postlist[$_G['forum_firstpid']];
-		// 暂不确认对于 JS 类内容是否都需要添加 ignore_js_op 标签供 _relatedlinks 和只看大图模式正文摘要过滤用
 		$post['message'] = cutstr(strip_tags(preg_replace('/(<ignore_js_op>.*<\/ignore_js_op>)/is', '', $post['message'])), 200);
 		require_once libfile('thread/album', 'include');
 	}
@@ -1308,14 +1307,14 @@ function viewthread_procpost($post, $lastvisit, $ordertype, $maxposition = 0) {
 
 function viewthread_loadcache() {
 	global $_G;
-	$_G['thread']['livedays'] = ceil((TIMESTAMP - $_G['thread']['dateline']) / 86400);	// 本贴子存在了多少天，最少是1天
-	$_G['thread']['lastpostdays'] = ceil((TIMESTAMP - $_G['thread']['lastpost']) / 86400);	// 最后发帖天数，最少1天
+	$_G['thread']['livedays'] = ceil((TIMESTAMP - $_G['thread']['dateline']) / 86400);
+	$_G['thread']['lastpostdays'] = ceil((TIMESTAMP - $_G['thread']['lastpost']) / 86400);
 
 	$threadcachemark = 100 - (
-		$_G['thread']['digest'] * 20 +							// 精华，占20分
-		min($_G['thread']['views'] / max($_G['thread']['livedays'], 10) * 2, 50) +	// 阅读数与天数关系，占50分。阅读越多分越高，天数越久分越低
-		max(-10, (15 - $_G['thread']['lastpostdays'])) +				// 最后回复时间，占15分，超过15天开始倒扣分，最多扣10分
-		min($_G['thread']['replies'] / $_G['setting']['postperpage'] * 1.5, 15));	// 帖子页数，占15分，10页以上就是满分
+		$_G['thread']['digest'] * 20 +
+		min($_G['thread']['views'] / max($_G['thread']['livedays'], 10) * 2, 50) +
+		max(-10, (15 - $_G['thread']['lastpostdays'])) +
+		min($_G['thread']['replies'] / $_G['setting']['postperpage'] * 1.5, 15));
 	if($threadcachemark < $_G['forum']['threadcaches']) {
 
 		$threadcache = getcacheinfo($_G['tid']);
@@ -1405,7 +1404,7 @@ function viewthread_baseinfo($post, $extra) {
 		if($field != 'qq') {
 			$v = profile_show($field, $post);
 		} elseif(!empty($post['qq'])) {
-			$v = '<a href="//wpa.qq.com/msgrd?v=3&uin='.$post['qq'].'&site='.$_G['setting']['bbname'].'&menu=yes&from=discuz" target="_blank" title="'.lang('spacecp', 'qq_dialog').'"><img src="'.STATICURL.'/image/common/qq_big.gif" alt="QQ" style="margin:0px;"/></a>';
+			$v = '<a href="//wpa.qq.com/msgrd?v=3&uin='.$post['qq'].'&site='.$_G['setting']['bbname'].'&menu=yes&from=discuz" target="_blank" title="'.lang('spacecp', 'qq_dialog').'"><img src="'.STATICURL.'image/common/qq_big.gif" alt="QQ" style="margin:0px;"/></a>';
 		}
 		if($v) {
 			if(!isset($_G['cache']['profilesetting'])) {

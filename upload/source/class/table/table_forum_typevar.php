@@ -38,7 +38,6 @@ class table_forum_typevar extends discuz_table
 	}
 
 	public function update($val, $data, $unbuffered = false, $low_priority = false, $null = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::update($val, $data, $unbuffered, $low_priority);
@@ -62,7 +61,6 @@ class table_forum_typevar extends discuz_table
 	}
 
 	public function delete($val = null, $unbuffered = false) {
-		
 		if (defined('DISCUZ_DEPRECATED')) {
 			throw new Exception('NotImplementedException');
 			return parent::delete($val, $unbuffered);

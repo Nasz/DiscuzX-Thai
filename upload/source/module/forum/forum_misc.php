@@ -437,10 +437,7 @@ IconIndex=1
 		$filename = $_G['setting']['bbname'].'.url';
 	}
 
-	// 遵循RFC 6266国际标准，按照RFC 5987中的规则对文件名进行编码
 	$filenameencode = strtolower(CHARSET) == 'utf-8' ? rawurlencode($filename) : rawurlencode(diconv($filename, CHARSET, 'UTF-8'));
-	// 连2011年发布的国际标准都没能正确支持的浏览器厂商的黑名单列表
-	// 目前包括：UC，夸克，搜狗，百度
 	$rfc6266blacklist = strexists($_SERVER['HTTP_USER_AGENT'], 'UCBrowser') || strexists($_SERVER['HTTP_USER_AGENT'], 'Quark') || strexists($_SERVER['HTTP_USER_AGENT'], 'SogouM') || strexists($_SERVER['HTTP_USER_AGENT'], 'baidu');
 	dheader('Content-type: application/octet-stream');
 	dheader('Content-Disposition: attachment; filename="'.$filenameencode.'"'.(($filename == $filenameencode || $rfc6266blacklist) ? '' : '; filename*=utf-8\'\''.$filenameencode));
@@ -774,7 +771,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 				'reason' => $reason,
 				'from_id' => 0,
 				'from_idtype' => 'rate'
-			));
+			), 'rate', 0);
 		}
 
 		$logs = array();
@@ -1287,7 +1284,7 @@ if($_GET['action'] == 'votepoll' && submitcheck('pollsubmit', 1)) {
 			$query = C::t('forum_activityapply')->fetch_all($_GET['applyidarray']);
 			foreach($query as $row) {
 				if($row['tid'] == $_G['tid']) {
-					$tempusers[$row['uid']] = $row['verified'];
+					$tempusers[$row['uid']] = $row;
 				}
 			}
 			$query  = C::t('common_member')->fetch_all(array_keys($tempusers));

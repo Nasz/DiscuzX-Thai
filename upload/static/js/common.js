@@ -253,7 +253,7 @@ function getcookie(name, nounescape) {
 
 function Ajax(recvType, waitId) {
 	var aj = new Object();
-	aj.loading = 'โปรดรอ...';
+	aj.loading = 'รอสักครู่...';
 	aj.recvType = recvType ? recvType : 'XML';
 	aj.waitId = waitId ? $(waitId) : null;
 	aj.resultHandle = null;
@@ -1164,7 +1164,7 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 		hidedom = '<style type="text/css">object{visibility:hidden;}</style>';
 	}
 	var s = hidedom + '<table cellpadding="0" cellspacing="0" class="fwin"><tr><td class="t_l"></td><td class="t_c"></td><td class="t_r"></td></tr><tr><td class="m_l">&nbsp;&nbsp;</td><td class="m_c"><h3 class="flb"><em>';
-	s += t ? t : 'แจ้งข้อมูล';
+	s += t ? t : 'ข้อความแจ้งเตือน';
 	s += '</em><span><a href="javascript:;" id="fwin_dialog_close" class="flbc" onclick="hideMenu(\'' + menuid + '\', \'dialog\')" title="ปิด">ปิด</a></span></h3>';
 	if(mode == 'info') {
 		s += msg ? msg : '';
@@ -1225,7 +1225,7 @@ function showWindow(k, url, mode, cache, menuv) {
 			ajaxpost(url, 'fwin_content_' + k, '', '', '', function() {initMenu();show();});
 		}
 		if(parseInt(BROWSER.ie) != 6) {
-			loadingst = setTimeout(function() {showDialog('', 'info', '<div class="loadicon"></div> โปรดรอ...')}, 500);
+			loadingst = setTimeout(function() {showDialog('', 'info', '<div class="loadicon"></div> รอสักครู่...')}, 500);
 		}
 	};
 	var initMenu = function() {
@@ -2018,10 +2018,10 @@ function toggleBlind(dom) {
 	if(dom) {
 		if(loadUserdata('is_blindman')) {
 			saveUserdata('is_blindman', '');
-			dom.title = 'เปิดการเข้าถึง';
+			dom.title = 'เปิดการช่วยเหลือการเข้าถึง';
 		} else {
 			saveUserdata('is_blindman', '1');
-			dom.title = 'ปิดการเข้าถึง';
+			dom.title = 'ปิดการช่วยเหลือการเข้าถึง';
 		}
 	}
 }
@@ -2030,9 +2030,9 @@ function checkBlind() {
 	var dom = $('switchblind');
 	if(dom) {
 		if(loadUserdata('is_blindman')) {
-			dom.title = 'ปิดการเข้าถึง';
+			dom.title = 'ปิดการช่วยเหลือการเข้าถึง';
 		} else {
-			dom.title = 'เปิดการเข้าถึง';
+			dom.title = 'เปิดการช่วยเหลือการเข้าถึง';
 		}
 	}
 }

@@ -20,9 +20,9 @@ $languages = array(
 	'to' => 'ถึง',
 	'menu' => 'เมนู',
 
-	'copyright' => 'ลิขสิทธิ์ &copy; 2001-'.date('Y').' เทนเซ็นต์คลาวด์',
+	'copyright' => '&copy; 2001-'.date('Y').' <a href="https://code.dismall.com/" target="_blank">Discuz! Team</a>.',
 
-	'founder'=>'ผู้ก่อตั้ง UCenter',
+	'founder'=>'ผู้สร้าง UCenter',
 	'login_username'=>'ชื่อผู้ใช้',
 	'login_password'=>'รหัสผ่าน',
 	'login_submit'=>'เข้าสู่ระบบ',
@@ -153,7 +153,7 @@ $languages = array(
 	'app_delete' => 'ลบทิ้ง',
 	'app_id' => 'ID',
 	'app_name' => 'ชื่อแอปพลิเคชัน',
-	'app_name_comment' => 'จำกัด ไว้ที่ 20 ไบต์',
+	'app_name_comment' => 'จำกัด ไว้ที่ 20 ตัวอักษร',
 	'app_url' => 'แอป URL',
 	'app_url_comment' => 'แอปพลิเคชันและ UCenter อินเทอร์เฟซการสื่อสาร URLกรุณาอย่าเพิ่ม "/" ในตอนท้ายURL',
 	'app_extra_url' => 'อื่น URL',
@@ -450,8 +450,8 @@ $languages = array(
 	'log_operation' => 'การจัดการ',
 	'log_extra' => 'อื่นๆ ',
 
-	'home_version' => 'UCenter รุ่น',
-	'home_environment' => 'OS และ PHP',
+	'home_version' => 'เวอร์ชัน Ucenter',
+	'home_environment' => 'ระบบปฏิบัติการและ PHP',
 	'home_server_software' => 'ซอฟต์แวร์เซิร์ฟเวอร์',
 	'home_server_ip' => 'IP เซิร์ฟเวอร์',
 	'home_database' => 'MySQL รุ่น',

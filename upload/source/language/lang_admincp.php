@@ -7345,7 +7345,7 @@ url.rewrite-once = (
 	'purchase_service' => 'ออกใบอนุญาต',
 	'discussion_area' => 'เว็บบอร์ดอย่างเป็นทางการ',
 	'app_center' => 'Discuz! แอปเซนเตอร์',
-	'discuz_git' => 'Discuz! 项目地址',
+	'discuz_git' => 'Discuz! ที่อยู่โปรเจค',
 );
 
 $adminextend = array();

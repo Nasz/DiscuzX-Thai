@@ -17,10 +17,10 @@ $lang = array
 	'login_title' => 'ศูนย์จัดการเข้าสู่ระบบ',
 	'login_username' => 'ชื่อผู้ใช้',
 	'login_password' => 'รหัสผ่าน',
-	'login_dk_light_mode' => '亮色模式',
-	'login_dk_by_system' => '跟随系统',
-	'login_dk_normal_mode' => '正常模式',
-	'login_dk_dark_mode' => '夜间模式',
+	'login_dk_light_mode' => 'โหมดสว่าง',
+	'login_dk_by_system' => 'ปรับตามระบบ',
+	'login_dk_normal_mode' => 'โหมดปกติ',
+	'login_dk_dark_mode' => 'โหมดมืด',
 
 	'submit' => 'ล็อกอิน',
 	'forcesecques' => 'ต้องการรายการ',
@@ -43,7 +43,7 @@ $lang = array
 	'login_cplock' => 'แผงการจัดการของคุณถูกล็อค!<br>กรุณา<b> {ltime} </b>หลังจากวินาทีให้ไปที่ศูนย์บริหารจัดการ',
 	'login_user_lock' => 'เนื่องจากข้อผิดพลาดมากเกินไปในรหัสผ่านเข้าสู่ระบบของคุณคำขอเข้าสู่ระบบนี้ถูกปฏิเสธโปรด 15 ลองอีกครั้งหลังจากไม่กี่นาที',
 	'login_cp_noaccess' => '<b>ศูนย์กลางการควบคุม(หรือการดำเนินการนี้)ยังไม่เปิดให้คุณ</b><br><br>การดำเนินการของคุณได้รับการบันทึกแล้วโปรดอย่าลองอย่างผิดกฎหมาย',
-	'login_ip_noaccess' => '<a href="https://www.dismall.com/thread-17514-1-1.html" target="_blank">IP变动可能导致登录失败，查看解决办法</a>',
+	'login_ip_noaccess' => '<a href="https://www.dismall.com/thread-17514-1-1.html" target="_blank">การเปลี่ยน IP อาจทำให้การล็อกอินล้มเหลว ตรวจสอบวิธีแก้ปัญหา</a>',
 	'noaccess' => 'หน่วยงานจัดการพื้นหลัง(หรือการดำเนินการนี้)ยังไม่เปิดให้คุณโปรดติดต่อผู้ดูแลไซต์',
 
 

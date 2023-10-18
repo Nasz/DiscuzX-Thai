@@ -132,7 +132,7 @@ $lang = array
 
 	'menu_founder' => 'ข้อมูลเว็บไซต์',
 	'menu_founder_perm' => 'จัดทีมดูแลหลังบ้าน',
-	'menu_founder_groupperm' => 'กลุ่มของผู้ดูแล - {group}',
+	'menu_founder_groupperm' => 'กลุ่มผู้ดูแล - {group}',
 	'menu_founder_permgrouplist' => 'รายการสิทธิ์ตามกลุ่ม - {perm}',
 	'menu_founder_memberperm' => 'รายการสิทธิ์รายบุคคล - {username}',
 
@@ -212,7 +212,7 @@ $lang = array
 
 	'menu_setting_qqconnect' => 'ตั้งค่าการผูก QQ',
 
-	'admincp_title' => $_G['setting']['bbname'].' ศูนย์กลางการควบคุม',
+	'admincp_title' => $_G['setting']['bbname'].' ศูนย์การควบคุม',
 
 );
 

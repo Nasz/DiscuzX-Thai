@@ -10,7 +10,7 @@ drag.extend({
 
 	setDefalutMenu : function () {
 		this.addMenu('default', 'ลบทิ้ง', 'drag.removeBlock(event)');
-		this.addMenu('block', 'คุณสมบัติ', 'drag.openBlockEdit(event)');
+		this.addMenu('block', 'คุณลักษณะ', 'drag.openBlockEdit(event)');
 	},
 	removeBlock : function (e) {
 		if ( typeof e !== 'string') {
@@ -19,7 +19,7 @@ drag.extend({
 		} else {
 			id = e;
 		}
-		if (!confirm('ต้องการลบมันจริงใช่ไหม ลบไปแล้วมันจะกู้คืนไม่ได้นะ')) return false;
+		if (!confirm('คุณต้องการลบมันใช่หรือไม่ การลบจะไม่สามารถกู้คืนได้')) return false;
 		$(id).parentNode.removeChild($(id));
 		var el = $('chk'+id);
 		if (el != null) el.className = '';

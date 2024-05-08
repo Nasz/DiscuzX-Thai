@@ -24,7 +24,7 @@ var calendarrecall = null;
 function loadcalendar() {
 	s = '';
 	s += '<div id="calendar" style="display:none; position:absolute; z-index:100000;" onclick="doane(event)">';
-	s += '<div style="width: 210px;"><table cellspacing="0" cellpadding="0" width="100%" style="text-align: center;">';
+	s += '<div style="width: 260px;"><table cellspacing="0" cellpadding="0" width="100%" style="text-align: center;">';
 	s += '<tr align="center" id="calendar_week"><td onclick="refreshcalendar(yy, mm-1)" title="เดือนก่อน" style="cursor: pointer;"><a href="javascript:;">&laquo;</a></td><td colspan="5" style="text-align: center"><a href="javascript:;" onclick="showdiv(\'year\');doane(event)" class="dropmenu" title="คลิกเลือกปี" id="year"></a>&nbsp; - &nbsp;<a id="month" class="dropmenu" title="คลิกเลือกเดือน" href="javascript:;" onclick="showdiv(\'month\');doane(event)"></a></td><td onclick="refreshcalendar(yy, mm+1)" title="เดือนหน้า" style="cursor: pointer;"><a href="javascript:;">&raquo;</a></td></tr>';
 	s += '<tr id="calendar_header"><td>อา</td><td>จ</td><td>อ</td><td>พ</td><td>พฤ</td><td>ศ</td><td>ส</td></tr>';
 	for(var i = 0; i < 6; i++) {

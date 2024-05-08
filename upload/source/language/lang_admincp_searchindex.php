@@ -7481,9 +7481,6 @@ $lang = array (
 			42 => 'usergroups_edit_home_allow_space_diy_imgcode',
 			43 => '允许自定义模块使用 [img]',
 			44 => '设置是否解析个人主页自定义模块中的 [img] 代码',
-			45 => 'usergroups_edit_home_allow_space_diy_imgcode',
-			46 => 'อนุญาตให้ใช้โมดูลที่กำหนดเอง [img]',
-			47 => 'ตั้งค่าว่าจะวิเคราะห์ว่าจะวิเคราะห์โมดูลที่กำหนดเองส่วนตัวหรือไม่ ใช้โค๊ต [img]',
 		),
 	),
 	297 =>

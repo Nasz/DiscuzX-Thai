@@ -940,9 +940,9 @@ function setCopy(text, msg) {
 				popup.open(msg, 'alert');
 			}
 		} else {
-			popup.open('การคัดลอกล้มเหลว', 'alerts');
+			popup.open('การคัดลอกล้มเหลว', 'alert');
 		}
 	} else {
-		popup.open('การคัดลอกล้มเหลว', 'alerts');
+		popup.open('การคัดลอกล้มเหลว', 'alert');
 	}
 }

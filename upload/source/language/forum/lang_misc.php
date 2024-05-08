@@ -213,6 +213,7 @@ $lang = array
 	'perms_maxattachsize' => 'ขนาดไฟล์แนบสูงสุด',
 	'perms_maxsizeperday' => 'ขนาดไฟล์แนบสูงสุดต่อวัน',
 	'perms_maxattachnum' => 'จำนวนไฟล์แนบสูงสุดต่อวัน',
+	'perms_allowbioimgcode' => '自我介绍中使用 [img] 代码',
 	'perms_attachextensions' => 'ขนาดของไฟล์แนบ',
 	'perms_allowstickthread' => '主题置顶',
 	'perms_allowdigestthread' => '主题精华',

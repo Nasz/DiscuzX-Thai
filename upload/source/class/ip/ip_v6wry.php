@@ -7,7 +7,6 @@ if(!defined('IN_DISCUZ')) {
 class ip_v6wry_init_exception extends Exception {}
 
 
-
 class ip_v6wry {
 	private static $instance = null;
 	public $ipdb,$firstIndex,$indexCount,$offlen;
@@ -109,7 +108,7 @@ class ip_v6wry {
 	public function getipaddr($ip) {
 		$ipbinary = inet_pton($ip);
 		if($ipbinary == false) {
-			return 'ไม่ทราบ';
+			return '- Unknown';
 		}
 		$iprev = strrev($ipbinary);
 		$i = $this->finder($iprev,0,$this->indexCount);

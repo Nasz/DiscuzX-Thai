@@ -13,7 +13,7 @@ ob_start();
 <meta name="renderer" content="webkit" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <base href="<?php echo $_G['siteurl']; ?>archiver/" />
-<title><?php if(!empty($navtitle)): echo $navtitle.' - '; endif; if(empty($nobbname)): echo $_G['setting']['bbname'].' - '; endif;?> ขับเคลื่อนโดย Discuz! คลังเอกสาร</title>
+<title><?php if(!empty($navtitle)): echo $navtitle.' - '; endif; if(empty($nobbname)): echo $_G['setting']['bbname'].' - '; endif;?> Powered by Discuz! Archiver</title>
 <?php echo $_G['setting']['seohead']; ?>
 
 <meta name="keywords" content="<?php if(!empty($metakeywords)): echo dhtmlspecialchars($metakeywords); endif;?>" />

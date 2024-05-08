@@ -685,7 +685,7 @@ class table_forum_post extends discuz_table
 
 		if (!$next_pos) {
 			$next_pos = $this->_next_pos_from_db($tablename, $data['tid']);
-			if (!memory('add', $memory_position_key, $next_pos, 259200 /* 3天 */)) {
+			if (!memory('add', $memory_position_key, $next_pos, 259200 /* 3? */)) {
 				$next_pos = $this->_next_pos_from_memory($memory_position_key);
 				if (!$next_pos) {
 					memory('rm', $memory_position_key);

@@ -6,8 +6,6 @@ INSERT INTO pre_common_admingroup SET `admingid`='17',`alloweditpost`='1',`allow
 INSERT INTO pre_common_admingroup SET `admingid`='18',`alloweditpost`='0',`alloweditpoll`='0',`allowstickthread`='0',`allowmodpost`='0',`allowdelpost`='0',`allowmassprune`='0',`allowrefund`='0',`allowcensorword`='0',`allowviewip`='1',`allowbanip`='0',`allowedituser`='0',`allowmoduser`='0',`allowbanuser`='0',`allowbanvisituser`='0',`allowpostannounce`='0',`allowviewlog`='0',`allowbanpost`='0',`supe_allowpushthread`='1',`allowhighlightthread`='0',`allowlivethread`='0',`allowdigestthread`='0',`allowrecommendthread`='0',`allowbumpthread`='0',`allowclosethread`='0',`allowmovethread`='0',`allowedittypethread`='0',`allowstampthread`='0',`allowcopythread`='0',`allowmergethread`='0',`allowsplitthread`='0',`allowrepairthread`='0',`allowwarnpost`='0',`allowviewreport`='0',`alloweditforum`='0',`allowremovereward`='0',`allowedittrade`='0',`alloweditactivity`='0',`allowstickreply`='0',`allowmanagearticle`='0',`allowaddtopic`='0',`allowmanagetopic`='0',`allowdiy`='0',`allowclearrecycle`='0',`allowmanagetag`='0',`managefeed`='0',`managedoing`='0',`manageshare`='0',`manageblog`='0',`managealbum`='0',`managecomment`='0',`managemagiclog`='0',`managereport`='0',`managehotuser`='0',`managedefaultuser`='0',`managemagic`='0',`manageclick`='0',`allowstamplist`='0',`allowmanagecollection`='0',`allowmakehtml`='0';
 INSERT INTO pre_common_admingroup SET `admingid`='19',`alloweditpost`='0',`alloweditpoll`='0',`allowstickthread`='0',`allowmodpost`='1',`allowdelpost`='0',`allowmassprune`='0',`allowrefund`='0',`allowcensorword`='0',`allowviewip`='1',`allowbanip`='1',`allowedituser`='0',`allowmoduser`='1',`allowbanuser`='1',`allowbanvisituser`='0',`allowpostannounce`='0',`allowviewlog`='0',`allowbanpost`='0',`supe_allowpushthread`='0',`allowhighlightthread`='0',`allowlivethread`='0',`allowdigestthread`='0',`allowrecommendthread`='0',`allowbumpthread`='0',`allowclosethread`='0',`allowmovethread`='0',`allowedittypethread`='0',`allowstampthread`='0',`allowcopythread`='0',`allowmergethread`='0',`allowsplitthread`='0',`allowrepairthread`='0',`allowwarnpost`='0',`allowviewreport`='0',`alloweditforum`='0',`allowremovereward`='0',`allowedittrade`='0',`alloweditactivity`='0',`allowstickreply`='0',`allowmanagearticle`='0',`allowaddtopic`='0',`allowmanagetopic`='0',`allowdiy`='0',`allowclearrecycle`='0',`allowmanagetag`='0',`managefeed`='0',`managedoing`='0',`manageshare`='0',`manageblog`='0',`managealbum`='0',`managecomment`='0',`managemagiclog`='0',`managereport`='0',`managehotuser`='0',`managedefaultuser`='0',`managemagic`='0',`manageclick`='0',`allowstamplist`='0',`allowmanagecollection`='0',`allowmakehtml`='0';
 
-INSERT INTO pre_common_adminnote VALUES ('1','Discuz','0','0','0','0','ขอบคุณสำหรับการติดตั้งและการใช้งาน Discuz! X，ที่นี่คือ ศูนย์บริหารจัดการของคุณ คุณสามารถปรับการตั้งค่าต่างๆของเว็บไซต์ได้ที่นี่');
-
 INSERT INTO pre_common_credit_rule VALUES ('1','โพสต์','post','4','0','0','0','0','2','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('2','ตอบกลับ','reply','4','0','0','0','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('3','บทคัดย่อ','digest','4','0','0','0','0','5','0','0','0','0','0','0','');
@@ -36,6 +34,9 @@ INSERT INTO pre_common_credit_rule VALUES ('28','กดถูกใจ','click',
 INSERT INTO pre_common_credit_rule VALUES ('29','แก้ไขโดเมน','modifydomain','0','0','1','0','0','0','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('30','บทวิจาร','portalcomment','1','0','40','1','0','1','0','0','0','0','0','0','');
 INSERT INTO pre_common_credit_rule VALUES ('31','กดติดตาม','followedcollection','1','0','3','0','0','1','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('29','ปรับเปลี่ยนชื่อโดเมน','modifydomain','0','0','1','0','0','0','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('30','ความเห็นบทความ','portalcomment','1','0','40','1','0','1','0','0','0','0','0','0','');
+INSERT INTO pre_common_credit_rule VALUES ('31','สมัครสมาชิกอัลบั้มแล้ว','followedcollection','1','0','3','0','0','1','0','0','0','0','0','0','');
 
 
 
@@ -57,7 +58,7 @@ INSERT INTO pre_common_cron VALUES ('17','1','system','ต่อวัน งา
 INSERT INTO pre_common_cron VALUES ('18','0','system','ต่อวัน งานเพิ่มประสิทธิภาพตารางผู้ใช้','cron_member_optimize_daily.php','1321500558','1321556400','-1','-1','2','0	5	10	15	20	25	30	35	40	45	50	55');
 INSERT INTO pre_common_cron VALUES ('19','1','system','ต่อวัน งานอัปเดตเธรดยอดนิยม','cron_todayheats_daily.php','1269746623','1269792000','-1','-1','0','0');
 INSERT INTO pre_common_cron VALUES ('20','1','system','งานอัปเดตลำดับของเธรดล่าสุด(ปรับลำดับความสำคัญ)','cron_security_cleanup_lastpost.php','1269746623','1269792000','-1','-1','7','0');
-INSERT INTO pre_common_cron VALUES ('21','1','system','ต่อสัปดาห์ งานล้างบันทึกการส่ง SMS แจ้งเตือนการเข้าสู่ระบบ','cron_smslog_daily.php','1269746639','1269792000','-1','-1','03','0');
+INSERT INTO pre_common_cron VALUES ('21','1','system','การเก็บถาวรบันทึก SMS รายสัปดาห์','cron_smslog_daily.php','1269746639','1269792000','-1','-1','03','0');
 
 INSERT INTO pre_common_friendlink VALUES ('1','0','เว็บบอร์ดอย่างเป็นทางการ','https://www.discuz.net','Discuz! รุ่นล่าสุด ข่าวผลิตภัณฑ์ ดาวน์โหลดซอฟต์แวร์ และการแลกเปลี่ยนทางเทคนิค','static/image/common/logo_88_31.gif','2');
 INSERT INTO pre_common_friendlink VALUES ('2','4','แอปเซนเตอร์','https://addon.dismall.com/','','','2');
@@ -178,13 +179,13 @@ INSERT INTO pre_common_nav VALUES ('', '0', 'ชาร์ตอันดับ',
 INSERT INTO pre_common_nav VALUES ('', '0', 'ตั้งเป็นหน้าแรกบนเบราว์เซอร์', '', '#', 'sethomepage', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 4, '');
 INSERT INTO pre_common_nav VALUES ('', '0', 'บุ๊กมาร์กเว็บไซต์ของเรา', '', '#', 'setfavorite', 0, 0, 1, 2, 0, 0, 0, 0, '', '', '', 4, '');
 
-INSERT INTO pre_common_nav VALUES ('', '0', 'ค้นหา', '', 'search.php?mod=forum', 'search', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 5, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'ประกาศ', '', 'forum.php?mod=announcement', 'announcement', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 5, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'สำรวจ', '', 'forum.php?mod=guide&view=newthread', 'guide', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'พอร์ทัล', '', 'portal.php?mod=list&catid=1', 'portal', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'ไดอารี่', '', 'home.php?mod=space&do=blog', 'blog', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'แบ่งปัน', '', 'home.php?mod=space&do=share', 'share', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
-INSERT INTO pre_common_nav VALUES ('', '0', 'ชาร์ตอันดับ', '', 'misc.php?mod=ranklist', 'ranklist', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', '搜索', '', 'search.php?mod=forum', 'search', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', '公告', '', 'forum.php?mod=announcement', 'announcement', 0, 0, 1, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', '导读', '', 'forum.php?mod=guide&view=newthread', 'guide', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', '资讯', '', 'portal.php?mod=list&catid=1', 'portal', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', '日志', '', 'home.php?mod=space&do=blog', 'blog', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', '分享', '', 'home.php?mod=space&do=share', 'share', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
+INSERT INTO pre_common_nav VALUES ('', '0', '排行榜', '', 'misc.php?mod=ranklist', 'ranklist', 0, 0, 0, 1, 0, 0, 0, 0, '', '', '', 5, '');
 
 -- [/update_nav]
 
@@ -237,7 +238,7 @@ INSERT INTO pre_common_setting VALUES ('avatarmethod','0');
 INSERT INTO pre_common_setting VALUES ('backupdir','f027b6');
 INSERT INTO pre_common_setting VALUES ('bannedmessages','1');
 INSERT INTO pre_common_setting VALUES ('bbclosed','');
-INSERT INTO pre_common_setting VALUES ('bbname','เว็บบอร์ด Discuz!');
+INSERT INTO pre_common_setting VALUES ('bbname','Discuz! Board');
 INSERT INTO pre_common_setting VALUES ('bbrules','0');
 INSERT INTO pre_common_setting VALUES ('bbrulesforce','0');
 INSERT INTO pre_common_setting VALUES ('bbrulestxt','');
@@ -623,6 +624,7 @@ INSERT INTO pre_common_setting VALUES ('userdateformat','Y-n-j\r\nY/n/j\r\nj-n-Y
 INSERT INTO pre_common_setting VALUES ('userreasons','เจ๋ง!\r\nไม่มีอะไรเลย\r\nดูเหมือนว่า!\r\nล้อเลียน\r\nความสงบ');
 INSERT INTO pre_common_setting VALUES ('userstatusby','1');
 INSERT INTO pre_common_setting VALUES ('verify','a:0:{}');
+INSERT INTO pre_common_setting VALUES ('videophoto','0');
 INSERT INTO pre_common_setting VALUES ('video_allowalbum','0');
 INSERT INTO pre_common_setting VALUES ('video_allowblog','0');
 INSERT INTO pre_common_setting VALUES ('video_allowcomment','0');
@@ -630,6 +632,7 @@ INSERT INTO pre_common_setting VALUES ('video_allowdoing','1');
 INSERT INTO pre_common_setting VALUES ('video_allowfriend','1');
 INSERT INTO pre_common_setting VALUES ('video_allowpoke','1');
 INSERT INTO pre_common_setting VALUES ('video_allowshare','0');
+INSERT INTO pre_common_setting VALUES ('video_allowuserapp','0');
 INSERT INTO pre_common_setting VALUES ('video_allowviewspace','1');
 INSERT INTO pre_common_setting VALUES ('video_allowwall','1');
 INSERT INTO pre_common_setting VALUES ('viewthreadtags','100');
@@ -755,7 +758,7 @@ INSERT INTO pre_common_statuser VALUES ('1','0','login');
 
 INSERT INTO pre_common_style VALUES ('1','รูปแบบเริ่มต้น','1','1', 't1	t2	t3	t4	t5|');
 
-INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'menuhoverbgcolor', '#004FA0');
+INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'menuhoverbgcolor', '#005AB4 nv_a.png no-repeat 50% -33px');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'menucurbgcolor', '#005AB4');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'lightlink', '#FFF');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'floatbgcolor', '#FFF');
@@ -771,9 +774,9 @@ INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'inputborderdarkcolor', '#848484');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'headerbgcolor', '');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'headerborder', '0');
-INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'sidebgcolor', '#E8F0F7');
+INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'sidebgcolor', ' vlineb.png repeat-y 0 0');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'msgfontsize', '14px');
-INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'bgcolor', '#FFF');
+INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'bgcolor', '#FFF background.png repeat-x 0 0');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'noticetext', '#F26C4F');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'highlightlink', '#369');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'link', '#333');
@@ -784,7 +787,7 @@ INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'threadtitlefont', '\'Noto Sans Thai\',Tahoma,Helvetica,sans-serif');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'threadtitlefontsize', '14px');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'smfont', '\'Noto Sans Thai\',Tahoma,Helvetica,sans-serif');
-INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'titlebgcolor', '#E5EDF2');
+INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'titlebgcolor', '#E5EDF2 titlebg.png repeat-x 0 0');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'fontsize', '12px/1.5');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'font', '\'Noto Sans Thai\',Tahoma,Helvetica,sans-serif');
 INSERT INTO `pre_common_stylevar` (`styleid`, `variable`, `substitute`) VALUES (1, 'styleimgdir', '');
@@ -879,8 +882,6 @@ INSERT INTO pre_forum_grouplevel VALUES ('3','default','ขั้นสูง','
 INSERT INTO pre_forum_imagetype VALUES ('1','1','ค่าเริ่มต้น','smiley','1','default');
 INSERT INTO pre_forum_imagetype VALUES ('2','1','ลิงจ๋อ','smiley','2','coolmonkey');
 INSERT INTO pre_forum_imagetype VALUES ('3','1','องุ่น','smiley','3','grapeman');
-
-
 
 INSERT INTO pre_forum_medal VALUES ('1','เด็กใหม่มาแรง','0','medal1.gif','0','0','สมาชิกใหม่ที่โพสต์อย่างแข็งขันหลังจากลงทะเบียนบัญชี','0','','0','0');
 INSERT INTO pre_forum_medal VALUES ('2','สมาชิก','0','medal2.gif','0','0','ฉันมักจะมีร่วมแสดงความคิดเห็นต่อเนื้อหาของโพสต์และการดีเบตในหัวข้อต่าง ๆ','0','','0','0');

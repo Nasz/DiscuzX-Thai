@@ -9,8 +9,8 @@ var drag = new Drag();
 drag.extend({
 	'getBlocksTimer' : '',
 	'blocks' : [],
-	'blockDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไม่มีขอบเขตและไม่มีระยะขอบ','value':'cl_block_bm'},{'key':'สไตล์ 1','value':'xbs_1'},{'key':'สไตล์ 2','value':'xbs xbs_2'},{'key':'สไตล์ 3','value':'xbs xbs_3'},{'key':'สไตล์ 4','value':'xbs xbs_4'},{'key':'สไตล์ 5','value':'xbs xbs_5'},{'key':'สไตล์ 6','value':'xbs xbs_6'},{'key':'สไตล์ 7','value':'xbs xbs_7'}],
-	'frameDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไม่มีขอบเขตและไม่มีระยะขอบ','value':'cl_frame_bm'},{'key':'กรอบไร้ขอบ','value':'xfs xfs_nbd'},{'key':'สไตล์ 1','value':'xfs xfs_1'},{'key':'สไตล์ 2','value':'xfs xfs_2'},{'key':'สไตล์ 3','value':'xfs xfs_3'},{'key':'สไตล์ 4','value':'xfs xfs_4'},{'key':'สไตล์ 5','value':'xfs xfs_5'}],
+	'blockDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไม่มีขอบและไม่มีระยะขอบ','value':'cl_block_bm'},{'key':'สไตล์ 1','value':'xbs_1'},{'key':'สไตล์ 2','value':'xbs xbs_2'},{'key':'สไตล์ 3','value':'xbs xbs_3'},{'key':'สไตล์ 4','value':'xbs xbs_4'},{'key':'สไตล์ 5','value':'xbs xbs_5'},{'key':'สไตล์ 6','value':'xbs xbs_6'},{'key':'สไตล์ 7','value':'xbs xbs_7'}],
+	'frameDefaultClass' : [{'key':'เลือกเทมเพลต','value':''},{'key':'ไม่มีขอบและไม่มีระยะขอบ','value':'cl_frame_bm'},{'key':'กรอบไร้ขอบ','value':'xfs xfs_nbd'},{'key':'สไตล์ 1','value':'xfs xfs_1'},{'key':'สไตล์ 2','value':'xfs xfs_2'},{'key':'สไตล์ 3','value':'xfs xfs_3'},{'key':'สไตล์ 4','value':'xfs xfs_4'},{'key':'สไตล์ 5','value':'xfs xfs_5'}],
 	setDefalutMenu : function () {
 		this.addMenu('default','หัวข้อ','drag.openTitleEdit(event)');
 		this.addMenu('default','สไตล์','drag.openStyleEdit(event)');
@@ -349,9 +349,9 @@ drag.extend({
 		common += '<tr><th>สีพื้นหลัง:</th><td><input type="text" id="titleBgColor" class="px p_fre" value="'+bgcolor+'" size="7" />';
 		common += getColorPalette(fid+'bgPalette_0', 'titleBgColor' ,bgcolor)+'</td></tr>';
 		if (obj instanceof Tab) {
-			var switchArr = [{'key':'ถูกคลิก','value':'click'},{'key':'เหนือเมาส์','value':'mouseover'}];
+			var switchArr = [{'key':'ถูกคลิก','value':'click'},{'key':'เมาส์ชี้','value':'mouseover'}];
 			var switchType = obj.titles['switchType'] ? obj.titles['switchType'][0] : 'click';
-			common += '<tr><th>切换类型:</th><td><select class="ps" id="switchType" >'+this.getOption(switchArr,switchType)+'</select></td></tr>';
+			common += '<tr><th>ประเภทสวิตช์:</th><td><select class="ps" id="switchType" >'+this.getOption(switchArr,switchType)+'</select></td></tr>';
 		}
 		common += '</table><hr class="l">';
 		var li = '';
@@ -721,7 +721,7 @@ drag.extend({
 		if (this.blocks.length > 0) {
 			var cur = this.blocksLen - this.blocks.length;
 			if($('allupdate')) {
-				$('allupdate').innerHTML = 'การอัพเดตโมดูลทั่วไป<span style="color:blue">'+this.blocksLen+'</span><span style="color:red">'+cur+'</span> เสร็จ<span style="color:red">'+(parseInt(cur / this.blocksLen * 100)) + '%</span>';
+				$('allupdate').innerHTML = 'การอัปเดตโมดูลทั่วไป<span style="color:blue">'+this.blocksLen+'</span><span style="color:red">'+cur+'</span> เสร็จ<span style="color:red">'+(parseInt(cur / this.blocksLen * 100)) + '%</span>';
 				var bid = 'portal_block_'+this.blocks.pop();
 				this.blockForceUpdate(bid,true);
 			}
@@ -735,7 +735,7 @@ drag.extend({
 			this.blocks = this.allBlocks;
 		}
 		this.blocksLen = this.blocks.length;
-		showDialog('<div id="allupdate" style="width:350px;line-height:28px;">เริ่มปรับปรุง...</div>','confirm','อัปเดตข้อมูลโมดูล', '', true, 'drag.endBlockForceUpdateBatch()');
+		showDialog('<div id="allupdate" style="width:350px;line-height:28px;">เริ่มอัปเดต...</div>','confirm','อัปเดตข้อมูลโมดูล', '', true, 'drag.endBlockForceUpdateBatch()');
 		var wait = function() {
 			if($('fwin_dialog_submit')) {
 				$('fwin_dialog_submit').style.display = 'none';

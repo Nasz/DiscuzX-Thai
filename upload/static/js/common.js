@@ -1668,7 +1668,7 @@ function setCopy(text, msg) {
 				showPrompt(null, null, '<span>' + msg + '</span>', 1500);
 			}
 		} else {
-			showDialog('<div class="c"><div style="width: 200px; text-align: center;">复制失败，请选择“允许访问”</div></div>', 'alert');
+			showDialog('<div class="c"><div style="width: 200px; text-align: center;">การคัดลอกล้มเหลว โปรดเลือก "เข้าถึงการอนุญาต"</div></div>', 'alert');
 		}
 	} else {
 		var msg = '<div class="c"><div style="width: 200px; text-align: center; text-decoration:underline;">คลิกที่นี่เพื่อคัดลอกไปยังคลิปบอร์ด</div>' +

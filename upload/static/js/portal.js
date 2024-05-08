@@ -251,7 +251,7 @@ function checkblockname(form) {
 		if(tag) {
 			showBlockSummary();
 			form.summary.focus();
-			showDialog('เกิดข้อผิดพลาดในเนื้อหาปรับแต่ง，โค๊ตแท็กของ HTML ที่ไม่แมทซ์：'+tag+' ', 'error', null, function(){form.summary.select();});
+			showDialog('เกิดข้อผิดพลาดในเนื้อหาปรับแต่ง，โค๊ตของแท็ก HTML ที่ไม่แมทซ์：'+tag+' ', 'error', null, function(){form.summary.select();});
 			return false;
 		}
 	}

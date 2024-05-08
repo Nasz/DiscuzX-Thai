@@ -173,7 +173,7 @@ function parsetag(pid) {
 }
 
 function setanswer(pid, from){
-	if(confirm('คุณต้องการเลือกการตอบกลับนี้เป็น "คำตอบที่ดีที่สุด"ใช่หรือไม่？')){
+	if(confirm('คุณต้องการเลือกการตอบกลับนี้เป็น "คำตอบที่ดีที่สุด"ใช่หรือไม่?')){
 		if(BROWSER.ie) {
 			doane(event);
 		}

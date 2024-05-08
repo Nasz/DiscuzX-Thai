@@ -25,7 +25,7 @@ class ip {
 
 	public static function to_ip($ip) {
 		if (strlen($ip) == 0) return $ip;
-		if (preg_match('/(.*?)\[((.*?:)+.*)\](.*)/', $ip, $m)) { // [xx:xx:xx]格式
+		if (preg_match('/(.*?)\[((.*?:)+.*)\](.*)/', $ip, $m)) { // [xx:xx:xx]??
 			if (filter_var($m[2], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
 				$ip = $m[1].$m[2].$m[4];
 			}

@@ -75,7 +75,7 @@ class ip_tiny {
 		if($index_length['len']) {
 			return '- '.@fread($this->fp, $index_length['len']);
 		} else {
-			return 'ไม่ทราบ';
+			return '- Unknown';
 		}
 	}
 

@@ -5,7 +5,7 @@
 		<item id="plugin">
 			<item id="available"><![CDATA[1]]></item>
 			<item id="adminid"><![CDATA[1]]></item>
-			<item id="name"><![CDATA[เว็บบอร์ดมือถือ]]></item>
+			<item id="name"><![CDATA[掌上论坛]]></item>
 			<item id="identifier"><![CDATA[mobile]]></item>
 			<item id="description"><![CDATA[]]></item>
 			<item id="datatables"><![CDATA[]]></item>
@@ -45,31 +45,31 @@
 				<item id="mobile_tip_ios"><![CDATA[<a href="https://discuz.dismall.com/mobile.php?platform=ios">用掌上论坛访问本站,拥有更好阅读体验</a>]]></item>
 				<item id="mobile_tip_android"><![CDATA[<a href="https://discuz.dismall.com/mobile.php?platform=android">用掌上论坛访问本站,拥有更好阅读体验</a>]]></item>
 				<item id="mobile_tip_wp7"><![CDATA[<a href="https://discuz.dismall.com/mobile.php?platform=windowsphone">用掌上论坛访问本站,拥有更好阅读体验</a>]]></item>
-				<item id="mobile_extend_newthread"><![CDATA[โพสต์ล่าสุด]]></item>
-				<item id="mobile_extend_newreply"><![CDATA[ตอบกลับล่าสุด]]></item>
-				<item id="mobile_extend_digest"><![CDATA[บทคัดย่อล่าสุด]]></item>
-				<item id="mobile_extend_newpic"><![CDATA[ภาพล่าสุด]]></item>
-				<item id="mobile_fromtype_ios"><![CDATA[จาก: iPhone Client]]></item>
-				<item id="mobile_fromtype_android"><![CDATA[จาก: Android Client]]></item>
-				<item id="mobile_fromtype_windowsphone"><![CDATA[จาก: WindowsPhone Client]]></item>
-				<item id="mobile_post_author_visible"><![CDATA[โพสต์นี้สามารถมองเห็นได้โดยผู้เขียน]]></item>
-                <item id="mobilesign_formhash_failed"><![CDATA[การตรวจสอบ formhash ล้มเหลวหรือไม่เข้าสู่ระบบ]]></item>
-                <item id="mobilesign_success"><![CDATA[เข้าสู่ระบบสำเร็จ]]></item>
-                <item id="mobilesign_failed"><![CDATA[เข้าสู่ระบบล้มเหลว]]></item>
+				<item id="mobile_extend_newthread"><![CDATA[最新发表]]></item>
+				<item id="mobile_extend_newreply"><![CDATA[最新回复]]></item>
+				<item id="mobile_extend_digest"><![CDATA[最新精华]]></item>
+				<item id="mobile_extend_newpic"><![CDATA[最新图片]]></item>
+				<item id="mobile_fromtype_ios"><![CDATA[来自: iPhone客户端]]></item>
+				<item id="mobile_fromtype_android"><![CDATA[来自: Android客户端]]></item>
+				<item id="mobile_fromtype_windowsphone"><![CDATA[来自: WindowsPhone客户端]]></item>
+				<item id="mobile_post_author_visible"><![CDATA[该帖仅作者可见]]></item>
+                <item id="mobilesign_formhash_failed"><![CDATA[formhash验证失败或未登录]]></item>
+                <item id="mobilesign_success"><![CDATA[签到成功]]></item>
+                <item id="mobilesign_failed"><![CDATA[已进行过签到]]></item>
 			</item>
 			<item id="templatelang">
 				<item id="mobile_tips"><![CDATA[推荐使用二维码收藏并访问论坛<br />使用二维码收藏论坛的方法：<br />1，装掌上论坛应用后，点击使用二维码收藏论坛。<br />2，将二维码置于相机焦点中即可收藏成功。]]></item>
-				<item id="username"><![CDATA[ชื่อผู้ใช้]]></item>
-				<item id="password"><![CDATA[รหัสผ่าน]]></item>
-				<item id="password_confirm"><![CDATA[ยืนยันรหัสผ่าน]]></item>
+				<item id="username"><![CDATA[用户名]]></item>
+				<item id="password"><![CDATA[密码]]></item>
+				<item id="password_confirm"><![CDATA[确认密码]]></item>
 				<item id="email"><![CDATA[Email]]></item>
-				<item id="invite_code"><![CDATA[รหัสการเชิญ]]></item>
-				<item id="register_message"><![CDATA[ลงนามเหตุผล]]></item>
-				<item id="seccode"><![CDATA[รหัสตรวจสอบ]]></item>
-				<item id="change_seccode"><![CDATA[เปลี่ยน]]></item>
-				<item id="secqaa"><![CDATA[ยืนยันคำตอบ]]></item>
-				<item id="close"><![CDATA[ปิด]]></item>
-				<item id="admin_tips"><![CDATA[เรียนเว็บมาสเตอร์คุณสามารถอยู่ในDiscuz!การอัปโหลดไดเรกทอรีรูทของโปรแกรม"mobile.png"图片(尺寸178x178)，以确保论坛客户端能成功获得到论坛的logo]]></item>
+				<item id="invite_code"><![CDATA[邀请码]]></item>
+				<item id="register_message"><![CDATA[注册原因]]></item>
+				<item id="seccode"><![CDATA[验证码]]></item>
+				<item id="change_seccode"><![CDATA[换一个]]></item>
+				<item id="secqaa"><![CDATA[验证问答]]></item>
+				<item id="close"><![CDATA[关闭]]></item>
+				<item id="admin_tips"><![CDATA[尊敬的站长，您可以在Discuz!程序根目录上传"mobile.png"图片(尺寸178x178)，以确保论坛客户端能成功获得到论坛的logo]]></item>
 				<item id="iphone_alt"><![CDATA[iphone-适用于苹果手机]]></item>
 				<item id="android_alt"><![CDATA[Android-适用于装有安卓系统的三星/HTC/小米等手机]]></item>
 				<item id="windowsphone_alt"><![CDATA[WinodwsPhone-适用于装有微软WindowsPhone7 系统的手机]]></item>

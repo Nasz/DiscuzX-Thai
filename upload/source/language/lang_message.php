@@ -1023,11 +1023,12 @@ $lang = array (
   'diy_template_extension_invalid' => 'ชื่อการขยายตัวของไฟล์เทมเพลตไม่ถูกต้อง',
   'diy_template_noexist' => 'ไม่มีไฟล์เทมเพลต',
   'topic_title_cannot_be_empty' => 'ขออภัยชื่อหัวข้อว่างไม่ได้',
+  'topic_has_on_template' => '没有找到专题模板',
   'topic_name_duplicated' => 'ขออภัยชื่อคงที่ของหัวข้อไม่สามารถใช้ซ้ำกับหัวข้ออื่นได้',
   'topic_created_failed' => 'ขออภัยไม่สามารถสร้างหัวข้อได้',
   'comment_comment_noexist' => 'ขออภัยบทความที่แสดงความคิดเห็นไม่มีอยู่จริง',
   'comment_comment_notallowed' => 'บทความนี้ไม่อนุญาตความคิดเห็น',
-
+  
   'post_subject_toolong' => 'ขออภัยชื่อของคุณเกินขีด จำกัด อักขระสูงสุดโปรดย่อชื่อก่อนลอง',
   'post_subject_tooshort' => 'ขออภัยชื่อของคุณน้อยกว่าขีด จำกัด อักขระขั้นต่ำโปรดยืดชื่อและลองอีกครั้ง',
   'post_message_tooshort' => 'ขออภัยโพสต์ของคุณเล็กกว่า {minpostsize} ข้อ จำกัด ของตัวละครแต่ละตัว',

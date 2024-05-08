@@ -45,6 +45,7 @@ if($mail_setting['mailsend'] == 1 && function_exists('mail')) {
 	}
 
  	stream_set_blocking($fp, true);
+	
 	stream_set_timeout($fp, $mail_setting['mailtimeout']);
 
 	$lastmessage = fgets($fp, 512);

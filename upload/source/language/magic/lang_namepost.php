@@ -13,7 +13,7 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'namepost_name' => 'กระจกช็อต',
+	'namepost_name' => 'บัตรส่องชื่อ',
 	'namepost_desc' => 'คุณสามารถดูตัวตนที่แท้จริงของผู้ใช้ที่ไม่ระบุชื่อ',
 	'namepost_forum' => 'อนุญาตให้ส่วนของรายการนี้',
 	'namepost_num' => 'เป็นเจ้าของตัวเลข: {magicnum}',

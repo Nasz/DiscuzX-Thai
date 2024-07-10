@@ -20,10 +20,10 @@ $lang = array
 	'forumstat_forums_text' => 'ข้อความแจ้งเตือนสถิติของเว็บบอร์ด',
 	'forumstat_forums_default' => 'จำนวนบอร์ด:',
 
-	'forumstat_threads_allow' => 'แสดงสถิติเธรด',
-	'forumstat_threads_order' => 'แสดงสถิติลำดับเธรด',
-	'forumstat_threads_text' => 'ข้อความแจ้งเตือนสถิติของเธรด',
-	'forumstat_threads_default' => 'จำนวนเธรด:',
+	'forumstat_threads_allow' => 'แสดงสถิติกระทู้',
+	'forumstat_threads_order' => 'แสดงสถิติลำดับกระทู้',
+	'forumstat_threads_text' => 'ข้อความแจ้งเตือนสถิติของกระทู้',
+	'forumstat_threads_default' => 'จำนวนกระทู้:',
 
 	'forumstat_posts_allow' => 'แสดงสถิติโพสต์',
 	'forumstat_posts_order' => 'แสดงสถิติลำดับโพสต์',

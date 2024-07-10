@@ -1125,7 +1125,7 @@ CSS 写作注意事项：
 		.flb span { float: right; color: {LIGHTTEXT}; }
 			.flb span a, .flb strong { float: left; text-decoration: none; margin-left: 8px; font-weight: 400; color: {LINK}; }
 				.flb span a:hover { color: {LIGHTTEXT}; }
-			.flbc { float: left; width: 20px; height: 20px; overflow: hidden; background: #AAA; cursor: pointer; font-size: 16px; text-align: center; line-height: 20px; border-radius: 2px; }
+			.flbc { float: left; width: 40px; height: 20px; overflow: hidden; background: #AAA; cursor: pointer; font-size: 16px; text-align: center; line-height: 20px; border-radius: 2px; }
 				.flbc:hover { background: #15afdb; text-decoration: none; }
 				.flbc:before { content: "\d7"; color: #fff; font-weight: 700; }
 

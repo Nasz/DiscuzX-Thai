@@ -26,7 +26,7 @@ $lang = array
 	'topiclist_picrequired' => 'กรองหัวข้อที่ไม่มีภาพปก',
 	'topiclist_picrequired_comment' => 'เลือกว่าจะกรองหัวข้อที่ไม่มีภาพปกหรือไม่',
 	'topiclist_orderby' => 'เรียงตาม',
-	'topiclist_orderby_comment' => 'ตั้งค่าวิธีการเรียงลำดับจากฟิลด์ของเธรด',
+	'topiclist_orderby_comment' => 'ตั้งค่าวิธีการเรียงลำดับจากฟิลด์ของกระทู้',
 	'topiclist_orderby_dateline' => 'เผยแพร่ล่าสุดมาก่อน',
 	'topiclist_orderby_viewnum' => 'เรียงตามจำนวนผู้ชม',
 );

@@ -287,7 +287,7 @@ function blockCheckTag(summary, returnValue) {
 				if(returnValue) {
 					return tag;
 				} else {
-					showDialog('HTML代码：'+tag+' 标签不匹配', 'error', null, fn, true, fn);
+					showDialog('โค้ด HTML：'+tag+' แท็กไม่ตรงกัน', 'error', null, fn, true, fn);
 					return false;
 				}
 			}
@@ -312,7 +312,7 @@ function hideBlockSummary() {
 
 function blockconver(ele,bid) {
 	if(ele && bid) {
-		if(confirm('您确定要转换模块的类型从 '+ele.options[0].innerHTML+' 到 '+ele.options[ele.selectedIndex].innerHTML)) {
+		if(confirm('คุณแน่ใจหรือไม่ว่าต้องการแปลงประเภทโมดูลจาก '+ele.options[0].innerHTML+' เป็น '+ele.options[ele.selectedIndex].innerHTML)) {
 			ajaxget('portal.php?mod=portalcp&ac=block&op=convert&bid='+bid+'&toblockclass='+ele.value,'blockshow');
 		} else {
 			ele.selectedIndex = 0;
@@ -323,26 +323,6 @@ function blockconver(ele,bid) {
 function blockFavorite(bid){
 	if(bid) {
 		ajaxget('portal.php?mod=portalcp&ac=block&op=favorite&bid='+bid,'bfav_'+bid);
-	}
-}
-
-function strLenCalc(obj, checklen, maxlen) {
-	var v = obj.value, charlen = 0, maxlen = !maxlen ? 200 : maxlen, curlen = 0, len = strlen(v);
-	for(var i = 0; i < v.length; i++) {
-		if(v.charCodeAt(i) < 0 || v.charCodeAt(i) > 255) {
-			curlen += 2;
-		} else {
-			curlen += 1;
-		}
-	}
-	checklen = $(checklen);
-	if(checklen.style.display == 'none') checklen.style.display = '';
-	if(curlen <= maxlen) {
-		checklen.innerHTML = 'ได้อีก <b>'+(curlen)+'</b> ตัวอักษร';
-		return true;
-	} else {
-		checklen.innerHTML = 'เกิน <b style="color:red">'+(curlen - maxlen)+'</b> ตัวอักษร';
-		return false;
 	}
 }
 

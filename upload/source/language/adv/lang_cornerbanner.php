@@ -25,7 +25,7 @@ $lang = array
 	'cornerbanner_category' => 'หมวดเป้าหมาย',
 	'cornerbanner_category_comment' => 'การตั้งค่าสำหรับแสดงโฆษณาในหมวดซึ่งมีผลบังคับใช้เมื่อ scope ของโฆษณามี "หมวด"',
 	'cornerbanner_disableclose' => 'ปิดลิงก์ของโฆษณา',
-	'cornerbanner_disableclose_comment' => 'หากโค๊ดโฆษณาคุณมีลิงก์ในตัวอยู่แล้ว คุณสามารถปิดลิงก์ที่ระบบตั้งไว้ล่วงหน้าได้',
+	'cornerbanner_disableclose_comment' => 'หากโค้ดโฆษณาคุณมีลิงก์ในตัวอยู่แล้ว คุณสามารถปิดลิงก์ที่ระบบตั้งไว้ล่วงหน้าได้',
 	'cornerbanner_show' => 'แสดง',
 	'cornerbanner_hidden' => 'ซ่อน',
 );

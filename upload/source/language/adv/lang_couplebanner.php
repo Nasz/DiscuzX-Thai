@@ -29,7 +29,7 @@ $lang = array
 	'couplebanner_category' => 'แสดงหน้าหมวด',
 	'couplebanner_category_comment' => 'ตั้งค่าแสดงโฆษณาคู่ในหน้าหมวด มีผลเฉพาะหน่วยโฆษณาที่ถูกกำหนดให้แสดงหน้าหมวด',
 	'couplebanner_disableclose' => 'ปิดลิงก์ของโฆษณา',
-	'couplebanner_disableclose_comment' => 'หากโค๊ดโฆษณาคุณมีลิงก์ในตัวอยู่แล้ว คุณสามารถปิดลิงก์ที่ระบบตั้งไว้ล่วงหน้าได้',
+	'couplebanner_disableclose_comment' => 'หากโค้ดโฆษณาคุณมีลิงก์ในตัวอยู่แล้ว คุณสามารถปิดลิงก์ที่ระบบตั้งไว้ล่วงหน้าได้',
 	'couplebanner_show' => 'แสดง',
 	'couplebanner_hidden' => 'ซ่อน',
 );

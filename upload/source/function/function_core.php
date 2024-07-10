@@ -346,7 +346,7 @@ function checkmobile() {
 	}
 	if(($v = dstrpos($useragent, $wmlbrowser_list))) {
 		$_G['mobile'] = $v;
-		return '3'; //wml?
+		return '3'; //wml版
 	}
 	$brower = array('mozilla', 'chrome', 'safari', 'opera', 'm3gate', 'winwap', 'openwave');
 	if(dstrpos($useragent, $brower)) return false;
@@ -670,7 +670,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 			$indiy = false;
 			$_G['style']['tpldirectory'] = $tpldir ? $tpldir : (defined('TPLDIR') ? TPLDIR : '');
 			$_G['style']['prefile'] = '';
-			$diypath = DISCUZ_ROOT.'./data/diy/'.$_G['style']['tpldirectory'].'/'; //DIY??????
+			$diypath = DISCUZ_ROOT.'./data/diy/'.$_G['style']['tpldirectory'].'/'; //DIY模板文件目录
 			$preend = '_diy_preview';
 			$_GET['preview'] = !empty($_GET['preview']) ? $_GET['preview'] : '';
 			$curtplname = $oldfile;
@@ -688,7 +688,7 @@ function template($file, $templateid = 0, $tpldir = '', $gettplfile = 0, $primal
 				$tpldir = 'data/diy/'.$_G['style']['tpldirectory'].'/';
 				!$gettplfile && $_G['style']['tplsavemod'] = $tplsavemod;
 				$curtplname = $file;
-				if(isset($_GET['diy']) && $_GET['diy'] == 'yes' || isset($_GET['diy']) && $_GET['preview'] == 'yes') { //DIY?????????????
+				if(isset($_GET['diy']) && $_GET['diy'] == 'yes' || isset($_GET['diy']) && $_GET['preview'] == 'yes') { //DIY模式或预览模式下做以下判断
 					$flag = file_exists($diypath.$file.$preend.'.htm');
 					if($_GET['preview'] == 'yes') {
 						$file .= $flag ? $preend : '';
@@ -1435,7 +1435,7 @@ function checkformulasyntax($formula, $operators, $tokens, $values = '', $funcs 
 
 function formula_tokenize($formula, $operators, $tokens, $values, $funcs) {
 	$fexp = token_get_all('<?php '.$formula);
-	$prevseg = 1; // 1???2???3??4???5??
+	$prevseg = 1; // 1左括号2右括号3变量4运算符5函数
 	$isclose = 0;
 	$tks = implode('|', $tokens);
 	$op1 = $op2 = array();
@@ -1914,11 +1914,11 @@ function getposttable($tableid = 0, $prefix = false) {
 function memory($cmd, $key='', $value='', $ttl = 0, $prefix = '') {
 	static $supported_command = array(
 		'set', 'add', 'get', 'rm', 'inc', 'dec', 'exists',
-		'incex', /* ????inc */
+		'incex', /* 存在时才inc */
 		'sadd', 'srem', 'scard', 'smembers', 'sismember',
 		'hmset', 'hgetall', 'hexists', 'hget',
 		'eval',
-		'zadd', 'zcard', 'zrem', 'zscore', 'zrevrange', 'zincrby', 'zrevrangewithscore' /* ?score?? */,
+		'zadd', 'zcard', 'zrem', 'zscore', 'zrevrange', 'zincrby', 'zrevrangewithscore' /* 带score返回 */,
 		'pipeline', 'commit', 'discard'
 	);
 

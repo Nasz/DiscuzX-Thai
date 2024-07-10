@@ -1,5 +1,4 @@
 var supporttouch = "ontouchend" in document;
-!supporttouch && (window.location.href = 'forum.php?mobile=1');
 
 var platform = navigator.platform;
 var ua = navigator.userAgent;
@@ -945,4 +944,8 @@ function setCopy(text, msg) {
 	} else {
 		popup.open('การคัดลอกล้มเหลว', 'alert');
 	}
+}
+
+function copycode(obj) {
+	setCopy(obj.textContent, 'คัดลอกโค้ดไปยังคลิปบอร์ดแล้ว');
 }

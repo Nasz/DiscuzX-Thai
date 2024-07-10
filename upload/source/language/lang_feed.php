@@ -14,8 +14,8 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 
-	'feed_blog_password' => '{actor} เขียนไดอารี่ใหม่แบบล็อครหัส {subject}',
-	'feed_blog_title' => '{actor} เขียนไดอารี่ใหม่',
+	'feed_blog_password' => '{actor} เขียนบล็อก่ใหม่แบบล็อกรหัส {subject}',
+	'feed_blog_title' => '{actor} เขียนบล็อก่ใหม่',
 	'feed_blog_body' => '<b>{subject}</b><br />{summary}',
 	'feed_album_title' => '{actor} สร้างอัลบั้มใหม่',
 	'feed_album_body' => '<b>{album}</b><br />มีรูปภาพ {picnum} รูป',
@@ -28,7 +28,7 @@ $lang = array
 
 	'feed_comment_space' => '{actor} คอมเมนต์บนสเปซของ {touser}',
 	'feed_comment_image' => '{actor} คอมเมนต์บนรูปของ {touser}',
-	'feed_comment_blog' => '{actor} คอมเมนต์ถึง {touser} บนไดอารี่ {blog}',
+	'feed_comment_blog' => '{actor} คอมเมนต์ถึง {touser} บนบล็อก่ {blog}',
 	'feed_comment_poll' => '{actor} คอมเมนต์ถึง {touser} บนโพลล์ {poll}',
 	'feed_comment_event' => '{actor} คอมเมนต์ถึง {touser} บนกิจกรรม {event}',
 	'feed_comment_share' => '{actor} คอมเมนต์ถึง {touser} บนการแบ่งปัน {share}',
@@ -40,7 +40,7 @@ $lang = array
 
 
 
-	'feed_click_blog' => '{actor} ได้ “{click}” ให้ {touser} บนไดอารี่ {subject}',
+	'feed_click_blog' => '{actor} ได้ “{click}” ให้ {touser} บนบล็อก่ {subject}',
 	'feed_click_thread' => '{actor} ได้ “{click}” ให้ {touser} บนโพสต์ {subject}',
 	'feed_click_pic' => '{actor} ได้ “{click}” บนรูปของ {touser} ',
 	'feed_click_article' => '{actor} ได้ “{click}” ให้ {touser} บนบทความ {subject}',

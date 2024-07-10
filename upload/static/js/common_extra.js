@@ -1225,10 +1225,10 @@ function _createPalette(colorid, id, func) {
 
 function _setShortcut() {
 	$('shortcuttip').onclick = function() {
-		var msg = '1、คลิก"' + '<a href="javascript:;" class="xi2 xw1" ';
+		var msg = '1. คลิก"' + '<a href="javascript:;" class="xi2 xw1" ';
 		msg += 'onclick="this.href = \'forum.php?mod=misc&action=shortcut\';this.click();saveUserdata(\'setshortcut\', 1);"';
 		msg += '>ดาวน์โหลดชอร์ทคัทไปยังเดสก์ท็อป</a>' + '"，หลังจากโหลดเสร็จแล้ว，คุณสามารถย้ายไฟล์ไปยังเดสก์ท็อปของระบบได้<br />';
-		msg += '2、คลิก"' + '<a href="forum.php?mod=misc&action=shortcut&type=ico" class="xi2 xw1">';
+		msg += '2. คลิก"' + '<a href="forum.php?mod=misc&action=shortcut&type=ico" class="xi2 xw1">';
 		msg += 'ดาวน์โหลดไอคอน ICO</a>' + '"，หลังจากโหลดเสร็จแล้ว，ให้คลิกขวาที่ไฟล์ชอร์ทคัทบนเดสก์ท็อป -> Properties -> Change Icon แล้วเลือกไอคอน ICO ที่ดาวน์โหลด';
 		showDialog(msg, 'notice', 'เพิ่มชอร์ทคัทบนเดสก์ท็อป');
 	};

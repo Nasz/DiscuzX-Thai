@@ -420,7 +420,7 @@ function loadforum($fid = null, $tid = null) {
 	if(isset($_G['forum']['fid']) && $_G['forum']['fid'] == $fid || isset($_G['thread']['tid']) && $_G['thread']['tid'] == $tid){
 		return null;
 	}
-	if(!empty($_GET['archiver'])) {//X1.5?Archiver??
+	if(!empty($_GET['archiver'])) {//X1.5的Archiver兼容
 		if($fid) {
 			dheader('location: archiver/?fid-'.$fid.'.html');
 		} elseif($tid) {
@@ -942,6 +942,7 @@ function threadpubsave($tid, $passapproval = false) {
 	}
 
 	$subject = str_replace("\t", ' ', $thread['subject']);
+	$subject = cutstr($subject, 80);
 	$lastpost = $thread['tid']."\t".$subject."\t".$thread['lastpost']."\t".$thread['lastposter'];
 	C::t('forum_forum')->update($_G['fid'], array('lastpost' => $lastpost));
 	C::t('forum_forum')->update_forum_counter($thread['fid'], 1, $posts, $posts, $modworksql);

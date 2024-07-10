@@ -1521,22 +1521,22 @@ if($_GET['step'] == 'start') {
 					if(!($fp && flock($fp, LOCK_EX) && ftruncate($fp, 0) && fwrite($fp, implode('|', $data)) && fflush($fp) && flock($fp, LOCK_UN) && fclose($fp))) {
 						flock($fp, LOCK_UN);
 						fclose($fp);
-						show_msg("ไม่สามารถประมวลผลตารางรูปภาพของเธรดได้ กำลังข้าม", "$theurl?step=data&op=$nextop");
+						show_msg("ไม่สามารถประมวลผลตารางรูปภาพของกระทู้ได้ กำลังข้าม", "$theurl?step=data&op=$nextop");
 					}
 				} else {
-					show_msg("ไม่สามารถประมวลผลตารางรูปภาพของเธรดได้ กำลังข้าม", "$theurl?step=data&op=$nextop");
+					show_msg("ไม่สามารถประมวลผลตารางรูปภาพของกระทู้ได้ กำลังข้าม", "$theurl?step=data&op=$nextop");
 				}
 			} else {
 				$data = @file($cachefile);
 				if(!$data) {
-					show_msg("ไม่สามารถประมวลผลตารางรูปภาพของเธรดได้ กำลังข้าม", "$theurl?step=data&op=$nextop");
+					show_msg("ไม่สามารถประมวลผลตารางรูปภาพของกระทู้ได้ กำลังข้าม", "$theurl?step=data&op=$nextop");
 				}
 				$data = explode('|', $data[0]);
 			}
 			$tids = array_slice($data, $start, $limit);
 			if(!$tids) {
 				@unlink($cachefile);
-				show_msg("การประมวลผลตารางรูปภาพของเธรด เสร็จแล้ว", "$theurl?step=data&op=$nextop");
+				show_msg("การประมวลผลตารางรูปภาพของกระทู้ เสร็จแล้ว", "$theurl?step=data&op=$nextop");
 			}
 			$insertsql = array();
 			foreach(C::t('forum_post')->fetch_all_by_tid(0, $tids, false, '', 0, 0, 1) as $row) {
@@ -1550,9 +1550,9 @@ if($_GET['step'] == 'start') {
 				DB::query("INSERT INTO ".DB::table('forum_threadimage')." (`tid`, `attachment`, `remote`) VALUES ".implode(',', $insertsql));
 			}
 			$start += $limit;
-			show_msg("กำลังประมวลผลตารางรูปภาพของเธรด ... $start ", "$theurl?step=data&op=threadimage&start=$start");
+			show_msg("กำลังประมวลผลตารางรูปภาพของกระทู้ ... $start ", "$theurl?step=data&op=threadimage&start=$start");
 		} else {
-			show_msg("ไม่สามารถประมวลผลตารางรูปภาพของเธรดได้ กำลังข้าม", "$theurl?step=data&op=$nextop");
+			show_msg("ไม่สามารถประมวลผลตารางรูปภาพของกระทู้ได้ กำลังข้าม", "$theurl?step=data&op=$nextop");
 		}
 	} elseif($_GET['op'] == 'moderate') {
 

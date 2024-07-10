@@ -14,15 +14,15 @@ if(!defined('IN_DISCUZ')) {
 $lang = array
 (
 	'open_name' => 'การ์ดเร่งรีบและคึกคัก',
-	'open_desc' => 'คุณสามารถเปิดเธรดได้คุณสามารถตอบกลับได้',
+	'open_desc' => 'คุณสามารถเปิดกระทู้ได้คุณสามารถตอบกลับได้',
 	'open_forum' => 'อนุญาตให้ส่วนของรายการนี้',
-	'open_info' => 'เปิดเธรดที่กำหนดโปรดป้อน ID ของเธรด',
+	'open_info' => 'เปิดกระทู้ที่กำหนดโปรดป้อน ID ของกระทู้',
 	'open_info_nonexistence' => 'โปรดระบุหัวข้อที่จะเปิด',
 	'open_succeed' => 'ชุดรูปแบบของการดำเนินการของคุณเปิดแล้วตอบกลับ',
 	'open_info_noperm' => 'ขออภัยชุดรูปแบบไม่ได้อยู่อนุญาตให้การบำรุง',
 	'open_info_user_noperm' => 'ขออภัยคุณไม่สามารถใช้เสานี้กับบุคคลนี้ได้',
 
-	'open_notification' => 'เธรดของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
+	'open_notification' => 'กระทู้ของคุณ {subject} ผ้าห่ม {actor} ใช้แล้ว{magicname}，<a href="forum.php?mod=viewthread&tid={tid}">ไปดู！</a>',
 );
 
 ?>

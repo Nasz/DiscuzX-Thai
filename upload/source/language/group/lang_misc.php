@@ -15,8 +15,8 @@ $lang = array
 (
 	'group_normal_member' => 'ตั้งเป็นสมาชิกธรรมดา',
 	'group_goaway' => 'เตะออก',
-	'group_demise_message_title' => '{$_G[\'setting\'][\'navs\'][3][\'navname\']}{forum}ได้ถูกโอนเป็นของคุณแล้ว',
-	'group_demise_message_body' => '{$_G[\'setting\'][\'navs\'][3][\'navname\']}{forum}ได้ถูกโอนเป็นของคุณแล้ว，[url={siteurl}forum.php?mod=group&fid={fid}]คลิกที่นี่เพื่อดู{$_G[\'setting\'][\'navs\'][3][\'navname\']}[/url]',
+	'group_demise_message_title' => '{_G/setting/navs/3/navname}{forum} ได้ถูกโอนเป็นของคุณแล้ว',
+	'group_demise_message_body' => '{_G/setting/navs/3/navname}{forum} ได้ถูกโอนเป็นของคุณแล้ว，[url={siteurl}forum.php?mod=group&fid={fid}]คลิกที่นี่เพื่อดู{_G/setting/navs/3/navname}{forum}[/url]',
 	'group_join' => 'เข้าร่วม{groupname}',
 );
 

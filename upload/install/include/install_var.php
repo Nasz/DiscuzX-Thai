@@ -245,7 +245,7 @@ $serialize_sql_setting = array (
   ),
   'postnocustom' =>
   array (
-    0 => 'เจ้าของเธรด',
+    0 => 'เจ้าของ',
     1 => 'โซฟา',
     2 => 'เก้าอี้',
     3 => 'ยืน',
@@ -254,7 +254,7 @@ $serialize_sql_setting = array (
   array (
     'status' => '0',
     'addtext' => 'สนับสนุน',
-    'subtracttext' => 'ต่อต้าน',
+    'subtracttext' => 'คัดค้าน',
     'defaultshow' => '1',
     'daycount' => '0',
     'ownthread' => '0',
@@ -264,8 +264,8 @@ $serialize_sql_setting = array (
   array (
     'portal' => 'พอร์ทัล',
     'forum' => 'เว็บบอร์ด',
-    'group' => 'คลับ',
-    'home' => 'โฮม',
+    'group' => 'กลุ่ม',
+    'home' => 'หน้าแรก',
   ),
   'activityfield' =>
   array (

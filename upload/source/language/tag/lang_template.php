@@ -16,7 +16,7 @@ if(!defined('IN_DISCUZ')) {
 $lang = array (
   'no_tag' => 'ยังไม่มีแท็ก',
   'tag' => 'แท็ก',
-  'blog_read' => 'อ่านไดอารี่',
+  'blog_read' => 'อ่านบล็อก่',
   'blog_replay' => 'แสดงความคิดเห็น',
   'empty_tags' => 'หากไม่มีแท็กคุณสามารถค้นหาต่อไปหรือ<a href="misc.php?mod=tag" title="กลับไปที่หน้าแรกของแท็ก">กลับไปที่หน้าแรกของแท็ก</a>',
   'forum' => 'เว็บบอร์ด',
@@ -25,7 +25,7 @@ $lang = array (
   'no_content' => 'ไม่มีเนื้อหาที่เกี่ยวข้อง',
   'personal_category' => 'การจำแนกประเภทส่วนตัว',
   'related_blog' => 'บันทึกที่เกี่ยวข้อง',
-  'related_thread' => 'เธรดที่เกี่ยวข้อง',
+  'related_thread' => 'กระทู้ที่เกี่ยวข้อง',
   'replies' => 'ตอบ',
   'price' => 'ราคา',
   'attach_img' => 'แนบภาพ',

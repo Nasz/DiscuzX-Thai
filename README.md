@@ -30,9 +30,9 @@ Git เป็นทางการของ Discuz! X  ([https://gitee.com/Discu
 [https://www.dismall.com/thread-77-1-1.html](https://www.dismall.com/thread-77-1-1.html) (ภาษาจีน)<br />
 [https://discuzthai.com/thread-39894-1-1.html](https://discuzthai.com/thread-39894-1-1.html) (ภาษาไทย)
 
-# คำแนะนำในการอัพเกรด
+# คำแนะนำในการอัปเกรด
 
-ขณะนี้ยังไม่มีโปรแกรมการอัพเกรด หากคุณต้องการมีส่วนร่วมกับการทดสอบภายใน เข้าไปที่：[https://www.dismall.com/thread-13489-1-1.html](https://www.dismall.com/thread-13489-1-1.html) (ภาษาจีน)
+ขณะนี้ยังไม่มีโปรแกรมการอัปเกรด หากคุณต้องการมีส่วนร่วมกับการทดสอบภายใน เข้าไปที่：[https://www.dismall.com/thread-13489-1-1.html](https://www.dismall.com/thread-13489-1-1.html) (ภาษาจีน)
 
 # คำอธิบายแพ็กเกจการติดตั้ง
 

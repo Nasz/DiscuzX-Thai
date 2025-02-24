@@ -12,8 +12,8 @@ if(!defined('IN_DISCUZ')) {
 }
 
 $lang = array(
-	'payment_credit' => 'ค่าธรรมเนียม',
-	'payment_invite' => 'ซื้อรหัสอินไวท์',
+	'payment_credit' => 'เติมเครดิต',
+	'payment_invite' => 'ซื้อโค้ดเชิญ',
 );
 
 ?>

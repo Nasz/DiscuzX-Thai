@@ -1,10 +1,6 @@
 <?php
 
-/**
- * DiscuzX Convert
- *
- * $Id: db.class.php 10469 2010-05-11 09:12:14Z monkey $
- */
+
 
 class db_mysql
 {
@@ -229,7 +225,7 @@ class db_mysql
 				";
 		}
 		$phperror .= '</table>';
-		$help_link = "http://faq.comsenz.com/?type=mysql&dberrno=".rawurlencode($dberrno)."&dberror=".rawurlencode($dberror);
+		$help_link = "https://www.dismall.com/?type=mysql&dberrno=".rawurlencode($dberrno)."&dberror=".rawurlencode($dberror);
 		echo "<div style=\"font-size:11px;font-family:verdana,arial;background:#EBEBEB;padding:0.5em;\">
 			<b>MySQL Error</b><br>
 			<b>Message</b>: $message<br>

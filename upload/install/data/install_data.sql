@@ -196,7 +196,7 @@ INSERT INTO pre_common_setting VALUES ('activityextnum','0');
 INSERT INTO pre_common_setting VALUES ('activityfield','');
 INSERT INTO pre_common_setting VALUES ('activityforumid','0');
 INSERT INTO pre_common_setting VALUES ('activitypp','8');
-INSERT INTO pre_common_setting VALUES ('activitytype','นัดเพื่อนร่วมแก้ง\r\nท่องเที่ยวเอ้าท์ดอร์\r\nขับรถเที่ยวเล่น\r\nกิจกรรมการกุศล\r\nกิจกรรมออนไลน์');
+INSERT INTO pre_common_setting VALUES ('activitytype','นัดร่วมตัว\r\nทริปนอกเมือง\r\nขับรถเล่น\r\nกิจกรรมเพื่อสังคม\r\nกิจกรรมออนไลน์');
 INSERT INTO pre_common_setting VALUES ('adminemail','');
 INSERT INTO pre_common_setting VALUES ('adminipaccess','');
 INSERT INTO pre_common_setting VALUES ('adminnotifytypes','verifythread,verifypost,verifyuser,verifyblog,verifydoing,verifypic,verifyshare,verifycommontes,verifyrecycle,verifyrecyclepost,verifyarticle,verifyacommont,verifymedal,verify_1,verify_2,verify_3,verify_4,verify_5,verify_6,verify_7');
@@ -276,7 +276,7 @@ INSERT INTO pre_common_setting VALUES ('commentpostself','0');
 INSERT INTO pre_common_setting VALUES ('connect', 'a:19:{s:5:"allow";s:1:"1";s:4:"feed";a:2:{s:5:"allow";s:1:"1";s:5:"group";s:1:"0";}s:1:"t";a:2:{s:5:"allow";s:1:"1";s:5:"group";s:1:"0";}s:10:"like_allow";s:1:"1";s:7:"like_qq";s:0:"";s:10:"turl_allow";s:1:"1";s:7:"turl_qq";s:0:"";s:8:"like_url";s:0:"";s:17:"register_birthday";s:1:"0";s:15:"register_gender";s:1:"0";s:17:"register_uinlimit";s:0:"";s:21:"register_rewardcredit";s:1:"1";s:18:"register_addcredit";s:0:"";s:16:"register_groupid";s:1:"0";s:18:"register_regverify";s:1:"1";s:15:"register_invite";s:1:"0";s:10:"newbiespan";s:0:"";s:9:"turl_code";s:0:"";s:13:"mblog_app_key";s:3:"abc";}');
 INSERT INTO pre_common_setting VALUES ('creditnotice','1');
 INSERT INTO pre_common_setting VALUES ('creditsformula','posts+digestposts*5+extcredits1*2+extcredits2+extcredits3');
-INSERT INTO pre_common_setting VALUES ('creditsformulaexp','<u>คะแนนรวม</u>=<u>จำนวนโพสต์</u>+<u>จำนวนตอบกลับ</u>*5+<u>ศักดิ์ศรี</u>*2+<u>คอยน์</u>+<u>สนับสนุน</u>');
+INSERT INTO pre_common_setting VALUES ('creditsformulaexp','<u>คะแนนรวม</u>=<u>จำนวนกระทู้</u>+<u>จำนวนตอบกลับ</u>*5+<u>ชื่อเสียง</u>*2+<u>เหรียญ</u>+<u>การบริจาค</u>');
 INSERT INTO pre_common_setting VALUES ('creditsnotify','');
 INSERT INTO pre_common_setting VALUES ('creditspolicy','a:12:{s:4:\"post\";a:0:{}s:5:\"reply\";a:0:{}s:6:\"digest\";a:1:{i:1;i:10;}s:10:\"postattach\";a:0:{}s:9:\"getattach\";a:0:{}s:6:\"sendpm\";a:0:{}s:6:\"search\";a:0:{}s:15:\"promotion_visit\";a:0:{}s:18:\"promotion_register\";a:0:{}s:13:\"tradefinished\";a:0:{}s:8:\"votepoll\";a:0:{}s:10:\"lowerlimit\";a:0:{}}');
 INSERT INTO pre_common_setting VALUES ('creditspolicymobile','0');
@@ -435,7 +435,7 @@ INSERT INTO pre_common_setting VALUES ('modasban','1');
 INSERT INTO pre_common_setting VALUES ('moddetail','0');
 INSERT INTO pre_common_setting VALUES ('moddisplay','flat');
 INSERT INTO pre_common_setting VALUES ('modratelimit','0');
-INSERT INTO pre_common_setting VALUES ('modreasons','โฆษณา/SPAM\r\nการล่อลวง\r\nเนื้อหาที่ผิดกฎหมาย\r\nคำถามที่ผิด\r\nโพสต์ซ้ำ\r\n\r\nฉันเห็นด้วย\r\nบทความบูติก\r\nเนื้อหาต้นฉบับ');
+INSERT INTO pre_common_setting VALUES ('modreasons','โฆษณา/สแปม\r\nการโพสต์อันตราย\r\nเนื้อหาที่ผิดกฎ\r\nไม่ตรงประเด็น\r\nโพสต์ซ้ำ\r\n\r\nฉันเห็นด้วย\r\nบทความคุณภาพ\r\nเนื้อหาต้นฉบับ'); 
 INSERT INTO pre_common_setting VALUES ('modreasons_public','0');
 INSERT INTO pre_common_setting VALUES ('moduser_public','0');
 INSERT INTO pre_common_setting VALUES ('modworkstatus','1');
@@ -624,7 +624,6 @@ INSERT INTO pre_common_setting VALUES ('userdateformat','Y-n-j\r\nY/n/j\r\nj-n-Y
 INSERT INTO pre_common_setting VALUES ('userreasons','เจ๋ง!\r\nไม่มีอะไรเลย\r\nดูเหมือนว่า!\r\nล้อเลียน\r\nความสงบ');
 INSERT INTO pre_common_setting VALUES ('userstatusby','1');
 INSERT INTO pre_common_setting VALUES ('verify','a:0:{}');
-INSERT INTO pre_common_setting VALUES ('videophoto','0');
 INSERT INTO pre_common_setting VALUES ('video_allowalbum','0');
 INSERT INTO pre_common_setting VALUES ('video_allowblog','0');
 INSERT INTO pre_common_setting VALUES ('video_allowcomment','0');
@@ -632,7 +631,6 @@ INSERT INTO pre_common_setting VALUES ('video_allowdoing','1');
 INSERT INTO pre_common_setting VALUES ('video_allowfriend','1');
 INSERT INTO pre_common_setting VALUES ('video_allowpoke','1');
 INSERT INTO pre_common_setting VALUES ('video_allowshare','0');
-INSERT INTO pre_common_setting VALUES ('video_allowuserapp','0');
 INSERT INTO pre_common_setting VALUES ('video_allowviewspace','1');
 INSERT INTO pre_common_setting VALUES ('video_allowwall','1');
 INSERT INTO pre_common_setting VALUES ('viewthreadtags','100');
@@ -879,6 +877,8 @@ INSERT INTO pre_forum_grouplevel VALUES ('3','default','ขั้นสูง','
 
 
 
+
+
 INSERT INTO pre_forum_imagetype VALUES ('1','1','ค่าเริ่มต้น','smiley','1','default');
 INSERT INTO pre_forum_imagetype VALUES ('2','1','ลิงจ๋อ','smiley','2','coolmonkey');
 INSERT INTO pre_forum_imagetype VALUES ('3','1','องุ่น','smiley','3','grapeman');
@@ -910,21 +910,21 @@ INSERT INTO pre_forum_typeoption SET `optionid`=4, `title`='หมวดหม�
 INSERT INTO pre_forum_typeoption SET `optionid`=5, `title`='หมวดหมู่ E';
 INSERT INTO pre_forum_typeoption SET `optionid`=6, `title`='หมวดหมู่ F';
 
-INSERT INTO pre_home_click VALUES ('1','ผ่านศึก','luguo.gif','blogid','1','0');
-INSERT INTO pre_home_click VALUES ('2','สายฟ้า','leiren.gif','blogid','1','0');
-INSERT INTO pre_home_click VALUES ('3','ร่วมมือ','woshou.gif','blogid','1','0');
+INSERT INTO pre_home_click VALUES ('1','ผ่าน','luguo.gif','blogid','1','0');
+INSERT INTO pre_home_click VALUES ('2','ตกใจ','leiren.gif','blogid','1','0');
+INSERT INTO pre_home_click VALUES ('3','จับมือกัน','woshou.gif','blogid','1','0');
 INSERT INTO pre_home_click VALUES ('4','ดอกไม้','xianhua.gif','blogid','1','0');
-INSERT INTO pre_home_click VALUES ('5','ไข่ดาว','jidan.gif','blogid','1','0');
+INSERT INTO pre_home_click VALUES ('5','ไข่','jidan.gif','blogid','1','0');
 INSERT INTO pre_home_click VALUES ('6','น่ารักอะ','piaoliang.gif','picid','1','0');
-INSERT INTO pre_home_click VALUES ('7','เท่ห์','kubi.gif','picid','1','0');
-INSERT INTO pre_home_click VALUES ('8','สายฟ้า','leiren.gif','picid','1','0');
+INSERT INTO pre_home_click VALUES ('7','เท่มาก','kubi.gif','picid','1','0');
+INSERT INTO pre_home_click VALUES ('8','ตกใจ','leiren.gif','picid','1','0');
 INSERT INTO pre_home_click VALUES ('9','ดอกไม้','xianhua.gif','picid','1','0');
 INSERT INTO pre_home_click VALUES ('10','ไข่ดาว','jidan.gif','picid','1','0');
-INSERT INTO pre_home_click VALUES ('11','ผ่านศึก','luguo.gif','aid','1','0');
-INSERT INTO pre_home_click VALUES ('12','สายฟ้า','leiren.gif','aid','1','0');
-INSERT INTO pre_home_click VALUES ('13','ร่วมมือ','woshou.gif','aid','1','0');
+INSERT INTO pre_home_click VALUES ('11','ผ่าน','luguo.gif','aid','1','0');
+INSERT INTO pre_home_click VALUES ('12','ตกกจ','leiren.gif','aid','1','0');
+INSERT INTO pre_home_click VALUES ('13','จับมือกัน','woshou.gif','aid','1','0');
 INSERT INTO pre_home_click VALUES ('14','ดอกไม้','xianhua.gif','aid','1','0');
-INSERT INTO pre_home_click VALUES ('15','ไข่ดาว','jidan.gif','aid','1','0');
+INSERT INTO pre_home_click VALUES ('15','ไข่','jidan.gif','aid','1','0');
 
 -- [block_style]
 INSERT INTO pre_common_block_style (styleid, blockclass, `name`, template, `hash`, getpic, getsummary, makethumb, settarget, `fields`) VALUES(1, 'html_html', '[บิลท์อิน]เทมเพลตอากาศ', 'a:9:{s:3:"raw";s:0:"";s:6:"footer";s:0:"";s:6:"header";s:0:"";s:9:"indexplus";a:0:{}s:5:"index";a:0:{}s:9:"orderplus";a:0:{}s:5:"order";a:0:{}s:8:"loopplus";a:0:{}s:4:"loop";a:0:{}}', 'ee3e718a', 0, 0, 0, 0, 'a:0:{}');

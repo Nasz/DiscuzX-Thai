@@ -1,10 +1,6 @@
 <?php
 
-/**
- * DiscuzX Convert
- *
- * $Id: do_config.inc.php 10469 2010-05-11 09:12:14Z monkey $
- */
+
 
 if(!defined('DISCUZ_ROOT')) {
 	exit('Access error');
@@ -44,7 +40,7 @@ if(submitcheck()) {
 	}
 }
 
-showtips('หากไม่สามารถแสดงรายการการตั้งค่าได้ โปรดลบไฟล์ data/config.inc.php');
+showtips('ถ้าไม่สามารถแสดงรายการตั้งค่าได้ โปรดลบไฟล์  data/config.inc.php');
 $config = loadconfig('config.inc.php');
 if(empty($config)) {
 	$config = $config_default;

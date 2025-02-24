@@ -13,9 +13,9 @@ if(!defined('IN_DISCUZ')) {
 
 $lang = array
 (
-	'anonymouspost_name' => 'การ์ดนิรนาม',
+	'anonymouspost_name' => 'บัตรซ่อนตัว',
 	'anonymouspost_desc' => 'เปลี่ยนชื่อของคุณให้กลายเป็นนิรนามตามจุดที่คุณระบุ',
-	'anonymouspost_num' => 'จำนวนการ์ด: {magicnum}',
+	'anonymouspost_num' => 'คุณมีบัตรอยู่: {magicnum}',
 	'anonymouspost_forum' => 'บอร์ดที่เปิดใช้งาน',
 	'anonymouspost_info' => 'หากต้องการให้โพสต์ของคุณเองแสดงชือผู้โพสต์เป็นนิรนาม โปรดกรอก ID ของโพสต์',
 	'anonymouspost_info_nonexistence' => 'โปรดระบุโพสต์ที่ต้องการเปลี่ยน',

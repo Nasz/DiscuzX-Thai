@@ -157,7 +157,7 @@ $serialize_sql_setting = array (
     1 =>
     array (
       'img' => '',
-      'title' => 'ศักดิ์ศรี',
+      'title' => 'ชื่อเสียง',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -168,7 +168,7 @@ $serialize_sql_setting = array (
     2 =>
     array (
       'img' => '',
-      'title' => 'คอยน์',
+      'title' => 'เหรียญ',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -179,7 +179,7 @@ $serialize_sql_setting = array (
     3 =>
     array (
       'img' => '',
-      'title' => 'สนับสนุน',
+      'title' => 'บริจาค',
       'unit' => '',
       'ratio' => 0,
       'available' => '1',
@@ -245,10 +245,10 @@ $serialize_sql_setting = array (
   ),
   'postnocustom' =>
   array (
-    0 => 'เจ้าของ',
-    1 => 'โซฟา',
-    2 => 'เก้าอี้',
-    3 => 'ยืน',
+    0 => 'ผู้โพสต์กระทู้',
+    1 => 'เมนท์แรก',
+    2 => 'เมนท์ธรรมดา',
+    3 => 'เกาะขอบรั้ว',
   ),
   'recommendthread' =>
   array (
@@ -278,10 +278,10 @@ $serialize_sql_setting = array (
     1 => 'ต้นฉบับ',
     2 => 'ร้อนแรง',
     3 => 'รูปภาพ',
-    4 => 'เป็นกระแส',
+    4 => 'ข่าวด่วน',
     5 => 'พาดหัว',
     6 => 'สไลด์โชว์',
-    7 => 'ดำเนินการ',
+    7 => 'ภาพเคลื่อนไหว',
     8 => 'แนะนำ',
   ),
   'verify' =>

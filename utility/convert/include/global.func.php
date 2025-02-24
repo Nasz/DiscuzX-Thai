@@ -1,10 +1,6 @@
 <?php
 
-/**
- * DiscuzX Convert
- *
- * $Id: global.func.php 20661 2011-03-01 08:08:07Z shanzongjun $
- */
+
 
 function remaintime($time) {
 	$seconds 	= $time % 60;
@@ -73,7 +69,7 @@ function cutstr($string, $length, $dot = '') {
 	return $strcut.$dot;
 }
 
-function parseqqicq($qqicq, $minlen = 5, $maxlen = 12) {// แปลง qq 
+function parseqqicq($qqicq, $minlen = 5, $maxlen = 12) {
 	return $qqicq ? (preg_match("/^([0-9]+)$/", $qqicq) && strlen($qqicq) >= $minlen && strlen($qqicq) <= $maxlen ? $qqicq : '') : '';
 }
 
@@ -133,7 +129,7 @@ function parsesign($sign) {
 	return daddslashes(str_replace($searcharray, $replacearray, preg_replace($pregfind, $pregreplace, $sign)));
 }
 
-function bbcodeurl($url, $tags) {//แปลง url 
+function bbcodeurl($url, $tags) {
 	if(!preg_match("/<.+?>/s", $url)) {
 		if(!in_array(strtolower(substr($url, 0, 6)), array('http:/', 'ftp://', 'rtsp:/', 'mms://'))) {
 			$url = 'http://'.$url;
@@ -335,7 +331,7 @@ function checkAll(type, form, value, checkall, changestyle) {
 	<td $class[config]>2.กำหนดค่าข้อมูลเซิร์ฟเวอร์ </td>
 	<td $class[select]>3.กำหนดค่ากระบวนการแปลงข้อมูล </td>
 	<td $class[convert]>4.ทำการแปลงข้อมูล </td>
-	<td $class[finish]>5.รูปแบบฐานข้อมูลที่ทันสมัย </td>
+	<td $class[finish]>5.การแปลงเสร็จสิ้น </td>
 	</tr>
 </table>
 

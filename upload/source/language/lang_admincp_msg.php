@@ -647,6 +647,7 @@ $lang = array (
   'usertag_add_error' => 'เพิ่มล้มเหลว，ข้อผิดพลาดของผู้ใช้หรือฉลาก，กรุณากรอกข้อมูล',
 
   'members_verify_add_user_succeed' => 'เพิ่มผู้ใช้ที่แท้จริง',
+  'members_verify_add_user_failure' => '认证用户添加失败',
   'members_verify_update_title_error' => 'ไม่สามารถแก้ไขชื่อการรับรองความถูกต้องได้เมื่อเปิดใช้งานการรับรองความถูกต้อง',
   'members_verify_title_invalid' => 'คุณไม่ได้ตั้งชื่อการรับรองความถูกต้องสำหรับการตรวจสอบสิทธิ์',
 

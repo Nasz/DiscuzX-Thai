@@ -27,14 +27,14 @@ $discuz->init();
 $_G['siteurl'] = preg_replace('/\/install\/$/i', '/', $_G['siteurl']);
 
 $plugins = array('cloudstat', 'soso_smilies', 'security', 'pcmgr_url_safeguard', 'manyou', 'cloudcaptcha', 'cloudunion', 'qqgroup', 'xf_storage', 'cloudsearch');
-foreach($plugins as $pluginid) {
+foreach($plugins as $pluginid) {			
 	$plugin = C::t('common_plugin')->fetch_by_identifier($pluginid);
 	if($plugin) {
 		$modules = unserialize($plugin['modules']);
 		$modules['system'] = 0;
 		$modules = serialize($modules);
 		C::t('common_plugin')->update($plugin['pluginid'], array('modules' => $modules));
-	}
+	}			
 }
 
 echo "ปลั๊กอินแพลตฟอร์มคลาวด์ได้รับการดาวน์เกรดจากปลั๊กอินระบบเป็นปลั๊กอินธรรมดา โปรดลบเครื่องมือนี้";

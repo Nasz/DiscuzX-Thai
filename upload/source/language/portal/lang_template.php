@@ -112,9 +112,9 @@ $lang = array (
   'block_stop' => 'ห้ามโพสต์',
   'block_template' => 'เทมเพลตโมดูล',
   'block_type' => 'การจัดหมวดหมู่โมดูล',
-  'block_type_convert_tips' => '此模块分类支持转换模块的类型，但<font color=\'red\'>可能会存在部分特殊字段的丢失且模块的显示样式将会变为自定义模板</font>，请根据需要使用。<br/><font color=\'red\'>注意：</font>选择下拉列表中的模块类型以后模块分类立即发生改变。',
-  'block_view_banned_data' => '查看屏蔽数据',
-  'cachetimerange' => '更新区间',
+  'block_type_convert_tips => '<p>โมดูลประเภทนี้รองรับการแปลงชนิดของโมดูล <font color='red'>แต่โปรดทราบว่า อาจมีข้อมูลบางส่วนสูญหาย และรูปแบบการแสดงผลของโมดูลอาจเปลี่ยนเป็นแบบเทมเพลตที่กำหนดเอง</font> </p><br> <p><font color='red'>หมายเหตุ:</font> หลังจากเลือกประเภทโมดูลในรายการดรอปดาวน์ หมวดหมู่โมดูลจะเปลี่ยนแปลงทันที.</p>'
+  'block_view_banned_data' => 'แสดงข้อมูลที่ถูกบล็อก',
+  'cachetimerange' => 'ช่วงเวลาอัปเดต',
   'cancel' => 'ยกเลิก',
   'current_data_odd' => '当前数据是否在奇数行',
   'current_data_order' => '当前数据顺序',

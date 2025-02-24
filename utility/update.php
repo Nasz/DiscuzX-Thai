@@ -736,7 +736,7 @@ if($_GET['step'] == 'start') {
 			$newsettings['targetblank'] = $targetblanknew;
 		}
 		if(!isset($settings['article_tags'])) {
-			$article_tagsnew = array(1 => 'ต้นฉบับ', 2 => 'ร้อนแรง', 3 => 'รูปภาพ', 4 => 'ข่าวด่วน', 5 => 'พาดหัว', 6 => 'สไลด์', 7 => 'เลื่อน', 8 => 'แนะนำ');
+			$article_tagsnew = array(1 => 'ต้นฉบับ', 2 => 'หัวข้อร้อนแรง', 3 => 'ภาพชุด', 4 => 'ข่าวลือ', 5 => 'ข่าวเด่น', 6 => 'ไฟล์สไลด์', 7 => 'ซอกแซก', 8 => 'แนะนำ');
 			$newsettings['article_tags'] = $article_tagsnew;
 		}
 		if(empty($settings['anonymoustext'])) {
@@ -746,7 +746,7 @@ if($_GET['step'] == 'start') {
 			DB::query("INSERT INTO ".DB::table('common_word_type')." VALUES('1', 'การเมือง'),('2', 'โฆษณา')");
 		}
 		if(!isset($settings['userreasons'])) {
-			$newsettings['userreasons'] = 'สุดยอด!\r\nเยี่ยมไปเลย\r\nชอบมาก\r\nเลียนแบบ\r\nใจเย็น';
+			$newsettings['userreasons'] = 'ยอดเยี่ยม!\r\nก็แค่เรื่องโม้\r\nชอบเลย\r\nเลียนแบบ\r\nใจเย็น';
 		}
 		if(!$forum_typevar_search = C::t('forum_typevar')->count_by_search(2)) {
 			C::t('forum_typevar')->update_by_search(1, array('search' => 3));
@@ -1770,7 +1770,7 @@ if($_GET['step'] == 'start') {
 		show_msg("การอัปเกรดข้อมูลเสร็จสมบูรณ์", "$theurl?step=data&op=$nextop");
 	} else {
 
-		$deletevar = array('app', 'home');//configโปรเจ็คที่ต้องลบ
+		$deletevar = array('app', 'home');
 		$default_config = $_config = array();
 		$default_configfile = DISCUZ_ROOT.'./config/config_global_default.php';
 		if(!file_exists($default_configfile)) {

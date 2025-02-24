@@ -139,6 +139,7 @@ $lang = array
 	'rmb' => 'บาท',
 	'rmb_yuan' => '฿',
 	'posts' => 'โพสต์',
+	'threadsnum' => '主题数',
 	'blogid' =>'ID บล็อก',
 	'view' => 'ตรวจสอบ',
 	'reply' => 'ตอบกลับ',
@@ -1883,6 +1884,13 @@ $lang = array
 	'setting_functions_activity_credit' => 'ใช้คะแนน',
 	'setting_functions_activity_credit_comment' => 'มีส่วนร่วมในคะแนนการบริโภคกิจกรรมคะแนนที่ใช้เวลา',
 	'setting_functions_guide' => 'คำแนะนำการตั้งค่า',
+	'setting_functions_guide_index' => '导读默认首页',
+	'setting_functions_guide_index_index' => '聚合首页',
+	'setting_functions_guide_index_newthread' => '最新发表',
+	'setting_functions_guide_index_new' => '最新回复',
+	'setting_functions_guide_index_hot' => '最新热门',
+	'setting_functions_guide_index_digest' => '最新精华',
+	'setting_functions_guide_index_sofa' => '抢沙发',
 	'setting_functions_guide_hotlimt' => 'ขีด จำกัด ความร้อนโพสต์ร้อน',
 	'setting_functions_guide_hotdt' => 'ช่วงเวลาการรวมโพสต์ร้อน',
 	'setting_functions_guide_digestdt' => 'ช่วงเวลาการรวมบทคัดย่อ',
@@ -2661,12 +2669,6 @@ $lang = array
 	'setting_mobile_cachetime_comment' => 'ตั้งเวลาสำหรับการเข้าถึงการเข้าถึงเวลาในการบันทึกบนโทรศัพท์มือถือของผู้ใช้，ว่างเปล่าหรือ 0 เพื่อไม่แคช<br />หน่วย：ที่สอง',
 	'setting_mobile_come_from' => 'คำจำกัดความแหล่งที่มาของโทรศัพท์มือถือ',
 	'setting_mobile_come_from_comment' => 'ฝากค่าเริ่มต้นที่ว่างเปล่า，หากคุณกรอกข้อมูล，จะดูหน้าโพสต์"จากมือถือ"เพิ่มข้อความหรือไอคอนที่กำหนดเอง<br />ชอบ:&lt;a href=\'http://m.x.com\'&gt;ช่องมือถือ&lt;/a&gt;<br />สนับสนุนที่นี่HTMLฉลาก：&lt;a&gt;&lt;font&gt;&lt;span&gt;&lt;strong&gt;&lt;b&gt;&lt;img&gt;<br />หากคุณใช้ไอคอน，โปรดตรวจสอบให้แน่ใจว่าภาพสูง16px(พิกเซล)ภายใน',
-	'setting_mobile_legacy' => 'ไม่ว่าจะเปิดใช้งานเวอร์ชันง่าย ๆ',
-	'setting_mobile_legacy_comment' => 'เวอร์ชันง่าย ๆ คืออุปกรณ์หน้าจอที่ไม่ใช่แบบสัมผัสและการสร้างอุปกรณ์ที่ค่อนข้างเร็ว',
-	'setting_mobile_wml' => 'ไม่ว่าจะเปิดใช้งานWMLรุ่น',
-	'setting_mobile_wml_comment' => 'WMLEdition คือการสนับสนุนบางส่วนWMLเนื้อหาของอุปกรณ์ก่อนหน้านี้เรียกดูเนื้อหาของเว็บไซต์',
-	'setting_mobile_portal_catnav' => 'เปิดหน้าแรกการนำทาง',
-	'setting_mobile_portal_catnav_comment' => 'เปิดพอร์ทัลด้านหลังหน้าแรกช่องสัญญาณระดับแรกจะแสดงเป็นการนำทาง',
 	'setting_mobile_portal_wzpicture' => '首页显示文章幻灯片',
 	'setting_mobile_portal_wzpicture_comment' => '选“是”将显示门户频道文章的图片聚合幻灯片',
 	'setting_mobile_portal_wzlist' => '首页显示文章列表',
@@ -2689,8 +2691,8 @@ $lang = array
 	'setting_mobile_forum_forumview_comment' => 'ชอบ“เอาออกไป”，ฟอรัมหน้าแรกจะแสดงพาร์ติชันตามค่าเริ่มต้นเท่านั้นชื่อ<br />ผู้ใช้ต้องคลิกพาร์ติชันเพื่อขยายรายการรายการภายใต้พาร์ติชัน',
 	'setting_mobile_forum_iconautowidth' => '版块图标宽度自适应',
 	'setting_mobile_forum_iconautowidth_comment' => '选“是”将不限制手机版版块图标的宽度',
-	'pack' => 'แพ็ก',
-	'unwind' => 'แกะ',
+	'pack' => 'หุบ',
+	'unwind' => 'ขยาย',
 
 	'setting_antitheft' => 'การตั้งค่าชุดคัดค้านการตั้งค่า',
 	'setting_antitheft_tips' => '<li>ฟังก์ชั่นคอลเลกชันคัดค้านการมัดไม่ส่งผลกระทบต่อการตรวจสอบการท่องเว็บของผู้ใช้ปกติ</li><li>สามารถป้องกันกระทู้ของไซต์นี้ได้、มีการรวบรวมบทความและบันทึกอย่างผิดกฎหมาย</li><li><font style="color:red">เมื่อไรIPในเวลาเดียวกันเป็นสีดำ/เมื่อผู้อนุญาต，รายการฟอกสีฟันเป็นที่ต้องการ</font></li><li>หลังจากเปิดฟังก์ชั่น anti -collection ฟังก์ชัน Post Page Preview จะไม่สามารถใช้งานได้</li>',
@@ -2754,7 +2756,7 @@ $lang = array
 	'setting_uc_dynavt_0' => 'อัตโนมัติ（จัดการโดยเบราว์เซอร์ผู้ใช้อย่างสมบูรณ์，ประสิทธิภาพที่ดีที่สุด）',
 	'setting_uc_dynavt_1' => 'อวตารของผู้ใช้พร้อมการอัปเดตการประทับเวลา，อวตารอื่น ๆ อัตโนมัติ',
 	'setting_uc_dynavt_2' => 'แสตมป์เวลาอัปเดตทั้งหมด（อาจเพิ่มความดันเซิร์ฟเวอร์）',
-	
+
 
 	'setting_ec' => 'การตั้งค่า e -commerce ขั้นพื้นฐาน',
 	'setting_ec_credittrade' => 'การตั้งค่าการแลกเปลี่ยนอินทิกรัล',
@@ -3446,9 +3448,7 @@ $lang = array
 
 	'styles_default' => 'เทมเพลตเริ่มต้น',
 	'styles_default0' => 'เวอร์ชันพีซี',
-	'styles_default1' => 'โทรศัพท์มือถือ',
 	'styles_default2' => 'เวอร์ชันจอสัมผัส',
-	'styles_default3' => 'เวอร์ชั่นมือถือWML',
 
 	'styles_import' => 'นำเข้าเทมเพลต',
 	'styles_import_ignore_version' => 'อนุญาตให้ Discuz! ใช้เทมเพลตรุ่นเก่า(ข้ามข้อผิดพลาด!!)',
@@ -3697,6 +3697,7 @@ $lang = array
 	'members_search_email_comment' => 'ใช้เพื่อนร่วมชาติ *',
 	'members_search_friendsrange' => 'เพื่อน',
 	'members_search_postsrange' => 'หมายเลขโพสต์ใน',
+	'members_search_threadsrange' => '主题数介于',
 	'members_search_regip' => 'ลงทะเบียน IP เริ่มใน',
 	'members_search_regip_comment' => 'ชอบ 192.168，ใช้เพื่อนร่วมชาติ *',
 	'members_search_lastip' => 'การเยี่ยมชมครั้งล่าสุด IP เริ่มใน',
@@ -5616,7 +5617,7 @@ $lang = array
 
 
 
-	'magics' => 'ข้อต่อ',
+	'magics' => 'ศูนย์อาวุธเวทมนตร์',
 	'magics_tips' => '<li>อุปกรณ์ประกอบฉากของระบบอยู่ใน source/class/magic/ ในไดเรกทอรี，ปลั๊ก -ในอุปกรณ์ประกอบฉากอยู่ใน source/plugin/ปลั๊ก -ในไดเรกทอรี/magic/ ในไดเรกทอรี</li><li>ปลั๊ก -ในนักพัฒนาต้องอ่านอย่างระมัดระวังก่อนออกแบบอุปกรณ์ประกอบฉากใหม่《<a href="https://open.dismall.com/?!devdoc" target="_blank">Discuz! เอกสารทางเทคนิค</a>》เนื้อหา</li>',
 
 	'magics_config' => 'การตั้งค่าพื้นฐาน',
@@ -6430,6 +6431,8 @@ $lang = array
 	'logs_credit_update_BME' => 'ซื้อเหรียญ',
 	'logs_credit_update_RPR' => 'คะแนนหลังเวทีให้รางวัลและการลงโทษ',
 	'logs_credit_update_RPZ' => 'คะแนนหลังเวทีให้รางวัลและลงโทษศูนย์ที่ชัดเจน',
+	'logs_credit_update_RUL' => '积分规则',
+	'logs_credit_update_INV' => '购买邀请码',
 	'logs_credit_update_reward_clean' => 'ล้างศูนย์',
 	'logs_select_operation' => 'กรุณาเลือกประเภท',
 	'logs_viewtype' => 'ดูทาง',

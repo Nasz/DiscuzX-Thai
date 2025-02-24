@@ -48,7 +48,7 @@ $lang = array
 	'post_trade_name' => 'ชื่อสินค้า',
 	'post_trade_price' => 'ราคาสินค้า',
 	'post_trade_quality' => 'สภาพสินค้า',
-	'post_trade_locus' => 'สถานที่',
+
 	'post_trade_transport_type' => 'วิธีการขนส่ง',
 	'post_trade_transport_seller' => 'ผู้ขายออกค่าส่ง',
 	'post_trade_transport_buyer' => 'ผู้ซื้อออกค่าส่ง',
@@ -56,6 +56,7 @@ $lang = array
 	'post_trade_transport_express' => 'ส่งด่วน',
 	'post_trade_transport_virtual' => 'สินค้าเสมือนจริงหรือไม่ต้องส่งไปรษณีย์',
 	'post_trade_transport_physical' => 'ผู้ซื้อชำระเงินโดยตรงกับบริษัทโลจิสติกส์หลังจากได้รับสินค้าแล้ว',
+	'post_trade_locus' => '所在地点',
 	'post_trade_description' => 'รายละเอียดสินค้า',
 	'post_trade_pm_subject' => '[ต่อรองราคา]',
 	'post_trade_pm_buynum' => 'ปริมาณการซื้อ',
@@ -79,7 +80,6 @@ $lang = array
 	'post_trade_quality_new' => 'ใหม่เอี่ยม',
 	'post_trade_quality_secondhand' => 'มือสอง',
 
-	'trade_unstart' => '<font color="gray">ธุรกรรมกำลังดำเนินการ</font>',
 	'trade_waitbuyerpay' => 'รอผู้ซื้อชำระเงิน',
 	'trade_waitsellerconfirm' => 'สร้างธุรกรรมแล้ว รอการยืนยันจากผู้ขาย',
 	'trade_sysconfirmpay' => 'ผู้ซื้อยืนยันการชำระเงินแล้ว สินค้านี้ไม่ต้องจัดส่ง',
@@ -213,7 +213,7 @@ $lang = array
 	'perms_maxattachsize' => 'ขนาดไฟล์แนบสูงสุด',
 	'perms_maxsizeperday' => 'ขนาดไฟล์แนบสูงสุดต่อวัน',
 	'perms_maxattachnum' => 'จำนวนไฟล์แนบสูงสุดต่อวัน',
-	'perms_allowbioimgcode' => '自我介绍中使用 [img] 代码',
+	
 	'perms_attachextensions' => 'ขนาดของไฟล์แนบ',
 	'perms_allowstickthread' => '主题置顶',
 	'perms_allowdigestthread' => '主题精华',

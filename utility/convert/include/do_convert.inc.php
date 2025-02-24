@@ -44,9 +44,9 @@ foreach (array('start', 'tables', 'steps') as $program) {
 
 			list($rday, $rhour, $rmin, $rsec) = remaintime(time() - $process['timestart']);
 			$stime = gmdate('Y-m-d H:i:s', $process['timestart'] + 3600* 8);
-			$timetodo = "เริ่มอัปเกรดเวลา：<strong>$stime</strong> ดำเนินการไปแล้ว <strong>$rday</strong>วัน <strong>$rhour</strong>ชั่วโมง <strong>$rmin</strong>นาที <strong>$rsec</strong>วินาที";
-			$timetodo .= "<br><br>โปรแกรมแปลงกำลังดำเนินการอยู่ในขณะนี้ ( $prg_done / $prg_total ) <strong>$prg</strong> จะมีรีไดเรคเกิดขึ้นหลายครั้งในระหว่างกระบวนการโปรดอย่าปิดเบราว์เซอร์ของคุณ";
-			$timetodo .= "<br><br>หากโปรแกรมถูกขัดจังหวะหรือคุณต้องการรีสตาร์ทโปรแกรม ให้คลิก (<a href=\"index.php?a=convert&source=$source&prg=$prg\">เริ่มต้นใหม่</a>)";
+			$timetodo = "เริ่มต้นการอัปเกรด：<strong>$stime</strong>, ดำเนินการไปแล้ว <strong>$rday</strong>วัน <strong>$rhour</strong>ชั่วโมง <strong>$rmin</strong>นาที <strong>$rsec</strong>วินาที";
+			$timetodo .= "<br><br>สถานะการแปลงข้อมูลปัจจุบัน ( $prg_done / $prg_total ) <strong>$prg</strong> ระหว่างดำเนินการอาจมีการรีไดเร็คเกิดขึ้นหลายครั้ง โปรดอย่าปิดเบราว์เซอร์ของคุณ";
+			$timetodo .= "<br><br>หากโปรแกรมหยุดทำงาน หรือต้องการเริ่มต้นโปรแกรมนี้ใหม่ กรุณาคลิก (<a href=\"index.php?a=convert&source=$source&prg=$prg\">เริ่มต้นใหม่</a>)";
 
 			showtips($timetodo);
 			if(file_exists($prg_dir[$program].$prg)) {
